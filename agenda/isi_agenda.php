@@ -9,11 +9,29 @@ $proses = mysqli_query($Conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-    <h1>Isi Agenda Guru</h1>
-    <form action="simpan_agenda">
+    <header>
+        <div class="sidebar">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        </div>
+    </header>
+    <div class="content">
+    <h1>Pengisian Agenda</h1><hr>
+    <form action="simpan_agenda_guru.php" method="POST">
         <table>
+            <tr>
+                <td>Status Pengisi</td>
+                <td><select name="status">
+                    <option value="guru">Guru</option>
+                    <option value="siswa">Siswa</option>
+                    </select>
+                </td>
+            </tr>
             <tr>
                 <td><label>Kehadiran</label></td>
                 <td><select name="kehadiran_guru">
@@ -94,5 +112,6 @@ $proses = mysqli_query($Conn, $sql);
             </tr>
         </table>
     </form>
+    </div>
 </body>
 </html>
