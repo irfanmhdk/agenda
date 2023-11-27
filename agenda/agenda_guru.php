@@ -11,6 +11,7 @@ $proses = mysqli_query($Conn, $sql);
     <title>Agenda Siswa & Guru</title>
 </head>
 <body>
+    <h1>Isi Agenda Guru</h1>
     <form action="simpan_agenda">
         <table>
             <tr>

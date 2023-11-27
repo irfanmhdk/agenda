@@ -5,5 +5,4 @@
     $db = "db_agenda";
 
     $Conn = new mysqli($localhost, $user, $pw, $db);
-
 ?>
