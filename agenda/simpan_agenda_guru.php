@@ -1,6 +1,7 @@
 <?php
     include 'koneksi.php';
     if(isset($_POST['kirim'])){
+        $pengisi = $_POST['nis'];
         $status = $_POST['status'];
         $kehadiran = $_POST['kehadiran_guru'];
         $keterangan = $_POST['keterangan_guru'];
@@ -19,15 +20,17 @@
         $proses = mysqli_query($Conn, $query1);
 
         if($proses){
-            echo "<script>
+            ?> <script>
                     alert('Berhasil Mengisi Agenda');
                     window.location.href:data_agenda.php;
-                </script>";
-        }else{
-            echo "<script>
+                </script>
+        <?php }else{
+            ?>
+            <script>
                     alert('Gagal Mengisi Agenda');
                     window.location.href:data_agenda.php;
-                </script>";
+                </script>
+                <?php
         }
     }
 ?>
