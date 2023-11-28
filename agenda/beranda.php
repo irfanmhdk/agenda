@@ -50,6 +50,7 @@
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="isi_agenda.php"> <button class="btn">Isi Agenda</button></a>
+         <a href="lihat_agenda.php"> <button class="btn">Lihat Agenda</button></a>
         </div>
     </header>
 </body>
