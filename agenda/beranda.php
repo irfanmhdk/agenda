@@ -43,7 +43,7 @@
     <header>
         <div class="sidebar">
         <a class="active" href="beranda.php">Home</a>
-        <a href="data_agenda">Data_Agenda</a>
+        <a href="data_agenda.php">Data Agenda</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>

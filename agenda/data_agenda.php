@@ -10,7 +10,7 @@
     <header>
         <div class="sidebar">
         <a href="beranda.php">Home</a>
-        <a class="active" href="data_agenda">Data Agenda</a>
+        <a class="active" href="data_agenda.php">Data Agenda</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>
