@@ -16,7 +16,7 @@
         </div>
     </header>
     <div class="content">
-    <form action="pilih_status_pengisi.php" method="POST">
+    <form action="isi_agenda_guru.php" method="POST">
         <table>
             <tr>
                 <td><label>E-Mail</label></td>
@@ -40,9 +40,9 @@
         if(isset($_POST['submit'])){
             $status = $_POST['status'];
             if($status == "guru"){
-                header('location: agenda_guru.php');
+                header('location: isi_agenda_guru.php');
             }else{
-                header('location: agenda_siswa.php');
+                header('location: isi_agenda.php');
             }
         }
     ?>

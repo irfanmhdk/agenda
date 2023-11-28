@@ -21,21 +21,17 @@ $proses = mysqli_query($Conn, $sql);
         </div>
     </header>
     <div class="content">
-    <h1>Pengisian Agenda</h1><hr>
+    <h1>Pengisian Agenda Guru</h1><hr>
     <form action="simpan_agenda_guru.php" method="POST">
         <table>
         <tr>
-                <td>Nama :</td>
-                <td><input type="text" name="nama"></td>
-                </td>
-            </tr>
-            <tr>
-                <td>Status Pengisi</td>
-                <td><select name="status">
-                    <option value="guru">Guru</option>
-                    <option value="siswa">Siswa</option>
-                    </select>
-                </td>
+                <td><label>Nama Guru</label></td>
+                <td colspan="3"><select name="nama_guru">
+                    <?php
+                        foreach($proses as $guru){
+                        echo "<option value=".$guru['nip'].">".$guru['nama']."</option>";
+                    } ?>
+                    </select></td>
             </tr>
             <tr>
                 <td><label>Kehadiran</label></td>
@@ -62,15 +58,7 @@ $proses = mysqli_query($Conn, $sql);
                         <option value="5">5</option>
                     </select></td>
             </tr>
-            <tr>
-                <td><label>Nama Guru</label></td>
-                <td colspan="3"><select name="nama_guru">
-                    <?php
-                        foreach($proses as $guru){
-                        echo "<option value=".$guru['nip'].">".$guru['nama']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
+          
             <tr>
                 <td><label>Mata Pelajaran</label></td>
                 <td colspan="3"><select name="mapel">
@@ -97,11 +85,11 @@ $proses = mysqli_query($Conn, $sql);
             </tr>
             <tr>
                 <td><label>Durasi Mengajar</label></td>
-                <td colspan="3"><input type="number" name="durasi"></td>
+                <td colspan="3"><input type="number" name="durasi" value="berdasarkan menit"></td>
             </tr>
             <tr>
                 <td><label>Tujuan Pembelajaran</label></td>
-                <td colspan="3"><textarea name="tujuan_pemb" cols="30" rows="10"></textarea></td>
+                <td colspan="3"><textarea  name="tujuan_pemb" cols="30" rows="10"></textarea></td>
             </tr>
             <tr>
                 <td><label>Materi</label></td>
