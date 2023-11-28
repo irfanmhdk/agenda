@@ -18,7 +18,6 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
-  height: 1px;
 }
 
 button:hover {

@@ -20,7 +20,7 @@
     <select name="status">
         <option value="kelas">Siswa</option>
         <option value="guru">Guru</option>
-        <option value="guru">Adminn</option>
+        <option value="guru">Admin</option>
     </select>
 
     <label><b>Username</b></label>
