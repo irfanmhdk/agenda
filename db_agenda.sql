@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Nov 2023 pada 05.10
+-- Waktu pembuatan: 28 Nov 2023 pada 05.29
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -104,19 +104,17 @@ CREATE TABLE `tb_agenda` (
 
 CREATE TABLE `tb_guru` (
   `nip` varchar(18) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `jk` varchar(10) NOT NULL,
-  `no_telp` varchar(15) NOT NULL,
-  `email` varchar(70) NOT NULL,
-  `pend_terakhir` varchar(70) NOT NULL
+  `nama_guru` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `previlage` enum('Guru','Admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`nip`, `nama`, `jk`, `no_telp`, `email`, `pend_terakhir`) VALUES
-('198111032008011005', 'Gugum', 'Laki-laki', '0986565', '-', 'S2');
+INSERT INTO `tb_guru` (`nip`, `nama_guru`, `password`, `previlage`) VALUES
+('198111032008011005', 'Gugum', '', 'Guru');
 
 -- --------------------------------------------------------
 
@@ -129,7 +127,8 @@ CREATE TABLE `tb_jadwal` (
   `id_kelas` varchar(6) NOT NULL,
   `hari` varchar(10) NOT NULL,
   `jam` varchar(15) NOT NULL,
-  `tahun_pel` varchar(10) NOT NULL
+  `nip` int(18) NOT NULL,
+  `mapel` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
