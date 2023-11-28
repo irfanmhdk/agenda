@@ -10,12 +10,53 @@ $proses = mysqli_query($Conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <style>
+        input[type=text], select {
+  width: 240px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=date] {
+  width: 200px;
+  background-color: #FF0000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+textarea {
+  width: 240px;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+        </style>
 </head>
 <body>
     <header>
         <div class="sidebar">
         <a href="beranda.php">Home</a>
-        <a class="active" href="#">Data Agenda</a>
+        <a class="active" href="#"> isi Agenda</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>
@@ -25,29 +66,49 @@ $proses = mysqli_query($Conn, $sql);
     <form action="simpan_agenda_guru.php" method="POST">
         <table>
         <tr>
-                <td>Nama :</td>
+                <td><label>Mata Pelajaran</label></td>
+                <td colspan="3"><select name="mapel">
+                    <?php
+                        $sql = "SELECT * FROM tb_mapel";
+                        $mapel = mysqli_query($Conn, $sql);
+
+                        foreach($mapel as $pelajaran){
+                        echo "<option value=".$pelajaran['id_mapel'].">".$pelajaran['nama_mapel']."</option>";
+                    } ?>
+                    </select></td>
+            </tr>
+        <tr>
+                <td>Materi</td>
                 <td><input type="text" name="nama"></td>
                 </td>
             </tr>
             <tr>
-                <td>Status Pengisi</td>
-                <td><select name="status">
-                    <option value="guru">Guru</option>
-                    <option value="siswa">Siswa</option>
+                <td>Tugas</td>
+                <td><select name="tugas">
+                    <option value="TL">Tugas Langsung</option>
+                    <option value="MT">Menitipkan Tugas</option>
+                    <option value="TT">Tidak Ada Tugas</option>
                     </select>
                 </td>
             </tr>
-            <tr>
-                <td><label>Kehadiran</label></td>
-                <td><select name="kehadiran_guru">
-                        <option value="H">Hadir</option>
-                        <option value="A">Alpha</option>
-                        <option value="S">Sakit</option>
-                        <option value="I">Izin</option>
+            
+                    <tr>  
+                <td><label>Nama Guru</label></td>
+                <td colspan="3"><select name="nama_guru">
+                    <?php
+                        foreach($proses as $guru){
+                        echo "<option value=".$guru['nip'].">".$guru['nama']."</option>";
+                    } ?>
                     </select></td>
-                <td><label>Keterangan</label></td>
-                <td><input type="text" name="keterangan_guru"></td>
             </tr>
+            <tr>
+                <td><label>Kehadiran Guru</label></td>
+                <td><select name="kehadiran_guru">
+                        <option value="Y">Ya</option>
+                        <option value="T">Tidak</option>
+                        <option value="HD">Hadir Diakhir</option>
+                    </select></td>
+                    </tr>
             <tr>
                 <td><label>Tanggal</label></td>
                 <td colspan="3"><input type="date" name="tanggal"></td>
@@ -63,56 +124,11 @@ $proses = mysqli_query($Conn, $sql);
                     </select></td>
             </tr>
             <tr>
-                <td><label>Nama Guru</label></td>
-                <td colspan="3"><select name="nama_guru">
-                    <?php
-                        foreach($proses as $guru){
-                        echo "<option value=".$guru['nip'].">".$guru['nama']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
-            <tr>
-                <td><label>Mata Pelajaran</label></td>
-                <td colspan="3"><select name="mapel">
-                    <?php
-                        $sql = "SELECT * FROM tb_mapel";
-                        $mapel = mysqli_query($Conn, $sql);
-
-                        foreach($mapel as $pelajaran){
-                        echo "<option value=".$pelajaran['id_mapel'].">".$pelajaran['nama_mapel']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
-            <tr>
-                <td><label>Mengajar Kelas</label></td>
-                <td colspan="3"><select name="kelas">
-                    <?php
-                        $sql = "SELECT * FROM tb_kelas";
-                        $kelasm = mysqli_query($Conn, $sql);
-
-                        foreach($kelasm as $kelas){
-                        echo "<option value=".$kelas['id_kelas'].">".$kelas['tingkat']." ".$kelas['jurusan']." ".$kelas['kelas']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
-            <tr>
-                <td><label>Durasi Mengajar</label></td>
-                <td colspan="3"><input type="number" name="durasi"></td>
-            </tr>
-            <tr>
-                <td><label>Tujuan Pembelajaran</label></td>
+                <td><label>catatan Kejadian</label></td>
                 <td colspan="3"><textarea name="tujuan_pemb" cols="30" rows="10"></textarea></td>
             </tr>
             <tr>
-                <td><label>Materi</label></td>
-                <td colspan="3"><textarea name="materi" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-                <td><label>Evaluasi</label></td>
-                <td colspan="3"><textarea name="evaluasi" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-                <td colspan="3"></td>
+                <td></td>
                 <td><input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>
