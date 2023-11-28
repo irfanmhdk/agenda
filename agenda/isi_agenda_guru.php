@@ -15,7 +15,7 @@ $proses = mysqli_query($Conn, $sql);
     <header>
         <div class="sidebar">
         <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
+        <a href="#">Data Agenda</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>
