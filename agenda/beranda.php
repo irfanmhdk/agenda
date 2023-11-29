@@ -73,8 +73,8 @@
     <header>
         <div class="sidebar">
         <a class="active" href="beranda.php">Home</a>
-        <a href="tampil_agenda.php">Data Agenda</a>
-        <a href="jadwal.php">Jadwal</a>
+        <a href="data_agenda.php">Data Agenda</a>
+        <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>
         <div class="container">
