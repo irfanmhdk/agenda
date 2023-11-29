@@ -15,19 +15,19 @@
     <img src="image/avatar.PNG" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container">
+<!---<div class="container">
     <label>Login Sebagai</label>
     <select name="status">
         <option value="kelas">Siswa</option>
         <option value="guru">Guru</option>
         <option value="guru">Admin</option>
-    </select>
+    </select> -->
 
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" placeholder="Enter Username" name="uname">
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw">
         
     <button type="submit" name="submit">Login</button>
     <label>

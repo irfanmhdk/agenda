@@ -6,6 +6,23 @@
     <title>Agenda SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
 </head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #d4d4d4;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #dddddd;
+    }
+</style>
 <body>
     <header>
         <div class="sidebar">
@@ -16,22 +33,29 @@
         </div>
     </header>
     <div class="content">
+        <h1>DATA AGENDA</h1>
     <form action="isi_agenda_guru.php" method="POST">
         <table>
             <tr>
-                <td><label>E-Mail</label></td>
-                <td><input type="email" name="email"></td>
+                <th colspan="4"><b>Hari : Senin | Tanggal : 29-11-2023</b></th>
             </tr>
             <tr>
-                <td>Status Pengisi</td>
-                <td><select name="status">
-                    <option value="guru">Guru</option>
-                    <option value="siswa">Siswa</option>
-                    </select>
-                </td>
+                <th>Jam Pembelajaran</th>
+                <th>Guru</th>
+                <th>Mata Pelajaran</th>
+                <th>Isi Agenda</th>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" name="submit" value="berikutnya"></td>
+                <td>1</td>
+                <td>Yanto</td>
+                <td>Bahasa Sunda</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lili</td>
+                <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
             </tr>
         </table>
     </form>
