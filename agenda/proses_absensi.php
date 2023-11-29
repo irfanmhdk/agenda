@@ -19,7 +19,14 @@ if (isset($_POST['kirim'])) {
     }
 
     if ($result) {
-        echo "Absensi berhasil dicatat.";
+    ?>
+            <video id="myvideo"width="100%" height="100%" controls autoplay>
+            <source src="image/TickRed.mp4" type="video/mp4">
+            </video>
+            <script>
+            document.getElementById("myVideo").play();
+            </script>
+    <?php
     } else {
         echo "Gagal mencatat absensi. Error: " . mysqli_error($Conn);
     }
