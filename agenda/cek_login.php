@@ -5,14 +5,19 @@
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
 
-        $sql = "SELECT nip,password FROM tb_guru";
-        $cek = mysqli_query($Conn, $sql);
+        $sql = "SELECT * FROM tb_guru WHERE nip='$uname' AND password='$psw'";
+        $result = $Conn->query($sql);
 
-        if($uname == $cek['nip'] && $psw == $cek['password']){
-                echo "<script>
-                        alert('Login Berhasil');
-                        window.location.href:data_agenda.php;
-                    </script>";
+        if($result->num_rows > 0){
+                "<script>
+                    alert('Login Berhasil');
+                    window.location.href='data_agenda.php';
+                </script>";
+        }else{
+            echo "<script>
+                    alert('Login Gagal');
+                    window.location.href='login.php';
+            </script>";
         }
     }
 ?>
