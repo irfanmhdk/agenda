@@ -9,7 +9,7 @@ if (isset($_POST['kirim'])) {
         $status_absensi = mysqli_real_escape_string($Conn, $status_absensi);
         $tanggal = date("Y-m-d");
 
-        $query = "INSERT INTO tb_absen (tanggal, nis, kehadiran) VALUES ('$tanggal', '$nis', '$status_absensi')";
+        $query = "INSERT INTO tb_absen (tanggal, nis, kehadiran) VALUES (CURRENT_TIMESTAMP, '$nis', '$status_absensi')";
         $result = mysqli_query($Conn, $query);
 
         if (!$result) {

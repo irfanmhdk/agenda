@@ -31,16 +31,26 @@ $level = mysqli_query($Conn, $sql);
             color: white;
         }
 
-        input[type=submit] {
-            width: 100px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+        .btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Green */
+.success {
+  border-color: #04AA6D;
+  color: green;
+}
+
+.success:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
     </style>
 </head>
 <body>
@@ -85,7 +95,7 @@ $level = mysqli_query($Conn, $sql);
                         </tbody>
                     </table>
                     <br><br>
-                    <button type="submit" name="kirim">Submit Absensi</button>
+                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br>
                 </form>
             </center>
         </center>
