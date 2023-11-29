@@ -1,7 +1,9 @@
 <?php 
     include 'koneksi.php';
 
-    $sql = "SELECT * FROM tb_agenda";
+    $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran_guru,
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.catatan_kejadian FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
     $level = mysqli_query($Conn, $sql);
 
 ?>
@@ -63,10 +65,10 @@ th {
     <?php foreach ($level as $row) : ?>
             <tr>
                 <td><?= $row["id_agenda"];?></td>
-                <td><?= $row["id_mapel"];?></td>
+                <td><?= $row["nama_mapel"];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["tugas"];?></td>
-                <td><?= $row["nip"];?></td>
+                <td><?= $row["nama_guru"];?></td>
                 <td><?= $row["kehadiran_guru"];?></td>
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
