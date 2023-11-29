@@ -37,6 +37,12 @@
 .container .btn:hover {
   background-color: black;
 }
+.postion1{
+  position: fixed;
+  bottom: 270px;
+  right: 520px;
+  width: 300px;
+}
         </style>
 </head>
 <body>
@@ -49,8 +55,8 @@
         </div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
-         <a href="isi_agenda.php"> <button class="btn">Isi Agenda</button></a>
-         <a href="lihat_agenda.php"> <button class="btn">Lihat Agenda</button></a>
+         <a href="tampil_agenda.php"> <button class="btn">Lihat Agenda</button></a>
+         <div class="postion1"><a href="isi_agenda.php"> <button class="btn">Isi Agenda</button></a></div>
         </div>
     </header>
 </body>

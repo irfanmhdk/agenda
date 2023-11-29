@@ -50,6 +50,7 @@ textarea {
   background-color: #f8f8f8;
   resize: none;
 }
+
         </style>
 </head>
 <body>
@@ -79,34 +80,43 @@ textarea {
             </tr>
         <tr>
                 <td>Materi</td>
-                <td><input type="text" name="nama"></td>
+                <td><input type="text" name="materi"></td>
                 </td>
             </tr>
             <tr>
                 <td>Tugas</td>
                 <td><select name="tugas">
-                    <option value="TL">Tugas Langsung</option>
-                    <option value="MT">Menitipkan Tugas</option>
-                    <option value="TT">Tidak Ada Tugas</option>
+                    <option value="Tugas Langsung">Tugas Langsung</option>
+                    <option value="Menitipkan Tugas">Menitipkan Tugas</option>
+                    <option value="Tidak Ada Tugas">Tidak Ada Tugas</option>
                     </select>
                 </td>
             </tr>
-            
+            <td><label> Kelas</label></td>
+                <td colspan="3"><select name="kelas">
+                    <?php
+                        $sql = "SELECT * FROM tb_kelas";
+                        $kelasm = mysqli_query($Conn, $sql);
+
+                        foreach($kelasm as $kelas){
+                        echo "<option value=".$kelas['id_kelas'].">".$kelas['nama_kelas']."</option>";
+                    } ?>
+                    </select></td>
                     <tr>  
                 <td><label>Nama Guru</label></td>
                 <td colspan="3"><select name="nama_guru">
                     <?php
                         foreach($proses as $guru){
-                        echo "<option value=".$guru['nip'].">".$guru['nama']."</option>";
+                        echo "<option value=".$guru['nip'].">".$guru['nama_guru']."</option>";
                     } ?>
                     </select></td>
             </tr>
             <tr>
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
-                        <option value="Y">Ya</option>
-                        <option value="T">Tidak</option>
-                        <option value="HD">Hadir Diakhir</option>
+                        <option value="Ya">Ya</option>
+                        <option value="Tidak Ada">Tidak</option>
+                        <option value="Hadir Diakhir">Hadir Diakhir</option>
                     </select></td>
                     </tr>
             <tr>
@@ -125,7 +135,7 @@ textarea {
             </tr>
             <tr>
                 <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="tujuan_pemb" cols="30" rows="10"></textarea></td>
+                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea></td>
             </tr>
             <tr>
                 <td></td>

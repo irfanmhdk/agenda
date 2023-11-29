@@ -1,34 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda SMKN 2 Cimahi</title>
+    <link rel="stylesheet" href="navbar.css">
+    <body>
+        Berhasil di isi
+</body>
+</html>
 <?php
     include 'koneksi.php';
     if(isset($_POST['kirim'])){    
-        $namasis =$_POST['nama'];
-        $status = $_POST['status'];
-        $kehadiran = $_POST['kehadiran_guru'];
-        $keterangan = $_POST['keterangan_guru'];
-        $tanggal = $_POST['tanggal'];
-        $jam_pemb = $_POST['jam_pembelajaran'];
-        $nama = $_POST['nama_guru'];
         $mapel = $_POST['mapel'];
-        $kelas = $_POST['kelas'];
-        $durasi = $_POST['durasi'];
-        $tujuan_pemb = $_POST['tujuan_pemb'];
         $materi = $_POST['materi'];
-        $evaluasi= $_POST['evaluasi'];
+        $tugas = $_POST['tugas'];
+        $nama_guru = $_POST['nama_guru'];
+        $kehadiran_guru = $_POST['kehadiran_guru'];
+        $tanggal = $_POST['tanggal'];
+        $jam_pembelajaran = $_POST['jam_pembelajaran'];
+        $catatan_kejadian = $_POST['catatan_kejadian'];
+        $kelas = $_POST['kelas'];
 
-        $query1 = "INSERT INTO tb_agenda (nama_pengisi,status_pengisi, tgl, jam_ke, nip, id_kelas, id_mapel, durasi, tujuan_pemb, materi, evaluasi) VALUE ('$namasis','$status',CURRENT_TIMESTAMP, '$jam_pemb', '$nama', '$kelas',
-                   '$mapel', '$durasi', '$tujuan_pemb', '$materi', '$evaluasi')";
+        $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,catatan_kejadian,kehadiran_guru)
+        VALUE (CURRENT_TIMESTAMP,'$jam_pembelajaran','$nama_guru','$tugas','$kelas','$mapel','$materi','$catatan_kejadian','$kehadiran_guru')";
         $proses = mysqli_query($Conn, $query1);
 
         if($proses){
             ?> <script>
                     alert('Berhasil Mengisi Agenda');
-                    window.location.href:data_agenda.php;
+                    window.location.href=tampil_agenda.php;
                 </script>
         <?php }else{
             ?>
             <script>
                     alert('Gagal Mengisi Agenda');
-                    window.location.href:data_agenda.php;
+                    window.location.href=isi_agenda.php;
                 </script>
                 <?php
         }
