@@ -57,7 +57,7 @@ textarea {
     <header>
         <div class="sidebar">
         <a href="beranda.php">Home</a>
-        <a class="active" href="#"> isi Agenda</a>
+        <a class="active" href="#"> Data Agenda</a>
         <a href="#contact">Contact</a>
         <a href="#about">About</a>
         </div>
