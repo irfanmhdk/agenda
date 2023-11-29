@@ -5,10 +5,10 @@
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
 
-        $sql = "SELECT * FROM tb_guru WHERE nip='$uname' AND password='$psw'";
-        $result = $Conn->query($sql);
+        $sql = "SELECT * FROM tb_guru";
+        $result = mysqli_fetch_array($Conn, $sql);
 
-        if($result->num_rows > 0){
+        if($result['nip'] == $uname && $result['password'] == $psw){
                 "<script>
                     alert('Login Berhasil');
                     window.location.href='data_agenda.php';
