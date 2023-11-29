@@ -51,12 +51,22 @@
 .container .btn:hover {
   background-color: black;
 }
-.postion1{
-  position: fixed;
-  bottom: 270px;
-  right: 520px;
-  width: 300px;
+.btn2 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
+
         </style>
 </head>
 <body>
@@ -71,6 +81,7 @@
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php"> <button class="btn">Lihat Agenda</button></a>
          <a href="isi_agenda.php"> <button class="btn1">Isi Agenda</button></a>
+         <a href="absensi.php"> <button class="btn2">Isi Absensi</button></a>
         </div>
     </header>
 </body>
