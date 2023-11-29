@@ -15,13 +15,13 @@
     <img src="image/avatar.PNG" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container">
+<!---<div class="container">
     <label>Login Sebagai</label>
     <select name="status">
         <option value="kelas">Siswa</option>
         <option value="guru">Guru</option>
         <option value="guru">Admin</option>
-    </select>
+    </select> -->
 
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname">
