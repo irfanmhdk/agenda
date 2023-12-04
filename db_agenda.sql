@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2023 pada 07.40
+-- Waktu pembuatan: 04 Des 2023 pada 09.08
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -88,13 +88,21 @@ CREATE TABLE `tb_agenda` (
   `tgl` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `jam_ke` int(11) NOT NULL,
   `nip` varchar(18) NOT NULL,
-  `id_kelas` varchar(5) NOT NULL,
-  `id_mapel` varchar(5) NOT NULL,
+  `id_kelas` varchar(6) NOT NULL,
+  `id_mapel` varchar(6) NOT NULL,
+  `tugas` enum('Tugas Langsung','Menitipkan Tugas','Tidak Ada Tugas') NOT NULL,
   `materi` varchar(200) NOT NULL,
   `evaluasi` varchar(200) NOT NULL,
   `kehadiran` enum('Hadir','Tidak Hadir','Hadir Diakhir') NOT NULL,
   `verifikasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_agenda`
+--
+
+INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`) VALUES
+(2, '2023-12-04 07:28:33', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asd', 'asdas', 'Hadir Diakhir', 'Belum Verifikasi');
 
 -- --------------------------------------------------------
 
@@ -104,6 +112,7 @@ CREATE TABLE `tb_agenda` (
 
 CREATE TABLE `tb_guru` (
   `nip` varchar(18) NOT NULL,
+  `id_mapel` varchar(6) NOT NULL,
   `nama_guru` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `previlage` enum('Guru','Admin') NOT NULL
@@ -113,8 +122,10 @@ CREATE TABLE `tb_guru` (
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`nip`, `nama_guru`, `password`, `previlage`) VALUES
-('198111032008011005', 'Gugum', 'ggm', 'Guru');
+INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `previlage`) VALUES
+('198111032008011005', 'MP1001', 'Gugum', 'ggm', 'Guru'),
+('198111032008011006', 'MP1002', 'James', 'jms', 'Guru'),
+('198111032008011007', 'MP1003', 'Maureen', 'mrn', 'Guru');
 
 -- --------------------------------------------------------
 
@@ -127,9 +138,18 @@ CREATE TABLE `tb_jadwal` (
   `id_kelas` varchar(6) NOT NULL,
   `hari` varchar(10) NOT NULL,
   `jam` varchar(15) NOT NULL,
-  `nip` int(18) NOT NULL,
-  `mapel` varchar(70) NOT NULL
+  `nip` varchar(18) NOT NULL,
+  `id_mapel` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_jadwal`
+--
+
+INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam`, `nip`, `id_mapel`) VALUES
+(7, 'P10001', 'Senin', '1', '198111032008011005', 'MP1001'),
+(8, 'P10001', 'Senin', '2', '198111032008011006', 'MP1002'),
+(9, 'P10001', 'Senin', '3', '198111032008011007', 'MP1003');
 
 -- --------------------------------------------------------
 
@@ -188,7 +208,8 @@ CREATE TABLE `tb_mapel` (
 
 INSERT INTO `tb_mapel` (`id_mapel`, `nama_mapel`) VALUES
 ('MP1001', 'Dasar Kejuruan PPLG'),
-('MP1002', 'Informatika');
+('MP1002', 'Informatika'),
+('MP1003', 'Bahasa Indonesia');
 
 -- --------------------------------------------------------
 
@@ -445,13 +466,13 @@ ALTER TABLE `tb_absen`
 -- AUTO_INCREMENT untuk tabel `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
