@@ -6,7 +6,7 @@
     <title>Agenda SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
     <body>
-        Berhasil di isi
+        
 </body>
 </html>
 <?php
