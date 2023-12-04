@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Nov 2023 pada 05.29
+-- Waktu pembuatan: 04 Des 2023 pada 07.40
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -90,10 +90,10 @@ CREATE TABLE `tb_agenda` (
   `nip` varchar(18) NOT NULL,
   `id_kelas` varchar(5) NOT NULL,
   `id_mapel` varchar(5) NOT NULL,
-  `durasi` int(11) NOT NULL,
-  `tujuan_pemb` varchar(200) NOT NULL,
   `materi` varchar(200) NOT NULL,
-  `evaluasi` varchar(200) NOT NULL
+  `evaluasi` varchar(200) NOT NULL,
+  `kehadiran` enum('Hadir','Tidak Hadir','Hadir Diakhir') NOT NULL,
+  `verifikasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -114,7 +114,7 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`nip`, `nama_guru`, `password`, `previlage`) VALUES
-('198111032008011005', 'Gugum', '', 'Guru');
+('198111032008011005', 'Gugum', 'ggm', 'Guru');
 
 -- --------------------------------------------------------
 
@@ -149,14 +149,14 @@ CREATE TABLE `tb_kelas` (
 --
 
 INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `username`, `password`) VALUES
-('D10001', '', '', ''),
-('D10002', '', '', ''),
-('E10001', '', '', ''),
-('E10002', '', '', ''),
-('E10003', '', '', ''),
-('E10004', '', '', ''),
-('P10001', '', '', ''),
-('P10002', '', '', '');
+('D10001', 'X DKV A', 'xdkva', 'xdkva'),
+('D10002', 'X DKV B', 'xdkvb', 'xdkvb'),
+('E10001', 'X ELEKTRONIKA A', 'xelektronikaa', 'xelektronikaa'),
+('E10002', 'X ELEKTRONIKA B', 'xelektronikab', 'xelektronikab'),
+('E10003', 'X ELEKTRONIKA C', 'xelektronikac', 'xelektronikac'),
+('E10004', 'X ELEKTRONIKA D', 'xelektronikad', 'xelektronikad'),
+('P10001', 'X PPLG A', 'xpplga', 'xpplga'),
+('P10002', 'X PPLG B', 'xpplgb', 'xpplgb');
 
 -- --------------------------------------------------------
 
@@ -189,6 +189,26 @@ CREATE TABLE `tb_mapel` (
 INSERT INTO `tb_mapel` (`id_mapel`, `nama_mapel`) VALUES
 ('MP1001', 'Dasar Kejuruan PPLG'),
 ('MP1002', 'Informatika');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_role`
+--
+
+CREATE TABLE `tb_role` (
+  `id_role` int(11) NOT NULL,
+  `nama_role` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_role`
+--
+
+INSERT INTO `tb_role` (`id_role`, `nama_role`) VALUES
+(1, 'Admin'),
+(2, 'Guru'),
+(3, 'Kelas');
 
 -- --------------------------------------------------------
 
@@ -381,6 +401,12 @@ ALTER TABLE `tb_mapel`
   ADD PRIMARY KEY (`id_mapel`);
 
 --
+-- Indeks untuk tabel `tb_role`
+--
+ALTER TABLE `tb_role`
+  ADD PRIMARY KEY (`id_role`);
+
+--
 -- Indeks untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
@@ -426,6 +452,12 @@ ALTER TABLE `tb_agenda`
 --
 ALTER TABLE `tb_jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_role`
+--
+ALTER TABLE `tb_role`
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

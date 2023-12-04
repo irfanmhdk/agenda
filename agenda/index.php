@@ -15,13 +15,22 @@
     <img src="image/avatar.PNG" alt="Avatar" class="avatar">
   </div>
 
-<!---<div class="container">
-    <label>Login Sebagai</label>
-    <select name="status">
-        <option value="kelas">Siswa</option>
-        <option value="guru">Guru</option>
-        <option value="guru">Admin</option>
-    </select> -->
+  <div class="container">
+    <label><b>Status</b></label><br>
+    <select class="custom-select" name="role">
+      <?php
+        include 'koneksi.php';
+
+        $sql = "SELECT * FROM tb_role";
+        $proses = mysqli_query($Conn, $sql);
+
+        foreach($proses as $role){
+      ?>
+        <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
+      <?php
+        }
+      ?>
+    </select><br>
 
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname">
