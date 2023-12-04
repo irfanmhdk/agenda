@@ -33,7 +33,7 @@
         </div>
     </header>
     <div class="content">
-        <h1>DATA AGENDA</h1>
+        <h1>Jadwal Kelas X DKV A</h1>
     <form action="isi_agenda_guru.php" method="POST">
         <table>
             <tr>
@@ -55,6 +55,119 @@
                 <td>2</td>
                 <td>Lili</td>
                 <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Lala</td>
+                <td>Bahasa Indonesia</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <th colspan="4"><b>Hari : Selasa | Tanggal : 30-11-2023</b></th>
+            </tr>
+            <tr>
+                <th>Jam Pembelajaran</th>
+                <th>Guru</th>
+                <th>Mata Pelajaran</th>
+                <th>Isi Agenda</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yanto</td>
+                <td>Bahasa Sunda</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lili</td>
+                <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Lala</td>
+                <td>Bahasa Indonesia</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <th colspan="4"><b>Hari : Rabu | Tanggal : 31-11-2023</b></th>
+            </tr>
+            <tr>
+                <th>Jam Pembelajaran</th>
+                <th>Guru</th>
+                <th>Mata Pelajaran</th>
+                <th>Isi Agenda</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yanto</td>
+                <td>Bahasa Sunda</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lili</td>
+                <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Lala</td>
+                <td>Bahasa Indonesia</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <th colspan="4"><b>Hari : Kamis | Tanggal : 01-12-2023</b></th>
+            </tr>
+            <tr>
+                <th>Jam Pembelajaran</th>
+                <th>Guru</th>
+                <th>Mata Pelajaran</th>
+                <th>Isi Agenda</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yanto</td>
+                <td>Bahasa Sunda</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lili</td>
+                <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Lala</td>
+                <td>Bahasa Indonesia</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <th colspan="4"><b>Hari : Jumat | Tanggal : 02-12-2023</b></th>
+            </tr>
+            <tr>
+                <th>Jam Pembelajaran</th>
+                <th>Guru</th>
+                <th>Mata Pelajaran</th>
+                <th>Isi Agenda</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Yanto</td>
+                <td>Bahasa Sunda</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lili</td>
+                <td>Matematika</td>
+                <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Lala</td>
+                <td>Bahasa Indonesia</td>
                 <td><a href="isi_agenda.php" style="text-decoration: none;"><b>Isi Agenda</b></a></td>
             </tr>
         </table>
