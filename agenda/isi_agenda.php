@@ -114,7 +114,7 @@ $proses = mysqli_query($Conn, $sql);
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
                         <option value="Hadir">Hadir</option>
-                        <option value="Tidak">Tidak Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
                         <option value="Hadir Diakhir">Hadir Diakhir</option>
                     </select></td>
                     </tr>
@@ -134,7 +134,7 @@ $proses = mysqli_query($Conn, $sql);
             </tr>
             <tr>
                 <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea></td>
+                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea><input type="hidden" name="verif" value="Belum Verifikasi"></td>
             </tr>
             <tr>
                 <td></td>

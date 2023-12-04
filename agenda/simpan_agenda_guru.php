@@ -21,9 +21,10 @@
         $jam_pembelajaran = $_POST['jam_pembelajaran'];
         $catatan_kejadian = $_POST['catatan_kejadian'];
         $kelas = $_POST['kelas'];
+        $verif = $_POST['verif'];
 
-        $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,evaluasi,kehadiran_guru)
-        VALUE (CURRENT_TIMESTAMP,'$jam_pembelajaran','$nama_guru','$tugas','$kelas','$mapel','$materi','$catatan_kejadian','$kehadiran_guru')";
+        $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,evaluasi,kehadiran,verifikasi)
+        VALUE (CURRENT_TIMESTAMP,'$jam_pembelajaran','$nama_guru','$tugas','$kelas','$mapel','$materi','$catatan_kejadian','$kehadiran_guru','$verif')";
         $proses = mysqli_query($Conn, $query1);
 
         if($proses){
