@@ -27,8 +27,8 @@
     <header>
         <div class="sidebar">
         <a href="beranda.php">Home</a>
-        <a class="active" href="data_agenda.php">Data Agenda</a>
-        <a href="#contact">Contact</a>
+        <a class="active" href="data_agenda.php">Jadwal</a>
+        <a href="tampil_agenda.php">Data Agenda</a>
         <a href="#about">About</a>
         </div>
     </header>

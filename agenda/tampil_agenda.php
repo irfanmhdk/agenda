@@ -37,8 +37,8 @@ th {
 <header>
         <div class="sidebar">
         <a href="beranda.php">Home</a>
-        <a class="active" href="tampil_agenda.php"> Data Agenda</a>
-        <a href="jadwal.php">Jadwal</a>
+        <a href="data_agenda.php">Jadwal</a>
+        <a class="active" href="tampil_agenda.php">Data Agenda</a>
         <a href="#about">About</a>
         </div>
     </header>
