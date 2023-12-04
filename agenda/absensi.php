@@ -20,7 +20,6 @@ $level = mysqli_query($Conn, $sql);
         }
 
         th, td {
-            text-align: left;
             padding: 8px;
         }
 
@@ -29,6 +28,7 @@ $level = mysqli_query($Conn, $sql);
         th {
             background-color: #F21818;
             color: white;
+            text-align: center;
         }
 
         .btn {
