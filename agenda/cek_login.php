@@ -18,7 +18,7 @@
         }else{
             echo "<script>
                     alert('Login Gagal');
-                    window.location.href='login.php';
+                    window.location.href='index.php';
             </script>";
         }
     }

@@ -6,7 +6,10 @@
     <title>Agenda SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
     <body>
-    <?php
+       
+</body>
+</html>
+<?php
     include 'koneksi.php';
     if(isset($_POST['kirim'])){    
         $mapel = $_POST['mapel'];
