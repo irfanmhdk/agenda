@@ -10,48 +10,47 @@ $proses = mysqli_query($Conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
-    <style>
-        input[type=text], select {
-  width: 240px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-input[type=submit] {
-  width: 100px;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-input[type=date] {
-  width: 200px;
-  background-color: #FF0000;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-textarea {
-  width: 240px;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
-}
-
-        </style>
+<style>
+    input[type=text], select {
+    width: 240px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=submit] {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    input[type=date] {
+    width: 200px;
+    background-color: #FF0000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    textarea {
+    width: 240px;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    }
+</style>
 </head>
 <body>
     <header>
@@ -114,8 +113,8 @@ textarea {
             <tr>
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
-                        <option value="Ya">Ya</option>
-                        <option value="Tidak Ada">Tidak</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak">Tidak Hadir</option>
                         <option value="Hadir Diakhir">Hadir Diakhir</option>
                     </select></td>
                     </tr>

@@ -2,7 +2,7 @@
     include 'koneksi.php';
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran_guru,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.catatan_kejadian FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
     $level = mysqli_query($Conn, $sql);
 
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
-    <style>
+<style>
   table {
   border-collapse: collapse;
   width: 100%;
@@ -56,9 +56,9 @@ th {
             <th>Tugas </th>
             <th>Nama Guru</th>
             <th>kehadiran Guru</th>
-            <th> Tanggal </th>
-            <th> Jam Pembelajaran </th>
-            <th> Catatan Kejadian </th>  
+            <th>Tanggal </th>
+            <th>Jam Pembelajaran </th>
+            <th>Catatan Kejadian </th>  
         </tr>
     </thead>
     <tbody>
@@ -72,7 +72,7 @@ th {
                 <td><?= $row["kehadiran_guru"];?></td>
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
-                <td><?= $row["catatan_kejadian"];?></td>
+                <td><?= $row["evaluasi"];?></td>
             </tr>
             <?php endforeach ; 
             ?>

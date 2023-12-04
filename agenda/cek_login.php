@@ -1,12 +1,12 @@
 <?php
     include 'koneksi.php';
 
-    $sql = "SELECT * FROM tb_guru";
-    $result = mysqli_query($Conn, $sql);
-
     if(isset($_POST['submit'])){
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
+
+        $sql = "SELECT * FROM tb_guru WHERE nip='$uname'";
+        $result = mysqli_query($Conn, $sql);
 
         foreach($result as $log){
         if($uname == $log['nip'] && $psw == $log['password']){

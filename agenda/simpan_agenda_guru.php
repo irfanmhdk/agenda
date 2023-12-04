@@ -6,10 +6,7 @@
     <title>Agenda SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
     <body>
-        Berhasil di isi
-</body>
-</html>
-<?php
+    <?php
     include 'koneksi.php';
     if(isset($_POST['kirim'])){    
         $mapel = $_POST['mapel'];
@@ -22,22 +19,22 @@
         $catatan_kejadian = $_POST['catatan_kejadian'];
         $kelas = $_POST['kelas'];
 
-        $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,catatan_kejadian,kehadiran_guru)
+        $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,evaluasi,kehadiran_guru)
         VALUE (CURRENT_TIMESTAMP,'$jam_pembelajaran','$nama_guru','$tugas','$kelas','$mapel','$materi','$catatan_kejadian','$kehadiran_guru')";
         $proses = mysqli_query($Conn, $query1);
 
         if($proses){
-            ?> <script>
-                    alert('Berhasil Mengisi Agenda');
-                    window.location.href=tampil_agenda.php;
-                </script>
-        <?php }else{
-            ?>
-            <script>
-                    alert('Gagal Mengisi Agenda');
-                    window.location.href=isi_agenda.php;
-                </script>
-                <?php
+            echo "<script>
+                    alert('Berhasil Mengisi Data');
+                    window.location.href='tampil_agenda.php';
+                </script>";
+        }else{
+            echo "<script>
+                    alert('Gagal Mengisi Data');
+                    window.location.href='isi_agenda.php';
+                </script>";
         }
     }
 ?>
+</body>
+</html>
