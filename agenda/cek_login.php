@@ -39,7 +39,7 @@
                     echo "<script>
                             alert('Login Gagal');
                             window.location.href='index.php';
-                    </script>";
+                    </script>"; //a
                 }
             }
         }elseif($role == 3){

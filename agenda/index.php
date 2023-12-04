@@ -18,7 +18,7 @@
   <div class="container">
     <label><b>Status</b></label><br>
     <select class="custom-select" name="role">
-      <?php
+      <?php //a
         include 'koneksi.php';
 
         $sql = "SELECT * FROM tb_role";
