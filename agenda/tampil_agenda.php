@@ -5,7 +5,7 @@
             tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
     $level = mysqli_query($Conn, $sql);
-
+    //a
 ?>
 <!DOCTYPE html>
 <html>

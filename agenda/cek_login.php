@@ -14,6 +14,7 @@
                     alert('Login Berhasil');
                     window.location.href='beranda.php';
                 </script>";
+                //a
         }else{
             echo "<script>
                     alert('Login Gagal');

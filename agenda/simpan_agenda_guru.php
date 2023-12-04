@@ -27,7 +27,7 @@
             echo "<script>
                     alert('Berhasil Mengisi Data');
                     window.location.href='tampil_agenda.php';
-                </script>";
+                </script>"; //a
         }else{
             echo "<script>
                     alert('Gagal Mengisi Data');

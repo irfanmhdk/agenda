@@ -93,7 +93,7 @@ $proses = mysqli_query($Conn, $sql);
             </tr>
             <td><label> Kelas</label></td>
                 <td colspan="3"><select name="kelas">
-                    <?php
+                    <?php //a
                         $sql = "SELECT * FROM tb_kelas";
                         $kelasm = mysqli_query($Conn, $sql);
 
