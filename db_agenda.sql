@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2023 pada 09.08
+-- Waktu pembuatan: 05 Des 2023 pada 03.26
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -115,17 +115,17 @@ CREATE TABLE `tb_guru` (
   `id_mapel` varchar(6) NOT NULL,
   `nama_guru` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `previlage` enum('Guru','Admin') NOT NULL
+  `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `previlage`) VALUES
-('198111032008011005', 'MP1001', 'Gugum', 'ggm', 'Guru'),
-('198111032008011006', 'MP1002', 'James', 'jms', 'Guru'),
-('198111032008011007', 'MP1003', 'Maureen', 'mrn', 'Guru');
+INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `role`) VALUES
+('198111032008011005', 'MP1001', 'Gugum', 'ggm', 1),
+('198111032008011006', 'MP1002', 'James', 'jms', 2),
+('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2);
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,9 @@ CREATE TABLE `tb_jadwal` (
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam`, `nip`, `id_mapel`) VALUES
 (7, 'P10001', 'Senin', '1', '198111032008011005', 'MP1001'),
 (8, 'P10001', 'Senin', '2', '198111032008011006', 'MP1002'),
-(9, 'P10001', 'Senin', '3', '198111032008011007', 'MP1003');
+(9, 'P10001', 'Senin', '3', '198111032008011007', 'MP1003'),
+(10, 'E10001', 'Senin', '2', '198111032008011005', 'MP1001'),
+(11, 'D10001', 'Senin', '3', '198111032008011005', 'MP1001');
 
 -- --------------------------------------------------------
 
@@ -161,22 +163,23 @@ CREATE TABLE `tb_kelas` (
   `id_kelas` varchar(6) NOT NULL,
   `nama_kelas` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(50) NOT NULL,
+  `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `username`, `password`) VALUES
-('D10001', 'X DKV A', 'xdkva', 'xdkva'),
-('D10002', 'X DKV B', 'xdkvb', 'xdkvb'),
-('E10001', 'X ELEKTRONIKA A', 'xelektronikaa', 'xelektronikaa'),
-('E10002', 'X ELEKTRONIKA B', 'xelektronikab', 'xelektronikab'),
-('E10003', 'X ELEKTRONIKA C', 'xelektronikac', 'xelektronikac'),
-('E10004', 'X ELEKTRONIKA D', 'xelektronikad', 'xelektronikad'),
-('P10001', 'X PPLG A', 'xpplga', 'xpplga'),
-('P10002', 'X PPLG B', 'xpplgb', 'xpplgb');
+INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `username`, `password`, `role`) VALUES
+('D10001', 'X DKV A', 'xdkva', 'xdkva', 3),
+('D10002', 'X DKV B', 'xdkvb', 'xdkvb', 3),
+('E10001', 'X ELEKTRONIKA A', 'xelektronikaa', 'xelektronikaa', 3),
+('E10002', 'X ELEKTRONIKA B', 'xelektronikab', 'xelektronikab', 3),
+('E10003', 'X ELEKTRONIKA C', 'xelektronikac', 'xelektronikac', 3),
+('E10004', 'X ELEKTRONIKA D', 'xelektronikad', 'xelektronikad', 3),
+('P10001', 'X PPLG A', 'xpplga', 'xpplga', 3),
+('P10002', 'X PPLG B', 'xpplgb', 'xpplgb', 3);
 
 -- --------------------------------------------------------
 
@@ -472,7 +475,7 @@ ALTER TABLE `tb_agenda`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
