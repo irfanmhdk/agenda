@@ -66,6 +66,21 @@
   border-radius: 5px;
   text-align: center;
 }
+.btn3 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
 
         </style>
 </head>
@@ -82,6 +97,7 @@
          <a href="tampil_agenda_siswa.php"> <button class="btn">Lihat Agenda</button></a>
          <a href="data_agenda.php"> <button class="btn1">Isi Agenda</button></a>
          <a href="absensi.php"> <button class="btn2">Isi Absensi</button></a>
+         <a href="index.php"> <button class="btn3">log out</button></a>
         </div>
     </header>
 </body>
