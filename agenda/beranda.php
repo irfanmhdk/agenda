@@ -99,9 +99,9 @@
         </div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
-         <a href="tampil_agenda_siswa.php"> <button class="btn">Lihat Agenda</button></a>
-         <a href="data_agenda.php"> <button class="btn1">Isi Agenda</button></a>
-         <a href="absensi.php"> <button class="btn2">Isi Absensi</button></a>
+         <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
+         <a href="data_agenda.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda</button></a>
+         <a href="absensi.php?id=<?= $kelas ?>"> <button class="btn2">Isi Absensi</button></a>
          <a href="index.php"> <button class="btn3">log out</button></a>
         </div>
     </header>

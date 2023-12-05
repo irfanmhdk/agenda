@@ -58,7 +58,7 @@ $level = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda.php">Home</a>
+            <a href="beranda.php?id=<?= $kelas ?>">Home</a>
             <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
             <a class="active" href="absensi.php?id=<?= $kelas ?>">Absensi</a>
             <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
