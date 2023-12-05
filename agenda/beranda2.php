@@ -78,6 +78,7 @@
         </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
+         <a href="tampil_agenda.php"> <button class="btn">verifikasi Agenda Siswa</button></a>
          <a href="isi_agenda_guru.php"> <button class="btn1">Isi Agenda Guru</button></a>
          <a href="absensi.php"> <button class="btn2">Isi Absensi</button></a>
         </div>
