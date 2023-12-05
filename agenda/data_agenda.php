@@ -33,7 +33,7 @@
         </div>
     </header>
     <div class="content">
-        <h1>Jadwal Kelas X DKV A</h1>
+        <h1>JADWAL KELAS X DKV A</h1><hr>
     <form action="isi_agenda_guru.php" method="POST">
         <table>
             <tr>
