@@ -85,8 +85,8 @@
         </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
-         <a href="tampil_agenda.php"> <button class="btn">verifikasi Agenda Siswa</button></a>
-         <a href="data_agenda_guru.php"> <button class="btn1">Isi Agenda Guru</button></a>
+         <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">verifikasi Agenda Siswa</button></a>
+         <a href="data_agenda_guru.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda Guru</button></a>
         </div>
     </header>
 </body>

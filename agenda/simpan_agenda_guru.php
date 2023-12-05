@@ -35,7 +35,7 @@
         }else{
             echo "<script>
                     alert('Gagal Mengisi Data');
-                    window.location.href='isi_agenda.php';
+                    window.location.href='isi_agenda.php?id=$kelas';
                 </script>";
         }
     }

@@ -95,7 +95,7 @@ $proses = mysqli_query($Conn, $sql);
                 <td>  <input type="hidden" name="kel" value="<?= $kel; ?>">
                     <input type="hidden" name="jam" value="<?= $jam; ?>">
                     <input type="hidden" name="nip" value="<?= $nip; ?>">
-                    <input type="hidden" name="jam" value="<?= $mapel; ?>">
+                    <input type="hidden" name="jam" value="<?= $map; ?>">
                 </td>
                 <td><input type="submit" name="kirim" value="Kirim"></td>
             </tr>
