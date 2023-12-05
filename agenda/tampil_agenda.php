@@ -1,7 +1,7 @@
 <?php 
 
     include 'koneksi.php';
-
+    
     $kelas = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
@@ -41,7 +41,6 @@ th {
         <div class="sidebar">
         <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
         <a href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a class="active" href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
