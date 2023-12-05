@@ -14,7 +14,7 @@
                 if($uname == $log['nip'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda.php?id=$log[nip]';
+                            window.location.href='data_agenda_guru.php?id=$log[nip]';
                         </script>";
                         
                 }else{
@@ -32,7 +32,7 @@
                 if($uname == $log['nip'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda2.phpid=$log[nip]';
+                            window.location.href='data_agenda_guru2.php?id=$log[nip]';
                         </script>";
                 }else{
                     echo "<script>
@@ -49,7 +49,7 @@
                 if($uname == $log['username'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda.phpid=$log[id_kelas]';
+                            window.location.href='data_agenda.php?id=$log[id_kelas]';
                         </script>";
                 }else{
                     echo "<script>
