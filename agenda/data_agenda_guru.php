@@ -36,7 +36,7 @@
     <form action="isi_agenda_guru.php" method="POST">
         <table>
             <tr>
-                <th colspan="6"><b>Hari : Senin | Tanggal : 29-11-2023</b></th>
+              
             </tr>
             <tr>
                 <th>Guru</th>

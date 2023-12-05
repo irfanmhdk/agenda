@@ -65,35 +65,6 @@ $proses = mysqli_query($Conn, $sql);
     <h1>PENGISIAN AGENDA GURU</h1><hr>
     <form action="simpan_agenda_guru.php" method="POST">
         <table>
-        <tr>  
-                <td><label>Nama Guru</label></td>
-                <td colspan="3"><select name="nama_guru">
-                    <?php
-                        foreach($proses as $guru){
-                        echo "<option value=".$guru['nip'].">".$guru['nama_guru']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
-        <td><label>Mengajar Kelas</label></td>
-                <td colspan="3"><select name="kelas">
-                    <?php //a
-                        $sql = "SELECT * FROM tb_kelas";
-                        $kelasm = mysqli_query($Conn, $sql);
-
-                        foreach($kelasm as $kelas){
-                        echo "<option value=".$kelas['id_kelas'].">".$kelas['nama_kelas']."</option>";
-                    } ?>
-        <tr>
-                <td><label>Mata Pelajaran</label></td>
-                <td colspan="3"><select name="mapel">
-                    <?php
-                        $sql = "SELECT * FROM tb_mapel";
-                        $mapel = mysqli_query($Conn, $sql);
-
-                        foreach($mapel as $pelajaran){
-                        echo "<option value=".$pelajaran['id_mapel'].">".$pelajaran['nama_mapel']."</option>";
-                    } ?>
-                    </select></td>
             </tr>
             <tr>
                 <td><label>Kehadiran Guru</label></td>
@@ -103,15 +74,15 @@ $proses = mysqli_query($Conn, $sql);
                         <option value="Hadir Diakhir">Hadir Diakhir</option>
                     </select></td>
                     </tr>
-            <tr>
-                <td><label>Jam Pembelajaran</label></td>
-                <td colspan="3"><select name="jam_pembelajaran">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select></td>
+                    <tr>
+                <td>Materi</td>
+                <td><input type="text" name="materi"></td>
+                </td>
+                    </tr>
+                    
+                    <tr>
+                <td><label>catatan Kejadian</label></td>
+                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea><input type="hidden" name="verif" value="Belum Verifikasi"></td>
             </tr>
             <tr>
             <td><label>Dokumentasi</label></td>
