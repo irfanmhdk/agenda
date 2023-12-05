@@ -62,7 +62,7 @@ $proses = mysqli_query($Conn, $sql);
         </div>
     </header>
     <div class="content">
-    <h1>Pengisian Agenda</h1><hr>
+    <h1>PENGISIAN AGENDA</h1><hr>
     <form action="simpan_agenda_guru.php" method="POST">
         <table>
         <tr>

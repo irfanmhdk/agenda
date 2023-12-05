@@ -22,7 +22,6 @@
 }
 
 th, td {
-  text-align: left;
   padding: 8px;
 }
 
@@ -31,6 +30,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 th {
   background-color: #F21818;
   color: white;
+  text-align: center;
 }
 </style>
 <body>
@@ -44,7 +44,7 @@ th {
     </header>
     <div class="content">
     <center>
-<h1>Data Agenda</h1>
+<h1>DATA AGENDA</h1><hr>
 <br>
 <center>
 <table border="1" cellspacing="0" cellpadding = "10px">
@@ -74,7 +74,7 @@ th {
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><?= $row["verifikasi"];?></td>
+                <td><b><a href="#" style="text-decoration: none;"><?= $row["verifikasi"];?></a></b></td>
             </tr>
             <?php endforeach ; 
             ?>

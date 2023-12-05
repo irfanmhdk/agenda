@@ -64,7 +64,7 @@ $level = mysqli_query($Conn, $sql);
     </header>
     <div class="content">
         <center>
-            <h1>Data Agenda</h1>
+            <h1>ABSENSI</h1><hr>
             <br>
             <center>
                 <form action="proses_absensi.php" method="post">
