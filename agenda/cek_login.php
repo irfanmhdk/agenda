@@ -14,7 +14,7 @@
                 if($uname == $log['nip'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda.php';
+                            window.location.href='beranda.php?id=$log[nip]';
                         </script>";
                         
                 }else{
@@ -32,9 +32,8 @@
                 if($uname == $log['nip'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda2.php';
+                            window.location.href='beranda2.phpid=$log[nip]';
                         </script>";
-                        //a
                 }else{
                     echo "<script>
                             alert('Login Gagal');
@@ -50,9 +49,8 @@
                 if($uname == $log['username'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda.php';
+                            window.location.href='beranda.phpid=$log[id_kelas]';
                         </script>";
-                        //a
                 }else{
                     echo "<script>
                             alert('Login Gagal');
