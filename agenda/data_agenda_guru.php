@@ -82,20 +82,12 @@
                         <td><?= $jadwal['nama_kelas'] ?></td>
                         <td><a href="isi_agenda_guru.php?nip=<?= $kelas ?>&jam=<?= $jadwal['jam'] ?>&kel=<?= $jadwal['id_kelas'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
                         </tr>
-                <?php }  ?>
+                <?php
+             }  ?>
             
         </table>
 
     </div>
-    <?php
-        if(isset($_POST['submit'])){
-            $status = $_POST['status'];
-            if($status == "guru"){
-                header('location: isi_agenda_guru.php');
-            }else{
-                header('location: isi_agenda.php');
-            }
-        }
-    ?>
+    
 </body>
 </html>

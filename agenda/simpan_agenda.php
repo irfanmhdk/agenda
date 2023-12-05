@@ -17,14 +17,14 @@
      $catatan_kejadian = $_POST['catatan_kejadian'];
      $foto = $_POST['foto'];
 
-     $query1 = "INSERT INTO tb_agenda_guru (nip,jam_pembelajaran,id_mapel,id_kelas,kehadiran_guru,materi,catatan_kejadian,dokumentasi)
-     VALUE (CURRENT_TIMESTAMP,'$nip','$jam','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','$foto')";
+     $query1 = "INSERT INTO tb_agenda_guru (nip,jam_ke,id_mapel,id_kelas,kehadiran_guru,materi,catatan_kejadian,dokumentasi)
+     VALUE ('$nip','$jam','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','$foto')";
      $proses = mysqli_query($Conn, $query1);
 
      if($proses){
          echo "<script>
                  alert('Berhasil Mengisi Data');
-                 window.location.href='tampil_agenda.php?id=<?= $kelas ?>';
+                 window.location.href='tampil_agenda_guru.php?id=<?= $kelas ?>';
              </script>"; //a
      }else{
          echo "<script>
