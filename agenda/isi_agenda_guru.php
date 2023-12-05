@@ -1,5 +1,8 @@
 <?php include "koneksi.php"; 
-
+$jam = $_GET['jam'];
+$kelas = $_GET['nip'];
+$map = $_GET['map'];
+$kel = $_GET['kel'];
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 ?>
@@ -55,15 +58,15 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-        <a href="beranda2.php">Home</a>
-        <a class="active" href="#"> Data Agenda</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
+        <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
+        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
+        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
     <div class="content">
     <h1>PENGISIAN AGENDA GURU</h1><hr>
-    <form action="simpan_agenda_guru.php" method="POST">
+    <form action="simpan_agenda.php" method="POST">
         <table>
             </tr>
             <tr>
@@ -89,7 +92,9 @@ $proses = mysqli_query($Conn, $sql);
                 <td colspan="3"><input type="file" name="foto"></td>
             </tr>
             <tr>
-                <td></td>
+                <td>  <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="jam" value="<?= $jam; ?>">
+                    <input type="hidden" name="nip" value="<?= $nip; ?>"></td>
                 <td><input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>

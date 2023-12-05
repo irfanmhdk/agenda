@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    include 'koneksi.php';
+
+    $kelas = $_GET['id'];
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,19 +72,21 @@
   text-align: center;
 }
 
+
         </style>
 </head>
 <body>
     <header>
         <div class="sidebar">
-        <a class="active" href="beranda2.php">Home</a>
-        <a href="data_agenda_guru.php">Jadwal Guru</a>
-        <a href="#about">About</a>
+        <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
+        <a href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
+        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+        </div>
         </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php"> <button class="btn">verifikasi Agenda Siswa</button></a>
-         <a href="isi_agenda_guru.php"> <button class="btn1">Isi Agenda Guru</button></a>
+         <a href="data_agenda_guru.php"> <button class="btn1">Isi Agenda Guru</button></a>
         </div>
     </header>
 </body>
