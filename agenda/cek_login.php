@@ -16,7 +16,7 @@
                             alert('Login Berhasil');
                             window.location.href='beranda.php';
                         </script>";
-                        //a
+                        
                 }else{
                     echo "<script>
                             alert('Login Gagal');
@@ -32,7 +32,7 @@
                 if($uname == $log['nip'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
-                            window.location.href='beranda.php';
+                            window.location.href='beranda2.php';
                         </script>";
                         //a
                 }else{
