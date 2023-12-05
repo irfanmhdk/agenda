@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Des 2023 pada 03.26
+-- Waktu pembuatan: 05 Des 2023 pada 08.30
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -103,6 +103,38 @@ CREATE TABLE `tb_agenda` (
 
 INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`) VALUES
 (2, '2023-12-04 07:28:33', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asd', 'asdas', 'Hadir Diakhir', 'Belum Verifikasi');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_agenda_guru`
+--
+
+CREATE TABLE `tb_agenda_guru` (
+  `id_agenda_guru` int(11) NOT NULL,
+  `nip` varchar(18) NOT NULL,
+  `jam_ke` int(11) NOT NULL,
+  `id_mapel` varchar(6) NOT NULL,
+  `id_kelas` varchar(6) NOT NULL,
+  `kehadiran_guru` varchar(20) NOT NULL,
+  `materi` varchar(200) NOT NULL,
+  `catatan_kejadian` text NOT NULL,
+  `dokumentasi` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_agenda_guru`
+--
+
+INSERT INTO `tb_agenda_guru` (`id_agenda_guru`, `nip`, `jam_ke`, `id_mapel`, `id_kelas`, `kehadiran_guru`, `materi`, `catatan_kejadian`, `dokumentasi`) VALUES
+(1, '198111032008011005', 1, 'MP1005', 'D10001', 'Hadir', 'VOC', 'dadad', 'Screenshot (2).png'),
+(2, '', 0, '', '', 'Hadir', 'VOC', 'dadad', 'Screenshot (2).png'),
+(3, '', 0, '', '', 'Hadir', 'VOC', 'zxzxzx', 'Screenshot (2).png'),
+(4, '', 0, '', '', 'Hadir', 'VOC8989898', '9090909', 'Screenshot (2).png'),
+(5, '', 0, '', '', 'Tidak Hadir', 'VOC', 'asasas', 'Screenshot (2).png'),
+(6, '', 0, '', '', 'Hadir', 'qqq', 'qq', 'Screenshot (2).png'),
+(7, '', 0, '', '', 'Hadir', 'ssssss', 'adadadadad', 'Screenshot (2).png'),
+(8, '', 0, '', '', 'Hadir', 'qqq', 'cbcdfbgdgd', 'Screenshot (2).png');
 
 -- --------------------------------------------------------
 
@@ -395,6 +427,12 @@ ALTER TABLE `tb_agenda`
   ADD KEY `id_mapel` (`id_mapel`);
 
 --
+-- Indeks untuk tabel `tb_agenda_guru`
+--
+ALTER TABLE `tb_agenda_guru`
+  ADD PRIMARY KEY (`id_agenda_guru`);
+
+--
 -- Indeks untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
@@ -470,6 +508,12 @@ ALTER TABLE `tb_absen`
 --
 ALTER TABLE `tb_agenda`
   MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_agenda_guru`
+--
+ALTER TABLE `tb_agenda_guru`
+  MODIFY `id_agenda_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
