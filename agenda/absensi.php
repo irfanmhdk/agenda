@@ -1,7 +1,9 @@
 <?php 
 include 'koneksi.php';
 
-$sql = "SELECT * FROM tb_siswa";
+$kelas = $_GET['id'];
+
+$sql = "SELECT * FROM tb_siswa WHERE id_kelas='$kelas'";
 $level = mysqli_query($Conn, $sql);
 
 ?>
@@ -57,9 +59,9 @@ $level = mysqli_query($Conn, $sql);
     <header>
         <div class="sidebar">
             <a href="beranda.php">Home</a>
-            <a class="active" href="#">Isi Agenda</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
+            <a class="active" href="absensi.php?id=<?= $kelas ?>">Absensi</a>
+            <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
     <div class="content">

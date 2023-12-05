@@ -12,15 +12,15 @@
 <?php
     include 'koneksi.php';
     if(isset($_POST['kirim'])){    
-        $mapel = $_POST['mapel'];
+        $mapel = $_POST['map'];
         $materi = $_POST['materi'];
         $tugas = $_POST['tugas'];
-        $nama_guru = $_POST['nama_guru'];
+        $nama_guru = $_POST['nip'];
         $kehadiran_guru = $_POST['kehadiran_guru'];
         $tanggal = $_POST['tanggal'];
-        $jam_pembelajaran = $_POST['jam_pembelajaran'];
+        $jam_pembelajaran = $_POST['jam'];
         $catatan_kejadian = $_POST['catatan_kejadian'];
-        $kelas = $_POST['kelas'];
+        $kelas = $_POST['kel'];
         $verif = $_POST['verif'];
 
         $query1 = "INSERT INTO tb_agenda (tgl,jam_ke,nip,tugas,id_kelas,id_mapel,materi,evaluasi,kehadiran,verifikasi)
@@ -30,7 +30,7 @@
         if($proses){
             echo "<script>
                     alert('Berhasil Mengisi Data');
-                    window.location.href='tampil_agenda.php';
+                    window.location.href='tampil_agenda.php?id=$kelas';
                 </script>"; //a
         }else{
             echo "<script>

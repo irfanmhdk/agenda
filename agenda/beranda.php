@@ -1,3 +1,8 @@
+<?php
+    include 'koneksi.php';
+
+    $kelas = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,10 +77,10 @@
 <body>
     <header>
         <div class="sidebar">
-        <a class="active" href="beranda.php">Home</a>
-        <a href="data_agenda.php">Jadwal</a>
-        <a href="tampil_agenda.php">Data Agenda</a>
-        <a href="#about">About</a>
+        <a class="active" href="beranda.php?id=<?= $kelas ?>">Home</a>
+        <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
+        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
+        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">

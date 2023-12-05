@@ -1,7 +1,14 @@
-<?php include "koneksi.php"; 
+<?php
+    include 'koneksi.php';
+
+$jam = $_GET['jam'];
+$nip = $_GET['nip'];
+$map = $_GET['map'];
+$kel = $_GET['kel'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,9 +62,9 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-        <a href="beranda.php">Home</a>
-        <a class="active" href="#"> Data Agenda</a>
-        <a href="#contact">Contact</a>
+        <a href="beranda.php?id=<?= $kel ?>">Home</a>
+        <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
+        <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
         <a href="#about">About</a>
         </div>
     </header>
@@ -65,18 +72,6 @@ $proses = mysqli_query($Conn, $sql);
     <h1>PENGISIAN AGENDA</h1><hr>
     <form action="simpan_agenda_guru.php" method="POST">
         <table>
-        <tr>
-                <td><label>Mata Pelajaran</label></td>
-                <td colspan="3"><select name="mapel">
-                    <?php
-                        $sql = "SELECT * FROM tb_mapel";
-                        $mapel = mysqli_query($Conn, $sql);
-
-                        foreach($mapel as $pelajaran){
-                        echo "<option value=".$pelajaran['id_mapel'].">".$pelajaran['nama_mapel']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
         <tr>
                 <td>Materi</td>
                 <td><input type="text" name="materi"></td>
@@ -91,26 +86,6 @@ $proses = mysqli_query($Conn, $sql);
                     </select>
                 </td>
             </tr>
-            <td><label> Kelas</label></td>
-                <td colspan="3"><select name="kelas">
-                    <?php //a
-                        $sql = "SELECT * FROM tb_kelas";
-                        $kelasm = mysqli_query($Conn, $sql);
-
-                        foreach($kelasm as $kelas){
-                        echo "<option value=".$kelas['id_kelas'].">".$kelas['nama_kelas']."</option>";
-                    } ?>
-                    </select></td>
-                    <tr>  
-                <td><label>Nama Guru</label></td>
-                <td colspan="3"><select name="nama_guru">
-                    <?php
-                        foreach($proses as $guru){
-                        echo "<option value=".$guru['nip'].">".$guru['nama_guru']."</option>";
-                    } ?>
-                    </select></td>
-            </tr>
-            <tr>
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
                         <option value="Hadir">Hadir</option>
@@ -123,22 +98,18 @@ $proses = mysqli_query($Conn, $sql);
                 <td colspan="3"><input type="date" name="tanggal"></td>
             </tr>
             <tr>
-                <td><label>Jam Pembelajaran</label></td>
-                <td colspan="3"><select name="jam_pembelajaran">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select></td>
-            </tr>
-            <tr>
                 <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea><input type="hidden" name="verif" value="Belum Verifikasi"></td>
+                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea>
+                    <input type="hidden" name="verif" value="Belum Verifikasi"></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="kirim" value="Kirim"></td>
+                <td>
+                    <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="jam" value="<?= $jam; ?>">
+                    <input type="hidden" name="nip" value="<?= $nip; ?>">
+                    <input type="hidden" name="map" value="<?= $map; ?>">
+                    <input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>
     </form>
