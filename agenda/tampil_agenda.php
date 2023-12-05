@@ -41,6 +41,7 @@ th {
         <div class="sidebar">
         <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
         <a href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
+        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a class="active" href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
