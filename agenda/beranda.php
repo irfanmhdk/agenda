@@ -32,11 +32,12 @@
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 12px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  width: 150px;
 }
 .btn1 {
   position: absolute;
@@ -52,6 +53,7 @@
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  width: 150px;
 }
 .container .btn:hover {
   background-color: black;
@@ -70,6 +72,7 @@
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  width: 150px;
 }
 .btn3 {
   position: absolute;
@@ -85,7 +88,17 @@
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  width: 150px;
 }
+  .container .btn1:hover {
+    background-color: black;
+  }
+  .container .btn2:hover {
+    background-color: black;
+  }
+  .container .btn3:hover {
+    background-color: black;
+  }
 
         </style>
 </head>

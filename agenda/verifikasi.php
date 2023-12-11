@@ -93,7 +93,7 @@
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><a href="#" style="text-decoration: none;"><button class="btn"><?= $row["verifikasi"];?></button></a></td>
+                <td><a href="#?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn"><?= $row["verifikasi"];?></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
