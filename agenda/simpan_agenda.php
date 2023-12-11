@@ -14,22 +14,27 @@
  if(isset($_POST['kirim'])){    
      $kehadiran_guru = $_POST['kehadiran_guru'];
      $materi = $_POST['materi'];
+     $tugas = $_POST['tugas'];
      $catatan_kejadian = $_POST['catatan_kejadian'];
      $foto = $_POST['foto'];
+     $nip = $_POST['nip'];
+     $kelas = $_POST['kel'];
+     $jam = $_POST['jam'];
+     $mapel = $_POST['map'];
 
-     $query1 = "INSERT INTO tb_agenda_guru (nip,jam_ke,id_mapel,id_kelas,kehadiran_guru,materi,catatan_kejadian,dokumentasi)
-     VALUE ('$nip','$jam','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','$foto')";
+     $query1 = "INSERT INTO tb_agenda (tgl,tugas,nip,jam_ke,id_mapel,id_kelas,kehadiran,materi,evaluasi,verifikasi)
+     VALUE (CURRENT_TIMESTAMP,'$tugas','$nip','$jam','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','Belum Verifikasi')";
      $proses = mysqli_query($Conn, $query1);
 
      if($proses){
          echo "<script>
                  alert('Berhasil Mengisi Data');
-                 window.location.href='tampil_agenda_guru.php?id=<?= $kelas ?>';
+                 window.location.href='tampil_agenda.php?id=$kelas';
              </script>"; //a
      }else{
          echo "<script>
                  alert('Gagal Mengisi Data');
-                 window.location.href='isi_agenda_guru.php?id=<?= $kelas ?>';
+                 window.location.href='isi_agenda.php?kel=$kelas &nip=$nip &jam=$jam &map=$mapel';
              </script>";
      }
  }

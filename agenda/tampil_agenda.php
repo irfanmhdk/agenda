@@ -19,22 +19,22 @@
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
 <style>
-  table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-th, td {
-  padding: 8px;
-}
+    th, td {
+        padding: 8px;
+    }
 
-tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(even){background-color: #f2f2f2}
 
-th {
-  background-color: #F21818;
-  color: white;
-  text-align: center;
-}
+    th {
+        background-color: #F21818;
+        color: white;
+        text-align: center;
+    }
 </style>
 <body>
     <header>
@@ -77,7 +77,7 @@ th {
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><b><a href="#" style="text-decoration: none;"><?= $row["verifikasi"];?></a></b></td>
+                <td><b><?= $row["verifikasi"];?></b></td>
             </tr>
             <?php endforeach ; 
             ?>

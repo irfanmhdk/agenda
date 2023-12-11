@@ -46,10 +46,11 @@
 </style>
 <body>
     <header>
-    <div class="sidebar">
-        <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
-        <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+        <div class="sidebar">
+            <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
+            <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
+            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
+            <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
         </div>
     </header>
     <div class="content">

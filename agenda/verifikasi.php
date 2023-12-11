@@ -1,9 +1,12 @@
 <?php 
+
     include 'koneksi.php';
+    
+    $nip = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.nip='$nip'";
     $level = mysqli_query($Conn, $sql);
     //a
 ?>
@@ -16,30 +19,30 @@
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
 <style>
-  table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-th, td {
-  padding: 8px;
-}
+    th, td {
+        padding: 8px;
+    }
 
-tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(even){background-color: #f2f2f2}
 
-th {
-  background-color: #F21818;
-  color: white;
-  text-align: center;
-}
+    th {
+        background-color: #F21818;
+        color: white;
+        text-align: center;
+    }
 </style>
 <body>
-<header>
+    <header>
         <div class="sidebar">
-        <a href="beranda.php">Home</a>
-        <a href="data_agenda.php">Jadwal</a>
-        <a class="active" href="tampil_agenda.php">Data Agenda</a>
-        <a href="#about">About</a>
+            <a href="beranda2.php?id=<?= $nip ?>">Home</a>
+            <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
+            <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+            <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
     <div class="content">
@@ -59,6 +62,7 @@ th {
             <th>Tanggal </th>
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
+            <th>Verifikasi</th>
         </tr>
     </thead>
     <tbody>
@@ -73,6 +77,7 @@ th {
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
+                <td><b><a href="#" style="text-decoration: none;"><?= $row["verifikasi"];?></a></b></td>
             </tr>
             <?php endforeach ; 
             ?>

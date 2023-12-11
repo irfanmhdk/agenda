@@ -58,15 +58,14 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-        <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
-        <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
-        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+            <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
+            <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
+            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
     <div class="content">
     <h1>PENGISIAN AGENDA GURU</h1><hr>
-    <form action="simpan_agenda.php" method="POST">
+    <form action="simpan_agenda_guru.php" method="POST">
         <table>
             </tr>
             <tr>
@@ -95,7 +94,7 @@ $proses = mysqli_query($Conn, $sql);
                 <td>  <input type="hidden" name="kel" value="<?= $kel; ?>">
                     <input type="hidden" name="jam" value="<?= $jam; ?>">
                     <input type="hidden" name="nip" value="<?= $kelas; ?>">
-                    <input type="hidden" name="jam" value="<?= $map; ?>">
+                    <input type="hidden" name="map" value="<?= $map; ?>">
                 </td>
                 <td><input type="submit" name="kirim" value="Kirim"></td>
             </tr>
