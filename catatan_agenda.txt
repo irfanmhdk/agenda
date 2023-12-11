@@ -1,0 +1,39 @@
+- tb kelas :
+  1. id kelas
+  2. nama kelas
+  3. username
+  4. password
+
+- tb guru :
+  1. nip
+  2. nama guru
+  3. password
+  4. prev (guru/admin)
+
+- tb jadwal :
+  1. id jadwal
+  2. id kelas
+  3. hari
+  4. jam
+  5. nip
+  6. id mapel
+
+- tb mapel
+  1. id mapel
+  2. nama mapel
+
+Pengisian Agenda :
+- Jadwal
+- Materi
+- Tugas ( Tugas langsung | Tidak ada tugas | Menitipkan tugas )
+- Kehadiran Guru ( Hadir | Tidak Hadir | Hadir Diakhir )
+- Catatan Kejadian
+
+Output :
+- Siswa
+  Perhari / Pertanggal
+- Guru
+  Report perhari / pertanggal
+- Admin
+  Report agenda siswa berdasarkan kondisi tertentu
+  Report agenda guru
