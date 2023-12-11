@@ -1,6 +1,6 @@
 <?php include "koneksi.php"; 
 $jam = $_GET['jam'];
-$kelas = $_GET['nip'];
+$nip = $_GET['nip'];
 $map = $_GET['map'];
 $kel = $_GET['kel'];
 $sql = "SELECT * FROM tb_guru";
@@ -58,9 +58,10 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
+            <a href="beranda2.php?id=<?= $nip ?>">Home</a>
+            <a class="active" href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
+            <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+            <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
     <div class="content">
@@ -93,7 +94,7 @@ $proses = mysqli_query($Conn, $sql);
             <tr>
                 <td>  <input type="hidden" name="kel" value="<?= $kel; ?>">
                     <input type="hidden" name="jam" value="<?= $jam; ?>">
-                    <input type="hidden" name="nip" value="<?= $kelas; ?>">
+                    <input type="hidden" name="nip" value="<?= $nip; ?>">
                     <input type="hidden" name="map" value="<?= $map; ?>">
                 </td>
                 <td><input type="submit" name="kirim" value="Kirim"></td>

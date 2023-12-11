@@ -69,7 +69,7 @@
 <table border="1" cellspacing="0" cellpadding = "10px">
     <thead>
         <tr>
-            <th>Id Agenda</th>
+            <th>ID Agenda</th>
             <th>Mata Pelajaran</th>
             <th>Materi</th>
             <th>Tugas </th>
