@@ -35,6 +35,22 @@
         color: white;
         text-align: center;
     }
+    .btn {
+        background-color: #04AA6D;
+        border: none;
+        color: black;
+        padding: 10px 16px;
+        text-align: center;
+        font-size: 13px;
+        margin: 4px 2px;
+        transition: 0.3s;
+        border-radius: 15px;
+    }
+
+    .btn:hover {
+        background-color: #3e8e41;
+        color: white;
+    }
 </style>
 <body>
     <header>
@@ -77,7 +93,7 @@
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><b><a href="#" style="text-decoration: none;"><?= $row["verifikasi"];?></a></b></td>
+                <td><a href="#" style="text-decoration: none;"><button class="btn"><?= $row["verifikasi"];?></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>

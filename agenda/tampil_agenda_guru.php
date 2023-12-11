@@ -75,7 +75,7 @@
                 <td><?= $row["kehadiran_guru"];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["catatan_kejadian"];?></td>
-                <td><center><img src="image/<?= $row["dokumentasi"];?>" width="100"></center></td>
+                <td><center><img src="image/<?= $row["dokumentasi"];?>" width="100" height="70px"></center></td>
             </tr>
             <?php endforeach ; 
             ?>

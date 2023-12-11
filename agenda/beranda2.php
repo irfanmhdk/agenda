@@ -48,7 +48,7 @@
     background-color: #555;
     color: white;
     font-size: 16px;
-    padding: 12px 24px;
+    padding: 12px 12px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -56,6 +56,9 @@
     width: 250px;
   }
   .container .btn:hover {
+    background-color: black;
+  }
+  .container .btn1:hover {
     background-color: black;
   }
   .btn2 {
