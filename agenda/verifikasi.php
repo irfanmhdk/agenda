@@ -5,7 +5,7 @@
     $nip = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.nip='$nip'";
     $level = mysqli_query($Conn, $sql);
     //a
@@ -93,7 +93,16 @@
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><a href="#?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn"><?= $row["verifikasi"];?></button></a></td>
+                <?php
+                    $status = $row['verifikasi'];
+                    if($status == "Sudah Verifikasi"){ ?>
+                        <td><?= $status;?></td>
+                <?php
+                    }else{ ?> 
+                        <td><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><b>Verifikasi</b></button></a></td>
+                <?php
+                    }
+                ?>
             </tr>
             <?php endforeach ; 
             ?>

@@ -3,7 +3,7 @@
 <?php
     include 'koneksi.php';
 
-    $kelas = $_GET['id'];
+    $nip = $_GET['id'];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -47,10 +47,10 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <a class="active" href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
-            <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
+            <a href="beranda2.php?id=<?= $nip ?>">Home</a>
+            <a class="active" href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
+            <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+            <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
     <div class="content">
@@ -71,7 +71,7 @@
 
                         $sql ="SELECT tb_jadwal.jam, tb_jadwal.hari, tb_kelas.nama_kelas, tb_guru.nama_guru, tb_mapel.nama_mapel, tb_jadwal.nip, tb_mapel.id_mapel, tb_jadwal.id_kelas, tb_jadwal.id_mapel
                         FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas = tb_kelas.id_kelas INNER JOIN 
-                        tb_guru ON tb_jadwal.nip = tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.nip='$kelas'";
+                        tb_guru ON tb_jadwal.nip = tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.nip='$nip'";
                         $proses = mysqli_query($Conn, $sql);
 
 
@@ -81,7 +81,7 @@
                         <td><?= $jadwal['jam'] ?></td>
                         <td><?= $jadwal['nama_mapel'] ?></td>
                         <td><?= $jadwal['nama_kelas'] ?></td>
-                        <td><a href="isi_agenda_guru.php?nip=<?= $kelas ?>&jam=<?= $jadwal['jam'] ?>&kel=<?= $jadwal['id_kelas'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
+                        <td><a href="isi_agenda_guru.php?nip=<?= $nip ?>&jam=<?= $jadwal['jam'] ?>&kel=<?= $jadwal['id_kelas'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
                         </tr>
                 <?php
              }  ?>
