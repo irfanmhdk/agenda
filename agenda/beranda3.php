@@ -84,7 +84,7 @@
     <header>
         <div class="sidebar">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Agenda Guru</a>
+            <a href="tampil_agenda_guruA.php?id=<?= $kelas ?>">Agenda Guru</a>
             <a href="tampil_agenda.php?id=<?= $kelas ?>">Agenda Siswa</a>
            
         </div>
