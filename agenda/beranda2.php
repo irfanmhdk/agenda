@@ -93,6 +93,7 @@
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
          <a href="data_agenda_guru.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda Guru</button></a>
+         <a href="index.php?id=<?= $kelas ?>"> <button class="btn2">log out</button></a>
         </div>
     </header>
 </body>
