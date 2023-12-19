@@ -2,7 +2,6 @@
 
     include 'koneksi.php';
     
-    $kelas = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -39,9 +38,9 @@
 <body>
     <header>
     <div class="sidebar">
-            <a href="beranda3.php?id=<?= $kelas ?>">Home</a>
-            <a href="tampil_agenda_guruA.php?id=<?= $kelas ?>">Agenda Guru</a>
-            <a class="active" href="tampil_agendaA.php?id=<?= $kelas ?>">Agenda Siswa</a> 
+            <a href="beranda3.php">Home</a>
+            <a href="tampil_agenda_guruA.php">Agenda Guru</a>
+            <a class="active" href="tampil_agendaA.php">Agenda Siswa</a> 
         </div>
     </header>
     <div class="content">

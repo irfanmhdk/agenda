@@ -2,8 +2,6 @@
 <html lang="en">
 <?php
     include 'koneksi.php';
-
-    $kelas = $_GET['id'];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -83,14 +81,14 @@
 <body>
     <header>
         <div class="sidebar">
-            <a class="active" href="beranda3.php?id=<?= $kelas ?>">Home</a>
-            <a href="tampil_agenda_guruA.php?id=<?= $kelas ?>">Agenda Guru</a>
-            <a href="tampil_agendaA.php?id=<?= $kelas ?>">Agenda Siswa</a> 
+            <a class="active" href="beranda3.php">Home</a>
+            <a href="tampil_agenda_guruA.php">Agenda Guru</a>
+            <a href="tampil_agendaA.php">Agenda Siswa</a> 
         </div>
         </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
-         <a href="index.php?id=<?= $kelas ?>"> <button class="btn2">log out</button></a>
+         <a href="index.php"> <button class="btn2">log out</button></a>
         </div>
     </header>
 </body>
