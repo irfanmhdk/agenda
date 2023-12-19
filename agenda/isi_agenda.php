@@ -62,10 +62,10 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
-        <a href="beranda.php?id=<?= $kel ?>">Home</a>
-        <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-        <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-        <a href="#about">About</a>
+            <a href="beranda.php?id=<?= $kel ?>">Home</a>
+            <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
+            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
+            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
         </div>
     </header>
     <div class="content">
