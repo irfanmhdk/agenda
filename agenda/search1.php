@@ -1,13 +1,14 @@
 <?php 
-
     include 'koneksi.php';
     
+    if(isset($_POST['submit'])){
+    $search = $_POST['search'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_kelas.nama_kelas LIKE '%".$search."%';";
     $level = mysqli_query($Conn, $sql);
-    //a
+    }
 ?>
 <!DOCTYPE html>
 <html>
