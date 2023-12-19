@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Des 2023 pada 08.30
+-- Waktu pembuatan: 19 Des 2023 pada 02.45
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -102,7 +102,10 @@ CREATE TABLE `tb_agenda` (
 --
 
 INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`) VALUES
-(2, '2023-12-04 07:28:33', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asd', 'asdas', 'Hadir Diakhir', 'Belum Verifikasi');
+(2, '2023-12-18 04:00:52', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asd', 'asdas', 'Hadir Diakhir', 'Sudah Verifikasi'),
+(3, '2023-12-18 04:00:46', 3, '198111032008011005', 'D10001', 'MP1001', 'Menitipkan Tugas', 'gfgdfgfg', 'dfdfdf', 'Tidak Hadir', 'Sudah Verifikasi'),
+(4, '2023-12-18 06:50:59', 3, '198111032008011005', 'D10001', 'MP1001', 'Tugas Langsung', 'gfgdfgfg', 'asqadsa', 'Hadir', 'Sudah Verifikasi'),
+(5, '2023-12-19 00:28:59', 2, '198111032008011006', 'P10001', 'MP1002', 'Tugas Langsung', 'Excel', 'dasadadadasa', 'Hadir', 'Belum Verifikasi');
 
 -- --------------------------------------------------------
 
@@ -112,29 +115,33 @@ INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_ma
 
 CREATE TABLE `tb_agenda_guru` (
   `id_agenda_guru` int(11) NOT NULL,
-  `nip` varchar(18) NOT NULL,
+  `tgl` varchar(18) NOT NULL,
   `jam_ke` int(11) NOT NULL,
-  `id_mapel` varchar(6) NOT NULL,
+  `nip` varchar(18) NOT NULL,
   `id_kelas` varchar(6) NOT NULL,
-  `kehadiran_guru` varchar(20) NOT NULL,
+  `id_mapel` varchar(6) NOT NULL,
   `materi` varchar(200) NOT NULL,
+  `dokumentasi` text NOT NULL,
   `catatan_kejadian` text NOT NULL,
-  `dokumentasi` varchar(200) NOT NULL
+  `kehadiran_guru` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_agenda_guru`
 --
 
-INSERT INTO `tb_agenda_guru` (`id_agenda_guru`, `nip`, `jam_ke`, `id_mapel`, `id_kelas`, `kehadiran_guru`, `materi`, `catatan_kejadian`, `dokumentasi`) VALUES
-(1, '198111032008011005', 1, 'MP1005', 'D10001', 'Hadir', 'VOC', 'dadad', 'Screenshot (2).png'),
-(2, '', 0, '', '', 'Hadir', 'VOC', 'dadad', 'Screenshot (2).png'),
-(3, '', 0, '', '', 'Hadir', 'VOC', 'zxzxzx', 'Screenshot (2).png'),
-(4, '', 0, '', '', 'Hadir', 'VOC8989898', '9090909', 'Screenshot (2).png'),
-(5, '', 0, '', '', 'Tidak Hadir', 'VOC', 'asasas', 'Screenshot (2).png'),
-(6, '', 0, '', '', 'Hadir', 'qqq', 'qq', 'Screenshot (2).png'),
-(7, '', 0, '', '', 'Hadir', 'ssssss', 'adadadadad', 'Screenshot (2).png'),
-(8, '', 0, '', '', 'Hadir', 'qqq', 'cbcdfbgdgd', 'Screenshot (2).png');
+INSERT INTO `tb_agenda_guru` (`id_agenda_guru`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_mapel`, `materi`, `dokumentasi`, `catatan_kejadian`, `kehadiran_guru`) VALUES
+(1, '198111032008011005', 1, 'MP1005', 'D10001', 'Hadir', 'VOC', 'dadad', '', ''),
+(2, '', 0, '', '', 'Hadir', 'VOC', 'dadad', '', ''),
+(3, '', 0, '', '', 'Hadir', 'VOC', 'zxzxzx', '', ''),
+(4, '', 0, '', '', 'Hadir', 'VOC8989898', '9090909', '', ''),
+(5, '', 0, '', '', 'Tidak ', 'VOC', 'asasas', '', ''),
+(6, '', 0, '', '', 'Hadir', 'qqq', 'qq', '', ''),
+(7, '', 0, '', '', 'Hadir', 'ssssss', 'adadadadad', '', ''),
+(8, '', 0, '', '', 'Hadir', 'qqq', 'cbcdfbgdgd', '', ''),
+(9, '2023-12-18 11:10:5', 3, '198111032008011007', 'P10001', 'MP1003', 'gfgdfgfg', 'Screenshot (2).png', 'dqeqeqe', 'Tidak Hadir'),
+(10, '2023-12-18 13:50:5', 1, '198111032008011005', 'P10001', 'MP1001', 'gfgdfgfg', 'Screenshot (2).png', 'adsa', 'Hadir'),
+(11, '2023-12-19 07:29:5', 2, '198111032008011006', 'P10001', 'MP1002', 'Excel', 'smk2.jpg', 'dasadasasdasdas', 'Hadir');
 
 -- --------------------------------------------------------
 
@@ -155,9 +162,10 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `role`) VALUES
-('198111032008011005', 'MP1001', 'Gugum', 'ggm', 1),
+('198111032008011005', 'MP1001', 'Gugum', 'ggm', 2),
 ('198111032008011006', 'MP1002', 'James', 'jms', 2),
-('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2);
+('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2),
+('19811103200801100A', 'MP1001', 'Gugum', 'ggm1', 1);
 
 -- --------------------------------------------------------
 
@@ -507,13 +515,13 @@ ALTER TABLE `tb_absen`
 -- AUTO_INCREMENT untuk tabel `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_agenda_guru`
 --
 ALTER TABLE `tb_agenda_guru`
-  MODIFY `id_agenda_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_agenda_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
