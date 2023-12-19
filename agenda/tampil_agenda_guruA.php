@@ -4,7 +4,7 @@
     $sql = "SELECT  tb_agenda_guru.id_agenda_guru, tb_agenda_guru.tgl, tb_guru.nama_guru, tb_agenda_guru.jam_ke, tb_mapel.nama_mapel, tb_kelas.nama_kelas, tb_agenda_guru.kehadiran_guru,
             tb_agenda_guru.materi, tb_agenda_guru.catatan_kejadian, tb_agenda_guru.dokumentasi FROM tb_agenda_guru INNER JOIN tb_guru ON tb_agenda_guru.nip = tb_guru.nip 
             INNER JOIN tb_mapel ON tb_agenda_guru.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas WHERE tb_agenda_guru.nip='$nip'";
+            INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas";
     $level = mysqli_query($Conn,$sql);
     //a
 ?>
@@ -36,11 +36,10 @@
 </style>
 <body>
 <header>
-        <div class="sidebar">
+    <div class="sidebar">
             <a href="beranda3.php?id=<?= $nip ?>">Home</a>
-            <a href="tampil_agenda_guruA.php?id=<?= $kelas ?>">Agenda Guru</a>
-            <a href="tampil_agenda.php?id=<?= $kelas ?>">Agenda Siswa</a>
-            <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
+            <a class="active" href="tampil_agenda_guruA.php?id=<?= $nip ?>">Agenda Guru</a>
+            <a href="tampil_agendaA.php?id=<?= $nip ?>">Agenda Siswa</a> 
         </div>
     </header>
     <div class="content">
