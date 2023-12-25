@@ -57,9 +57,6 @@
         <h1>JADWAL KELAS</h1><hr>
         <table>
             <tr>
-                <th colspan="4"><b>Hari : Senin | Tanggal : 29-11-2023</b></th>
-            </tr>
-            <tr>
                 <th><center>Jam Pembelajaran</center></th>
                 <th><center>Guru</center></th>
                 <th><center>Mata Pelajaran</center></th>
