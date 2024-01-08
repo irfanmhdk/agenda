@@ -12,7 +12,7 @@
 
 <form action="cek_login.php" method="post">
   <div class="imgcontainer">
-    <img src="image/avatar.PNG" alt="Avatar" class="avatar">
+    <img src="image/logo.JPG" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
