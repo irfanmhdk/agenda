@@ -28,7 +28,7 @@ $level = mysqli_query($Conn, $sql);
         tr:nth-child(even){background-color: #f2f2f2}
 
         th {
-            background-color: #F21818;
+            background-color: #04AA6D;
             color: white;
             text-align: center;
         }

@@ -30,8 +30,7 @@
     tr:nth-child(even){background-color: #f2f2f2}
 
     th {
-        background-color: #F21818;
-        color: white;
+        background-color: #04AA6D;
         text-align: center;
     }
     input[type=text]{
