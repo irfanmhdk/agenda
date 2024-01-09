@@ -31,6 +31,7 @@
 
     th {
         background-color: #04AA6D;
+        color: white;
         text-align: center;
     }
     input[type=text]{
