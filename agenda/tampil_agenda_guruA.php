@@ -124,5 +124,5 @@
 
 </div>
 <div class="footer">
-        <p>&copy; 2024 F - I</p>
+        <p>&copy; 2024 By Fadhil & IM</p>
     </div>
