@@ -92,6 +92,9 @@
             ?>
     </tbody>
 </table>
+<fieldset><legend><h2>Catatan</h2></legend>
+<h3>Silahkan hubungi guru pengajar untuk<br>mem-verifikasi data agenda anda</h2>
+</fieldset>
     </center>
 
 
