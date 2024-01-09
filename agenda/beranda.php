@@ -128,7 +128,7 @@
         </div>
     </header>0
     <div class="footer">
-        <p>&copy; 2024 By Fadhil & IM</p>
+        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
 </body>
 </html>
