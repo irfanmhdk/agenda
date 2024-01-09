@@ -74,6 +74,15 @@
     border-radius: 5px;
     text-align: center;
   }
+  .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    color : white;
+    text-align: center;
+    }
 
 
 </style>
@@ -91,5 +100,8 @@
          <a href="index.php"> <button class="btn2">log out</button></a>
         </div>
     </header>
+    <div class="footer">
+        <p>&copy; 2024 F - I</p>
+    </div>
 </body>
 </html>

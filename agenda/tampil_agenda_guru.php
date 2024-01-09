@@ -33,6 +33,15 @@
     color: white;
     text-align: center;
     }
+    .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    color : white;
+    text-align: center;
+    }
 </style>
 <body>
 <header>
@@ -85,3 +94,6 @@
 
 
 </div>
+<div class="footer">
+        <p>&copy; 2024 F - I</p>
+    </div>

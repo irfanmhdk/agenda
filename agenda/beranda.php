@@ -99,6 +99,15 @@
   .container .btn3:hover {
     background-color: black;
   }
+  .footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    color : white;
+    text-align: center;
+    }
 
         </style>
 </head>
@@ -117,6 +126,9 @@
          <a href="absensi.php?id=<?= $kelas ?>"> <button class="btn2">Isi Absensi</button></a>
          <a href="index.php"> <button class="btn3">log out</button></a>
         </div>
-    </header>
+    </header>0
+    <div class="footer">
+        <p>&copy; 2024 F - I</p>
+    </div>
 </body>
 </html>

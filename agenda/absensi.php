@@ -52,6 +52,15 @@ $level = mysqli_query($Conn, $sql);
   background-color: #04AA6D;
   color: white;
 }
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #555;
+    color : white;
+    text-align: center;
+    }
 
     </style>
 </head>
@@ -97,10 +106,13 @@ $level = mysqli_query($Conn, $sql);
                         </tbody>
                     </table>
                     <br><br>
-                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br>
+                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br><br><br><br>
                 </form>
             </center>
         </center>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 F - I</p>
     </div>
 </body>
 </html>
