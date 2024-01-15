@@ -79,6 +79,7 @@
     height: 240px;
     background: #2AAF7D;
     padding: 10px;
+    box-shadow: 10px 10px 5px lightgrey;
   }
   table{
     width: 100%;
