@@ -75,10 +75,10 @@
               
             </tr>
             <tr>
-                <th>Guru</th>
+                <th>Mengajar Kelas</th>
                 <th>Jam Pembelajaran</th>
                 <th>Mata Pelajaran</th>
-                <th>Mengajar Kelas</th>
+                <th>Guru</th>
                 <th>Isi Agenda</th>
             </tr>
                 <?php
@@ -91,10 +91,10 @@
 
                     foreach($proses as $jadwal){ ?>
                         <tr>
-                        <td><?= $jadwal['nama_guru'] ?></td>
+                        <td><?= $jadwal['nama_kelas'] ?></td>
                         <td><?= $jadwal['jam'] ?></td>
                         <td><?= $jadwal['nama_mapel'] ?></td>
-                        <td><?= $jadwal['nama_kelas'] ?></td>
+                        <td><?= $jadwal['nama_guru'] ?></td>
                         <td><a href="isi_agenda_guru.php?nip=<?= $nip ?>&jam=<?= $jadwal['jam'] ?>&kel=<?= $jadwal['id_kelas'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
                         </tr>
                 <?php

@@ -74,8 +74,23 @@
     border-radius: 5px;
     text-align: center;
   }
-
-
+  .grid{
+    width: 100%;
+    height: 240px;
+    background: #2AAF7D;
+    padding: 10px;
+  }
+  table{
+    width: 100%;
+  }
+  th, td{
+    padding: 15px;
+  }
+  .text{
+    font-size: x-large;
+    color: white;
+    margin-left: 15px;
+  }
 </style>
 </head>
 <body>
@@ -88,11 +103,34 @@
             <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
         </header>
-        <div class="head">
+        <div class="head" style="display: inline-block;">
           <p style="margin-right: 10px;"><b>Admin</b></p>
         </div>
-        <div class="container">
-         <img src="image/smk2.jpg" alt="Snow" style="width:100%">
+        <div class="content">
+          <table>
+            <tr>
+                <td colspan="2">
+                  <div class="grid">
+                    <center><img src="image/2cmi.PNG" style="width: 50px; padding: 5px;">
+                    <h1 style="color: white;">APLIKASI AGENDA GURU DAN SISWA <br> SMKN 2 CIMAHI</h1>
+                    <hr>
+                    <p style="color: white;">Anda log-in sebagai Admin</p></center>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><div class="grid">
+                  <img src="image/agenda_logo.PNG" width="80px">
+                  <p class="text">Data Agenda <br> Guru</p>
+                  <a href="guru_admin.php" style="text-decoration:none;margin-left:15px;color: black;"><b>Lihat data...</b></a>
+                </div></td>
+                <td><div class="grid">
+                  <img src="image/agenda_logo.PNG" width="80px">
+                  <p class="text">Data Agenda <br> Kelas</p>
+                  <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: black;"><b>Lihat data...</b></a>
+                </div></td>
+              </tr>
+          </table>
         </div>
         <div class="footer">
           <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
