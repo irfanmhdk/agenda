@@ -10,6 +10,9 @@
     include 'koneksi.php';
 
     $kelas = $_GET['id'];
+
+    $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
+    $k = mysqli_query($Conn,$sql);
 ?>
 <style>
     table {
@@ -55,7 +58,14 @@
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+        <?php
+            foreach($k as $nama){ ?>
+            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
+          <?php
+            }
+          ?>
+    </div>
     <div class="content">
         <h1>JADWAL KELAS</h1><hr>
         <table>

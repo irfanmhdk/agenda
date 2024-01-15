@@ -6,7 +6,9 @@
             INNER JOIN tb_mapel ON tb_agenda_guru.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas WHERE tb_agenda_guru.nip='$nip'";
     $level = mysqli_query($Conn,$sql);
-    //a
+    
+    $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
+    $k = mysqli_query($Conn,$sql1);
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +47,14 @@
             <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+        <?php
+              foreach($k as $nama){ ?>
+              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
+            <?php
+              }
+          ?>
+    </div>
     <div class="content">
     <center>
 <h1>DATA AGENDA GURU</h1><hr>

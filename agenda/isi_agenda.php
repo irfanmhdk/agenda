@@ -9,6 +9,9 @@ $kel = $_GET['kel'];
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$k = mysqli_query($Conn,$sql1);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,12 +65,22 @@ $proses = mysqli_query($Conn, $sql);
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a href="beranda.php?id=<?= $kel ?>">Home</a>
             <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
             <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
             <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
         </div>
     </header>
+    <div class="head">
+          <?php
+            foreach($k as $nama){ ?>
+            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
+          <?php
+            }
+          ?>
+        </div>
     <div class="content">
     <h1>PENGISIAN AGENDA</h1><hr>
     <form action="simpan_agenda.php" method="POST">

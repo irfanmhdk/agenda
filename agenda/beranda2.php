@@ -4,6 +4,9 @@
     include 'koneksi.php';
 
     $kelas = $_GET['id'];
+
+    $sql1 = "SELECT * FROM tb_guru WHERE nip='$kelas'";
+    $k = mysqli_query($Conn,$sql1);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -88,7 +91,14 @@
             <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
             <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
         </div>
-        <div class="head"></div>
+        <div class="head">
+          <?php
+              foreach($k as $nama){ ?>
+              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
+            <?php
+              }
+          ?>
+        </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>

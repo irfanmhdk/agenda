@@ -38,7 +38,9 @@
             <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+    <p style="margin-right: 10px;"><b>Admin</b></p>
+    </div>
     <div class="content">
         <h1>Silahkan Pilih Guru</h1><hr>
         <form action="tampil_agenda_guruA.php" method="POST">

@@ -73,7 +73,9 @@
             <a class="active" href="tampil_agendaA.php">Agenda Siswa</a> 
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+    <p style="margin-right: 10px;"><b>Admin</b></p>
+    </div>
     <div class="content">
     <center>
 <h1>DATA AGENDA</h1><hr><br>

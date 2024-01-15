@@ -4,6 +4,9 @@
     include 'koneksi.php';
 
     $nip = $_GET['id'];
+
+    $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
+    $k = mysqli_query($Conn,$sql1);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -55,7 +58,14 @@
             <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+        <?php
+              foreach($k as $nama){ ?>
+              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
+            <?php
+              }
+          ?>
+    </div>
     <div class="content">
         <h1>JADWAL GURU</h1><hr>
 

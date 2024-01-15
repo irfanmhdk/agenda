@@ -6,6 +6,9 @@ $kelas = $_GET['id'];
 $sql = "SELECT * FROM tb_siswa WHERE id_kelas='$kelas'";
 $level = mysqli_query($Conn, $sql);
 
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
+$k = mysqli_query($Conn,$sql1);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +68,14 @@ $level = mysqli_query($Conn, $sql);
             <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+        <?php
+            foreach($k as $nama){ ?>
+            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
+          <?php
+            }
+        ?>
+    </div>
     <div class="content">
         <center>
             <h1>ABSENSI</h1><hr>

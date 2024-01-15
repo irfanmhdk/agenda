@@ -88,7 +88,9 @@
             <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
         </header>
-        <div class="head"></div>
+        <div class="head">
+          <p style="margin-right: 10px;"><b>Admin</b></p>
+        </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
         </div>

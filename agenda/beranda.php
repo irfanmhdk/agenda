@@ -2,6 +2,9 @@
     include 'koneksi.php';
 
     $kelas = $_GET['id'];
+
+    $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
+    $k = mysqli_query($Conn,$sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,7 +115,15 @@
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
-        <div class="head"></div>
+    </header>
+        <div class="head">
+          <?php
+            foreach($k as $nama){ ?>
+            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
+          <?php
+            }
+          ?>
+        </div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
@@ -120,7 +131,6 @@
          <a href="absensi.php?id=<?= $kelas ?>"> <button class="btn2">Isi Absensi</button></a>
          <a href="index.php"> <button class="btn3">log out</button></a>
         </div>
-    </header>0
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>

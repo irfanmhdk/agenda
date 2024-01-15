@@ -74,7 +74,9 @@
             <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
     </header>
-    <div class="head"></div>
+    <div class="head">
+    <p style="margin-right: 10px;"><b>Admin</b></p>
+    </div>
     <div class="content">
     <center>
 <h1>DATA AGENDA GURU</h1><hr>
