@@ -2,12 +2,14 @@
 
     include 'koneksi.php';
     
+    if(isset($_POST['submit'])){
+        $kelas = $_POST['kelas'];
 
-    $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
-    $level = mysqli_query($Conn, $sql);
-    //a
+        $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.nama_kelas='$kelas';";
+        $level = mysqli_query($Conn, $sql);
+    }
 ?>
 <!DOCTYPE html>
 <html>

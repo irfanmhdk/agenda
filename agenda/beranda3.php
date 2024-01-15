@@ -94,7 +94,7 @@
             <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
             <a href="tampil_agenda_guruA.php">Agenda Guru</a>
-            <a href="tampil_agendaA.php">Agenda Siswa</a> 
+            <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
         </div>
         <div class="container">
