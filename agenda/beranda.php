@@ -99,26 +99,20 @@
   .container .btn3:hover {
     background-color: black;
   }
-  .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 
         </style>
 </head>
 <body>
     <header>
         <div class="sidebar">
+        <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
         <a class="active" href="beranda.php?id=<?= $kelas ?>">Home</a>
         <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
+        <div class="head"></div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>

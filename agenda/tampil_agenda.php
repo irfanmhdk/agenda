@@ -35,25 +35,19 @@
         color: white;
         text-align: center;
     }
-    .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 </style>
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a href="beranda.php?id=<?= $kelas ?>">Home</a>
             <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
             <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
             <a class="active" href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
+    <div class="head"></div>
     <div class="content">
     <center>
 <h1>DATA AGENDA</h1><hr>

@@ -52,32 +52,24 @@ $level = mysqli_query($Conn, $sql);
   background-color: #04AA6D;
   color: white;
 }
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
-
     </style>
 </head>
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a href="beranda.php?id=<?= $kelas ?>">Home</a>
             <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
             <a class="active" href="absensi.php?id=<?= $kelas ?>">Absensi</a>
             <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
     </header>
+    <div class="head"></div>
     <div class="content">
         <center>
             <h1>ABSENSI</h1><hr>
             <br>
-            <center>
                 <form action="proses_absensi.php" method="post">
                     <table border="1" cellspacing="0" cellpadding="10px">
                         <thead>
@@ -106,13 +98,9 @@ $level = mysqli_query($Conn, $sql);
                         </tbody>
                     </table>
                     <br><br>
-                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br><br><br><br>
+                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br><br>
                 </form>
-            </center>
         </center>
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
 </body>
 </html>

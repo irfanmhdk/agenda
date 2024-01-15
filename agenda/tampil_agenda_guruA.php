@@ -1,11 +1,16 @@
 <?php 
     include 'koneksi.php';
+    
+    if(ISSET($_POST['submit'])){
+
+        $nip = $_POST['nip'];
+    
     $sql = "SELECT  tb_agenda_guru.id_agenda_guru, tb_agenda_guru.tgl, tb_guru.nama_guru, tb_agenda_guru.jam_ke, tb_mapel.nama_mapel, tb_kelas.nama_kelas, tb_agenda_guru.kehadiran_guru,
             tb_agenda_guru.materi, tb_agenda_guru.catatan_kejadian, tb_agenda_guru.dokumentasi FROM tb_agenda_guru INNER JOIN tb_guru ON tb_agenda_guru.nip = tb_guru.nip 
             INNER JOIN tb_mapel ON tb_agenda_guru.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas";
+            INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas WHERE tb_agenda_guru.nip='$nip';";
     $level = mysqli_query($Conn,$sql);
-    //a
+    }  
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,32 +63,21 @@
         background-color: #3e8e41;
         color: white;
     }
-    .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 </style>
 <body>
-<header>
-    <div class="sidebar">
+    <header>
+        <div class="sidebar">
+            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
-            <a class="active" href="tampil_agenda_guruA.php">Agenda Guru</a>
-            <a href="tampil_agendaA.php">Agenda Siswa</a> 
+            <a class="active" href="guru_admin.php">Agenda Guru</a>
+            <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
     </header>
+    <div class="head"></div>
     <div class="content">
     <center>
 <h1>DATA AGENDA GURU</h1><hr>
-<br>
-<form action="search.php" method="POST" align="left">
-    <input type="text" name="search" placeholder="Search...">
-    <button name="submit" class="btn">Cari</button>
-</form>
 <br>
 <center>
 <table border="1" cellspacing="0" cellpadding = "10px">
@@ -124,5 +118,5 @@
 
 </div>
 <div class="footer">
-        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
-    </div>
+          <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
+        </div>

@@ -43,25 +43,19 @@
         background-color: #3e8e41;
         color: white;
     }
-    .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 </style>
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda2.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
             <a class="active" href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
             <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
             <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
+    <div class="head"></div>
     <div class="content">
         <h1>JADWAL GURU</h1><hr>
 

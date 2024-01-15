@@ -74,15 +74,6 @@
     border-radius: 5px;
     text-align: center;
   }
-  .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 
 
 </style>
@@ -93,17 +84,16 @@
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
-            <a href="tampil_agenda_guruA.php">Agenda Guru</a>
+            <a href="guru_admin.php">Agenda Guru</a>
             <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
-        </div>
+        </header>
+        <div class="head"></div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
-         <a href="index.php"> <button class="btn2">log out</button></a>
         </div>
-    </header>
-    <div class="footer">
-        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
-    </div>
+        <div class="footer">
+          <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
+        </div>
 </body>
 </html>

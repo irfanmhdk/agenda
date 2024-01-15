@@ -76,33 +76,23 @@
     border-radius: 5px;
     text-align: center;
   }
-  .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-  }
-
-
 </style>
 </head>
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda2.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
             <a href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
             <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
             <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
         </div>
-        </div>
+        <div class="head"></div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
          <a href="data_agenda_guru.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda Guru</button></a>
-         <a href="index.php?id=<?= $kelas ?>"> <button class="btn2">log out</button></a>
         </div>
     </header>
     <div class="footer">

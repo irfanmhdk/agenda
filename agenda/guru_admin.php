@@ -34,23 +34,23 @@
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
-            <a href="guru_admin.php">Agenda Guru</a>
-            <a class="active" href="tampil_agendaA.php">Agenda Siswa</a> 
+            <a class="active" href="guru_admin.php">Agenda Guru</a>
+            <a href="kelas_admin.php">Agenda Siswa</a> 
         </div>
     </header>
     <div class="head"></div>
     <div class="content">
-        <h1>Silahkan Pilih Kelas</h1><hr>
-        <form action="tampil_agendaA.php" method="POST">
-            <select name="kelas">
+        <h1>Silahkan Pilih Guru</h1><hr>
+        <form action="tampil_agenda_guruA.php" method="POST">
+            <select name="nip">
                 <?php
                     include 'koneksi.php';
         
-                    $sql = "SELECT * FROM tb_kelas";
+                    $sql = "SELECT * FROM tb_guru";
                     $level = mysqli_query($Conn, $sql);
 
-                    foreach ($level as $kelas){ ?>
-                <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] ?></option>
+                    foreach ($level as $guru){ ?>
+                <option value="<?= $guru['nip'] ?>"><?= $guru['nama_guru'] ?></option>
                 <?php
                     }
                 ?>
@@ -60,6 +60,6 @@
     </div>
     <div class="footer">
           <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
-    </div>
+        </div>
 </body>
 </html>
