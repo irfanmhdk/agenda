@@ -4,9 +4,9 @@
     
     $nip = $_GET['id'];
 
-    $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+    $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.nip='$nip'";
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip='$nip'";
     $level = mysqli_query($Conn, $sql);
     
     $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
@@ -53,6 +53,25 @@
         background-color: #3e8e41;
         color: white;
     }
+    input[type=text] {
+        width: 240px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 </style>
 <body>
     <header>
@@ -75,13 +94,18 @@
     </div>
     <div class="content">
     <center>
-<h1>DATA AGENDA</h1><hr>
+<h1>DATA AGENDA</h1><hr> </center>
 <br>
+<form action="search_verifikasi.php" method="POST">
+    <input type="text" name="search" placeholder="Cari Kelas...">
+    <input type="hidden" name="nip" value="<?= $nip ?>">
+    <input type="submit" name="submit" value="Cari">
+</form>
 <center>
 <table border="1" cellspacing="0" cellpadding = "10px">
     <thead>
         <tr>
-            <th>ID Agenda</th>
+            <th>Kelas</th>
             <th>Mata Pelajaran</th>
             <th>Materi</th>
             <th>Tugas </th>
@@ -96,7 +120,7 @@
     <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
-                <td><?= $row["id_agenda"];?></td>
+                <td><?= $row["nama_kelas"];?></td>
                 <td><?= $row["nama_mapel"];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["tugas"];?></td>

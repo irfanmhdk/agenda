@@ -23,12 +23,13 @@
 
     td, th {
         border: 1px solid #d4d4d4;
-        text-align: left;
+        text-align: center;
         padding: 8px;
     }
 
     th {
-        background-color: #dddddd;
+        background-color: #04AA6D;
+        color: white;
     }
     .btn {
         background-color: #ddd;

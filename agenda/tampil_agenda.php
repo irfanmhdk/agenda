@@ -37,6 +37,25 @@
         color: white;
         text-align: center;
     }
+    input[type=text] {
+        width: 240px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 </style>
 <body>
     <header>
@@ -59,13 +78,17 @@
     </div>
     <div class="content">
     <center>
-<h1>DATA AGENDA</h1><hr>
+<h1>DATA AGENDA</h1><hr> </center>
 <br>
+<form action="search1.php" method="POST">
+    <input type="text" name="search" placeholder="Cari Nama Guru...">
+    <input type="hidden" name="kelas" value="<?= $kelas ?>">
+    <input type="submit" name="submit" value="Cari">
+</form><br>
 <center>
 <table border="1" cellspacing="0" cellpadding = "10px">
     <thead>
         <tr>
-            <th>Id Agenda</th>
             <th>Mata Pelajaran</th>
             <th>Materi</th>
             <th>Tugas </th>
@@ -80,7 +103,6 @@
     <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
-                <td><?= $row["id_agenda"];?></td>
                 <td><?= $row["nama_mapel"];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["tugas"];?></td>

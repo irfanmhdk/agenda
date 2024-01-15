@@ -28,7 +28,8 @@
     }
 
     th {
-        background-color: #dddddd;
+        background-color: #04AA6D;
+        color: white;
     }
     .btn {
         background-color: #ddd;

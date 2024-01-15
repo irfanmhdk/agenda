@@ -3,12 +3,16 @@
 
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
+        $nip = $_POST['nip'];
 
         $sql = "SELECT  tb_agenda_guru.id_agenda_guru, tb_agenda_guru.tgl, tb_guru.nama_guru, tb_agenda_guru.jam_ke, tb_mapel.nama_mapel, tb_kelas.nama_kelas, tb_agenda_guru.kehadiran_guru,
         tb_agenda_guru.materi, tb_agenda_guru.catatan_kejadian, tb_agenda_guru.dokumentasi FROM tb_agenda_guru INNER JOIN tb_guru ON tb_agenda_guru.nip = tb_guru.nip 
         INNER JOIN tb_mapel ON tb_agenda_guru.id_mapel = tb_mapel.id_mapel 
-        INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas WHERE tb_guru.nama_guru LIKE '%".$search."%';";
+        INNER JOIN tb_kelas ON tb_agenda_guru.id_kelas = tb_kelas.id_kelas WHERE tb_kelas.nama_kelas LIKE '%".$search."%' AND tb_agenda_guru.nip = '$nip';";
         $level = mysqli_query($Conn,$sql);
+
+        $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
+        $k = mysqli_query($Conn,$sql1);
     }
 ?>
 <!DOCTYPE html>
@@ -32,20 +36,28 @@
     tr:nth-child(even){background-color: #f2f2f2}
 
     th {
-    background-color: #F21818;
+    background-color: #04AA6D;
     color: white;
     text-align: center;
     }
-    input[type=text]{
-        width: 200px;
+    input[type=text] {
+        width: 240px;
+        padding: 12px 20px;
+        margin: 8px 0;
         display: inline-block;
         border: 1px solid #ccc;
+        border-radius: 4px;
         box-sizing: border-box;
     }
-    input[type=submit]{
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
+    input[type=submit] {
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
     }
     .btn {
         background-color: #04AA6D;
@@ -62,24 +74,26 @@
         background-color: #3e8e41;
         color: white;
     }
-    .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #555;
-    color : white;
-    text-align: center;
-    }
 </style>
 <body>
-<header>
-    <div class="sidebar">
-            <a href="beranda3.php">Home</a>
-            <a class="active" href="tampil_agenda_guruA.php">Agenda Guru</a>
-            <a href="tampil_agendaA.php">Agenda Siswa</a> 
+    <header>
+        <div class="sidebar">
+            <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
+            <a href="beranda2.php?id=<?= $nip ?>">Home</a>
+            <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
+            <a class="active" href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+            <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
+    <div class="head">
+        <?php
+              foreach($k as $nama){ ?>
+              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
+            <?php
+              }
+          ?>
+    </div>
     <div class="content">
     <center>
 <h1>DATA AGENDA GURU</h1><hr>
@@ -92,8 +106,7 @@
 <center>
 <table border="1" cellspacing="0" cellpadding = "10px">
     <thead>
-        <tr>
-            <th>ID Agenda Guru</th>
+    <tr>
             <th>Tanggal</th>
             <th>Nama Guru</th>
             <th>Jam</th>
@@ -108,7 +121,6 @@
     <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
-                <td><?= $row["id_agenda_guru"];?></td>
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["nama_guru"];?></td>
                 <td><?= $row["jam_ke"];?></td>
