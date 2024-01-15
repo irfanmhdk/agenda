@@ -90,6 +90,8 @@
 <body>
     <header>
         <div class="sidebar">
+            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
             <a href="tampil_agenda_guruA.php">Agenda Guru</a>
             <a href="tampil_agendaA.php">Agenda Siswa</a> 

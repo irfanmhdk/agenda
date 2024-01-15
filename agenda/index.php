@@ -45,8 +45,7 @@
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
   </div>
 </form>
 </body>
