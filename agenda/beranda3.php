@@ -2,6 +2,12 @@
 <html lang="en">
 <?php
     include 'koneksi.php';
+
+    $get1 = mysqli_query($Conn, "SELECT * FROM tb_agenda_guru");
+    $count1 = mysqli_num_rows($get1);
+
+    $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
+    $count2 = mysqli_num_rows($get2);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -77,7 +83,7 @@
   .grid{
     width: 100%;
     height: 240px;
-    background: #2AAF7D;
+    background: #76D8B3;
     padding: 10px;
     box-shadow: 10px 10px 5px lightgrey;
   }
@@ -89,7 +95,7 @@
   }
   .text{
     font-size: x-large;
-    color: white;
+    color: black;
     margin-left: 15px;
   }
 </style>
@@ -111,7 +117,7 @@
           <table>
             <tr>
                 <td colspan="2">
-                  <div class="grid">
+                  <div class="grid" style="background-color: #2AAF7D">
                     <center><img src="image/2cmi.PNG" style="width: 50px; padding: 5px;">
                     <h1 style="color: white;">APLIKASI AGENDA GURU DAN SISWA <br> SMKN 2 CIMAHI</h1>
                     <hr>
@@ -122,13 +128,25 @@
               <tr>
                 <td><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text">Data Agenda <br> Guru</p>
-                  <a href="guru_admin.php" style="text-decoration:none;margin-left:15px;color: black;"><b>Lihat data...</b></a>
+                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> Guru</b></p>
+                  <a href="guru_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div></td>
                 <td><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text">Data Agenda <br> Kelas</p>
-                  <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: black;"><b>Lihat data...</b></a>
+                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> Kelas</b></p>
+                  <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
+                </div></td>
+              </tr>
+              <tr>
+                <td><div class="grid">
+                  <img src="image/agenda_logo.PNG" width="80px">
+                  <p class="text" style="margin-top: 10px;"><b>Jumlah Data Agenda<br> Guru</b></p>
+                  <p style="margin-left:15px;color: white;font-size: xx-large; margin-top: 10px;"><b><?= $count1 ?> Data</b></p>
+                </div></td>
+                <td><div class="grid">
+                  <img src="image/agenda_logo.PNG" width="80px">
+                  <p class="text" style="margin-top: 10px;"><b>Jumlah Data Agenda <br> Kelas</b></p>
+                  <p style="margin-left:15px;color: white;font-size: xx-large; margin-top: 10px;"><b><?= $count2 ?> Data</b></p>
                 </div></td>
               </tr>
           </table>

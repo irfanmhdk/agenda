@@ -70,7 +70,7 @@
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="guru_admin.php">Agenda Guru</a>
-            <a class="active" href="tampil_agendaA.php">Agenda Siswa</a> 
+            <a class="active" href="kelas_admin.php">Agenda Siswa</a> 
         </div>
     </header>
     <div class="head">
