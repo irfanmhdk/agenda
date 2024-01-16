@@ -33,7 +33,7 @@ body {
   div.content {
     margin-left: 200px;
     padding: 16px;
-    height: auto;
+    min-height: 515px;
   }
   
   @media screen and (max-width: 700px) {

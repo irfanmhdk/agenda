@@ -108,9 +108,12 @@ $k = mysqli_query($Conn,$sql1);
                         </tbody>
                     </table>
                     <br><br>
-                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br><br>
+                    <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br>
                 </form>
         </center>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
 </body>
 </html>
