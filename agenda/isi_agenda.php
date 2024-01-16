@@ -21,6 +21,11 @@ $k = mysqli_query($Conn,$sql1);
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
 <style>
+    table{
+        background-color: #f1f1f1;
+        padding: 10px 50px 10px 30px;
+        border-radius: 3%;
+    }
     input[type=text], select {
     width: 240px;
     padding: 12px 20px;
@@ -42,7 +47,7 @@ $k = mysqli_query($Conn,$sql1);
     }
     input[type=date] {
     width: 200px;
-    background-color: #FF0000;
+    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -82,7 +87,7 @@ $k = mysqli_query($Conn,$sql1);
           ?>
         </div>
     <div class="content">
-    <h1>PENGISIAN AGENDA</h1><hr>
+    <h1>PENGISIAN AGENDA</h1><hr><br>
     <form action="simpan_agenda.php" method="POST">
         <table>
         <tr>
@@ -126,6 +131,9 @@ $k = mysqli_query($Conn,$sql1);
             </tr>
         </table>
     </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
 </body>
 </html>
