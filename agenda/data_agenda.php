@@ -53,8 +53,10 @@
         <div class="sidebar">
         <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
         <hr  style="width: 90%;">
+        <center><a href="#"><?= date("d F Y"); ?></a></center>
+        <hr  style="width: 90%;">
         <a href="beranda.php?id=<?= $kelas ?>">Home</a>
-        <a class="active" href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
+        <a class="active" href="data_agenda.php?id=<?= $kelas ?>">Isi Agenda</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>

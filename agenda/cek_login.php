@@ -7,11 +7,11 @@
         $psw = $_POST['psw'];
 
         if($role == 1){
-            $sql = "SELECT * FROM tb_guru WHERE nip='$uname'";
+            $sql = "SELECT * FROM tb_user WHERE username='$uname'";
             $result = mysqli_query($Conn, $sql);
 
             foreach($result as $log){
-                if($uname == $log['nip'] && $psw == $log['password']){
+                if($uname == $log['username'] && $psw == $log['password']){
                     echo "<script>
                             alert('Login Berhasil');
                             window.location.href='beranda3.php?id=$log[nip]';
@@ -60,7 +60,7 @@
             }
         }
     }elseif($role == 4){
-        $sql = "SELECT * FROM tb_kelas WHERE username='$uname'";
+        $sql = "SELECT * FROM tb_user WHERE username='$uname'";
         $result = mysqli_query($Conn, $sql);
 
         foreach($result as $log){
