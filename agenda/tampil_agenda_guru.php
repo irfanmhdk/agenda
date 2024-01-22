@@ -61,8 +61,8 @@
             <a href="beranda2.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
-            <a class="active" href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+          
+           
             <a href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>

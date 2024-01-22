@@ -79,8 +79,8 @@
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
-            <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
+            
+
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
@@ -115,6 +115,9 @@
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
             <th>Verifikasi</th>
+            <th>comment (bagi guru yang tidak hadir wajib diisi dan berikan alasan)</th>
+            <th> Kirim komentar</th>
+            <th> isi </th>
         </tr>
     </thead>
     <tbody>
@@ -139,6 +142,22 @@
                 <?php
                     }
                 ?>
+                  <td> <form action="process_comment.php" method="post">
+                <textarea name="comment" rows="4" cols="50" required></textarea><br></td>
+                <td><input type="submit" value="Kirim Komentar">
+                </form></td>
+                <td>                <?php
+                // Ambil data komentar dari database
+$result = $Conn->query("SELECT * FROM comments ORDER BY created_at DESC");
+
+// Tampilkan komentar
+while ($row = $result->fetch_assoc()) {
+    echo "<p><strong>". $row['comment_text'] . "</p>";
+}
+
+// Tutup koneksi database
+$Conn->close();
+?></td>
             </tr>
             <?php endforeach ; 
             ?>

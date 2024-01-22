@@ -87,8 +87,6 @@
             <a href="beranda2.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <a href="data_agenda_guru.php?id=<?= $kelas ?>">Jadwal</a>
-            <a href="tampil_agenda_guru.php?id=<?= $kelas ?>">Data Agenda</a>
             <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
         </div>
         <div class="head">
@@ -102,7 +100,7 @@
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
-         <a href="data_agenda_guru.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda Guru</button></a>
+        
         </div>
     </header>
     <div class="footer">
