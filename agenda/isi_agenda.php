@@ -91,9 +91,24 @@ $k = mysqli_query($Conn,$sql1);
     <form action="simpan_agenda.php" method="POST">
         <table>
         <tr>
-                <td><label>Jam Pembelajaran</label></td>
+                <td><label>Jam Pembelajaran mulai </label></td>
                     <td><select name="jam_pembelajaran">
                         <option value="07.00-07.45">07.00-07.45</option>
+                        <option value="07.45-08.30">07.45-08.30</option>
+                        <option value="08.30-09.15">08.30-09.15</option>
+                        <option value="09.15-10.00">09.15-10.00</option>
+                        <option value="10.15-10.55">10.15-10.55</option>
+                        <option value="10.55-11.30">10.55-11.30</option>
+                        <option value="11.30-12.10">11.30-12.10</option>
+                        <option value="13.00-13.40">13.00-13.40</option>
+                        <option value="13.40-14.20">13.40-14.20</option>
+                        <option value="14.20-15.00">14.20-15.00</option>
+                        <option value="15.00-15.30">15.00-15.30</option>
+                        <option value="15.30-16.00">15.30-16.00</option>
+                    </select></td>
+                    </tr>
+                    <td><label>Jam Pembelajaran selesai </label></td>
+                    <td><select name="jam_pembelajaran_s">
                         <option value="07.45-08.30">07.45-08.30</option>
                         <option value="08.30-09.15">08.30-09.15</option>
                         <option value="09.15-10.00">09.15-10.00</option>
