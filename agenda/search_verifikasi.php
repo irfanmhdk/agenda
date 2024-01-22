@@ -59,14 +59,15 @@
         cursor: pointer;
     }
     .btn {
-        background-color: #04AA6D;
+        background-color: #d4d4d4;
         border: none;
         color: black;
-        padding: 2px 7px;
+        padding: 5px;
         text-align: center;
         font-size: 13px;
         margin: 4px 2px;
         transition: 0.3s;
+        border-radius: 5px;
     }
 
     .btn:hover {
@@ -80,8 +81,6 @@
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
-            <a href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
@@ -133,10 +132,12 @@
                 <?php
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
-                        <td><?= $status;?></td>
+                        <td><?= $status;?>
+                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
                 <?php
                     }else{ ?> 
-                        <td><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><b>Verifikasi</b></button></a></td>
+                        <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a> 
+                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
                 <?php
                     }
                 ?>

@@ -38,15 +38,15 @@
         text-align: center;
     }
     .btn {
-        background-color: #04AA6D;
+        background-color: #d4d4d4;
         border: none;
         color: black;
-        padding: 10px 16px;
+        padding: 5px;
         text-align: center;
         font-size: 13px;
         margin: 4px 2px;
         transition: 0.3s;
-        border-radius: 15px;
+        border-radius: 5px;
     }
 
     .btn:hover {
@@ -79,8 +79,6 @@
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            
-
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
@@ -115,9 +113,6 @@
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
             <th>Verifikasi</th>
-            <th>comment (bagi guru yang tidak hadir wajib diisi dan berikan alasan)</th>
-            <th> Kirim komentar</th>
-            <th> isi </th>
         </tr>
     </thead>
     <tbody>
@@ -135,29 +130,15 @@
                 <?php
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
-                        <td><?= $status;?></td>
+                        <td><?= $status;?>
+                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
                 <?php
                     }else{ ?> 
-                        <td><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><b>Verifikasi</b></button></a></td>
+                        <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a> 
+                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
                 <?php
                     }
                 ?>
-                  <td> <form action="process_comment.php" method="post">
-                <textarea name="comment" rows="4" cols="50" required></textarea><br></td>
-                <td><input type="submit" value="Kirim Komentar">
-                </form></td>
-                <td>                <?php
-                // Ambil data komentar dari database
-$result = $Conn->query("SELECT * FROM comments ORDER BY created_at DESC");
-
-// Tampilkan komentar
-while ($row = $result->fetch_assoc()) {
-    echo "<p><strong>". $row['comment_text'] . "</p>";
-}
-
-// Tutup koneksi database
-$Conn->close();
-?></td>
             </tr>
             <?php endforeach ; 
             ?>
@@ -165,6 +146,16 @@ $Conn->close();
 </table>
     </center>
 
+<ul>
+    <li>
+        <img src="image/ceklis.PNG" width="30px"> : 
+        Verifikasi 
+    </li>
+    <li>
+        <img src="image/comment.PNG" width="30px"> : 
+        Comment 
+        </li>
+</ul>
 
 </div>
 <div class="footer">
