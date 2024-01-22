@@ -91,6 +91,22 @@ $k = mysqli_query($Conn,$sql1);
     <form action="simpan_agenda.php" method="POST">
         <table>
         <tr>
+                <td><label>Jam Pembelajaran</label></td>
+                    <td><select name="jam_pembelajaran">
+                        <option value="07.00-07.45">07.00-07.45</option>
+                        <option value="07.45-08.30">07.45-08.30</option>
+                        <option value="08.30-09.15">08.30-09.15</option>
+                        <option value="09.15-10.00">09.15-10.00</option>
+                        <option value="10.15-10.55">10.15-10.55</option>
+                        <option value="10.55-11.30">10.55-11.30</option>
+                        <option value="11.30-12.10">11.30-12.10</option>
+                        <option value="13.00-13.40">13.00-13.40</option>
+                        <option value="13.40-14.20">13.40-14.20</option>
+                        <option value="14.20-15.00">14.20-15.00</option>
+                        <option value="15.00-15.30">15.00-15.30</option>
+                        <option value="15.30-16.00">15.30-16.00</option>
+                    </select></td>
+                    </tr>
                 <td>Materi</td>
                 <td><input type="text" name="materi"></td>
                 </td>
@@ -106,14 +122,35 @@ $k = mysqli_query($Conn,$sql1);
             </tr>
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
+                        <option value="Hadir">Hadir Diawal</option>
                         <option value="Hadir">Hadir</option>
-                        <option value="Tidak Hadir">Tidak Hadir</option>
-                        <option value="Hadir Diakhir">Hadir Diakhir</option>
+                        <option value="Tidak Hadir">Hadir Diakhir</option>
+                        <option value="Hadir Diakhir">Tidak Hadir </option>
                     </select></td>
                     </tr>
             <tr>
                 <td><label>Tanggal</label></td>
-                <td colspan="3"><input type="date" name="tanggal"></td>
+                <input type="date" id="tanggal" name="tanggal" readonly>
+                <script>
+    // Fungsi untuk mengisi tanggal saat ini ke dalam elemen formulir
+    function isiTanggalOtomatis() {
+        // Dapatkan elemen formulir tanggal
+        var inputTanggal = document.getElementById('tanggal');
+
+        // Dapatkan tanggal saat ini
+        var tanggalSaatIni = new Date();
+
+        // Format tanggal dalam bentuk YYYY-MM-DD
+        var tanggalFormatted = tanggalSaatIni.toISOString().slice(0, 10);
+
+        // Set nilai elemen formulir tanggal
+        inputTanggal.value = tanggalFormatted;
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    window.onload = isiTanggalOtomatis;
+</script>
+            </td>
             </tr>
             <tr>
                 <td><label>catatan Kejadian</label></td>
@@ -124,7 +161,7 @@ $k = mysqli_query($Conn,$sql1);
                 <td></td>
                 <td>
                     <input type="hidden" name="kel" value="<?= $kel; ?>">
-                    <input type="hidden" name="jam" value="<?= $jam; ?>">
+                   
                     <input type="hidden" name="nip" value="<?= $nip; ?>">
                     <input type="hidden" name="map" value="<?= $map; ?>">
                     <input type="submit" name="kirim" value="Kirim"></td>

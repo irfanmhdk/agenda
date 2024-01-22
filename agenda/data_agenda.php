@@ -73,9 +73,8 @@
         <h1>JADWAL KELAS</h1><hr>
         <table>
             <tr>
-                <th><center>Jam Pembelajaran</center></th>
-                <th><center>Guru</center></th>
-                <th><center>Mata Pelajaran</center></th>
+            <th><center>Mata Pelajaran</center></th>
+                <th><center>Guru</center></th>                
                 <th><center>Agenda</center></th>
             </tr>
                 <?php
@@ -87,9 +86,8 @@
 
                     foreach($proses as $jadwal){ ?>
                         <tr>
-                        <td><center><?= $jadwal['jam'] ?></center></td>
-                        <td><?= $jadwal['nama_guru'] ?></td>
                         <td><?= $jadwal['nama_mapel'] ?></td>
+                        <td><?= $jadwal['nama_guru'] ?></td>                       
                         <td><a href="isi_agenda.php?kel=<?= $kelas ?>&jam=<?= $jadwal['jam'] ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
                         </tr>
                 <?php }  ?>

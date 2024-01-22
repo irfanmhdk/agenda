@@ -59,5 +59,23 @@
                 }
             }
         }
+    }elseif($role == 4){
+        $sql = "SELECT * FROM tb_kelas WHERE username='$uname'";
+        $result = mysqli_query($Conn, $sql);
+
+        foreach($result as $log){
+            if($uname == $log['username'] && $psw == $log['password']){
+                echo "<script>
+                        alert('Login Berhasil');
+                        window.location.href='beranda4.php?id=$log[id_kelas]';
+                    </script>";
+            }else{
+                echo "<script>
+                        alert('Login Gagal');
+                        window.location.href='index.php';
+                </script>";
+            }
+        }
     }
+    
 ?>
