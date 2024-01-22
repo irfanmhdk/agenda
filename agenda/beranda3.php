@@ -3,9 +3,6 @@
 <?php
     include 'koneksi.php';
 
-    $get1 = mysqli_query($Conn, "SELECT * FROM tb_agenda_guru");
-    $count1 = mysqli_num_rows($get1);
-
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
     $count2 = mysqli_num_rows($get2);
 ?>
@@ -106,8 +103,8 @@
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
-            <a href="guru_admin.php">Agenda Guru</a>
-            <a href="kelas_admin.php">Agenda Siswa</a> 
+            <a href="guru_admin.php">Data Agenda</a>
+            <a href="input_jadwal.php">Input Jadwal</a> 
         </div>
         </header>
         <div class="head" style="display: inline-block;">
