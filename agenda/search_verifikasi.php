@@ -6,7 +6,7 @@
     $nip = $_POST['nip'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.comment FROM tb_agenda INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_kelas.nama_kelas LIKE '%".$search."%' AND tb_guru.nip='$nip';";
     $level = mysqli_query($Conn, $sql);
 
@@ -114,7 +114,7 @@
             <th>Tanggal </th>
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
-            <th>Verifikasi</th>
+            <th colspan="2">Opsi</th>
         </tr>
     </thead>
     <tbody>
@@ -132,13 +132,21 @@
                 <?php
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
-                        <td><?= $status;?>
-                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
+                        <td><center><?= $status;?></center></td>
+                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
                 <?php
-                    }else{ ?> 
-                        <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a> 
-                        <a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
+                    }else{
+                        if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){
+                ?>
+                    <td>Isi Comment Terlebih Dahulu!</td>
+                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
                 <?php
+                            
+                        }else{ ?>
+                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
+                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>      
+                <?php           
+                        }
                     }
                 ?>
             </tr>

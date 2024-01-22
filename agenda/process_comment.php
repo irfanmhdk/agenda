@@ -15,7 +15,7 @@ $result = mysqli_query($Conn, $sql );
 if ($result) {
     echo "<script>
             alert('Berhasil comments');
-            window.location.href='comment.php?nip=$nip&id=$id';
+            window.location.href='verifikasi.php?id=$nip';
     </script>"; //a
 } else {
     echo "Error: " . $sql . "<br>";
