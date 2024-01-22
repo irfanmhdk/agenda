@@ -149,6 +149,13 @@
                   <p style="margin-left:15px;color: white;font-size: xx-large; margin-top: 10px;"><b><?= $count2 ?> Data</b></p>
                 </div></td>
               </tr>
+
+              <tr>
+                <td><div class="grid">
+                  <img src="image/agenda_logo.PNG" width="80px">
+                  <p class="text" style="margin-top: 10px;"><b>Input Jadwal<br> kelas</b></p>
+                  <a href="inputjadwal_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
+                </div></td>
           </table>
         </div>
         <div class="footer">
