@@ -5,7 +5,7 @@
     $nip = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip='$nip'";
     $level = mysqli_query($Conn, $sql);
     
@@ -38,15 +38,15 @@
         text-align: center;
     }
     .btn {
-        background-color: #04AA6D;
+        background-color: #d4d4d4;
         border: none;
         color: black;
-        padding: 10px 16px;
+        padding: 5px;
         text-align: center;
         font-size: 13px;
         margin: 4px 2px;
         transition: 0.3s;
-        border-radius: 15px;
+        border-radius: 5px;
     }
 
     .btn:hover {
@@ -79,8 +79,6 @@
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            
-
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
     </header>
@@ -114,10 +112,7 @@
             <th>Tanggal </th>
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
-            <th>Verifikasi</th>
-            <th>comment (bagi guru yang tidak hadir wajib diisi dan berikan alasan)</th>
-            <th> Kirim komentar</th>
-            <th> isi </th>
+            <th colspan="2">Verifikasi</th>
         </tr>
     </thead>
     <tbody>
@@ -135,29 +130,23 @@
                 <?php
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
-                        <td><?= $status;?></td>
+                        <td><center><?= $status;?></center></td>
+                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
                 <?php
-                    }else{ ?> 
-                        <td><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><b>Verifikasi</b></button></a></td>
+                    }else{
+                        if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){
+                ?>
+                    <td>Isi Comment Terlebih Dahulu!</td>
+                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
                 <?php
+                            
+                        }else{ ?>
+                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
+                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>      
+                <?php           
+                        }
                     }
                 ?>
-                  <td> <form action="process_comment.php" method="post">
-                <textarea name="comment" rows="4" cols="50" required></textarea><br></td>
-                <td><input type="submit" value="Kirim Komentar">
-                </form></td>
-                <td>                <?php
-                // Ambil data komentar dari database
-$result = $Conn->query("SELECT * FROM comments ORDER BY created_at DESC");
-
-// Tampilkan komentar
-while ($row = $result->fetch_assoc()) {
-    echo "<p><strong>". $row['comment_text'] . "</p>";
-}
-
-// Tutup koneksi database
-$Conn->close();
-?></td>
             </tr>
             <?php endforeach ; 
             ?>
@@ -165,6 +154,16 @@ $Conn->close();
 </table>
     </center>
 
+<ul>
+    <li>
+        <img src="image/ceklis.PNG" width="30px"> : 
+        Verifikasi 
+    </li>
+    <li>
+        <img src="image/comment.PNG" width="30px"> : 
+        Comment 
+        </li>
+</ul>
 
 </div>
 <div class="footer">
