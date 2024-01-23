@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jan 2024 pada 03.35
+-- Waktu pembuatan: 23 Jan 2024 pada 09.23
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -104,7 +104,8 @@ CREATE TABLE `tb_agenda` (
 --
 
 INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_masuk`, `jam_selesai`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`, `comment`) VALUES
-(10, '2024-01-23 01:57:18', '07.00', '08.30', '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asdw', 'dwasd', 'Hanya Hadir Diakhir', 'Belum Verifikasi', '');
+(10, '2024-01-23 01:57:18', '07.00', '08.30', '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asdw', 'dwasd', 'Hanya Hadir Diakhir', 'Belum Verifikasi', ''),
+(11, '2024-02-23 07:01:26', '10.55', '11.30', '198111032008011005', 'P10001', 'MP1001', 'Tugas Langsung', 'q4e3', 'qefe', 'Hadir', 'Belum Verifikasi', '');
 
 -- --------------------------------------------------------
 
@@ -513,7 +514,7 @@ ALTER TABLE `tb_absen`
 -- AUTO_INCREMENT untuk tabel `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_agenda_guru`
