@@ -67,7 +67,7 @@
         <p style="margin-right: 10px;"><b>Kepala Sekolah</b></p>
     </div>
     <div class="content">
-<h1>DATA AGENDA</h1><hr>
+<h1>Report Guru</h1><hr>
 <br>
 <form action="search1.php" method="POST">
     <input type="text" name="search" placeholder="Cari Nama Guru...">
@@ -98,8 +98,6 @@
                 <td><?= $row["kehadiran"];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
-                <td><a href="?id=<?= $kelas; ?>&a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn"><img src="image/warning.PNG" width="18px"></button></a></td>
-            </tr>
             <?php endforeach ; 
             ?>
 </table>
