@@ -20,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     table {
         border-collapse: collapse;
@@ -27,32 +28,43 @@
     }
 
     th, td {
+        color: black;
+        text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-        text-align: center;
-    }
     .btn {
-        background-color: #d4d4d4;
+        background-color: DodgerBlue;
         border: none;
-        color: black;
-        padding: 5px;
-        text-align: center;
-        font-size: 13px;
-        margin: 4px 2px;
-        transition: 0.3s;
         border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
     }
 
+    /* Darker background on mouse-over */
     .btn:hover {
-        background-color: #3e8e41;
-        color: white;
+        background-color: RoyalBlue;
     }
+
+    .btn1 {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn1:hover {
+        background-color: RoyalBlue;
+    }
+
     input[type=text] {
         width: 240px;
         padding: 12px 20px;
@@ -97,11 +109,10 @@
 <form action="search_verifikasi.php" method="POST">
     <input type="text" name="search" placeholder="Cari Kelas...">
     <input type="hidden" name="nip" value="<?= $nip ?>">
-    <input type="submit" name="submit" value="Cari">
+    <button class="btn1" name="submit"><i class="fa fa-search"></i></button>
 </form>
 <center>
-<table border="1" cellspacing="0" cellpadding = "10px">
-    <thead>
+<table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Kelas</th>
             <th>Tanggal </th>
@@ -114,8 +125,6 @@
             <th>Catatan Kejadian </th> 
             <th colspan="2">Verifikasi</th>
         </tr>
-    </thead>
-    <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
                 <td><?= $row["nama_kelas"];?></td>
@@ -142,7 +151,7 @@
                             
                         }else{ ?>
                      <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
-                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>      
+                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></button></a></center></td>      
                 <?php           
                         }
                     }
@@ -150,7 +159,6 @@
             </tr>
             <?php endforeach ; 
             ?>
-    </tbody>
 </table>
     </center>
 

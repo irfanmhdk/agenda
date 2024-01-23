@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <?php
     include 'koneksi.php';
@@ -22,15 +23,13 @@
     }
 
     td, th {
-        border: 1px solid #d4d4d4;
+        color: black;
         text-align: left;
         padding: 8px;
     }
+    
+    tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-    }
     .btn {
         background-color: #ddd;
         border: none;
@@ -46,6 +45,20 @@
     .btn:hover {
         background-color: #3e8e41;
         color: white;
+    }
+    .btn1 {
+        background-color: #4CAF52;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn1:hover {
+        background-color: #15781B;
     }
 </style>
 <body>
@@ -71,11 +84,11 @@
     </div>
     <div class="content">
         <h1>JADWAL KELAS</h1><hr>
-        <table>
+        <table style="box-shadow: 7px 7px 5px lightgrey;">
             <tr>
-            <th><center>Mata Pelajaran</center></th>
-                <th><center>Guru</center></th>                
-                <th><center>Agenda</center></th>
+                <th>Mata Pelajaran</th>
+                <th>Guru</th>                
+                <th>Agenda</th>
             </tr>
                 <?php
 
@@ -88,10 +101,9 @@
                         <tr>
                         <td><?= $jadwal['nama_mapel'] ?></td>
                         <td><?= $jadwal['nama_guru'] ?></td>                       
-                        <td><a href="isi_agenda.php?kel=<?= $kelas ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>"><center><button class="btn"><b>Isi Agenda</b></button></center></a></td>
-                        </tr>
+                        <td><a href="isi_agenda.php?kel=<?= $kelas ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 14px;"><i class="fa fa-file"> Isi Agenda</i></button></a></td>
                 <?php }  ?>
-            
+                </tr>
         </table>
     </div>
     <div class="footer">

@@ -22,15 +22,12 @@
 
     th, td {
         padding: 8px;
+        color: black;
+        text-align: left;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-        text-align: center;
-    }
     .btn {
         width: auto;
         background-color: #4CAF50;
@@ -102,7 +99,7 @@
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
     </table>
-    <table>
+    <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>NIP</th>
             <th>Nama Guru</th>
@@ -115,8 +112,8 @@
                 <td><?= $d['nip'] ?></td>
                 <td><?= $d['nama_guru'] ?></td>
                 <td><?= $d['nama_mapel'] ?></td>
-                <td><center><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
-                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></center></td>
+                <td><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
     </table>

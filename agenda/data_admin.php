@@ -25,16 +25,15 @@
     }
 
     th, td {
+        color: black;
         padding: 8px;
+    }
+    th{
+        text-align: center;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-        text-align: center;
-    }
     input[type=text] {
         width: 240px;
         padding: 12px 20px;
@@ -78,8 +77,7 @@
     <input type="submit" name="submit" value="Cari">
 </form><br>
 <center>
-<table border="1" cellspacing="0" cellpadding = "10px">
-    <thead>
+<table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Tanggal</th>
             <th>Mata Pelajaran</th>
@@ -91,8 +89,6 @@
             <th>Catatan Kejadian </th> 
             <th>Verifikasi</th>
         </tr>
-    </thead>
-    <tbody>
     <?php foreach ($level as $row) : ?>
         <tr>
                 <td><?= $row["tgl"];?></td>
@@ -107,7 +103,6 @@
             </tr>
             <?php endforeach ; 
             ?>
-    </tbody>
 </table>
     </center>
 

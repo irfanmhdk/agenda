@@ -25,16 +25,12 @@ $k = mysqli_query($Conn,$sql1);
         }
 
         th, td {
+            color: black;
+            text-align: left;
             padding: 8px;
         }
 
         tr:nth-child(even){background-color: #f2f2f2}
-
-        th {
-            background-color: #04AA6D;
-            color: white;
-            text-align: center;
-        }
 
         .btn {
   border: 2px solid black;
@@ -81,8 +77,7 @@ $k = mysqli_query($Conn,$sql1);
             <h1>ABSENSI</h1><hr>
             <br>
                 <form action="proses_absensi.php" method="post">
-                    <table border="1" cellspacing="0" cellpadding="10px">
-                        <thead>
+                    <table style="box-shadow: 7px 7px 5px lightgrey;">
                             <tr>
                                 <th>Nisn</th>
                                 <th>Jenis Kelamin</th>
@@ -92,8 +87,6 @@ $k = mysqli_query($Conn,$sql1);
                                 <th>Izin</th>
                                 <th>Alpha</th>
                             </tr>
-                        </thead>
-                        <tbody>
                             <?php foreach ($level as $row) : ?>
                                 <tr>
                                     <td><?= $row["nis"];?></td>
@@ -105,7 +98,6 @@ $k = mysqli_query($Conn,$sql1);
                                     <td><input type="radio" name="kehadiran[<?= $row["nis"];?>]" value="Alpha"></td>
                                 </tr>
                             <?php endforeach; ?>
-                        </tbody>
                     </table>
                     <br><br>
                     <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br>

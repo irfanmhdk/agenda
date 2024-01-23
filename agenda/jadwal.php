@@ -25,16 +25,13 @@
     }
 
     th, td {
+        color: black;
+        text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
-        color: white;
-        text-align: center;
-    }
     .btn {
         width: auto;
         background-color: #4CAF50;
@@ -110,10 +107,10 @@
                 <?php } ?>
             </select>
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td align="right"><a href="input_jadwal.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+            <td style="text-align:right;"><a href="input_jadwal.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
-    <table>
+    <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Kelas</th>
             <th>Hari</th>
@@ -133,8 +130,8 @@
             <td><?= $data['nama_guru'] ?></td>
             <td><?= $data['nama_mapel'] ?></td>
             <td><?= $data['ruangan'] ?></td>
-            <td><center><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
-                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></center></td> 
+            <td><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td> 
         </tr>
         <?php } ?>
     </table>

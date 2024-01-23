@@ -27,16 +27,28 @@
     }
 
     th, td {
+        color: black;
+        text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
         color: white;
-        text-align: center;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
     }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
     input[type=text] {
         width: 240px;
         padding: 12px 20px;
@@ -86,8 +98,7 @@
     <input type="submit" name="submit" value="Cari">
 </form><br>
 <center>
-<table border="1" cellspacing="0" cellpadding = "10px">
-    <thead>
+<table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Tanggal</th>
             <th>Mata Pelajaran</th>
@@ -99,8 +110,6 @@
             <th>Catatan Kejadian </th> 
             <th colspan="2">Verifikasi</th>
         </tr>
-    </thead>
-    <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
                 <td><?= $row["tgl"];?></td>
@@ -116,7 +125,6 @@
             </tr>
             <?php endforeach ; 
             ?>
-    </tbody>
 </table>
     </center><br>
 <ul>
