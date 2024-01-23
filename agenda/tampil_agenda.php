@@ -5,7 +5,7 @@
     $kelas = $_GET['id'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.verifikasi FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.id_kelas='$kelas'";
     $level = mysqli_query($Conn, $sql);
     
@@ -89,38 +89,47 @@
 <table border="1" cellspacing="0" cellpadding = "10px">
     <thead>
         <tr>
+            <th>Tanggal</th>
             <th>Mata Pelajaran</th>
+            <th>Nama Guru</th>
+            <th>jam Pembelajaran</th>
             <th>Materi</th>
             <th>Tugas </th>
-            <th>Nama Guru</th>
             <th>kehadiran Guru</th>
-            <th>Tanggal </th>
-            <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
-            <th>Verifikasi</th>
+            <th colspan="2">Verifikasi</th>
         </tr>
     </thead>
     <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
+                <td><?= $row["tgl"];?></td>
                 <td><?= $row["nama_mapel"];?></td>
+                <td><?= $row["nama_guru"];?></td>
+                <td><?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["tugas"];?></td>
-                <td><?= $row["nama_guru"];?></td>
                 <td><?= $row["kehadiran"];?></td>
-                <td><?= $row["tgl"];?></td>
-                <td><?= $row["jam_ke"];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
+                <td><a href="lihat_comment.php?id=<?= $kelas; ?>&a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
     </tbody>
 </table>
+    </center><br>
+<ul>
+    <li>
+        <img src="image/comment.PNG" width="30px"> : 
+        Lihat Komentar 
+    </li>
+</ul>
+<center>
 <fieldset><legend><h2>Catatan</h2></legend>
 <h3>Silahkan hubungi guru pengajar untuk<br>mem-verifikasi data agenda anda</h2>
 </fieldset>
-    </center>
+</center>
 
 
 </div>

@@ -4,9 +4,9 @@
     
     $nip = $_GET['id'];
 
-    $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.jam_ke, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip='$nip'";
+    $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
+    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip = '$nip'";
     $level = mysqli_query($Conn, $sql);
     
     $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
@@ -104,12 +104,12 @@
     <thead>
         <tr>
             <th>Kelas</th>
+            <th>Tanggal </th>
             <th>Mata Pelajaran</th>
-            <th>Materi</th>
-            <th>Tugas </th>
             <th>Nama Guru</th>
             <th>kehadiran Guru</th>
-            <th>Tanggal </th>
+            <th>Tugas </th>
+            <th>Materi</th>
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
             <th colspan="2">Verifikasi</th>
@@ -119,13 +119,13 @@
     <?php foreach ($level as $row) : ?>
             <tr>
                 <td><?= $row["nama_kelas"];?></td>
+                <td><?= $row["tgl"];?></td>
                 <td><?= $row["nama_mapel"];?></td>
-                <td><?= $row["materi"];?></td>
-                <td><?= $row["tugas"];?></td>
                 <td><?= $row["nama_guru"];?></td>
                 <td><?= $row["kehadiran"];?></td>
-                <td><?= $row["tgl"];?></td>
-                <td><?= $row["jam_ke"];?></td>
+                <td><?= $row["tugas"];?></td>
+                <td><?= $row["materi"];?></td>
+                <td><?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <?php
                     $status = $row['verifikasi'];
@@ -156,13 +156,16 @@
 
 <ul>
     <li>
+        <h4>Silahkan beri penjelasan di kolom komentar jika keterangan kehadiran "Tidak Hadir" / "Hanya Hadir Diawal" / "Hanya Hadir Diakhhir"</h4>
+    </li>
+    <li>
         <img src="image/ceklis.PNG" width="30px"> : 
         Verifikasi 
     </li>
     <li>
         <img src="image/comment.PNG" width="30px"> : 
         Comment 
-        </li>
+    </li>
 </ul>
 
 </div>

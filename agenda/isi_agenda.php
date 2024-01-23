@@ -1,12 +1,14 @@
 <?php
     include 'koneksi.php';
 
-
+    $kel = $_GET['kel'];
+    $nip = $_GET['nip'];
+    $map = $_GET['map'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -89,34 +91,34 @@ $k = mysqli_query($Conn,$sql1);
         <table>
         <tr>
                 <td><label>Jam Pembelajaran mulai </label></td>
-                    <td><select name="jam_pembelajaran">
-                        <option value="07.00-07.45">07.00-07.45</option>
-                        <option value="07.45-08.30">07.45-08.30</option>
-                        <option value="08.30-09.15">08.30-09.15</option>
-                        <option value="09.15-10.00">09.15-10.00</option>
-                        <option value="10.15-10.55">10.15-10.55</option>
-                        <option value="10.55-11.30">10.55-11.30</option>
-                        <option value="11.30-12.10">11.30-12.10</option>
-                        <option value="13.00-13.40">13.00-13.40</option>
-                        <option value="13.40-14.20">13.40-14.20</option>
-                        <option value="14.20-15.00">14.20-15.00</option>
-                        <option value="15.00-15.30">15.00-15.30</option>
-                        <option value="15.30-16.00">15.30-16.00</option>
+                    <td><select name="jam_masuk">
+                        <option value="07.00">07.00</option>
+                        <option value="07.45">07.45</option>
+                        <option value="08.30">08.30</option>
+                        <option value="09.15">09.15</option>
+                        <option value="10.15">10.15</option>
+                        <option value="10.55">10.55</option>
+                        <option value="11.30">11.30</option>
+                        <option value="13.00">13.00</option>
+                        <option value="13.40">13.40</option>
+                        <option value="14.20">14.20</option>
+                        <option value="15.00">15.00</option>
+                        <option value="15.30">15.30</option>
                     </select></td>
                     </tr>
                     <td><label>Jam Pembelajaran selesai </label></td>
-                    <td><select name="jam_pembelajaran_selesai">
-                        <option value="07.45-08.30">07.45-08.30</option>
-                        <option value="08.30-09.15">08.30-09.15</option>
-                        <option value="09.15-10.00">09.15-10.00</option>
-                        <option value="10.15-10.55">10.15-10.55</option>
-                        <option value="10.55-11.30">10.55-11.30</option>
-                        <option value="11.30-12.10">11.30-12.10</option>
-                        <option value="13.00-13.40">13.00-13.40</option>
-                        <option value="13.40-14.20">13.40-14.20</option>
-                        <option value="14.20-15.00">14.20-15.00</option>
-                        <option value="15.00-15.30">15.00-15.30</option>
-                        <option value="15.30-16.00">15.30-16.00</option>
+                    <td><select name="jam_selesai">
+                        <option value="07.45">07.45</option>
+                        <option value="08.30">08.30</option>
+                        <option value="09.15">09.15</option>
+                        <option value="10.15">10.15</option>
+                        <option value="10.55">10.55</option>
+                        <option value="11.30">11.30</option>
+                        <option value="13.00">13.00</option>
+                        <option value="13.40">13.40</option>
+                        <option value="14.20">14.20</option>
+                        <option value="15.00">15.00</option>
+                        <option value="15.30">15.30</option>
                     </select></td>
                     </tr>
                 <td>Materi</td>
@@ -134,40 +136,15 @@ $k = mysqli_query($Conn,$sql1);
             </tr>
                 <td><label>Kehadiran Guru</label></td>
                 <td><select name="kehadiran_guru">
-                        <option value="Hadir">Hadir Diawal</option>
                         <option value="Hadir">Hadir</option>
-                        <option value="Tidak Hadir">Hadir Diakhir</option>
-                        <option value="Hadir Diakhir">Tidak Hadir </option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                        <option value="Hanya Hadir Diawal">Hanya Hadir Diawal</option>
+                        <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir </option>
                     </select></td>
                     </tr>
             <tr>
-                <td><label>Tanggal</label></td>
-                <input type="date" id="tanggal" name="tanggal" readonly>
-                <script>
-    // Fungsi untuk mengisi tanggal saat ini ke dalam elemen formulir
-    function isiTanggalOtomatis() {
-        // Dapatkan elemen formulir tanggal
-        var inputTanggal = document.getElementById('tanggal');
-
-        // Dapatkan tanggal saat ini
-        var tanggalSaatIni = new Date();
-
-        // Format tanggal dalam bentuk YYYY-MM-DD
-        var tanggalFormatted = tanggalSaatIni.toISOString().slice(0, 10);
-
-        // Set nilai elemen formulir tanggal
-        inputTanggal.value = tanggalFormatted;
-    }
-
-    // Panggil fungsi saat halaman dimuat
-    window.onload = isiTanggalOtomatis;
-</script>
-            </td>
-            </tr>
-            <tr>
                 <td><label>catatan Kejadian</label></td>
                 <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea>
-                    <input type="hidden" name="verif" value="Belum Verifikasi"></td>
             </tr>
             <tr>
                 <td></td>
