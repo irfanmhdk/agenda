@@ -1,15 +1,12 @@
 <?php
     include 'koneksi.php';
 
-$jam = $_GET['jam'];
-$nip = $_GET['nip'];
-$map = $_GET['map'];
-$kel = $_GET['kel'];
+
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -108,7 +105,7 @@ $k = mysqli_query($Conn,$sql1);
                     </select></td>
                     </tr>
                     <td><label>Jam Pembelajaran selesai </label></td>
-                    <td><select name="jam_pembelajaran_s">
+                    <td><select name="jam_pembelajaran_selesai">
                         <option value="07.45-08.30">07.45-08.30</option>
                         <option value="08.30-09.15">08.30-09.15</option>
                         <option value="09.15-10.00">09.15-10.00</option>
