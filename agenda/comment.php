@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comment Guru</title>
     <link rel="stylesheet" href="navbar.css">
 </head>
 <style>
@@ -101,7 +101,7 @@
             </tr>
         </table>
         <hr>
-        <h1>Tambahkan Komentar</h1>
+        <h1>Tambahkan Komentar (Bagi guru tidak yang hadir diwajibkan mengisi Komentar serta berikan alasannya </h1>
         <form action="process_comment.php" method="post">
             <textarea name="comment" rows="4" cols="50" required></textarea><br></td>
             <input type="hidden" name="id" value="<?= $id ?>">

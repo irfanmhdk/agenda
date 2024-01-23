@@ -14,16 +14,16 @@
  if(isset($_POST['kirim'])){    
      $kehadiran_guru = $_POST['kehadiran_guru'];
      $materi = $_POST['materi'];
+     $jam_pel_m = $_POST['jam_pembelajaran'];
+     $jam_pel_s = $_POST['jam_pembelajaran_selesai'];
      $tugas = $_POST['tugas'];
      $catatan_kejadian = $_POST['catatan_kejadian'];
-     $foto = $_POST['foto'];
      $nip = $_POST['nip'];
      $kelas = $_POST['kel'];
-     $jam = $_POST['jam'];
      $mapel = $_POST['map'];
 
-     $query1 = "INSERT INTO tb_agenda (tgl,tugas,nip,jam_ke,id_mapel,id_kelas,kehadiran,materi,evaluasi,verifikasi)
-     VALUE (CURRENT_TIMESTAMP,'$tugas','$nip','$jam','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','Belum Verifikasi')";
+     $query1 = "INSERT INTO tb_agenda (tgl,tugas,nip,jam_ke,id_mapel,id_kelas,kehadiran,materi,evaluasi,verifikasi,jam_pelajaran_mulai,jam_pelajaran_selesai)
+     VALUE (CURRENT_TIMESTAMP,'$tugas','$nip','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','Belum Verifikasi','$jam_pel_m'.'$jam_pel_s')";
      $proses = mysqli_query($Conn, $query1);
 
      if($proses){
@@ -34,7 +34,7 @@
      }else{
          echo "<script>
                  alert('Gagal Mengisi Data');
-                 window.location.href='isi_agenda.php?kel=$kelas &nip=$nip &jam=$jam &map=$mapel';
+                 window.location.href='isi_agenda.php?kel=$kelas &nip=$nip  &map=$mapel';
              </script>";
      }
  }
