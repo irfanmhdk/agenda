@@ -46,7 +46,7 @@
     }
     input[type=submit] {
         width: 100px;
-        background-color: #4CAF50;
+        background-color: RoyalBlue;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -62,15 +62,15 @@
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a class="active" href="data_admin.php">Data Agenda</a>
-            <a href="jadwal.php">Jadwal</a> 
+            <a href="jadwal.php">Jadwal</a>
+            <a href="manage_data_guru.php">Manage Data Guru</a>
         </div>
     </header>
     <div class="head" style="display: inline-block;">
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <center>
-<h1>DATA AGENDA</h1><hr> </center>
+<h1>DATA AGENDA</h1><hr>
 <br>
 <form action="search1.php" method="POST">
     <input type="text" name="search" placeholder="Cari Nama Guru...">

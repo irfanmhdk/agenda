@@ -71,7 +71,8 @@
         <hr  style="width: 90%;">
         <a href="beranda3.php">Home</a>
         <a href="guru_admin.php">Data Agenda</a>
-        <a class="active" href="jadwal.php">Jadwal</a> 
+        <a class="active" href="jadwal.php">Jadwal</a>
+        <a href="manage_data_guru.php">Manage Data Guru</a> 
     </div>
     </header>
     <div class="content">

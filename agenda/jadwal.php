@@ -91,7 +91,8 @@
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
-            <a class="active" href="jadwal.php">Jadwal</a> 
+            <a class="active" href="jadwal.php">Jadwal</a>
+            <a href="manage_data_guru.php">Manage Data Guru</a>
         </div>
     </header>
     <div class="head" style="display: inline-block;">
@@ -116,10 +117,11 @@
         <tr>
             <th>Kelas</th>
             <th>Hari</th>
-            <th>Jam</th>
+            <th>Jam Pembelajaran</th>
             <th>Nama Guru</th>
             <th>Mata Pelajaran</th>
             <th>Ruangan</th>
+            <th>Opsi</th>
         </tr>
         <?php
             foreach($proses as $data){
@@ -130,7 +132,9 @@
             <td><?= $data['jam'] ?></td>
             <td><?= $data['nama_guru'] ?></td>
             <td><?= $data['nama_mapel'] ?></td>
-            <td><?= $data['ruangan'] ?></td>  
+            <td><?= $data['ruangan'] ?></td>
+            <td><center><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></center></td> 
         </tr>
         <?php } ?>
     </table>

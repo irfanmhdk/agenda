@@ -1,25 +1,16 @@
-<?php 
-
+<?php
     include 'koneksi.php';
-    
-    if(isset($_POST['submit'])){
-        $search = $_POST['search'];
 
-        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam, tb_guru.nama_guru, 
-                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
-                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search';";
-        $proses = mysqli_query($Conn, $sql);
-
-        $sql1 = "SELECT * FROM tb_kelas";
-        $proses1 = mysqli_query($Conn, $sql1);
-    }
+    $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
+                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -69,7 +60,7 @@
     .btn1:hover {
         background-color: RoyalBlue;
     }
-    select {
+    input[type=text] {
         width: 240px;
         padding: 12px 20px;
         margin: 8px 0;
@@ -90,53 +81,43 @@
     }
 </style>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <a href="beranda3.php">Home</a>
-            <a href="data_admin.php">Data Agenda</a>
-            <a class="active" href="jadwal.php">Jadwal</a>
-            <a href="manage_data_guru.php">Manage Data Guru</a>
-        </div>
+<header>
+    <div class="sidebar">
+        <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+        <hr  style="width: 90%;">
+        <a href="beranda3.php">Home</a>
+        <a href="data_admin.php">Data Agenda</a>
+        <a href="jadwal.php">Jadwal</a>
+        <a class="active" href="manage_data_guru.php">Manage Data Guru</a>
+    </div>
     </header>
     <div class="head" style="display: inline-block;">
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>Jadwal</h1><hr>
+    <h1>MANAGE DATA GURU</h1><hr>
     <table>
         <tr>
-            <td><form action="s_jadwal.php" method="POST"><select name="search">
-                <?php
-                    foreach($proses1 as $k){ ?>
-                    <option value="<?= $k['id_kelas'] ?>" <?= $k['id_kelas'] == $search ? "selected" : ""?>><?= $k['nama_kelas'] ?></option>
-                <?php } ?>
-            </select>
+            <td><input type="text" name="search" placeholder="Cari Nama Guru...">
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td align="right"><a href="input_jadwal.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
     <table>
         <tr>
-            <th>Kelas</th>
-            <th>Hari</th>
-            <th>Jam</th>
+            <th>NIP</th>
             <th>Nama Guru</th>
             <th>Mata Pelajaran</th>
-            <th>Ruangan</th>
+            <th>Opsi</th>
         </tr>
         <?php
-            foreach($proses as $data){
-        ?>
-        <tr>
-            <td><?= $data['nama_kelas'] ?></td>
-            <td><?= $data['hari'] ?></td>
-            <td><?= $data['jam'] ?></td>
-            <td><?= $data['nama_guru'] ?></td>
-            <td><?= $data['nama_mapel'] ?></td>
-            <td><?= $data['ruangan'] ?></td>  
-        </tr>
+        foreach($result as $d){ ?>
+            <tr>
+                <td><?= $d['nip'] ?></td>
+                <td><?= $d['nama_guru'] ?></td>
+                <td><?= $d['nama_mapel'] ?></td>
+                <td><center><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></center></td>
+            </tr>
         <?php } ?>
     </table>
     </div>

@@ -105,6 +105,7 @@
             <a class="active" href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
             <a href="jadwal.php">Jadwal</a> 
+            <a href="manage_data_guru.php">Manage Data Guru</a>
         </div>
     </header>
         <div class="head" style="display: inline-block;">
