@@ -1,14 +1,18 @@
 <?php 
-
+    $tgl = "";
     include 'koneksi.php';
-    
-    $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
-    $level = mysqli_query($Conn, $sql);
-    
-    $sql1 = "SELECT * FROM tb_kelas WHERE";
-    $k = mysqli_query($Conn,$sql1);
+    if(isset($_POST['submit'])){
+        $tgl = $_POST['tampil'];
+        $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl'";
+        $level = mysqli_query($Conn, $sql);
+    }else{
+        $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
+        $level = mysqli_query($Conn, $sql);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     table {
         border-collapse: collapse;
@@ -34,7 +39,46 @@
 
     tr:nth-child(even){background-color: #f2f2f2}
 
+    .btn1 {
+        background-color: #4CAF52;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn1:hover {
+        background-color: #3e8e41;
+    }
+
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
     input[type=text] {
+        width: 240px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    select {
         width: 240px;
         padding: 12px 20px;
         margin: 8px 0;
@@ -71,11 +115,30 @@
     <div class="content">
 <h1>DATA AGENDA</h1><hr>
 <br>
-<form action="search1.php" method="POST">
-    <input type="text" name="search" placeholder="Cari Nama Guru...">
-    <input type="hidden" name="kelas" value="<?= $kelas ?>">
-    <input type="submit" name="submit" value="Cari">
-</form><br>
+<table>
+    <tr>
+        <td>
+            <form action="data_admin.php" method="POST">
+                <select name="tampil">
+                    <option value="2024-01-01 01:00:0' AND '2024-01-31 23:59:0">Januari</option>
+                    <option value="2024-02-01 01:00:0' AND '2024-02-29 23:59:0">Februari</option>
+                    <option value="2024-03-01 01:00:0' AND '2024-03-31 23:59:0">Maret</option>
+                    <option value="2024-04-01 01:00:0' AND '2024-04-30 23:59:0">April</option>
+                    <option value="2024-05-01 01:00:0' AND '2024-05-31 23:59:0">Mei</option>
+                    <option value="2024-06-01 01:00:0' AND '2024-06-30 23:59:0">Juni</option>
+                    <option value="2024-07-01 01:00:0' AND '2024-07-31 23:59:0">Juli</option>
+                    <option value="2024-08-01 01:00:0' AND '2024-08-31 23:59:0">Agustus</option>
+                    <option value="2024-09-01 01:00:0' AND '2024-09-30 23:59:0">September</option>
+                    <option value="2024-10-01 01:00:0' AND '2024-10-31 23:59:0">Oktober</option>
+                    <option value="2024-11-01 01:00:0' AND '2024-11-30 23:59:0">November</option>
+                    <option value="2024-12-01 01:00:0' AND '2024-12-31 23:59:0">Desember</option>
+                </select>
+                <input type="submit" name="submit" value="Tampil">
+            </form>
+        </td>
+        <td align="right"><a href="cetak_laporan.php?tgl=<?= $tgl ?>" target="_blank"><button class="btn1" style=""><i class="fa fa-print"></i> Cetak Laporan</button></a></td>
+    </tr>
+</table><br>
 <center>
 <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
@@ -100,13 +163,12 @@
                 <td><?= $row["kehadiran"];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
+                <td><a href="comment_admin.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
 </table>
     </center>
-
-
 </div>
 <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>

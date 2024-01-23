@@ -1,7 +1,6 @@
 <?php
     include 'koneksi.php';
     
-    $kelas = $_GET['id'];
     $id = $_GET['a'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_agenda.comment,
@@ -9,8 +8,6 @@
             INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.id_agenda = '$id'";
     $level = mysqli_query($Conn, $sql);
     
-    $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
-    $k = mysqli_query($Conn,$sql1);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,21 +66,16 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kelas ?>">Home</a>
-            <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
-            <a class="active" href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+            <a href="beranda3.php">Home</a>
+            <a class="active" href="data_admin.php">Data Agenda</a>
+            <a href="jadwal.php">Jadwal</a>
+            <a href="manage_data_guru.php">Manage Data Guru</a>
         </div>
     </header>
-    <div class="head">
-        <?php
-              foreach($k as $nama){ ?>
-              <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-            <?php
-              }
-          ?>
+    <div class="head" style="display: inline-block;">
+        <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
         <table>
