@@ -103,10 +103,10 @@
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
-            <a href="guru_admin.php">Data Agenda</a>
-            <a href="input_jadwal.php">Input Jadwal</a> 
+            <a href="data_admin.php">Data Agenda</a>
+            <a href="jadwal.php">Jadwal</a> 
         </div>
-        </header>
+    </header>
         <div class="head" style="display: inline-block;">
           <p style="margin-right: 10px;"><b>Admin</b></p>
         </div>
@@ -134,25 +134,6 @@
                   <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div></td>
               </tr>
-              <tr>
-                <td><div class="grid">
-                  <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Jumlah Data Agenda<br> Guru</b></p>
-                  <p style="margin-left:15px;color: white;font-size: xx-large; margin-top: 10px;"><b><?= $count1 ?> Data</b></p>
-                </div></td>
-                <td><div class="grid">
-                  <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Jumlah Data Agenda <br> Kelas</b></p>
-                  <p style="margin-left:15px;color: white;font-size: xx-large; margin-top: 10px;"><b><?= $count2 ?> Data</b></p>
-                </div></td>
-              </tr>
-
-              <tr>
-                <td><div class="grid">
-                  <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Input Jadwal<br> kelas</b></p>
-                  <a href="inputjadwal_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
-                </div></td>
           </table>
         </div>
         <div class="footer">

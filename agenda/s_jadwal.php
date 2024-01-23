@@ -1,13 +1,18 @@
-<?php
+<?php 
+
     include 'koneksi.php';
+    
+    if(isset($_POST['submit'])){
+        $search = $_POST['search'];
 
-    $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam, tb_guru.nama_guru, 
-            tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
-            tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel";
-    $proses = mysqli_query($Conn, $sql);
+        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam, tb_guru.nama_guru, 
+                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search';";
+        $proses = mysqli_query($Conn, $sql);
 
-    $sql1 = "SELECT * FROM tb_kelas";
-    $proses1 = mysqli_query($Conn, $sql1);
+        $sql1 = "SELECT * FROM tb_kelas";
+        $proses1 = mysqli_query($Conn, $sql1);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,13 +104,12 @@
     </div>
     <div class="content">
     <h1>Jadwal</h1><hr>
-
     <table>
         <tr>
             <td><form action="s_jadwal.php" method="POST"><select name="search">
                 <?php
                     foreach($proses1 as $k){ ?>
-                    <option value="<?= $k['id_kelas'] ?>"><?= $k['nama_kelas'] ?></option>
+                    <option value="<?= $k['id_kelas'] ?>" <?= $k['id_kelas'] == $search ? "selected" : ""?>><?= $k['nama_kelas'] ?></option>
                 <?php } ?>
             </select>
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
