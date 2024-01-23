@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jan 2024 pada 09.28
+-- Waktu pembuatan: 23 Jan 2024 pada 03.35
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -86,14 +86,15 @@ INSERT INTO `tb_absen` (`id_absen`, `nis`, `tanggal`, `kehadiran`, `ket`) VALUES
 CREATE TABLE `tb_agenda` (
   `id_agenda` int(11) NOT NULL,
   `tgl` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `jam_ke` int(11) NOT NULL,
+  `jam_masuk` varchar(50) NOT NULL,
+  `jam_selesai` varchar(50) NOT NULL,
   `nip` varchar(18) NOT NULL,
   `id_kelas` varchar(6) NOT NULL,
   `id_mapel` varchar(6) NOT NULL,
   `tugas` enum('Tugas Langsung','Menitipkan Tugas','Tidak Ada Tugas') NOT NULL,
   `materi` varchar(200) NOT NULL,
   `evaluasi` varchar(200) NOT NULL,
-  `kehadiran` enum('Hadir','Tidak Hadir','Hadir Diakhir') NOT NULL,
+  `kehadiran` enum('Hadir','Tidak Hadir','Hanya Hadir Diakhir','Hanya Hadir Diawal') NOT NULL,
   `verifikasi` varchar(50) NOT NULL,
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -102,15 +103,8 @@ CREATE TABLE `tb_agenda` (
 -- Dumping data untuk tabel `tb_agenda`
 --
 
-INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_ke`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`, `comment`) VALUES
-(2, '2023-12-18 04:00:52', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asd', 'asdas', 'Hadir Diakhir', 'Sudah Verifikasi', ''),
-(3, '2023-12-18 04:00:46', 3, '198111032008011005', 'D10001', 'MP1001', 'Menitipkan Tugas', 'gfgdfgfg', 'dfdfdf', 'Tidak Hadir', 'Sudah Verifikasi', ''),
-(4, '2023-12-18 06:50:59', 3, '198111032008011005', 'D10001', 'MP1001', 'Tugas Langsung', 'gfgdfgfg', 'asqadsa', 'Hadir', 'Sudah Verifikasi', ''),
-(5, '2024-01-22 02:43:44', 2, '198111032008011006', 'P10001', 'MP1002', 'Tugas Langsung', 'Excel', 'dasadadadasa', 'Hadir', 'Sudah Verifikasi', ''),
-(6, '2024-01-22 06:39:46', 1, '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asdw', 'asdwasd', 'Tidak Hadir', 'Sudah Verifikasi', 'Sakit'),
-(7, '2024-01-22 06:40:39', 3, '198111032008011005', 'D10001', 'MP1001', 'Tidak Ada Tugas', 'adws', 'asdw', 'Tidak Hadir', 'Belum Verifikasi', 'Masuk'),
-(8, '2024-01-22 06:47:07', 2, '198111032008011006', 'P10001', 'MP1002', 'Tugas Langsung', 'asdw', 'asdwds', 'Hadir', 'Sudah Verifikasi', ''),
-(9, '2024-01-22 06:41:47', 2, '198111032008011006', 'P10001', 'MP1002', 'Tugas Langsung', 'asdwas', 'adwsd', 'Hadir Diakhir', 'Belum Verifikasi', '');
+INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_masuk`, `jam_selesai`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`, `comment`) VALUES
+(10, '2024-01-23 01:57:18', '07.00', '08.30', '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asdw', 'dwasd', 'Hanya Hadir Diakhir', 'Belum Verifikasi', '');
 
 -- --------------------------------------------------------
 
@@ -193,7 +187,8 @@ CREATE TABLE `tb_jadwal` (
 
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam`, `nip`, `id_mapel`, `ruangan`) VALUES
 (12, 'D10001', 'Senin', '13.40-14.20', '198111032008011007', 'MP1003', 'F2'),
-(13, 'E10002', 'Rabu', '10.55-11.30', '198111032008011006', 'MP1002', 'F1');
+(13, 'E10002', 'Rabu', '10.55-11.30', '198111032008011006', 'MP1002', 'F1'),
+(14, 'P10001', 'Senin', '09.15-10.00', '198111032008011005', 'MP1001', 'LAB RPL 3');
 
 -- --------------------------------------------------------
 
@@ -518,7 +513,7 @@ ALTER TABLE `tb_absen`
 -- AUTO_INCREMENT untuk tabel `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_agenda_guru`
@@ -530,7 +525,7 @@ ALTER TABLE `tb_agenda_guru`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
