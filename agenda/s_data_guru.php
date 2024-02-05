@@ -1,8 +1,13 @@
 <?php
     include 'koneksi.php';
 
-    $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
-                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
+    if(isset($_POST['submit'])){
+
+        $search = $_POST['search'];
+
+        $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
+                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel WHERE tb_guru.nama_guru = '$search'");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +102,7 @@
     <h1>MANAGE DATA GURU</h1><hr>
     <table>
         <tr>
-            <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
+        <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
             <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
@@ -115,7 +120,7 @@
                 <td><?= $d['nip'] ?></td>
                 <td><?= $d['nama_guru'] ?></td>
                 <td><?= $d['nama_mapel'] ?></td>
-                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button></a>
+                <td><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
