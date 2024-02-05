@@ -5,7 +5,7 @@
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
 
-        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam, tb_guru.nama_guru, 
+        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
                 tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
                 tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search';";
         $proses = mysqli_query($Conn, $sql);
@@ -94,6 +94,8 @@
         <div class="sidebar">
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
             <a class="active" href="jadwal.php">Jadwal</a>
@@ -132,7 +134,7 @@
         <tr>
             <td><?= $data['nama_kelas'] ?></td>
             <td><?= $data['hari'] ?></td>
-            <td><?= $data['jam'] ?></td>
+            <td><?= $data['jam_masuk']." - ".$data['jam_selesai'] ?></td>
             <td><?= $data['nama_guru'] ?></td>
             <td><?= $data['nama_mapel'] ?></td>
             <td><?= $data['ruangan'] ?></td>  

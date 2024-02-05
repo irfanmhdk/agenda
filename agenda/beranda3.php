@@ -3,7 +3,7 @@
 <?php
     include 'koneksi.php';
 
-    $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
+    $get2 = mysqli_query($Conn, "SELECT * FROM tb_guru");
     $count2 = mysqli_num_rows($get2);
 ?>
 <head>
@@ -102,6 +102,8 @@
         <div class="sidebar">
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
             <a href="jadwal.php">Jadwal</a> 
@@ -124,16 +126,16 @@
                 </td>
               </tr>
               <tr>
-                <td><div class="grid">
+                <td><a href="data_admin.php" style="text-decoration:none;"><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> Guru</b></p>
-                  <a href="guru_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
-                </div></td>
-                <td><div class="grid">
+                  <p class="text" style="margin-top: 10px;"><b>Data Agenda</b></p><br><br>
+                  <a href="data_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
+                </div></a></td>
+                <td><a href="manage_data_guru.php" style="text-decoration:none;"><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> Kelas</b></p>
-                  <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
-                </div></td>
+                  <p class="text" style="margin-top: 10px;"><b>Data Guru<br> <?= $count2 ?> </b></p>
+                  <a href="manage_data_guru.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
+                </div><a></td>
               </tr>
           </table>
         </div>

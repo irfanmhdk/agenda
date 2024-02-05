@@ -86,6 +86,8 @@
         <div class="sidebar">
             <a href="beranda2.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
             <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
         </div>

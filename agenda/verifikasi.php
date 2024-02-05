@@ -6,7 +6,7 @@
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
     tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip = '$nip'";
+    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.nip = '$nip' AND tb_agenda.tgl LIKE '%".date("Y-m-d")."%'";
     $level = mysqli_query($Conn, $sql);
     
     $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
@@ -90,6 +90,8 @@
         <div class="sidebar">
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
         </div>
@@ -145,7 +147,7 @@
                     }else{
                         if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){
                 ?>
-                    <td>Isi Comment Terlebih Dahulu!</td>
+                    <td>Beri Alasan Terlebih Dahulu!</td>
                     <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
                 <?php
                             
