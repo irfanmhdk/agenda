@@ -29,16 +29,28 @@
     }
 
     th, td {
+        color: black;
+        text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
         color: white;
-        text-align: center;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
     }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
     input[type=text] {
         width: 240px;
         padding: 12px 20px;
@@ -57,21 +69,6 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
-    }
-    .btn {
-        background-color: #04AA6D;
-        border: none;
-        color: black;
-        padding: 2px 7px;
-        text-align: center;
-        font-size: 13px;
-        margin: 4px 2px;
-        transition: 0.3s;
-    }
-
-    .btn:hover {
-        background-color: #3e8e41;
-        color: white;
     }
 </style>
 <body>
@@ -97,47 +94,54 @@
     </div>
     <div class="content">
     <center>
-<h1>DATA AGENDA</h1><hr></center>
+    <h1>DATA AGENDA</h1><hr> </center>
 <br>
 <form action="search1.php" method="POST">
     <input type="text" name="search" placeholder="Cari Nama Guru...">
     <input type="hidden" name="kelas" value="<?= $kelas ?>">
     <input type="submit" name="submit" value="Cari">
-</form>
-<br>
+</form><br>
 <center>
-<table border="1" cellspacing="0" cellpadding = "10px">
-    <thead>
-    <tr>
+<table style="box-shadow: 7px 7px 5px lightgrey;">
+        <tr>
+            <th>Tanggal</th>
             <th>Mata Pelajaran</th>
+            <th>Nama Guru</th>
+            <th>jam Pembelajaran</th>
             <th>Materi</th>
             <th>Tugas </th>
-            <th>Nama Guru</th>
             <th>kehadiran Guru</th>
-            <th>Tanggal </th>
-            <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
-            <th>Verifikasi</th>
+            <th colspan="2">Verifikasi</th>
         </tr>
-    </thead>
-    <tbody>
     <?php foreach ($level as $row) : ?>
             <tr>
+                <td><?= $row["tgl"];?></td>
                 <td><?= $row["nama_mapel"];?></td>
+                <td><?= $row["nama_guru"];?></td>
+                <td><?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
                 <td><?= $row["materi"];?></td>
                 <td><?= $row["tugas"];?></td>
-                <td><?= $row["nama_guru"];?></td>
                 <td><?= $row["kehadiran"];?></td>
-                <td><?= $row["tgl"];?></td>
-                <td><?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
+                <td><a href="lihat_comment.php?id=<?= $kelas; ?>&a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
-    </tbody>
 </table>
-    </center>
+    </center><br>
+<ul>
+    <li>
+        <img src="image/comment.PNG" width="30px"> : 
+        Lihat Komentar 
+    </li>
+</ul>
+<center>
+<fieldset><legend><h2>Catatan</h2></legend>
+<h3>Silahkan hubungi guru pengajar untuk<br>mem-verifikasi data agenda anda</h2>
+</fieldset>
+</center>
 
 
 </div>
