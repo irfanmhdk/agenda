@@ -123,10 +123,11 @@
         <tr>
             <th>Kelas</th>
             <th>Hari</th>
-            <th>Jam</th>
+            <th>Jam Pembelajaran</th>
             <th>Nama Guru</th>
             <th>Mata Pelajaran</th>
             <th>Ruangan</th>
+            <th>Opsi</th>
         </tr>
         <?php
             foreach($proses as $data){
@@ -137,7 +138,9 @@
             <td><?= $data['jam_masuk']." - ".$data['jam_selesai'] ?></td>
             <td><?= $data['nama_guru'] ?></td>
             <td><?= $data['nama_mapel'] ?></td>
-            <td><?= $data['ruangan'] ?></td>  
+            <td><?= $data['ruangan'] ?></td>
+            <td><a href="edit_jadwal.php?id=<?= $data['id_jadwal'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button></a>
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td> 
         </tr>
         <?php } ?>
     </table>

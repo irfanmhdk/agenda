@@ -93,7 +93,7 @@
     </div>
     </header>
     <div class="content">
-    <h1>TAMBAH JADWAL</h1><hr><br>
+    <h1>EDIT JADWAL</h1><hr><br>
         <form action="update_jadwal.php" method="POST">
             <table>
                 <tr>

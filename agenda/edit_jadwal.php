@@ -90,7 +90,7 @@
         </div>
     </header>
     <div class="content">
-    <h1>TAMBAH JADWAL</h1><hr><br>
+    <h1>EDIT JADWAL</h1><hr><br>
     <form action="edit_jadwal2.php?id=<?= $id ?>" method="POST">
         <table>
             <tr>

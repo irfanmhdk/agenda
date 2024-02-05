@@ -71,7 +71,7 @@
         </div>
     </header>
     <div class="content">
-    <h1>TAMBAH DATA GURU</h1><hr><br>
+    <h1>EDIT DATA GURU</h1><hr><br>
     <form action="update_data_guru.php" method="POST">
         <table>
             <tr>
