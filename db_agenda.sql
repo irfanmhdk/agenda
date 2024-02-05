@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jan 2024 pada 09.23
+-- Waktu pembuatan: 05 Feb 2024 pada 09.15
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -105,7 +105,9 @@ CREATE TABLE `tb_agenda` (
 
 INSERT INTO `tb_agenda` (`id_agenda`, `tgl`, `jam_masuk`, `jam_selesai`, `nip`, `id_kelas`, `id_mapel`, `tugas`, `materi`, `evaluasi`, `kehadiran`, `verifikasi`, `comment`) VALUES
 (10, '2024-01-23 01:57:18', '07.00', '08.30', '198111032008011005', 'P10001', 'MP1001', 'Menitipkan Tugas', 'asdw', 'dwasd', 'Hanya Hadir Diakhir', 'Belum Verifikasi', ''),
-(11, '2024-02-23 07:01:26', '10.55', '11.30', '198111032008011005', 'P10001', 'MP1001', 'Tugas Langsung', 'q4e3', 'qefe', 'Hadir', 'Belum Verifikasi', '');
+(11, '2024-02-05 02:49:45', '10.55', '11.30', '198111032008011005', 'P10001', 'MP1001', 'Tugas Langsung', 'q4e3', 'qefe', 'Hadir', 'Sudah Verifikasi', 'aman'),
+(12, '2024-02-05 04:30:41', '07.00', '10.15', '198111032008011005', 'P10001', 'MP1001', 'Tugas Langsung', 'sdwasd', 'aman', 'Hadir', 'Belum Verifikasi', ''),
+(13, '2024-02-05 04:32:24', '10.15', '11.30', '198111032008011006', 'P10001', 'MP1002', 'Menitipkan Tugas', 'dthd', 'ssdge', 'Hanya Hadir Diakhir', 'Belum Verifikasi', '');
 
 -- --------------------------------------------------------
 
@@ -163,8 +165,9 @@ CREATE TABLE `tb_guru` (
 
 INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `role`) VALUES
 ('198111032008011005', 'MP1001', 'Gugum', 'ggm', 2),
-('198111032008011006', 'MP1002', 'James', 'jms', 2),
-('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2);
+('198111032008011006', 'MP1002', 'James Bond', 'jms', 2),
+('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2),
+('198111032008011008', 'MP1001', 'Diana', 'dna', 2);
 
 -- --------------------------------------------------------
 
@@ -176,7 +179,8 @@ CREATE TABLE `tb_jadwal` (
   `id_jadwal` int(11) NOT NULL,
   `id_kelas` varchar(6) NOT NULL,
   `hari` varchar(10) NOT NULL,
-  `jam` varchar(15) NOT NULL,
+  `jam_masuk` varchar(15) NOT NULL,
+  `jam_selesai` varchar(15) NOT NULL,
   `nip` varchar(18) NOT NULL,
   `id_mapel` varchar(6) NOT NULL,
   `ruangan` varchar(50) NOT NULL
@@ -186,10 +190,13 @@ CREATE TABLE `tb_jadwal` (
 -- Dumping data untuk tabel `tb_jadwal`
 --
 
-INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam`, `nip`, `id_mapel`, `ruangan`) VALUES
-(12, 'D10001', 'Senin', '13.40-14.20', '198111032008011007', 'MP1003', 'F2'),
-(13, 'E10002', 'Rabu', '10.55-11.30', '198111032008011006', 'MP1002', 'F1'),
-(14, 'P10001', 'Senin', '09.15-10.00', '198111032008011005', 'MP1001', 'LAB RPL 3');
+INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_selesai`, `nip`, `id_mapel`, `ruangan`) VALUES
+(12, 'D10001', 'Senin', '13.40', '14.20', '198111032008011007', 'MP1003', 'F2'),
+(13, 'E10002', 'Rabu', '10.55', '11.30', '198111032008011006', 'MP1002', 'F1'),
+(14, 'P10001', 'Senin', '09.15', '10.00', '198111032008011005', 'MP1001', 'LAB RPL 3'),
+(15, 'P10001', 'Senin', '07.00', '09.15', '198111032008011006', 'MP1002', 'LAB RPL 3'),
+(16, 'D10001', 'Senin', '07.00', '10.15', '198111032008011006', 'MP1002', 'B5'),
+(17, 'P10001', 'Rabu', '07.00', '08.30', '198111032008011007', 'MP1003', 'F3');
 
 -- --------------------------------------------------------
 
@@ -514,7 +521,7 @@ ALTER TABLE `tb_absen`
 -- AUTO_INCREMENT untuk tabel `tb_agenda`
 --
 ALTER TABLE `tb_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_agenda_guru`
@@ -526,7 +533,7 @@ ALTER TABLE `tb_agenda_guru`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
