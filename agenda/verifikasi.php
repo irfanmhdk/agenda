@@ -150,7 +150,7 @@
                 <?php
                             
                         }else{ ?>
-                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $row["nip"];?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
+                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
                         <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></button></a></center></td>      
                 <?php           
                         }

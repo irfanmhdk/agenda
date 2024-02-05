@@ -1,7 +1,7 @@
 <?php
     include 'koneksi.php';
 
-    $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam, tb_guru.nama_guru, 
+    $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
             tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
             tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel";
     $proses = mysqli_query($Conn, $sql);
@@ -126,11 +126,11 @@
         <tr>
             <td><?= $data['nama_kelas'] ?></td>
             <td><?= $data['hari'] ?></td>
-            <td><?= $data['jam'] ?></td>
+            <td><?= $data['jam_masuk']." - ".$data['jam_selesai'] ?></td>
             <td><?= $data['nama_guru'] ?></td>
             <td><?= $data['nama_mapel'] ?></td>
             <td><?= $data['ruangan'] ?></td>
-            <td><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+            <td><a href="edit_jadwal.php?id=<?= $data['id_jadwal'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button></a>
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td> 
         </tr>
         <?php } ?>
