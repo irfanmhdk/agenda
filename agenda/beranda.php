@@ -28,79 +28,83 @@
 
 .container .btn {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 20%;
+  left: 25%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background: #026C09;
   color: white;
   font-size: 16px;
-  padding: 12px 12px;
+  padding: 14px 12px ;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
-  width: 150px;
+  text-align: left;
+  width: 250px;
+  height: 100px;
 }
 .btn1 {
   position: absolute;
-  top: 60%;
-  left: 50%;
+  top: 20%;
+  left: 45%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background: #026C09;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 14px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
-  width: 150px;
+  text-align: left;
+  width: 250px;
+  height: 100px;
 }
 .container .btn:hover {
-  background-color: black;
+  background-color: #026C09;
 }
 .btn2 {
   position: absolute;
-  top: 70%;
-  left: 50%;
+  top: 40%;
+  left: 25%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background: #026C09;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 14px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
-  width: 150px;
+  text-align: left;
+  width: 250px;
+  height: 100px;
 }
 .btn3 {
   position: absolute;
-  top: 80%;
-  left: 50%;
+  top: 60%;
+  left:  25%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
+  background: #026C09;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 14px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
-  width: 150px;
+  text-align: left;
+  width: 250px;
+  height: 100px;
 }
   .container .btn1:hover {
-    background-color: black;
+    background-color: #026C09;
   }
   .container .btn2:hover {
-    background-color: black;
+    background-color: #026C09;
   }
   .container .btn3:hover {
-    background-color: black;
+    background-color: #026C09;
   }
 
         </style>
