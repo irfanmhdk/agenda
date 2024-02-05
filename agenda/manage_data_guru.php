@@ -120,5 +120,8 @@
         <?php } ?>
     </table>
     </div>
+    <div class="footer">
+        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
+    </div>
 </body>
 </html>

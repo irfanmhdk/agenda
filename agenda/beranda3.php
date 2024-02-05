@@ -131,10 +131,10 @@
                   <p class="text" style="margin-top: 10px;"><b>Data Agenda</b></p><br><br>
                   <a href="data_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div></a></td>
-                <td><a href="kelas_admin.php" style="text-decoration:none;"><div class="grid">
+                <td><a href="manage_data_guru.php" style="text-decoration:none;"><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
                   <p class="text" style="margin-top: 10px;"><b>Data Guru<br> <?= $count2 ?> </b></p>
-                  <a href="kelas_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
+                  <a href="manage_data_guru.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div><a></td>
               </tr>
           </table>
