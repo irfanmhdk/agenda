@@ -80,6 +80,8 @@
         <div class="sidebar">
             <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
             <a href="data_agenda_guru.php?id=<?= $nip ?>">Jadwal</a>
             <a class="active" href="tampil_agenda_guru.php?id=<?= $nip ?>">Data Agenda</a>

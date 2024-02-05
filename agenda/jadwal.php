@@ -86,6 +86,8 @@
         <div class="sidebar">
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
             <a class="active" href="jadwal.php">Jadwal</a>

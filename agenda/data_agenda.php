@@ -9,6 +9,7 @@
 </head>
 <?php
     include 'koneksi.php';
+    include 'hari.php';
 
     $kelas = $_GET['id'];
 
@@ -69,7 +70,7 @@
         <center><a href="#"><?= date("d F Y"); ?></a></center>
         <hr  style="width: 90%;">
         <a href="beranda.php?id=<?= $kelas ?>">Home</a>
-        <a class="active" href="data_agenda.php?id=<?= $kelas ?>">Isi Agenda</a>
+        <a class="active" href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
         </div>
@@ -91,10 +92,10 @@
                 <th>Agenda</th>
             </tr>
                 <?php
-
-                    $sql ="SELECT tb_jadwal.jam, tb_jadwal.hari, tb_kelas.nama_kelas, tb_guru.nama_guru, tb_mapel.nama_mapel, tb_jadwal.nip, tb_mapel.id_mapel
+                    $h = $hari[ date('N') ];
+                    $sql ="SELECT tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_jadwal.hari, tb_kelas.nama_kelas, tb_guru.nama_guru, tb_mapel.nama_mapel, tb_jadwal.nip, tb_mapel.id_mapel
                            FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas = tb_kelas.id_kelas INNER JOIN 
-                           tb_guru ON tb_jadwal.nip = tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.id_kelas='$kelas'";
+                           tb_guru ON tb_jadwal.nip = tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.hari = '$h' AND tb_jadwal.id_kelas='$kelas'";
                     $proses = mysqli_query($Conn, $sql);
 
                     foreach($proses as $jadwal){ ?>

@@ -59,6 +59,8 @@
         <div class="sidebar">
             <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
             <a href="kepsek_home.php">Home</a>
             <a class="active" href="report_guru.php">Data Agenda</a>
         </div>
