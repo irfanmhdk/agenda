@@ -106,7 +106,7 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>Jadwal</h1><hr>
+    <h1>JADWAL</h1><hr>
     <table>
         <tr>
             <td><form action="s_jadwal.php" method="POST"><select name="search">
