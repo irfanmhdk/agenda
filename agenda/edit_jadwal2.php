@@ -1,5 +1,20 @@
 <?php
     include 'koneksi.php';
+
+    $i = $_GET['id'];
+
+    $sql1 = "SELECT tb_jadwal.id_jadwal, tb_jadwal.id_mapel, tb_jadwal.id_kelas, tb_jadwal.nip, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+             tb_mapel.nama_mapel, tb_jadwal.hari, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+             tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.id_jadwal = '$i'";
+    $proses = mysqli_query($Conn, $sql1);
+    
+    while ($data = mysqli_fetch_array($proses)) {
+        $jm = $data['jam_masuk'];
+        $js = $data['jam_selesai'];
+        $r = $data['ruangan'];
+        $n = $data['nip'];
+    }
+
     if(isset($_POST['berikut'])){
         $kelas = $_POST['kelas'];
         $hari = $_POST['hari'];
@@ -77,7 +92,7 @@
     </header>
     <div class="content">
     <h1>TAMBAH JADWAL</h1><hr><br>
-        <form action="p_input_jadwal.php" method="POST">
+        <form action="update_jadwal.php" method="POST">
             <table>
                 <tr>
                     <td colspan="2"><b>Jam Pembelajaran</b></td>
@@ -125,7 +140,7 @@
                     <?php
                         foreach($guru as $g){ ?>
                             <td><select name="guru">
-                                <option value="<?= $g['nip'] ?>"><?= $g['nama_guru'] ?></option>
+                                <option value="<?= $g['nip'] ?>" <?= $g['nip'] == $n ? "selected" : ""?>><?= $g['nama_guru'] ?></option>
                             </select></td>
                     <?php
                         }
@@ -133,7 +148,7 @@
                 </tr>
                 <tr>
                     <td>Ruangan</td>
-                    <td><input type="text" name="ruangan"></td>
+                    <td><input type="text" name="ruangan" value=<?php echo $r; ?>></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -141,7 +156,8 @@
                         <input type="hidden" name="kelas" value="<?= $kelas ?>">
                         <input type="hidden" name="hari" value="<?= $hari ?>">
                         <input type="hidden" name="mapel" value="<?= $mapel ?>">
-                        <input type="submit" name="submit" value="Submit">
+                        <input type="hidden" name="id" value="<?= $i ?>">
+                        <input type="submit" name="update" value="Update">
                     </td>
                 </tr>
             </table>
