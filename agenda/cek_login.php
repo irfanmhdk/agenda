@@ -1,6 +1,6 @@
 <?php
     include 'koneksi.php';
-
+    session_start();
     if(isset($_POST['submit'])){
         $role = $_POST['role'];
         $uname = $_POST['uname'];
@@ -16,12 +16,14 @@
                             alert('Login Berhasil');
                             window.location.href='beranda3.php?id=$log[nip]';
                         </script>";
+                        exit();
                         
                 }else{
                     echo "<script>
                             alert('Login Gagal');
                             window.location.href='index.php';
                     </script>";
+                    exit();
                 }
             }
         }elseif($role == 2){
@@ -34,11 +36,13 @@
                             alert('Login Berhasil');
                             window.location.href='beranda2.php?id=$log[nip]';
                         </script>";
+                        exit();
                 }else{
                     echo "<script>
                             alert('Login Gagal');
                             window.location.href='index.php';
                     </script>"; //a
+                    exit();
                 }
             }
         }elseif($role == 3){
@@ -51,11 +55,13 @@
                             alert('Login Berhasil');
                             window.location.href='beranda.php?id=$log[id_kelas]';
                         </script>";
+                        exit();
                 }else{
                     echo "<script>
                             alert('Login Gagal');
                             window.location.href='index.php';
                     </script>";
+                    exit();
                 }
             }
         }elseif($role == 4){
@@ -68,11 +74,13 @@
                             alert('Login Berhasil');
                             window.location.href='kepsek_home.php';
                         </script>";
+                        exit();
                 }else{
                     echo "<script>
                             alert('Login Gagal');
                             window.location.href='index.php';
                     </script>";
+                    exit();
                 }
             }
     }

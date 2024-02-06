@@ -130,6 +130,7 @@
                     <h1 style="color: white;">APLIKASI AGENDA GURU DAN SISWA <br> SMKN 2 CIMAHI</h1>
                     <hr>
                     <p style="color: white;">Anda log-in sebagai Admin</p></center>
+                    <a style="color: red;"href="logout.php"> log out</button></a>
                   </div>
                 </td>
               </tr>
