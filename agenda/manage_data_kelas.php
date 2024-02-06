@@ -100,7 +100,7 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA MATA KELAS</h1><hr>
+    <h1>MANAGE DATA KELAS</h1><hr>
     <table>
         <tr>
             <td><form action="s_data_kelas.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Kelas...">
