@@ -1,25 +1,5 @@
 <?php
     include 'koneksi.php';
-
-    $id = $_GET['id'];
-
-    $sql = "SELECT tb_jadwal.id_jadwal, tb_jadwal.id_mapel, tb_jadwal.id_kelas, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
-            tb_mapel.nama_mapel, tb_jadwal.hari, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
-            tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.id_jadwal = '$id'";
-    $proses = mysqli_query($Conn, $sql);
-
-    $sql1 = "SELECT * FROM tb_kelas";
-    $level = mysqli_query($Conn, $sql1);
-
-    $sql2 = "SELECT * FROM tb_mapel";
-    $level1 = mysqli_query($Conn, $sql2);
-
-    while ($data = mysqli_fetch_array($proses)) {
-        $ij = $data['id_jadwal'];
-        $im = $data['id_mapel'];
-        $ik = $data['id_kelas'];
-        $hari = $data['hari'];
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +17,7 @@
         padding: 10px 50px 10px 30px;
         border-radius: 3%;
     }
-    input[type=text], select {
+    input[type=text], input[type=password], select {
     width: 240px;
     padding: 12px 20px;
     margin: 8px 0;
@@ -48,16 +28,6 @@
     }
     input[type=submit] {
     width: 100px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    input[type=date] {
-    width: 200px;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -85,8 +55,8 @@
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
-            <a href="guru_admin.php">Data Agenda</a>
-            <a class="active" href="jadwal.php">Jadwal</a>
+            <a href="data_admin.php">Data Agenda</a>
+            <a href="jadwal.php">Jadwal</a>
             <button class="dropdown-btn">Manage Data 
             <i class="fa fa-caret-down"></i>
             </button>
@@ -101,47 +71,20 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>EDIT JADWAL</h1><hr><br>
-    <form action="edit_jadwal2.php?id=<?= $id ?>" method="POST">
+    <h1>TAMBAH DATA MATA PELAJARAN</h1><hr><br>
+    <form action="p_input_data_mapel.php" method="POST">
         <table>
             <tr>
-                <td>Kelas</td>
-                <td>
-                <Select name="kelas">
-                <?php
-                    foreach ($level as $kelas){ ?>
-                        <option value="<?= $kelas['id_kelas'] ?>" <?= $kelas['id_kelas'] == $ik ? "selected" : ""?>><?= $kelas['nama_kelas'] ?></option>
-                    <?php
-                        }
-                    ?>
-                </Select>
-                </td>
-            </tr>
-            <tr>
-                <td>Hari</td>
-                <td><select name="hari">
-                    <?php
-                        $h = array("Senin","Selasa","Rabu","Kamis","Jumat");
-                        for($i = 0; $i < 5; $i++){
-                    ?>
-                        <option value="<?= $h[$i] ?>" <?= $h[$i] == $hari ? "selected" : ""?>><?= $h[$i] ?></option>
-                    <?php } ?>
-                </select></td>
+                <td>ID Mapel</td>
+                <td><input type="text" name="id_mapel" placeholder="Input NIP..."></td>
             </tr>
             <tr>
                 <td>Mata Pelajaran</td>
-                <td><select name="mapel">
-                    <?php
-                        foreach ($level1 as $mapel){ ?>
-                            <option value="<?= $mapel['id_mapel'] ?>" <?= $mapel['id_mapel'] == $im ? "selected" : ""?>><?= $mapel['nama_mapel'] ?></option>
-                        <?php
-                            }
-                    ?>
-                </select></td>
+                <td><input type="text" name="mapel" placeholder="Input Nama Guru..."></td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name="berikut" value="Berikutnya"></td>
+                <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>
     </form>

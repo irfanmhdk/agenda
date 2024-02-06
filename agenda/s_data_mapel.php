@@ -5,8 +5,7 @@
 
         $search = $_POST['search'];
 
-        $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
-                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel WHERE tb_guru.nama_guru LIKE '%$search%'");
+        $result = mysqli_query($Conn, "SELECT * FROM tb_mapel WHERE nama_mapel LIKE '%$search%'");
     }
 ?>
 <!DOCTYPE html>
@@ -106,28 +105,26 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA GURU</h1><hr>
+    <h1>MANAGE DATA MATA PELAJARAN</h1><hr>
     <table>
         <tr>
-        <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
+            <td><form action="s_data_mapel.php" method="POST"><input type="text" name="search" placeholder="Cari Mata Pelajaran...">
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+            <td style="text-align:right;"><a href="input_data_mapel.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
-            <th>NIP</th>
-            <th>Nama Guru</th>
+            <th>ID Mata Pelajaran</th>
             <th>Mata Pelajaran</th>
             <th>Opsi</th>
         </tr>
         <?php
         foreach($result as $d){ ?>
             <tr>
-                <td><?= $d['nip'] ?></td>
-                <td><?= $d['nama_guru'] ?></td>
+                <td><?= $d['id_mapel'] ?></td>
                 <td><?= $d['nama_mapel'] ?></td>
-                <td><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button> 
+                <td><a href="edit_data_mapel.php?id=<?= $d['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button></a>
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
@@ -136,6 +133,7 @@
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
+
     <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName("dropdown-btn");

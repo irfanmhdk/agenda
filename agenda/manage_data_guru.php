@@ -92,7 +92,7 @@
         </button>
         <div class="dropdown-container">
             <a href="manage_data_guru.php">Data Guru</a>
-            <a href="#">Data Mata Pelajaran</a>
+            <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
             <a href="#">Data Kelas</a>
         </div>
     </div>

@@ -99,7 +99,14 @@
             <a href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
             <a class="active" href="jadwal.php">Jadwal</a>
-            <a href="manage_data_guru.php">Manage Data Guru</a>
+            <button class="dropdown-btn">Manage Data 
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="manage_data_guru.php">Data Guru</a>
+                <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
+                <a href="manage_data_kelas.php">Data Kelas</a>
+            </div>
         </div>
     </header>
     <div class="head" style="display: inline-block;">
@@ -145,5 +152,22 @@
         <?php } ?>
     </table>
     </div>
+    <script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+          dropdownContent.style.display = "block";
+    }
+      });
+    }
+  </script>
 </body>
 </html>
