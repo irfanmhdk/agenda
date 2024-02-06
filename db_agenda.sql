@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Feb 2024 pada 09.15
+-- Waktu pembuatan: 06 Feb 2024 pada 09.16
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -165,7 +165,7 @@ CREATE TABLE `tb_guru` (
 
 INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `role`) VALUES
 ('198111032008011005', 'MP1001', 'Gugum', 'ggm', 2),
-('198111032008011006', 'MP1002', 'James Bond', 'jms', 2),
+('198111032008011006', 'MP1002', 'James', 'jms', 2),
 ('198111032008011007', 'MP1003', 'Maureen', 'mrn', 2),
 ('198111032008011008', 'MP1001', 'Diana', 'dna', 2);
 
@@ -217,14 +217,38 @@ CREATE TABLE `tb_kelas` (
 --
 
 INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `username`, `password`, `role`) VALUES
+('A10001', 'X ANIMASI A', 'xanimasia', 'xanimasia', 3),
+('A10002', 'X ANIMASI B', 'xanimasib', 'xanimasib', 3),
+('A20001', 'XI ANIMASI A', 'xianimasia', 'xianimasia', 3),
+('A20002', 'XI ANIMASI B', 'xianimasib', 'xianimasib', 3),
 ('D10001', 'X DKV A', 'xdkva', 'xdkva', 3),
 ('D10002', 'X DKV B', 'xdkvb', 'xdkvb', 3),
+('D10003', 'X DKV C', 'xdkvc', 'xdkvc', 3),
+('D20001', 'XI DKV A', 'xidkva', 'xidkva', 3),
+('D20002', 'XI DKV B', 'xidkvb', 'xidkvb', 3),
+('D20003', 'XI DKV C', 'xidkvc', 'xidkvc', 3),
 ('E10001', 'X ELEKTRONIKA A', 'xelektronikaa', 'xelektronikaa', 3),
 ('E10002', 'X ELEKTRONIKA B', 'xelektronikab', 'xelektronikab', 3),
 ('E10003', 'X ELEKTRONIKA C', 'xelektronikac', 'xelektronikac', 3),
 ('E10004', 'X ELEKTRONIKA D', 'xelektronikad', 'xelektronikad', 3),
+('E20001', 'XI ELEKTRONIKA A', 'xielektronikaa', 'xielektronikaa', 3),
+('E20002', 'XI ELEKTRONIKA B', 'xielektronikab', 'xielektronikab', 3),
+('E20003', 'XI ELEKTRONIKA C', 'xielektronikac', 'xielektronikac', 3),
+('E20004', 'XI ELEKTRONIKA D', 'xielektronikad', 'xielektronikad', 3),
+('K10001', 'X KIMIA A', 'xkimiaa', 'xkimiaa', 3),
+('K10002', 'X KIMIA B', 'xkimiab', 'xkimiab', 3),
+('K10003', 'X KIMIA C', 'xkimiac', 'xkimiac', 3),
+('K20001', 'XI KIMIA A', 'xikimiaa', 'xikimiaa', 3),
+('K20002', 'XI KIMIA B', 'xikimiab', 'xikimiab', 3),
+('K20003', 'XI KIMIA C', 'xikimiac', 'xikimiac', 3),
 ('P10001', 'X PPLG A', 'xpplga', 'xpplga', 3),
-('P10002', 'X PPLG B', 'xpplgb', 'xpplgb', 3);
+('P10002', 'X PPLG B', 'xpplgb', 'xpplgb', 3),
+('P20001', 'XI PPLG A', 'xipplga', 'xipplga', 3),
+('P20002', 'XI PPLG B', 'xipplgb', 'xipplgb', 3),
+('T10001', 'X PEMESINAN A', 'xpemesinana', 'xpemesinana', 3),
+('T10002', 'X PEMESINAN B', 'xpemesinanb', 'xpemesinanb', 3),
+('T20001', 'XI PEMESINAN A', 'xipemesinana', 'xipemesinana', 3),
+('T20002', 'XI PEMESINAN B', 'xipemesinanb', 'xipemesinanb', 3);
 
 -- --------------------------------------------------------
 
@@ -255,9 +279,17 @@ CREATE TABLE `tb_mapel` (
 --
 
 INSERT INTO `tb_mapel` (`id_mapel`, `nama_mapel`) VALUES
-('MP1001', 'Dasar Kejuruan PPLG'),
-('MP1002', 'Informatika'),
-('MP1003', 'Bahasa Indonesia');
+('MP1001', 'Matematika'),
+('MP1002', 'Bahasa Indonesia'),
+('MP1003', 'Ilmu Pengetahuan Alam Sosial'),
+('MP1004', 'Bahasa Inggris'),
+('MP1005', 'Sejarah'),
+('MP1006', 'Pendidikan Jasmani, Olahraga, dam Kesehatan'),
+('MP1007', 'Pendidikan Lingkungan Hidup'),
+('MP1008', 'Pendidikan Agama Islam dan Budi Pekerti'),
+('MP1009', 'Pendidikan Pancasila'),
+('MP1010', 'Seni Budaya dan Keterampilan'),
+('MP1011', 'Bahasa Sunda');
 
 -- --------------------------------------------------------
 
