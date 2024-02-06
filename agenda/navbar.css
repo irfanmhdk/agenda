@@ -10,10 +10,11 @@ body {
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    z-index: 1;
   }
   
-  .sidebar a {
+  .sidebar a, .dropdown-btn {
     display: block;
     color: black;
     padding: 16px;
@@ -25,7 +26,7 @@ body {
     color: white;
   }
   
-  .sidebar a:hover:not(.active) {
+  .sidebar a:hover:not(.active), .dropdown-btn:hover {
     background-color: #555;
     color: white;
   }
@@ -52,53 +53,7 @@ body {
       float: none;
     }
   }
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
   
-  .dropdown .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: Black;
-    width: 200px;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-    text-align: left;
-  }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #04AA6D;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
   .head{
     width: 100%;
     height: 50px;
@@ -115,4 +70,29 @@ body {
     text-align: center;
     color: white;
     padding-top: 5px;
+  }
+
+  .dropdown-btn {
+    padding: 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .dropdown-container {
+    display: none;
+    background-color: #f1f1f1;
+    padding-left: 8px;
+  }
+
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
   }
