@@ -90,6 +90,7 @@
             <hr  style="width: 90%;">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
             <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
         <div class="head">
           <?php
@@ -102,7 +103,6 @@
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
-        
         </div>
     </header>
     <div class="footer">

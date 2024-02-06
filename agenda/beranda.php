@@ -136,7 +136,7 @@
          <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
          <a href="data_agenda.php?id=<?= $kelas ?>"> <button class="btn1">Isi Agenda</button></a>
          <a href="absensi.php?id=<?= $kelas ?>"> <button class="btn2">Isi Absensi</button></a>
-         <a href="index.php"> <button class="btn3">log out</button></a>
+         <a href="logout.php"> <button class="btn3">log out</button></a>
         </div>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>

@@ -20,7 +20,7 @@
     <select class="custom-select" name="role">
       <?php //a
         include 'koneksi.php';
-
+        session_start();
         $sql = "SELECT * FROM tb_role";
         $proses = mysqli_query($Conn, $sql);
 

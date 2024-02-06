@@ -106,6 +106,7 @@
             <hr  style="width: 90%;">
             <a class="active" href="kepsek_home.php">Home</a>
             <a href="report_guru.php">Data Agenda</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
         <div class="head" style="display: inline-block;">
