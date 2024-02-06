@@ -3,13 +3,13 @@
 
     $id = $_GET['id'];
 
-    $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_guru.id_mapel, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
-                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel WHERE tb_guru.nip = '$id'");
+    $result = mysqli_query($Conn, "SELECT * FROM tb_kelas WHERE id_kelas = '$id'");
 
     while ($data = mysqli_fetch_array($result)) {
-        $nip = $data['nip'];
-        $nama = $data['nama_guru'];
-        $mata = $data['id_mapel'];
+        $id_kelas= $data['id_kelas'];
+        $nama = $data['nama_kelas'];
+        $username = $data['username'];
+        $pw = $data['password'];
     }
 ?>
 <!DOCTYPE html>
@@ -82,34 +82,28 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>EDIT DATA GURU</h1><hr><br>
-    <form action="update_data_guru.php" method="POST">
+    <h1>EDIT DATA KELAS</h1><hr><br>
+    <form action="update_data_kelas.php" method="POST">
         <table>
             <tr>
-                <td>NIP</td>
-                <td><input type="text" name="nip" value="<?= $nip ?>"></td>
+                <td>ID kelas</td>
+                <td><input type="text" name="id_kelas" value="<?= $id_kelas ?>"></td>
             </tr>
             <tr>
-                <td>Nama Guru</td>
-                <td><input type="text" name="nama_guru" value="<?= $nama ?>"></td>
+                <td>Kelas</td>
+                <td><input type="text" name="kelas" value="<?= $nama ?>"></td>
             </tr>
             <tr>
-                <td>Mata Pelajaran</td>
-                <td><select name="mapel">
-                    <?php
-                        $sql = "SELECT * FROM tb_mapel";
-                        $level = mysqli_query($Conn, $sql);
-    
-                        foreach ($level as $mapel){ ?>
-                            <option value="<?= $mapel['id_mapel'] ?>" <?= $mapel['id_mapel'] == "$mata" ? "selected" : ""?>><?= $mapel['nama_mapel'] ?></option>
-                        <?php
-                            }
-                    ?>
-                </select></td>
+                <td>Username</td>
+                <td><input type="text" name="username" value="<?= $username ?>"></td>
             </tr>
             <tr>
-                <td></td>
-                <td><input type="hidden" name="id" value="<?= $id ?>"><input type="submit" name="submit" value="Submit"></td>
+                <td>Password</td>
+                <td><input type="password" name="pw" value="<?= $pw ?>"></td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="role" value="3"></td>
+                <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>
     </form>
