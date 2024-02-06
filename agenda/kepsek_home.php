@@ -126,7 +126,7 @@
               <tr>
                 <td><div class="grid">
                   <img src="image/agenda_logo.PNG" width="80px">
-                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> Kelas</b></p>
+                  <p class="text" style="margin-top: 10px;"><b>Data Agenda <br> kelas SMKN 2 Cimahi</b></p>
                   <a href="report_guru.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div></td>
               </tr>
