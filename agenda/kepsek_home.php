@@ -2,6 +2,12 @@
 <html lang="en">
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
     $count2 = mysqli_num_rows($get2);

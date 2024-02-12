@@ -2,6 +2,12 @@
 <html lang="en">
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $kelas = $_GET['id'];
 

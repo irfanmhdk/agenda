@@ -1,6 +1,12 @@
 <?php 
     $tgl = "";
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
     if(isset($_POST['submit'])){
         $tgl = $_POST['tampil'];
         $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
@@ -116,6 +122,7 @@
                 <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
                 <a href="manage_data_kelas.php">Data Kelas</a>
             </div>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head" style="display: inline-block;">

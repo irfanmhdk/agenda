@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
             tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
@@ -99,6 +105,7 @@
                 <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
                 <a href="manage_data_kelas.php">Data Kelas</a>
             </div>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head" style="display: inline-block;">

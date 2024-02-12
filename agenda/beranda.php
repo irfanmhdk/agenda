@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $kelas = $_GET['id'];
 
@@ -120,7 +126,7 @@
         <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
-     
+        <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
         <div class="head">
