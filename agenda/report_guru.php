@@ -1,6 +1,12 @@
 <?php 
 
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
     
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -57,12 +63,13 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <a href="kepsek_home.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a href="kepsek_home.php">Home</a>
             <a class="active" href="report_guru.php">Data Agenda</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head" style="display: inline-block;">

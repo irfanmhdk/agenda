@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
     
     $id = $_GET['id'];
     $nip = $_GET['nip'];
@@ -73,9 +79,8 @@
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a href="beranda2.php?id=<?= $nip ?>">Home</a>
-            
-
             <a class="active" href="verifikasi.php?id=<?= $nip ?>">Verifikasi</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head">

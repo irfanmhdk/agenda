@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
                             tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
@@ -95,6 +101,7 @@
             <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
             <a href="manage_data_kelas.php">Data Kelas</a>
         </div>
+        <a style="color: red;"href="logout.php"> log out</button></a>
     </div>
     </header>
     <div class="head" style="display: inline-block;">

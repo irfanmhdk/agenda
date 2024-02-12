@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_guru");
     $count2 = mysqli_num_rows($get2);
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -116,6 +122,7 @@
               <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
               <a href="manage_data_kelas.php">Data Kelas</a>
             </div>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
         <div class="head" style="display: inline-block;">
@@ -130,7 +137,6 @@
                     <h1 style="color: white;">APLIKASI AGENDA GURU DAN SISWA <br> SMKN 2 CIMAHI</h1>
                     <hr>
                     <p style="color: white;">Anda log-in sebagai Admin</p></center>
-                    <a style="color: red;"href="logout.php"> log out</button></a>
                   </div>
                 </td>
               </tr>

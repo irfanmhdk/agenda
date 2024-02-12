@@ -1,5 +1,11 @@
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
     include 'hari.php';
 
     $kel = $_GET['kel'];
@@ -78,6 +84,7 @@ $k = mysqli_query($Conn,$sql1);
             <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
             <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
             <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head">

@@ -2,6 +2,12 @@
 <html lang="en">
 <?php
     include 'koneksi.php';
+    session_start();
+ 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
 
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
     $count2 = mysqli_num_rows($get2);
@@ -100,7 +106,7 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <a href="kepsek_home.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
