@@ -143,14 +143,14 @@
                 </tr>
                 <tr>
                     <td>Guru</td>
+                    <td><select name="guru">
                     <?php
                         foreach($guru as $g){ ?>
-                            <td><select name="guru">
                                 <option value="<?= $g['nip'] ?>"><?= $g['nama_guru'] ?></option>
-                            </select></td>
                     <?php
                         }
                     ?>
+                    </select></td>
                 </tr>
                 <tr>
                     <td>Ruangan</td>
