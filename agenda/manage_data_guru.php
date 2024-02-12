@@ -129,7 +129,7 @@
                 <td><?= $d['nip'] ?></td>
                 <td><?= $d['nama_guru'] ?></td>
                 <td><?= $d['nama_mapel'] ?></td>
-                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-search"> EDIT</i></button></a>
+                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
