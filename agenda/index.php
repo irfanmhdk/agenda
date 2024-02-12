@@ -49,7 +49,7 @@
     
             if ($result->num_rows > 0) {
               $row = mysqli_fetch_assoc($result);
-              $_SESSION['login'] = $row['id_kelas'];
+              $_SESSION['login'] = $row['role'];
               header("Location: kepsek_home.php");
               exit();
             } else {
