@@ -17,7 +17,7 @@
               header("Location: beranda3.php?id=$row[role]");
               exit();
             } else {
-                echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
+                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
             }
         }elseif($role == 2){
             $sql = "SELECT * FROM tb_guru WHERE nip='$uname' AND password='$psw'";
@@ -29,7 +29,7 @@
               header("Location: beranda2.php?id=$row[nip]");
               exit();
             } else {
-                echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
+                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
             }
         }elseif($role == 3){
             $sql = "SELECT * FROM tb_kelas WHERE username='$uname' AND password='$psw'";
@@ -41,7 +41,7 @@
               header("Location: beranda.php?id=$row[id_kelas]");
               exit();
             } else {
-                echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
+                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
             }
         }elseif($role == 4){
             $sql = "SELECT * FROM tb_user WHERE role='$role'";
@@ -53,7 +53,7 @@
               header("Location: kepsek_home.php");
               exit();
             } else {
-                echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
+                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
             }
     }
     }
