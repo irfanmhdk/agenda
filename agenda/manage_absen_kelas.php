@@ -166,7 +166,6 @@
 <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
         <table>
-        <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
     </table>
     </div>
     <div class="footer">

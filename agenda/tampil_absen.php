@@ -10,9 +10,21 @@ if (!isset($_SESSION['login'])) {
 if(isset($_POST['submit'])){
 
     $search = $_POST['search'];
-
-    $result = mysqli_query($Conn, "SELECT tb_absen.id_absen, tb_absen.nis, tb_absen.tanggal, 
-    tb_absen.kehadiran, tb_siswa.id_kelas FROM tb_siswa INNER JOIN tb_absen WHERE id_kelas='%$search%'");
+    $result = mysqli_query($Conn,  "SELECT 
+    tb_absen.id_absen, 
+    tb_absen.nis, 
+    tb_absen.tanggal, 
+    tb_absen.kehadiran,
+    tb_kelas.nama_kelas,
+    tb_siswa.nama,
+    tb_siswa.jk,
+    tb_siswa.id_kelas
+FROM 
+    tb_absen
+INNER JOIN 
+    tb_siswa ON tb_absen.nis = tb_siswa.nis
+INNER JOIN 
+    tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas");
 }
 ?>
 <!DOCTYPE html>
@@ -43,8 +55,8 @@ if(isset($_POST['submit'])){
         width: auto;
         background-color: #4CAF50;
         color: white;
-        padding: 7px 10px;
-        margin: 8px 0;
+        padding: 18px 20px;
+        margin: 16px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -109,16 +121,18 @@ if(isset($_POST['submit'])){
          <tr>
             <th>NIS</th>
             <th>Nama Siswa</th>
-            <th>Jenis Kelamin</th>
             <th>Kelas</th>
+            <th>Tanggal</th>
+            <th>kehadiran</th>
         </tr>
         <?php
         foreach($result as $d){ ?>
             <tr>
                 <td><?= $d['nis'] ?></td>
                 <td><?= $d['nama'] ?></td>
-                <td><?= $d['jk'] ?></td>
                 <td><?= $d['id_kelas'] ?></td>
+                <td><?= $d['tanggal'] ?></td>
+                <td><?= $d['kehadiran'] ?></td>
             </tr>
         <?php } ?>
     </table>
