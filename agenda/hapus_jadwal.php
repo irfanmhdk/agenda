@@ -2,7 +2,7 @@
     include 'koneksi.php';
 
     $id = $_GET['id'];
-    $sql = "DELETE FROM tb_jadwal WHERE id_jadwal= $id";
+    $sql = "DELETE FROM tb_jadwal WHERE id_jadwal= $id"; //
     $hapus = mysqli_query($conn, $sql);
 
     if ($hapus) {

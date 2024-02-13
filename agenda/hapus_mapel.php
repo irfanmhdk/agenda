@@ -2,7 +2,7 @@
     include 'koneksi.php';
 
     $id = $_GET['id'];
-    $sql = "DELETE FROM tb_mapel WHERE id_mapel= $id";
+    $sql = "DELETE FROM tb_mapel WHERE id_mapel= $id"; //WS
     $hapus = mysqli_query($conn, $sql);
 
     if ($hapus) {
