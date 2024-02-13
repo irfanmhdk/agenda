@@ -108,7 +108,7 @@
             </tr>
         </table>
         <hr>
-        <h1>Tambahkan Komentar (Bagi guru tidak yang hadir diwajibkan mengisi Komentar serta berikan alasannya </h1>
+        <h3>Tambahkan Komentar (Bagi guru yang "tidak hadir" / "Hanya Hadir Diawal" / "Hanya Hadir Diakhir" diwajibkan mengisi Komentar serta berikan alasannya)</h3>
         <form action="process_comment.php" method="post">
             <textarea name="comment" rows="4" cols="50" required></textarea><br></td>
             <input type="hidden" name="id" value="<?= $id ?>">

@@ -9,10 +9,29 @@
     }
     if(isset($_POST['submit'])){
         $tgl = $_POST['tampil'];
-        $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-                INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl'";
-        $level = mysqli_query($Conn, $sql);
+        $hadir = $_POST['tampil1'];
+
+        if($tgl == "Semua" && $hadir == "Semua1"){
+            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
+            $level = mysqli_query($Conn, $sql);
+        }elseif($tgl == "Semua"){
+            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.kehadiran = '$hadir'";
+            $level = mysqli_query($Conn, $sql);
+        }elseif($hadir == "Semua1"){
+            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl'";
+            $level = mysqli_query($Conn, $sql);
+        }else{
+            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl' AND tb_agenda.kehadiran = '$hadir'";
+            $level = mysqli_query($Conn, $sql);
+        }
     }else{
         $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
                 tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -136,6 +155,7 @@
         <td>
             <form action="data_admin.php" method="POST">
                 <select name="tampil">
+                    <option value="Semua">Semua</option>
                     <option value="2024-01-01 01:00:0' AND '2024-01-31 23:59:0">Januari</option>
                     <option value="2024-02-01 01:00:0' AND '2024-02-29 23:59:0">Februari</option>
                     <option value="2024-03-01 01:00:0' AND '2024-03-31 23:59:0">Maret</option>
@@ -149,10 +169,21 @@
                     <option value="2024-11-01 01:00:0' AND '2024-11-30 23:59:0">November</option>
                     <option value="2024-12-01 01:00:0' AND '2024-12-31 23:59:0">Desember</option>
                 </select>
+                <select name="tampil1">
+                    <option value="Semua1">Semua</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                    <option value="Hanya Hadir Diawal">Hanya Hadir Diawal</option>
+                    <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir</option>
+                </select>
                 <input type="submit" name="submit" value="Tampil">
             </form>
         </td>
-        <td align="right"><a href="cetak_laporan.php?tgl=<?= $tgl ?>" target="_blank"><button class="btn1" style=""><i class="fa fa-print"></i> Cetak Laporan</button></a></td>
+        <form action="cetak_laporan.php" method="POST">
+            <input type="hidden" name="bulan" value="<?= $tgl ?>">
+            <input type="hidden" name="hadir" value="<?= $hadir ?>">
+        <td align="right"><button class="btn1" name="cetak"><i class="fa fa-print"></i> Cetak Laporan</button></td>
+        </form>
     </tr>
 </table><br>
 <center>
@@ -207,3 +238,4 @@
       });
     }
   </script>
+</body>
