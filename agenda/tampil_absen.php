@@ -1,14 +1,31 @@
 <?php
-    include 'koneksi.php';
-    session_start();
- 
-    if (!isset($_SESSION['login'])) {
-        header("Location: index.php");
-        exit();
-    }
+include 'koneksi.php';
+session_start();
 
-    $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
-                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
+if (!isset($_SESSION['login'])) {
+    exit();
+ header("Location: index.php");
+   }
+
+if(isset($_POST['submit'])){
+
+    $search = $_POST['search'];
+    $result = mysqli_query($Conn,  "SELECT 
+    tb_absen.id_absen, 
+    tb_absen.nis, 
+    tb_absen.tanggal, 
+    tb_absen.kehadiran,
+    tb_kelas.nama_kelas,
+    tb_siswa.nama,
+    tb_siswa.jk,
+    tb_siswa.id_kelas
+FROM 
+    tb_absen
+INNER JOIN 
+    tb_siswa ON tb_absen.nis = tb_siswa.nis
+INNER JOIN 
+    tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +55,8 @@
         width: auto;
         background-color: #4CAF50;
         color: white;
-        padding: 7px 10px;
-        margin: 8px 0;
+        padding: 18px 20px;
+        margin: 16px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -72,20 +89,11 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
-    input[type=submit] {
-        width: 100px;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+   
 </style>
 <body>
 <header>
-    <div class="sidebar">
+<div class="sidebar">
         <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
         <hr  style="width: 90%;">
         <center><a href="#"><?= date("d F Y"); ?></a></center>
@@ -108,29 +116,23 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA GURU</h1><hr>
+    <h1>Tampil Absen Kelas</h1><hr>
     <table>
-        <tr>
-            <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
-            <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
-        </tr>
-    </table>
-    <table style="box-shadow: 7px 7px 5px lightgrey;">
-        <tr>
-            <th>NIP</th>
-            <th>Nama Guru</th>
-            <th>Mata Pelajaran</th>
-            <th>Opsi</th>
+         <tr>
+            <th>NIS</th>
+            <th>Nama Siswa</th>
+            <th>Kelas</th>
+            <th>Tanggal</th>
+            <th>kehadiran</th>
         </tr>
         <?php
         foreach($result as $d){ ?>
             <tr>
-                <td><?= $d['nip'] ?></td>
-                <td><?= $d['nama_guru'] ?></td>
-                <td><?= $d['nama_mapel'] ?></td>
-                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
+                <td><?= $d['nis'] ?></td>
+                <td><?= $d['nama'] ?></td>
+                <td><?= $d['id_kelas'] ?></td>
+                <td><?= $d['tanggal'] ?></td>
+                <td><?= $d['kehadiran'] ?></td>
             </tr>
         <?php } ?>
     </table>
@@ -138,26 +140,3 @@
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
-
-    <script>
-    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var dropdownContent = this.nextElementSibling;
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
-          dropdownContent.style.display = "block";
-    }
-      });
-    }
-  </script>
-  <?php
-    exit();
-  ?>
-</body>
-</html>

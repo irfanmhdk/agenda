@@ -38,8 +38,8 @@
         width: auto;
         background-color: #4CAF50;
         color: white;
-        padding: 7px 10px;
-        margin: 8px 0;
+        padding: 18px 20px;
+        margin: 16px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -82,6 +82,36 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    .select-box {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative;
+            display: inline-block;
+            background-color: #fff;
+        }
+
+        .select-box select {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+        .select-box::after {
+            content: '\25BC';
+            font-size: 12px;
+            color: #555;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
 </style>
 <body>
 <header>
@@ -93,6 +123,7 @@
         <a href="beranda3.php">Home</a>
         <a href="data_admin.php">Data Agenda</a>
         <a href="jadwal.php">Jadwal</a>
+        <a href="manage_absen_kelas.php">Absen Kelas</a>0
         <button class="dropdown-btn">Manage Data 
         <i class="fa fa-caret-down"></i>
         </button>
@@ -108,31 +139,33 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA GURU</h1><hr>
+    <h1>MANAGE DATA ABSEN</h1><hr>
     <table>
         <tr>
-            <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
-            <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+        <form action="tampil_absen.php" method="POST">
+        <div class="select-box">
+            <?php
+             $query = "SELECT * FROM tb_kelas";
+             $result = mysqli_query($Conn, $query);
+        if ($result) {
+        
+        echo '<select name="search">';
+        while ($row = mysqli_fetch_assoc($result)) {
+        
+            echo '<option value="' . $row['id'] . '">' . $row['nama_kelas'] . '</option>';
+        }
+        echo '</select>';
+        mysqli_free_result($result);
+    } else {
+        echo "Query failed: " . mysqli_error($Conn);
+    }
+    mysqli_close($Conn);
+?>    
+ </div>
+
+<button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
-    </table>
-    <table style="box-shadow: 7px 7px 5px lightgrey;">
-        <tr>
-            <th>NIP</th>
-            <th>Nama Guru</th>
-            <th>Mata Pelajaran</th>
-            <th>Opsi</th>
-        </tr>
-        <?php
-        foreach($result as $d){ ?>
-            <tr>
-                <td><?= $d['nip'] ?></td>
-                <td><?= $d['nama_guru'] ?></td>
-                <td><?= $d['nama_mapel'] ?></td>
-                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
-            </tr>
-        <?php } ?>
+        <table>
     </table>
     </div>
     <div class="footer">

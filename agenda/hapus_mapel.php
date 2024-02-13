@@ -2,7 +2,7 @@
     include 'koneksi.php';
 
     $id = $_GET['id'];
-    $sql = "DELETE FROM tb_jadwal WHERE id_jadwal= $id"; //
+    $sql = "DELETE FROM tb_mapel WHERE id_mapel= $id"; //WS
     $hapus = mysqli_query($conn, $sql);
 
     if ($hapus) {
@@ -11,13 +11,13 @@
                 alert('Data anda berhasil dihapus');
             </script>
         ";
-        header("Location: jadwal.php");
+        header("Location: manage_data_mapel.php");
     } else {
         echo "
             <script>
                 alert('Data anda gagal dihapus');
             </script>
         ";
-        header("Location: hapus_jadwal.php");
+        header("Location: hapus_mapel.php");
     }
 ?>
