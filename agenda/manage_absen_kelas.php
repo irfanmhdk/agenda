@@ -149,7 +149,7 @@
              $result = mysqli_query($Conn, $query);
         if ($result) {
         
-        echo '<select name="nama_field">';
+        echo '<select name="search">';
         while ($row = mysqli_fetch_assoc($result)) {
         
             echo '<option value="' . $row['id'] . '">' . $row['nama_kelas'] . '</option>';
