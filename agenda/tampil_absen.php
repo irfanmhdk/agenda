@@ -3,15 +3,16 @@ include 'koneksi.php';
 session_start();
 
 if (!isset($_SESSION['login'])) {
-    header("Location: index.php");
     exit();
-}
+ header("Location: index.php");
+   }
 
 if(isset($_POST['submit'])){
 
     $search = $_POST['search'];
 
-    $result = mysqli_query($Conn, "SELECT * From tb_siswa LIKE id_kelas='%$search%'");
+    $result = mysqli_query($Conn, "SELECT tb_absen.id_absen, tb_absen.nis, tb_absen.tanggal, 
+    tb_absen.kehadiran, tb_siswa.id_kelas FROM tb_siswa INNER JOIN tb_absen WHERE id_kelas='%$search%'");
 }
 ?>
 <!DOCTYPE html>
