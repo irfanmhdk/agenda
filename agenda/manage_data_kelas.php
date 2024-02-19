@@ -132,7 +132,7 @@
                 <td><?= $d['username'] ?></td>
                 <td><?= $d['password'] ?></td>
                 <td><a href="edit_data_kelas.php?id=<?= $d['id_kelas'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
+                <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-trash"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
     </table>

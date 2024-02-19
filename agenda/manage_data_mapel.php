@@ -128,7 +128,7 @@
                 <td><?= $d['id_mapel'] ?></td>
                 <td><?= $d['nama_mapel'] ?></td>
                 <td><a href="edit_data_mapel.php?id=<?= $d['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-                <td><a href="hapus_mapel.php?id=<?= $d['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
+                <td><a href="hapus_mapel.php?id=<?= $d['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-trash"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
     </table>

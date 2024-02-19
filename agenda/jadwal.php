@@ -148,7 +148,7 @@
             <td><?= $data['nama_mapel'] ?></td>
             <td><?= $data['ruangan'] ?></td>
             <td><a href="edit_jadwal.php?id=<?= $data['id_jadwal'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-            <td><a href="hapus_jadwal.php?id=<?= $data['id_jadwal'] ?>"><button class="btn1" name="submit"style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td> 
+            <td><a href="hapus_jadwal.php?id=<?= $data['id_jadwal'] ?>"><button class="btn1" name="submit"style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-trash"> HAPUS</i></button></form></td> 
         </tr>
         <?php } ?>
     </table>
