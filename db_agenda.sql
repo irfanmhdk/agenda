@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2024 pada 09.21
+-- Waktu pembuatan: 19 Feb 2024 pada 09.31
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -286,9 +286,6 @@ CREATE TABLE `tb_jadwal` (
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_selesai`, `nip`, `id_mapel`, `ruangan`) VALUES
 (12, 'D10001', 'Senin', '08.30', '11.30', '198111032008011083', 'MP1002', 'E5'),
 (13, 'E10002', 'Rabu', '10.55', '11.30', '198111032008011006', 'MP1002', 'F1'),
-(14, 'P10001', 'Senin', '09.15', '10.00', '198111032008011005', 'MP1001', 'LAB RPL 3'),
-(15, 'P10001', 'Senin', '07.00', '09.15', '198111032008011006', 'MP1002', 'LAB RPL 3'),
-(17, 'P10001', 'Rabu', '07.00', '08.30', '198111032008011007', 'MP1003', 'F3'),
 (18, 'A10001', 'Senin', '08.30', '11.30', '198111032008011085', 'MP1030', 'R-B1'),
 (19, 'A10001', 'Senin', '11.30', '15.00', '198111032008011038', 'MP1030', 'R-B1'),
 (20, 'A10001', 'Selasa', '07.00', '10.15', '198111032008011033', 'MP1026', 'R-B1'),
@@ -331,7 +328,22 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_sele
 (57, 'D10001', 'Kamis', '11.30', '16.00', '198111032008011094', 'MP1024', 'E5'),
 (58, 'D10001', 'Jumat', '07.00', '13.40', '198111032008011068', 'MP1045', 'DKV L-C'),
 (59, 'D10001', 'Jumat', '13.40', '15.00', '198111032008011032', 'MP1009', 'E5'),
-(60, 'D10001', 'Jumat', '15.00', '16.00', '198111032008011066', 'MP1011', 'E5');
+(60, 'D10001', 'Jumat', '15.00', '16.00', '198111032008011066', 'MP1011', 'E5'),
+(61, 'P10001', 'Senin', '08.30', '11.30', '198111032008011072', 'MP1032', 'RPL-2'),
+(62, 'P10001', 'Senin', '11.30', '16.00', '198111032008011005', 'MP1032', 'RPL-2'),
+(63, 'P10001', 'Selasa', '07.00', '10.55', '198111032008011040', 'MP1032', 'RPL-2'),
+(64, 'P10001', 'Selasa', '10.55', '15.00', '198111032008011059', 'MP1032', 'RPL-2'),
+(65, 'P10001', 'Selasa', '15.00', '16.00', '198111032008011031', 'MP1015', 'RPL-2'),
+(66, 'P10001', 'Rabu', '07.00', '09.15', '198111032008011044', 'MP1006', 'Lap-1'),
+(67, 'P10001', 'Rabu', '09.15', '11.30', '198111032008011058', 'MP1002', 'E3'),
+(68, 'P10001', 'Rabu', '13.00', '15.30', '198111032008011054', 'MP1004', 'E3'),
+(69, 'P10001', 'Kamis', '07.00', '10.15', '198111032008011090', 'MP1001', 'E3'),
+(70, 'P10001', 'Kamis', '10.15', '11.30', '198111032008011023', 'MP1008', 'E3'),
+(71, 'P10001', 'Kamis', '13.00', '14.20', '198111032008011036', 'MP1005', 'E3'),
+(72, 'P10001', 'Kamis', '15.30', '16.00', '198111032008011066', 'MP1011', 'E3'),
+(73, 'P10001', 'Jumat', '07.00', '08.30', '198111032008011028', 'MP1010', 'E3'),
+(74, 'P10001', 'Jumat', '09.15', '10.55', '198111032008011084', 'MP1009', 'E3'),
+(75, 'P10001', 'Jumat', '10.55', '15.30', '198111032008011094', 'MP1024', 'E3');
 
 -- --------------------------------------------------------
 
@@ -469,7 +481,8 @@ INSERT INTO `tb_mapel` (`id_mapel`, `nama_mapel`) VALUES
 ('MP1053', 'KI-Dasar-Dasar Kejuran'),
 ('MP1054', 'Konsentrasi keahlian -1'),
 ('MP1055', 'KK1 T Permesinan FRAIS'),
-('MP1056', 'KKMK1-CAE');
+('MP1056', 'KKMK1-CAE'),
+('MP1057', 'Informatika PPL & GIM');
 
 -- --------------------------------------------------------
 
@@ -590,9 +603,9 @@ INSERT INTO `tb_siswa` (`nis`, `nama`, `jk`, `id_kelas`, `no_telp`) VALUES
 --
 
 CREATE TABLE `tb_user` (
-  `nip` varchar(18) NOT NULL,
+  `id_user` varchar(18) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -600,9 +613,44 @@ CREATE TABLE `tb_user` (
 -- Dumping data untuk tabel `tb_user`
 --
 
-INSERT INTO `tb_user` (`nip`, `username`, `password`, `role`) VALUES
+INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
 ('1', 'kepsek2cmi', 'kepsek2', 4),
-('2', 'admin', 'admin', 1);
+('198111032008011005', '198111032008011005', '$2y$10$G2GnZWqojnfrscm/lVDQ5.9dog7nolD7FpMK.h06bvmlhzjzmL/AW', 2),
+('198111032008011006', '198111032008011006', '$2y$10$xjCJNZnu03DD1Id8.j3Gw.zyZFcv.fI2fJlGgx0PVfmo5ldC3AD1e', 2),
+('198111032008011007', '198111032008011007', '$2y$10$73juMyw0o9dnU7g5Ks5Bl.ag1APRMR23T1BxkdFT0ZQMhxBc1z7QK', 2),
+('2', 'admin', '$2y$10$9Olg2QJvYZbIk3RJ4gMcuuX.W2WxpUywFKjPT4xpjJvHThObmMclm', 1),
+('A10001', 'xanimasia', '$2y$10$HxXBSIkT.2hLP69zGpYnnuwfHh08npB6YRssSVFy56CC0osZOtSri', 3),
+('A10002', 'xanimasib', '$2y$10$wCbEbTjx2WxibkkbG2mSbeBCFNb8VbyB6g.Q3gEz9AF1O8IE2H03e', 3),
+('A20001', 'xianimasia', '$2y$10$ylQGNVM6Zdh2/umXnrQIZen08Y4DW0axUCdmk7lFu9Yv3eStBSg5u', 3),
+('A20002', 'xianimasib', '$2y$10$WxCAhLTQmH.bzPkcAfDQ.uZS3cFL3H2qlZ49oZWwPzW2mrl4qkqQm', 3),
+('D10001', 'xdkva', '$2y$10$EPe74oitZSqGkLcdv06lfeU0swg0QHa5g3lOTgbYE1l2rKTx/8Mpq', 3),
+('D10002', 'xdkvb', '$2y$10$tMPNqbikiC9JEULGJKJKZuAWD69LKduVWaD52mZvTXbmII9Jz8ecy', 3),
+('D10003', 'xdkvc', '$2y$10$fGD5wAHdMK9cyWVqbQrSfeCeVNRHxOH7TKD51GXnV4wBlFKups1Na', 3),
+('D20001', 'xidkva', '$2y$10$EKb.yY1tSC83UNVHomtXI.AqJTLjIJllHi27Kn.uIOf.eOgIrFYLy', 3),
+('D20002', 'xidkvb', '$2y$10$fv5PXJUJTXjcnkf/so.ccesKnZ9WIqAIC5.39bLiWPQm5dvWozY.e', 3),
+('D20003', 'xidkvc', '$2y$10$v/6nCH24Zz.WuWwWTenwO.1oyRXv4Ik1T.L/yum0DDceWeE12D.Aq', 3),
+('E10001', 'xelektronikaa', '$2y$10$m/TUydi7jA1.EJAts1.b6OMYZYU6laXec2FfsZbQwmQM0I9NQDIii', 3),
+('E10002', 'xelektronikab', '$2y$10$VXWkrjNCAFy2oYkpD5wL6eLBpSRpY6Myv7H6cGCxZt1Ek.yg72cSO', 3),
+('E10003', 'xelektronikac', '$2y$10$KPbhOzlvA6fMQhVYgmDnyuGbLohACrSSMUxLwnRXKfkAdelJ83x76', 3),
+('E10004', 'xelektronikad', '$2y$10$Ubmnf38KFtM6KbtMk9mur.U.x6UumrjivWRGhjwRB8RMkzkN/5GXS', 3),
+('E20001', 'xielektronikaa', '$2y$10$Zekn8uORjhcNoHznn2qxyuMB.kcyWElVqE3XwDbQcNTXlcabaLij6', 3),
+('E20002', 'xielektronikab', '$2y$10$hv63Y4GlYQ4y3zhKHuVqiefQrB2Xn1b9KpCMgcbhUNRYdd2P2.Ceu', 3),
+('E20003', 'xielektronikac', '$2y$10$jm4UMEqWXXWvgosk2IJWYOwtaY/FCVkDON7z3ifxRgbJOy8DPN4vG', 3),
+('E20004', 'xielektronikad', '$2y$10$jbk8fh/3O0xZIJVnJhC41OF5UMGiAPvt.NIvFmf5slFH0GhhpKoJa', 3),
+('K10001', 'xkimiaa', '$2y$10$vb0jnDGaFHqjiPYph2vhxujaCHsYX9li5Xhahlmp/SJnvNUN695DK', 3),
+('K10002', 'xkimiab', '$2y$10$1QFf6MxEkV0LLICmt8jfBeLh5YyZ2M5HplDLw61gCIMwyMSrS17..', 3),
+('K10003', 'xkimiac', '$2y$10$qFzOYCdUedJCEKNu0mvj0.Wn7.YLrJqOijAbtZoiVnYNW6dKAGGfe', 3),
+('K20001', 'xikimiaa', '$2y$10$MXHy2LahbtaB9xF3cACboOzzYgFd8SCOcZH4BCfc8o1P..Fm0s7Q2', 3),
+('K20002', 'xikimiab', '$2y$10$A7wCQqHOFdhTxHIozjMLPeC8MZaI24FtAJPgduPaQLLpW71xOs81.', 3),
+('K20003', 'xikimiac', '$2y$10$2OiK4RFF31NzVrk9DS3DfeLg8FiMgpVCISIF7OjCdDwYV.5S2d5x2', 3),
+('P10001', 'xpplga', '$2y$10$K5fw4JlDvB3C/UKHfwS9OuBXGq0WmUrdogS.VttYqB68g2ZKheh6q', 3),
+('P10002', 'xpplgb', '$2y$10$klK1cO4dJ/bdQvz5SHgpQOGraz1MmEtJ8mCZMrbffj9HYHiPrKz1i', 3),
+('P20001', 'xipplga', '$2y$10$UcV6EamW0yDQHapKaAbLh.AMh3MDIXTmPaHycknC0kzA2nZVYZd7S', 3),
+('P20002', 'xipplgb', '$2y$10$yzVAc0L.r4BuYIStjVAD8u8RL1c4rXUeNzt9c9aHiOf5cOtwpt61G', 3),
+('T10001', 'xpemesinana', '$2y$10$Ddlnw4zE5zNNWJxGtnhlouJluinL0LR9KWoKoMtWO21lgXEd8I0ku', 3),
+('T10002', 'xpemesinanb', '$2y$10$JL9e9sgeDbsj9u6hwHFr..E866dwm.7qcja7IJ/pwM0V2YIEB/GHu', 3),
+('T20001', 'xipemesinana', '$2y$10$jgQVWNrNgov8WTz1erWxGOMgMVW8z8krGUdbuj2JFYmWVaonb98pC', 3),
+('T20002', 'xipemesinanb', '$2y$10$yVLxH.shD9CLsUFMmrWl1eWHHuy7Z97dVI.JJ426W8iz3NqPEi.82', 3);
 
 -- --------------------------------------------------------
 
@@ -705,7 +753,7 @@ ALTER TABLE `tb_siswa`
 -- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`nip`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indeks untuk tabel `tb_walas`
@@ -745,7 +793,7 @@ ALTER TABLE `tb_agenda_guru`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
