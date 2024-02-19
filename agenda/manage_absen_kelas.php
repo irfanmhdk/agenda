@@ -145,7 +145,6 @@
         <form action="tampil_absen.php" method="POST">
         <div class="select-box">
         <select name="bulan">
-                    <option value="Semua">Semua</option>
                     <option value="01">Januari</option>
                     <option value="02">Februari</option>
                     <option value="03">Maret</option>
