@@ -1,61 +1,64 @@
 <?php
     include 'koneksi.php';
     session_start();
-    
     if(isset($_POST['submit'])){
-        $role = $_POST['role'];
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
 
-        if($role == 1){
-            $sql = "SELECT * FROM tb_user WHERE username='$uname' AND password='$psw'";
-            $result = mysqli_query($Conn, $sql);
+        $result = mysqli_query($Conn, "SELECT * FROM tb_user WHERE username='$uname'");
 
-            if ($result->num_rows > 0) {
-              $row = mysqli_fetch_assoc($result);
-              $_SESSION['login'] = $row['username'];
-              header("Location: beranda3.php?id=$row[role]");
-              exit();
-            } else {
-                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
-            }
-        }elseif($role == 2){
-            $sql = "SELECT * FROM tb_guru WHERE nip='$uname' AND password='$psw'";
-            $result = mysqli_query($Conn, $sql);
+        if(mysqli_num_rows($result) === 1){
+            $row = mysqli_fetch_assoc($result);
+            if(password_verify($psw, $row['password'])){
+                if($row['role'] == 1){
 
-            if ($result->num_rows > 0) {
-              $row = mysqli_fetch_assoc($result);
-              $_SESSION['login'] = $row['nip'];
-              header("Location: beranda2.php?id=$row[nip]");
-              exit();
-            } else {
-                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
-            }
-        }elseif($role == 3){
-            $sql = "SELECT * FROM tb_kelas WHERE username='$uname' AND password='$psw'";
-            $result = mysqli_query($Conn, $sql);
+                            $_SESSION["login"] = true;
 
-            if ($result->num_rows > 0) {
-              $row = mysqli_fetch_assoc($result);
-              $_SESSION['login'] = $row['id_kelas'];
-              header("Location: beranda.php?id=$row[id_kelas]");
-              exit();
-            } else {
-                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
+                            echo "<script>
+                                    alert('Login Berhasil');
+                                    window.location.href='beranda3.php';
+                                </script>";
+                            exit();
+
+                }elseif($row['role'] == 2){
+
+                            $_SESSION["login"] = true;
+
+                            echo "<script>
+                                    alert('Login Berhasil');
+                                    window.location.href='beranda2.php?id=$row[id_user]';
+                                </script>";
+                            exit();
+
+                }elseif($row['role'] == 3){
+
+                            $_SESSION["login"] = true;
+
+                            echo "<script>
+                                    alert('Login Berhasil');
+                                    window.location.href='beranda.php?id=$row[id_user]';
+                                </script>";
+                            exit();
+
+                }elseif($row['role'] == 4){
+
+                            $_SESSION["login"] = true;
+
+                            echo "<script>
+                                    alert('Login Berhasil');
+                                    window.location.href='kepsek_home.php';
+                                </script>";
+                            exit();
+
+                }
             }
-        }elseif($role == 4){
-            $sql = "SELECT * FROM tb_user WHERE role='$role'";
-            $result = mysqli_query($Conn, $sql);
-    
-            if ($result->num_rows > 0) {
-              $row = mysqli_fetch_assoc($result);
-              $_SESSION['login'] = $row['role'];
-              header("Location: kepsek_home.php");
-              exit();
-            } else {
-                echo "<script>alert('username atau password Anda salah. Silakan coba lagi!')</script>";
-            }
-    }
+        }else{
+          echo "<script>
+                  alert('Username atau Password salah');
+                  window.location.href='index.php';
+                  </script>";
+          exit();
+        }
     }
     
 ?>
@@ -77,20 +80,6 @@
   </div>
 
   <div class="container">
-    <label><b>Status</b></label><br>
-    <select class="custom-select" name="role">
-      <?php //a
-        include 'koneksi.php';
-        $sql = "SELECT * FROM tb_role";
-        $proses = mysqli_query($Conn, $sql);
-
-        foreach($proses as $role){
-      ?>
-        <option value="<?= $role['id_role']; ?>"><?= $role['nama_role']; ?></option>
-      <?php
-        }
-      ?>
-    </select><br>
 
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname">

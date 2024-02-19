@@ -7,7 +7,8 @@
         exit();
     }
 
-    $result = mysqli_query($Conn, "SELECT * FROM tb_user");
+    $result = mysqli_query($Conn, "SELECT tb_user.id_user, tb_user.username, tb_user.password, tb_role.nama_role
+                            FROM tb_user INNER JOIN tb_role ON tb_user.role = tb_role.id_role");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +109,7 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA KELAS</h1><hr>
+    <h1>MANAGE DATA USER</h1><hr>
     <table>
         <tr>
             <td style="text-align:right;"><a href="input_data_user.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
@@ -116,17 +117,17 @@
     </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
-            <th>ID User</th>
             <th>Username</th>
             <th>Password</th>
+            <th>Role</th>
             <th>Opsi</th>
         </tr>
         <?php
         foreach($result as $d){ ?>
             <tr>
-                <td><?= $d['id_user'] ?></td>
                 <td><?= $d['username'] ?></td>
                 <td><?= $d['password'] ?></td>
+                <td><?= $d['nama_role'] ?></td>
                 <td><a href="edit_data_user.php?id=<?= $d['id_user'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
