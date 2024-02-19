@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda  Guru SMKN 2 Cimahi</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     <style>
   .container {
@@ -95,7 +96,13 @@
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <a href="verifikasi.php?id=<?= $kelas ?>">Verifikasi</a>
+            <button class="dropdown-btn">Verifikasi Agenda
+            <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="verifikasi.php?id=<?= $kelas ?>">Agenda Hari Ini</a>
+                <a href="verifikasi_semua.php?id=<?= $kelas ?>">Agenda</a>
+            </div>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
         <div class="head">
@@ -114,5 +121,23 @@
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
+
+    <script>
+    /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+          dropdownContent.style.display = "block";
+    }
+      });
+    }
+  </script>
 </body>
 </html>
