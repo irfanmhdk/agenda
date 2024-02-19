@@ -1,6 +1,8 @@
 <?php
 include("koneksi.php");
 
+$kelas = $_GET['id'];
+
 if (isset($_POST['kirim'])) {
     $kehadiran = $_POST['kehadiran'];
 
@@ -19,13 +21,9 @@ if (isset($_POST['kirim'])) {
     }
 
     if ($result) {
-    ?>
-            <video id="myvideo"width="100%" height="100%" controls autoplay>
-            <source src="image/TickRed.mp4" type="video/mp4">
-            </video>
-            <script>
-            document.getElementById("myVideo").play();
-            </script>
+        ?>
+        <img src = "image/ceklis.gif" width= 100%;>
+        <meta http-equiv="refresh" content="5; URL=absensi.php?id=<?= $kelas ?>" />
     <?php
     } else {
         echo "Gagal mencatat absensi. Error: " . mysqli_error($Conn);

@@ -85,7 +85,7 @@ $k = mysqli_query($Conn,$sql1);
         <center>
             <h1>ABSENSI</h1><hr>
             <br>
-                <form action="proses_absensi.php" method="post">
+                <form action="proses_absensi.php?id=<?= $kelas ?>" method="post">
                     <table style="box-shadow: 7px 7px 5px lightgrey;">
                             <tr>
                                 <th>Nisn</th>
