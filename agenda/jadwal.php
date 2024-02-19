@@ -105,6 +105,7 @@
                 <a href="manage_data_guru.php">Data Guru</a>
                 <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
                 <a href="manage_data_kelas.php">Data Kelas</a>
+                <a href="manage_absen_kelas.php">Absen Kelas</a>
             </div>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
