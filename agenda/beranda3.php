@@ -113,8 +113,8 @@
             <hr  style="width: 90%;">
             <a class="active" href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
-            <a href="jadwal.php">Jadwal</a> 
-            <a href="manage_absen_kelas.php">Absen Kelas</a>
+            <a href="jadwal.php">Jadwal</a>
+            <a href="manage_data_user.php">Manage Data User</a>
             <button class="dropdown-btn">Manage Data 
             <i class="fa fa-caret-down"></i>
             </button>

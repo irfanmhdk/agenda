@@ -7,8 +7,7 @@
         exit();
     }
 
-    $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
-                            tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
+    $result = mysqli_query($Conn, "SELECT * FROM tb_user");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +92,7 @@
         <a href="beranda3.php">Home</a>
         <a href="data_admin.php">Data Agenda</a>
         <a href="jadwal.php">Jadwal</a>
-        <a href="manage_data_user.php">Manage Data User</a>
+        <a class="active" href="manage_data_user.php">Manage Data User</a>
         <button class="dropdown-btn">Manage Data 
         <i class="fa fa-caret-down"></i>
         </button>
@@ -109,28 +108,26 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-    <h1>MANAGE DATA GURU</h1><hr>
+    <h1>MANAGE DATA KELAS</h1><hr>
     <table>
         <tr>
-            <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
-            <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+            <td style="text-align:right;"><a href="input_data_user.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
-            <th>NIP</th>
-            <th>Nama Guru</th>
-            <th>Mata Pelajaran</th>
+            <th>ID User</th>
+            <th>Username</th>
+            <th>Password</th>
             <th>Opsi</th>
         </tr>
         <?php
         foreach($result as $d){ ?>
             <tr>
-                <td><?= $d['nip'] ?></td>
-                <td><?= $d['nama_guru'] ?></td>
-                <td><?= $d['nama_mapel'] ?></td>
-                <td><a href="edit_data_guru.php?id=<?= $d['nip'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
+                <td><?= $d['id_user'] ?></td>
+                <td><?= $d['username'] ?></td>
+                <td><?= $d['password'] ?></td>
+                <td><a href="edit_data_user.php?id=<?= $d['id_user'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
                 <button class="btn1" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-close"> HAPUS</i></button></form></td>
             </tr>
         <?php } ?>
@@ -157,8 +154,5 @@
       });
     }
   </script>
-  <?php
-    exit();
-  ?>
 </body>
 </html>
