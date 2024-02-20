@@ -115,7 +115,7 @@
         <tr>
             <td><form action="s_data_guru.php" method="POST"><input type="text" name="search" placeholder="Cari Nama Guru...">
             <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+            <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1" onclick="return confirm('Anda Akan Menghapus Data, Yakin?')"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
