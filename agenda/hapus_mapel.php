@@ -9,15 +9,15 @@
         echo "
             <script>
                 alert('Data anda berhasil dihapus');
+                window.location.href = 'manage_data_mapel.php'; // alihkan langsung melalui JavaScript
             </script>
         ";
-        header("Location: manage_data_mapel.php");
     } else {
         echo "
             <script>
                 alert('Data anda gagal dihapus');
+                window.location.href = 'manage_data_mapel.php'; // alihkan langsung melalui JavaScript
             </script>
         ";
-        header("Location: hapus_mapel.php");
     }
 ?>
