@@ -4,11 +4,9 @@
         $nip = $_POST['nip'];
         $nama = $_POST['nama_guru'];
         $mapel = $_POST['mapel'];
-        $pw = $_POST['pw'];
-        $role = $_POST['role'];
 
-        $sql = "INSERT INTO tb_guru (nip, nama_guru, id_mapel, password, role) VALUES 
-                ('$nip','$nama','$mapel','$pw','$role')";
+        $sql = "INSERT INTO tb_guru (nip, nama_guru, id_mapel) VALUES 
+                ('$nip','$nama','$mapel')";
         $insert = mysqli_query($Conn, $sql);
 
         if($insert){

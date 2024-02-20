@@ -3,11 +3,8 @@
     if(isset($_POST['submit'])){
         $id_kelas = $_POST['id_kelas'];
         $kelas = $_POST['kelas'];
-        $username = $_POST['username'];
-        $pw = $_POST['pw'];
-        $role = $_POST['role'];
 
-        $sql = "INSERT INTO tb_kelas (id_kelas, nama_kelas, username, password, role) VALUES 
+        $sql = "INSERT INTO tb_kelas (id_kelas, nama_kelas) VALUES 
                 ('$id_kelas','$kelas','$username','$pw','$role')";
         $insert = mysqli_query($Conn, $sql);
 
