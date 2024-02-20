@@ -5,7 +5,7 @@
         $kelas = $_POST['kelas'];
 
         $sql = "INSERT INTO tb_kelas (id_kelas, nama_kelas) VALUES 
-                ('$id_kelas','$kelas','$username','$pw','$role')";
+                ('$id_kelas','$kelas')";
         $insert = mysqli_query($Conn, $sql);
 
         if($insert){
