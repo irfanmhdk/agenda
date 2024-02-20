@@ -7,14 +7,15 @@
         exit();
     }
 
-    $id = $_GET['id'];
+    $i = $_GET['id'];
 
-    $result = mysqli_query($Conn,  "SELECT tb_user.id_user, tb_user.username, tb_user.password, tb_role.nama_role
-    FROM tb_user INNER JOIN tb_role ON tb_user.role = tb_role.id_role where id_user = '$id'");
+    $result = mysqli_query($Conn,  "SELECT * FROM tb_user WHERE id_user = '$i'");
 
     while ($data = mysqli_fetch_array($result)) {
-        $user = $_POST['username'];
-        $pw = $_POST['password'];
+        $id = $data['id_user'];
+        $user = $data['username'];
+        $pw = $data['password'];
+        $role = $data['role'];
     }
 ?>
 <!DOCTYPE html>
@@ -94,19 +95,26 @@
     <form action="update_data_user.php" method="POST">
         <table>
             <tr>
+            <td>Id User</td>
+                <td><input type="text" name="id" value="<?= $id ?>"></td>
+            </tr>
+            <tr>
                 <td>Username</td>
                 <td><input type="text" name="user" value="<?= $user ?>"></td>
             </tr>
             <tr>
-            <td>Passsword</td>
+                <td>Passsword</td>
                 <td><input type="password" name="pw" value="<?= $pw ?>"></td>
             </tr>
             <tr>
                 <td>Role</td>
                 <td><select name="role">
                     <?php
+
+                        $result = mysqli_query($Conn,  "SELECT * FROM tb_role");
+
                         foreach($result as $d){ ?>
-                        <option value="<?= $d['id_role'] ?>"><?= $d['nama_role'] ?></option>
+                        <option value="<?= $d['id_role'] ?>" <?= $role == $d['id_role'] ? "selected" : ""?>><?= $d['nama_role'] ?></option>
                     <?php
                         }
                     ?>
@@ -114,7 +122,7 @@
             </tr>
                <tr>
                 <td></td>
-                <td><input type="hidden" name="id" value="<?= $id ?>"><input type="submit" name="submit" value="Submit"></td>
+                <td><input type="hidden" name="i" value="<?= $i ?>"><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>
     </form>
