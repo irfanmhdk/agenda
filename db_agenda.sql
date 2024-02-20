@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Feb 2024 pada 09.31
+-- Waktu pembuatan: 20 Feb 2024 pada 07.48
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -154,113 +154,111 @@ INSERT INTO `tb_agenda_guru` (`id_agenda_guru`, `tgl`, `jam_ke`, `nip`, `id_kela
 CREATE TABLE `tb_guru` (
   `nip` varchar(18) NOT NULL,
   `id_mapel` varchar(6) NOT NULL,
-  `nama_guru` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `role` int(11) NOT NULL
+  `nama_guru` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`, `password`, `role`) VALUES
-('198111032008011005', 'MP1032', 'Gugum', 'ggm', 2),
-('198111032008011006', 'MP1006', 'Endro Tri Prasetyo', 'jms', 2),
-('198111032008011007', 'MP1018', 'Eneng sayidah', 'mrn', 2),
-('198111032008011008', 'MP1006', 'Engkus Kusawara', 'dna', 2),
-('198111032008011009', 'MP1005', 'Agung Apriatna', 'agg', 2),
-('198111032008011010', 'MP1004', 'ACA', 'aca', 2),
-('198111032008011011', 'MP1007', 'Adrianty Noorhanif', 'anf', 2),
-('198111032008011012', 'MP1012', 'Agus Basuki', 'abibi', 2),
-('198111032008011013', 'MP1013', 'Agus M Sopyan', 'agms', 2),
-('198111032008011014', 'MP1014', 'Andi Garnadi', 'agdi', 2),
-('198111032008011015', 'MP1015', 'Anom Jati Kusumo', 'ajko', 2),
-('198111032008011016', 'MP1015', 'Arum Pertiwi', 'armprwi', 2),
-('198111032008011017', 'MP1016', 'Asep Permana', 'aspa', 2),
-('198111032008011018', 'MP1017', 'Asep Sukmana', 'aska', 2),
-('198111032008011019', 'MP1017', 'Asri Dena Veviani', 'asdvi', 2),
-('198111032008011020', 'MP1001', 'Astri Hastriani', 'astri', 2),
-('198111032008011021', 'MP1018', 'Astri Putri Perdana', 'aspp', 2),
-('198111032008011022', 'MP1019', 'Cristhin Agustin', 'cags', 2),
-('198111032008011023', 'MP1008', 'Cucu Lasmanawati', 'cucu', 2),
-('198111032008011024', 'MP1020', 'Dadan Mahdan', 'daadn', 2),
-('198111032008011025', 'MP1001', 'Dadan Rosadi', 'rosadi', 2),
-('198111032008011026', 'MP1020', 'Daniel Adhi Hutomo', 'daniel', 2),
-('198111032008011027', 'MP1022', 'Dede Pamungkas', 'dedec', 2),
-('198111032008011028', 'MP1010', 'Dedi Suhendar', 'dedi', 2),
-('198111032008011029', 'MP1023', 'Didit Ariadi', 'didit', 2),
-('198111032008011030', 'MP1025', 'Deden Sumirat', 'deden', 2),
-('198111032008011031', 'MP1015', 'Durahman', 'durahman', 2),
-('198111032008011032', 'MP1009', 'Dwi Cahyaningsih', 'dwicahya', 2),
-('198111032008011033', 'MP1026', 'Dwisnaini Adriyos ', 'dwisnaini', 2),
-('198111032008011034', 'MP1027', 'Dyah Kusumaningrum', 'dyah', 2),
-('198111032008011035', 'MP1028', 'Edy Santoso', 'edy', 2),
-('198111032008011036', 'MP1005', 'Erni Anggraeni', 'erni', 2),
-('198111032008011037', 'MP1029', 'Fajar Heriyanto', 'fajar', 2),
-('198111032008011038', 'MP1030', 'Fajar Bani Fauzan', 'fajar', 2),
-('198111032008011039', 'MP1031', 'Fauzi Nugroho', 'fauzi', 2),
-('198111032008011040', 'MP1032', 'Gigin Gantini', 'gigin', 2),
-('198111032008011041', 'MP1002', 'Gina Dwi Septiani', 'gina', 2),
-('198111032008011042', 'MP1002', 'Hana Susanti', 'hana', 2),
-('198111032008011043', 'MP1002', 'Hani Handayani', 'Hani', 2),
-('198111032008011044', 'MP1006', 'Heni Hadiati', 'Heni', 2),
-('198111032008011045', 'MP1015', 'Husni Maridiah', 'husni', 2),
-('198111032008011046', 'MP1001', 'Ima Nurmayati', 'ima', 2),
-('198111032008011047', 'MP1033', 'Irvan Hilmi', 'irvan', 2),
-('198111032008011048', 'MP1034', 'Ismita Ratnasari', 'ismita', 2),
-('198111032008011049', 'MP1035', 'Iwan Toni Saputro', 'iwan', 2),
-('198111032008011050', 'MP1036', 'Izma Yuliana', 'izma', 2),
-('198111032008011051', 'MP1037', 'Julisa Irtina', 'julisa', 2),
-('198111032008011052', 'MP1038', 'Kusman Subaja', 'kusman', 2),
-('198111032008011053', 'MP1039', 'Kuswati', 'kuswati', 2),
-('198111032008011054', 'MP1004', 'Lilis Susanti', 'lilis', 2),
-('198111032008011055', 'MP1034', 'Mariam Komalawati', 'mariam', 2),
-('198111032008011056', 'MP1015', 'Marsita Dahliani Putri', 'marsita', 2),
-('198111032008011057', 'MP1009', 'Mas Yudi Riksa Kusumah', 'masyudi', 2),
-('198111032008011058', 'MP1002', 'Maya Karmila', 'maya', 2),
-('198111032008011059', 'MP1032', 'Moch Gani Setiawan', 'gani', 2),
-('198111032008011060', 'MP1015', 'Mutiara Sobariah', 'Mutiara', 2),
-('198111032008011061', 'MP1008', 'Nandang', 'nandang', 2),
-('198111032008011062', 'MP1009', 'Nani Hasanah', 'nani', 2),
-('198111032008011063', 'MP1008', 'Neneng Fauziah', 'neneng', 2),
-('198111032008011064', 'MP1043', 'Neneng Isti janiati', 'neneg asti', 2),
-('198111032008011065', 'MP1002', 'Nunung Lisnawati', 'nunung', 2),
-('198111032008011066', 'MP1011', 'Nurrani Siswanti', 'nurrani', 2),
-('198111032008011067', 'MP1044', 'Pradina Diah Aryanti', 'pradina', 2),
-('198111032008011068', 'MP1045', 'Rahmat Santa', 'rahmat', 2),
-('198111032008011069', 'MP1046', 'Ramdan Nurhaidir', 'ramdan', 2),
-('198111032008011070', 'MP1047', 'Raniutami Widiyanti', 'raiutami', 2),
-('198111032008011071', 'MP1005', 'Ratna Isnaeni Tesdy', 'artna', 2),
-('198111032008011072', 'MP1032', 'Irfan Santika Rahman', 'irfan', 2),
-('198111032008011073', 'MP1038', 'Rulyan Saptadji', 'rulyan', 2),
-('198111032008011074', 'MP1048', 'Ridawn Firdaus', 'ridawn', 2),
-('198111032008011075', 'MP1051', 'Ridawn Yanuardi', 'Yanuardi', 2),
-('198111032008011076', 'MP1002', 'Ririn Widiarti', 'ririn', 2),
-('198111032008011077', 'MP1024', 'Rohaeni Nur Eli', 'rohani', 2),
-('198111032008011078', 'MP1008', 'Saliman', 'saliman', 2),
-('198111032008011079', 'MP1052', 'Samsudin', 'samsudin', 2),
-('198111032008011080', 'MP1022', 'Sandra Irawan', 'Sandra', 2),
-('198111032008011081', 'MP1006', 'Setiawan', 'setiawan', 2),
-('198111032008011082', 'MP1001', 'Siti Eftafiyana', 'siti', 2),
-('198111032008011083', 'MP1002', 'Siti Roidah', 'roidah', 2),
-('198111032008011084', 'MP1009', 'Sri Mulyati', 'Sri', 2),
-('198111032008011085', 'MP1030', 'Syaifullah', 'Syaifullah', 2),
-('198111032008011086', 'MP1004', 'Syntia Mahyarani', 'syntia', 2),
-('198111032008011087', 'MP1047', 'Teti Suharti', 'teti', 2),
-('198111032008011088', 'MP1015', 'Tini Hernawati', 'tini', 2),
-('198111032008011089', 'MP1024', 'Tuti Murdayani', 'tuti', 2),
-('198111032008011090', 'MP1001', 'Utami Nurhayati', 'utami', 2),
-('198111032008011091', 'MP1049', 'Wahyu Sumirat Sumardi', 'wahyu', 2),
-('198111032008011092', 'MP1020', 'Wisnu Ramdhani', 'wisnu', 2),
-('198111032008011093', 'MP1054', 'Yana Cahya Kusumah', 'yana', 2),
-('198111032008011094', 'MP1024', 'Yayat Ruhyat', 'yayat', 2),
-('198111032008011095', 'MP1055', 'Yayat Sudrajat', 'sudarajat', 2),
-('198111032008011096', 'MP1056', 'Yudi Wahyudi', 'yudi', 2),
-('198111032008011097', 'MP1015', 'Yudith Rahayu', 'rahayu', 2),
-('198111032008011098', 'MP1007', 'Yuliani', 'yuliani', 2),
-('198111032008011099', 'MP1008', 'Yulie Yulianti', 'Yulie', 2),
-('198111032008011100', 'MP1022', 'Yulius Rudiana', 'yulius', 2),
-('198111032008011101', 'MP1004', 'Yusi Siti Masitoh', 'yusi', 2);
+INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`) VALUES
+('198111032008011005', 'MP1032', 'Gugum'),
+('198111032008011006', 'MP1006', 'Endro Tri Prasetyo'),
+('198111032008011007', 'MP1018', 'Eneng sayidah'),
+('198111032008011008', 'MP1006', 'Engkus Kusawara'),
+('198111032008011009', 'MP1005', 'Agung Apriatna'),
+('198111032008011010', 'MP1004', 'ACA'),
+('198111032008011011', 'MP1007', 'Adrianty Noorhanif'),
+('198111032008011012', 'MP1012', 'Agus Basuki'),
+('198111032008011013', 'MP1013', 'Agus M Sopyan'),
+('198111032008011014', 'MP1014', 'Andi Garnadi'),
+('198111032008011015', 'MP1015', 'Anom Jati Kusumo'),
+('198111032008011016', 'MP1015', 'Arum Pertiwi'),
+('198111032008011017', 'MP1016', 'Asep Permana'),
+('198111032008011018', 'MP1017', 'Asep Sukmana'),
+('198111032008011019', 'MP1017', 'Asri Dena Veviani'),
+('198111032008011020', 'MP1001', 'Astri Hastriani'),
+('198111032008011021', 'MP1018', 'Astri Putri Perdana'),
+('198111032008011022', 'MP1019', 'Cristhin Agustin'),
+('198111032008011023', 'MP1008', 'Cucu Lasmanawati'),
+('198111032008011024', 'MP1020', 'Dadan Mahdan'),
+('198111032008011025', 'MP1001', 'Dadan Rosadi'),
+('198111032008011026', 'MP1020', 'Daniel Adhi Hutomo'),
+('198111032008011027', 'MP1022', 'Dede Pamungkas'),
+('198111032008011028', 'MP1010', 'Dedi Suhendar'),
+('198111032008011029', 'MP1023', 'Didit Ariadi'),
+('198111032008011030', 'MP1025', 'Deden Sumirat'),
+('198111032008011031', 'MP1015', 'Durahman'),
+('198111032008011032', 'MP1009', 'Dwi Cahyaningsih'),
+('198111032008011033', 'MP1026', 'Dwisnaini Adriyos '),
+('198111032008011034', 'MP1027', 'Dyah Kusumaningrum'),
+('198111032008011035', 'MP1028', 'Edy Santoso'),
+('198111032008011036', 'MP1005', 'Erni Anggraeni'),
+('198111032008011037', 'MP1029', 'Fajar Heriyanto'),
+('198111032008011038', 'MP1030', 'Fajar Bani Fauzan'),
+('198111032008011039', 'MP1031', 'Fauzi Nugroho'),
+('198111032008011040', 'MP1032', 'Gigin Gantini'),
+('198111032008011041', 'MP1002', 'Gina Dwi Septiani'),
+('198111032008011042', 'MP1002', 'Hana Susanti'),
+('198111032008011043', 'MP1002', 'Hani Handayani'),
+('198111032008011044', 'MP1006', 'Heni Hadiati'),
+('198111032008011045', 'MP1015', 'Husni Maridiah'),
+('198111032008011046', 'MP1001', 'Ima Nurmayati'),
+('198111032008011047', 'MP1033', 'Irvan Hilmi'),
+('198111032008011048', 'MP1034', 'Ismita Ratnasari'),
+('198111032008011049', 'MP1035', 'Iwan Toni Saputro'),
+('198111032008011050', 'MP1036', 'Izma Yuliana'),
+('198111032008011051', 'MP1037', 'Julisa Irtina'),
+('198111032008011052', 'MP1038', 'Kusman Subaja'),
+('198111032008011053', 'MP1039', 'Kuswati'),
+('198111032008011054', 'MP1004', 'Lilis Susanti'),
+('198111032008011055', 'MP1034', 'Mariam Komalawati'),
+('198111032008011056', 'MP1015', 'Marsita Dahliani Putri'),
+('198111032008011057', 'MP1009', 'Mas Yudi Riksa Kusumah'),
+('198111032008011058', 'MP1002', 'Maya Karmila'),
+('198111032008011059', 'MP1032', 'Moch Gani Setiawan'),
+('198111032008011060', 'MP1015', 'Mutiara Sobariah'),
+('198111032008011061', 'MP1008', 'Nandang'),
+('198111032008011062', 'MP1009', 'Nani Hasanah'),
+('198111032008011063', 'MP1008', 'Neneng Fauziah'),
+('198111032008011064', 'MP1043', 'Neneng Isti janiati'),
+('198111032008011065', 'MP1002', 'Nunung Lisnawati'),
+('198111032008011066', 'MP1011', 'Nurrani Siswanti'),
+('198111032008011067', 'MP1044', 'Pradina Diah Aryanti'),
+('198111032008011068', 'MP1045', 'Rahmat Santa'),
+('198111032008011069', 'MP1046', 'Ramdan Nurhaidir'),
+('198111032008011070', 'MP1047', 'Raniutami Widiyanti'),
+('198111032008011071', 'MP1005', 'Ratna Isnaeni Tesdy'),
+('198111032008011072', 'MP1032', 'Irfan Santika Rahman'),
+('198111032008011073', 'MP1038', 'Rulyan Saptadji'),
+('198111032008011074', 'MP1048', 'Ridawn Firdaus'),
+('198111032008011075', 'MP1051', 'Ridawn Yanuardi'),
+('198111032008011076', 'MP1002', 'Ririn Widiarti'),
+('198111032008011077', 'MP1024', 'Rohaeni Nur Eli'),
+('198111032008011078', 'MP1008', 'Saliman'),
+('198111032008011079', 'MP1052', 'Samsudin'),
+('198111032008011080', 'MP1022', 'Sandra Irawan'),
+('198111032008011081', 'MP1006', 'Setiawan'),
+('198111032008011082', 'MP1001', 'Siti Eftafiyana'),
+('198111032008011083', 'MP1002', 'Siti Roidah'),
+('198111032008011084', 'MP1009', 'Sri Mulyati'),
+('198111032008011085', 'MP1030', 'Syaifullah'),
+('198111032008011086', 'MP1004', 'Syntia Mahyarani'),
+('198111032008011087', 'MP1047', 'Teti Suharti'),
+('198111032008011088', 'MP1015', 'Tini Hernawati'),
+('198111032008011089', 'MP1024', 'Tuti Murdayani'),
+('198111032008011090', 'MP1001', 'Utami Nurhayati'),
+('198111032008011091', 'MP1049', 'Wahyu Sumirat Sumardi'),
+('198111032008011092', 'MP1020', 'Wisnu Ramdhani'),
+('198111032008011093', 'MP1054', 'Yana Cahya Kusumah'),
+('198111032008011094', 'MP1024', 'Yayat Ruhyat'),
+('198111032008011095', 'MP1055', 'Yayat Sudrajat'),
+('198111032008011096', 'MP1056', 'Yudi Wahyudi'),
+('198111032008011097', 'MP1015', 'Yudith Rahayu'),
+('198111032008011098', 'MP1007', 'Yuliani'),
+('198111032008011099', 'MP1008', 'Yulie Yulianti'),
+('198111032008011100', 'MP1022', 'Yulius Rudiana'),
+('198111032008011101', 'MP1004', 'Yusi Siti Masitoh');
 
 -- --------------------------------------------------------
 
@@ -285,8 +283,6 @@ CREATE TABLE `tb_jadwal` (
 
 INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_selesai`, `nip`, `id_mapel`, `ruangan`) VALUES
 (12, 'D10001', 'Senin', '08.30', '11.30', '198111032008011083', 'MP1002', 'E5'),
-(13, 'E10002', 'Rabu', '10.55', '11.30', '198111032008011006', 'MP1002', 'F1'),
-(18, 'A10001', 'Senin', '08.30', '11.30', '198111032008011085', 'MP1030', 'R-B1'),
 (19, 'A10001', 'Senin', '11.30', '15.00', '198111032008011038', 'MP1030', 'R-B1'),
 (20, 'A10001', 'Selasa', '07.00', '10.15', '198111032008011033', 'MP1026', 'R-B1'),
 (21, 'A10001', 'Selasa', '10.15', '13.40', '198111032008011038', 'MP1030', 'R-B1'),
@@ -348,67 +344,73 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_sele
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_kegiatan_lain`
+--
+
+CREATE TABLE `tb_kegiatan_lain` (
+  `id_kelain` int(11) NOT NULL,
+  `id_kelas` varchar(6) NOT NULL,
+  `tgl` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `judul_kegiatan` varchar(255) NOT NULL,
+  `isi_kegiatan` varchar(255) NOT NULL,
+  `catatan_kejadian` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_kegiatan_lain`
+--
+
+INSERT INTO `tb_kegiatan_lain` (`id_kelain`, `id_kelas`, `tgl`, `judul_kegiatan`, `isi_kegiatan`, `catatan_kejadian`) VALUES
+(1, 'P10001', '2024-02-20 02:26:28', 'Pesantren Kilat', 'Mengaji', 'Rizky Mabal');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_kelas`
 --
 
 CREATE TABLE `tb_kelas` (
   `id_kelas` varchar(6) NOT NULL,
-  `nama_kelas` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` int(11) NOT NULL
+  `nama_kelas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`, `username`, `password`, `role`) VALUES
-('A10001', 'X ANIMASI A', 'xanimasia', 'xanimasia', 3),
-('A10002', 'X ANIMASI B', 'xanimasib', 'xanimasib', 3),
-('A20001', 'XI ANIMASI A', 'xianimasia', 'xianimasia', 3),
-('A20002', 'XI ANIMASI B', 'xianimasib', 'xianimasib', 3),
-('D10001', 'X DKV A', 'xdkva', 'xdkva', 3),
-('D10002', 'X DKV B', 'xdkvb', 'xdkvb', 3),
-('D10003', 'X DKV C', 'xdkvc', 'xdkvc', 3),
-('D20001', 'XI DKV A', 'xidkva', 'xidkva', 3),
-('D20002', 'XI DKV B', 'xidkvb', 'xidkvb', 3),
-('D20003', 'XI DKV C', 'xidkvc', 'xidkvc', 3),
-('E10001', 'X ELEKTRONIKA A', 'xelektronikaa', 'xelektronikaa', 3),
-('E10002', 'X ELEKTRONIKA B', 'xelektronikab', 'xelektronikab', 3),
-('E10003', 'X ELEKTRONIKA C', 'xelektronikac', 'xelektronikac', 3),
-('E10004', 'X ELEKTRONIKA D', 'xelektronikad', 'xelektronikad', 3),
-('E20001', 'XI ELEKTRONIKA A', 'xielektronikaa', 'xielektronikaa', 3),
-('E20002', 'XI ELEKTRONIKA B', 'xielektronikab', 'xielektronikab', 3),
-('E20003', 'XI ELEKTRONIKA C', 'xielektronikac', 'xielektronikac', 3),
-('E20004', 'XI ELEKTRONIKA D', 'xielektronikad', 'xielektronikad', 3),
-('K10001', 'X KIMIA A', 'xkimiaa', 'xkimiaa', 3),
-('K10002', 'X KIMIA B', 'xkimiab', 'xkimiab', 3),
-('K10003', 'X KIMIA C', 'xkimiac', 'xkimiac', 3),
-('K20001', 'XI KIMIA A', 'xikimiaa', 'xikimiaa', 3),
-('K20002', 'XI KIMIA B', 'xikimiab', 'xikimiab', 3),
-('K20003', 'XI KIMIA C', 'xikimiac', 'xikimiac', 3),
-('P10001', 'X PPLG A', 'xpplga', 'xpplga', 3),
-('P10002', 'X PPLG B', 'xpplgb', 'xpplgb', 3),
-('P20001', 'XI PPLG A', 'xipplga', 'xipplga', 3),
-('P20002', 'XI PPLG B', 'xipplgb', 'xipplgb', 3),
-('T10001', 'X PEMESINAN A', 'xpemesinana', 'xpemesinana', 3),
-('T10002', 'X PEMESINAN B', 'xpemesinanb', 'xpemesinanb', 3),
-('T20001', 'XI PEMESINAN A', 'xipemesinana', 'xipemesinana', 3),
-('T20002', 'XI PEMESINAN B', 'xipemesinanb', 'xipemesinanb', 3);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_login`
---
-
-CREATE TABLE `tb_login` (
-  `nip` varchar(18) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `akses` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `tb_kelas` (`id_kelas`, `nama_kelas`) VALUES
+('A10001', 'X ANIMASI A'),
+('A10002', 'X ANIMASI B'),
+('A20001', 'XI ANIMASI A'),
+('A20002', 'XI ANIMASI B'),
+('D10001', 'X DKV A'),
+('D10002', 'X DKV B'),
+('D10003', 'X DKV C'),
+('D20001', 'XI DKV A'),
+('D20002', 'XI DKV B'),
+('D20003', 'XI DKV C'),
+('E10001', 'X ELEKTRONIKA A'),
+('E10002', 'X ELEKTRONIKA B'),
+('E10003', 'X ELEKTRONIKA C'),
+('E10004', 'X ELEKTRONIKA D'),
+('E20001', 'XI ELEKTRONIKA A'),
+('E20002', 'XI ELEKTRONIKA B'),
+('E20003', 'XI ELEKTRONIKA C'),
+('E20004', 'XI ELEKTRONIKA D'),
+('K10001', 'X KIMIA A'),
+('K10002', 'X KIMIA B'),
+('K10003', 'X KIMIA C'),
+('K20001', 'XI KIMIA A'),
+('K20002', 'XI KIMIA B'),
+('K20003', 'XI KIMIA C'),
+('P10001', 'X PPLG A'),
+('P10002', 'X PPLG B'),
+('P20001', 'XI PPLG A'),
+('P20002', 'XI PPLG B'),
+('T10001', 'X PEMESINAN A'),
+('T10002', 'X PEMESINAN B'),
+('T20001', 'XI PEMESINAN A'),
+('T20002', 'XI PEMESINAN B');
 
 -- --------------------------------------------------------
 
@@ -615,6 +617,7 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
 ('1', 'kepsek2cmi', 'kepsek2', 4),
+('12345453535353', 'aasas', '$2y$10$oJJFs.tewbq.0YLS4M8.jOFrTF4Bj.u0Fp2RYstGOWTQ9tXi6Ijsq', 2),
 ('198111032008011005', '198111032008011005', '$2y$10$G2GnZWqojnfrscm/lVDQ5.9dog7nolD7FpMK.h06bvmlhzjzmL/AW', 2),
 ('198111032008011006', '198111032008011006', '$2y$10$xjCJNZnu03DD1Id8.j3Gw.zyZFcv.fI2fJlGgx0PVfmo5ldC3AD1e', 2),
 ('198111032008011007', '198111032008011007', '$2y$10$73juMyw0o9dnU7g5Ks5Bl.ag1APRMR23T1BxkdFT0ZQMhxBc1z7QK', 2),
@@ -651,26 +654,6 @@ INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
 ('T10002', 'xpemesinanb', '$2y$10$JL9e9sgeDbsj9u6hwHFr..E866dwm.7qcja7IJ/pwM0V2YIEB/GHu', 3),
 ('T20001', 'xipemesinana', '$2y$10$jgQVWNrNgov8WTz1erWxGOMgMVW8z8krGUdbuj2JFYmWVaonb98pC', 3),
 ('T20002', 'xipemesinanb', '$2y$10$yVLxH.shD9CLsUFMmrWl1eWHHuy7Z97dVI.JJ426W8iz3NqPEi.82', 3);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tb_walas`
---
-
-CREATE TABLE `tb_walas` (
-  `nip` varchar(18) NOT NULL,
-  `id_kelas` varchar(6) NOT NULL,
-  `tahun_pel` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tb_walas`
---
-
-INSERT INTO `tb_walas` (`nip`, `id_kelas`, `tahun_pel`) VALUES
-('132456465468', 'P10002', '2023/2024'),
-('198111032008011005', 'P10001', '2023/2024');
 
 --
 -- Indexes for dumped tables
@@ -719,16 +702,16 @@ ALTER TABLE `tb_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
+-- Indeks untuk tabel `tb_kegiatan_lain`
+--
+ALTER TABLE `tb_kegiatan_lain`
+  ADD PRIMARY KEY (`id_kelain`);
+
+--
 -- Indeks untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`id_kelas`);
-
---
--- Indeks untuk tabel `tb_login`
---
-ALTER TABLE `tb_login`
-  ADD PRIMARY KEY (`nip`);
 
 --
 -- Indeks untuk tabel `tb_mapel`
@@ -754,12 +737,6 @@ ALTER TABLE `tb_siswa`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id_user`);
-
---
--- Indeks untuk tabel `tb_walas`
---
-ALTER TABLE `tb_walas`
-  ADD PRIMARY KEY (`nip`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -793,7 +770,13 @@ ALTER TABLE `tb_agenda_guru`
 -- AUTO_INCREMENT untuk tabel `tb_jadwal`
 --
 ALTER TABLE `tb_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_kegiatan_lain`
+--
+ALTER TABLE `tb_kegiatan_lain`
+  MODIFY `id_kelain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
