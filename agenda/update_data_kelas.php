@@ -5,10 +5,8 @@
 
         $id = $_POST['id_kelas'];
         $kelas = $_POST['kelas'];
-        $username = $_POST['username'];
-        $pw = $_POST['pw'];
 
-        $result = mysqli_query($Conn, "UPDATE tb_kelas SET id_kelas='$id', nama_kelas='$kelas', username='$username', password='$pw' WHERE id_kelas='$id'");
+        $result = mysqli_query($Conn, "UPDATE tb_kelas SET id_kelas='$id', nama_kelas='$kelas' WHERE id_kelas='$id'");
         if ($result) {
             echo "
             <script>
