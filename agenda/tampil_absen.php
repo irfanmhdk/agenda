@@ -9,6 +9,7 @@ if (!isset($_SESSION['login'])) {
 
 if(isset($_POST['submit'])){
     $tgl = $_POST['bulan'];
+    $tgl1 = $_POST['Tanggal'];
     $search = $_POST['search'];
     $result = mysqli_query($Conn,  "SELECT 
     tb_absen.id_absen, 
@@ -26,7 +27,7 @@ INNER JOIN
 INNER JOIN 
     tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
 WHERE 
-   MONTH  (tb_absen.tanggal) = '$tgl'");
+   MONTH  (tb_absen.tanggal) = '$tgl' AND '$tgl1'");
 }
 ?>
 <!DOCTYPE html>
