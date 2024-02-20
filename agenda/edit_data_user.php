@@ -9,13 +9,12 @@
 
     $id = $_GET['id'];
 
-    $result = mysqli_query($Conn,  "SELECT * FROM tb_user where id_user = '$id'");
+    $result = mysqli_query($Conn,  "SELECT tb_user.id_user, tb_user.username, tb_user.password, tb_role.nama_role
+    FROM tb_user INNER JOIN tb_role ON tb_user.role = tb_role.id_role where id_user = '$id'");
 
     while ($data = mysqli_fetch_array($result)) {
-        $id_user = $_POST['id_user'];
-        $user = $_POST['user'];
-        $pw = $_POST['pw'];
-        $role = $_POST['role'];
+        $user = $_POST['username'];
+        $pw = $_POST['password'];
     }
 ?>
 <!DOCTYPE html>
@@ -94,10 +93,6 @@
     <h1>EDIT DATA USER</h1><hr>
     <form action="update_data_user.php" method="POST">
         <table>
-        <tr>
-                <td>ID User</td>
-                <td><input type="text" name="id_user" value="<?= $id_user ?>"></td>
-            </tr>
             <tr>
                 <td>Username</td>
                 <td><input type="text" name="user" value="<?= $user ?>"></td>
@@ -117,7 +112,7 @@
                     ?>
                 </select></td>
             </tr>
-            <tr>
+               <tr>
                 <td></td>
                 <td><input type="hidden" name="id" value="<?= $id ?>"><input type="submit" name="submit" value="Submit"></td>
             </tr>

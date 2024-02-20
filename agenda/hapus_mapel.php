@@ -6,7 +6,6 @@
     $hapus = mysqli_query($Conn, $sql);
 
     if ($hapus) {
-<<<<<<< HEAD
         echo "
             <script>
                 alert('Data anda berhasil dihapus');
@@ -20,7 +19,6 @@
                 window.location.href = 'manage_data_mapel.php'; // alihkan langsung melalui JavaScript
             </script>
         ";
-=======
         echo "<script>
             alert('Data Berhasil Dihapus');
             window.location.href='manage_data_mapel.php';
@@ -32,6 +30,5 @@
             window.location.href='manage_data_mapel.php';
         </script>";
         exit();
->>>>>>> f9ecc3d84dbeec957ff8d42f03fd393ae793c619
     }
 ?>
