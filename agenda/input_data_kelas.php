@@ -91,15 +91,7 @@
                 <td><input type="text" name="kelas" placeholder="Input Kelas..."></td>
             </tr>
             <tr>
-                <td>Username</td>
-                <td><input type="text" name="username" placeholder="Input Username..."></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="pw" placeholder="Input Password..."></td>
-            </tr>
-            <tr>
-                <td><input type="hidden" name="role" value="3"></td>
+                <td></td>
                 <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>

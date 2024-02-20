@@ -105,11 +105,7 @@
                 </select></td>
             </tr>
             <tr>
-                <td>Password</td>
-                <td><input type="password" name="pw" placeholder="Input Password"></td>
-            </tr>
-            <tr>
-                <td><input type="hidden" name="role" value="2"></td>
+                <td></td>
                 <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>

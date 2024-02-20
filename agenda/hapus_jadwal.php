@@ -3,21 +3,19 @@
 
     $id = $_GET['id'];
     $sql = "DELETE FROM tb_jadwal WHERE id_jadwal= $id"; //
-    $hapus = mysqli_query($conn, $sql);
+    $hapus = mysqli_query($Conn, $sql);
 
     if ($hapus) {
-        echo "
-            <script>
-                alert('Data anda berhasil dihapus');
-            </script>
-        ";
-        header("Location: jadwal.php");
+        echo "<script>
+            alert('Data Berhasil Dihapus');
+            window.location.href='jadwal.php';
+        </script>";
+        exit();
     } else {
-        echo "
-            <script>
-                alert('Data anda gagal dihapus');
-            </script>
-        ";
-        header("Location: hapus_jadwal.php");
+        echo "<script>
+            alert('Data Gagal Dihapus');
+            window.location.href='jadwal.php';
+        </script>";
+        exit();
     }
 ?>
