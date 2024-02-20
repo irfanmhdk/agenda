@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Feb 2024 pada 07.48
+-- Waktu pembuatan: 20 Feb 2024 pada 09.29
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -162,7 +162,7 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`nip`, `id_mapel`, `nama_guru`) VALUES
-('198111032008011005', 'MP1032', 'Gugum'),
+('198111032008011005', 'MP1032', 'Gugum Gumilar'),
 ('198111032008011006', 'MP1006', 'Endro Tri Prasetyo'),
 ('198111032008011007', 'MP1018', 'Eneng sayidah'),
 ('198111032008011008', 'MP1006', 'Engkus Kusawara'),
@@ -350,6 +350,8 @@ INSERT INTO `tb_jadwal` (`id_jadwal`, `id_kelas`, `hari`, `jam_masuk`, `jam_sele
 CREATE TABLE `tb_kegiatan_lain` (
   `id_kelain` int(11) NOT NULL,
   `id_kelas` varchar(6) NOT NULL,
+  `jam_mulai` varchar(30) NOT NULL,
+  `jam_selesai` varchar(30) NOT NULL,
   `tgl` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `judul_kegiatan` varchar(255) NOT NULL,
   `isi_kegiatan` varchar(255) NOT NULL,
@@ -360,8 +362,8 @@ CREATE TABLE `tb_kegiatan_lain` (
 -- Dumping data untuk tabel `tb_kegiatan_lain`
 --
 
-INSERT INTO `tb_kegiatan_lain` (`id_kelain`, `id_kelas`, `tgl`, `judul_kegiatan`, `isi_kegiatan`, `catatan_kejadian`) VALUES
-(1, 'P10001', '2024-02-20 02:26:28', 'Pesantren Kilat', 'Mengaji', 'Rizky Mabal');
+INSERT INTO `tb_kegiatan_lain` (`id_kelain`, `id_kelas`, `jam_mulai`, `jam_selesai`, `tgl`, `judul_kegiatan`, `isi_kegiatan`, `catatan_kejadian`) VALUES
+(2, 'P10001', '07.00', '11.30', '2024-02-20 08:10:37', 'Pesantren Kilat', 'Mengaji', 'Radit kabur');
 
 -- --------------------------------------------------------
 
@@ -616,8 +618,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`, `role`) VALUES
-('1', 'kepsek2cmi', 'kepsek2', 4),
-('12345453535353', 'aasas', '$2y$10$oJJFs.tewbq.0YLS4M8.jOFrTF4Bj.u0Fp2RYstGOWTQ9tXi6Ijsq', 2),
+('1', 'kepsek2cmi', '$2y$10$la03zJ7ned6yDf9q6radFu7F8vaYcXaDMgNEop4MO0CxeY8f1BzDW', 4),
 ('198111032008011005', '198111032008011005', '$2y$10$G2GnZWqojnfrscm/lVDQ5.9dog7nolD7FpMK.h06bvmlhzjzmL/AW', 2),
 ('198111032008011006', '198111032008011006', '$2y$10$xjCJNZnu03DD1Id8.j3Gw.zyZFcv.fI2fJlGgx0PVfmo5ldC3AD1e', 2),
 ('198111032008011007', '198111032008011007', '$2y$10$73juMyw0o9dnU7g5Ks5Bl.ag1APRMR23T1BxkdFT0ZQMhxBc1z7QK', 2),
@@ -776,7 +777,7 @@ ALTER TABLE `tb_jadwal`
 -- AUTO_INCREMENT untuk tabel `tb_kegiatan_lain`
 --
 ALTER TABLE `tb_kegiatan_lain`
-  MODIFY `id_kelain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kelain` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
