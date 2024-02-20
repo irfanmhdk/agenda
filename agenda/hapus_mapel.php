@@ -24,11 +24,5 @@
             window.location.href='manage_data_mapel.php';
         </script>";
         exit();
-    } else {
-        echo "<script>
-            alert('Data Gagal Dihapus');
-            window.location.href='manage_data_mapel.php';
-        </script>";
-        exit();
     }
-?>
+    ?>
