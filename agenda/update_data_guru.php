@@ -8,7 +8,7 @@
         $nama = $_POST['nama_guru'];
         $mapel = $_POST['mapel'];
 
-        $result = mysqli_query($Conn, "UPDATE tb_guru SET nip='$nip', nama_guru='$nama', id_mapel='$mapel' WHERE nip='$id'");
+        $result = mysqli_query($Conn, "UPDATE tb_guru SET nip='$nip', nama_guru = '$nama', id_mapel='$mapel' WHERE nip='$id'");
         if ($result) {
             echo "
             <script>

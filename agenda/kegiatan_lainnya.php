@@ -1,12 +1,12 @@
 <?php
     include 'koneksi.php';
 
-    $kel = $_GET['kel'];
+    $kelas = $_GET['id'];
 
-$sql = "SELECT * FROM tb_guru";
+$sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$sql1 = "SELECT * FROM tb_kegiatan_lain WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -18,136 +18,107 @@ $k = mysqli_query($Conn,$sql1);
     <title>Agenda Kegiatan lainnya Siswa </title>
     <link rel="stylesheet" href="navbar.css">
 <style>
-    table{
-        background-color: #f1f1f1;
-        padding: 10px 50px 10px 30px;
-        border-radius: 3%;
+    table {
+        border-collapse: collapse;
+        width: 100%;
     }
-    input[type=text], select {
-    width: 240px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+    th, td {
+        color: black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
+    input[type=text] {
+        width: 240px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
     }
     input[type=submit] {
-    width: 100px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    input[type=date] {
-    width: 200px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    textarea {
-    width: 240px;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
     }
 </style>
 </head>
 <body>
-    <header>
+<header>
         <div class="sidebar">
-            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
+            <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a class="active" href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
+            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <hr  style="width: 90%;">
+            <a href="beranda.php?id=<?= $kelas ?>">Home</a>
+            <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
+            <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
+            <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+            <a class="active" href="kegiatan_lainnya.php?id=<?= $kelas ?>">Kegiatan Lainnya</a>
+            <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
     <div class="head">
           <?php
-            foreach($k as $nama){ ?>
+            foreach($proses as $nama){ ?>
             <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
           <?php
             }
           ?>
         </div>
     <div class="content">
-    <h1>AGENDA LAINNYA</h1>
-        <h4>Jika pada hari tertentu tidak ada kegiatan Pembelajaran / acara maka pengisian agenda </h4>
-    <hr>
-    <br>
-    <form action="simpan_agenda.php" method="POST">
-        <table>
+    <center>
+<h1>KEGIATAN LAINNYA</h1><hr> </center>
+<br>
+<form action="search1.php" method="POST">
+    <input type="text" name="search" placeholder="Cari Nama Guru...">
+    <input type="hidden" name="kelas" value="<?= $kelas ?>">
+    <input type="submit" name="submit" value="Cari">
+</form><br>
+<center>
+<table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
-                <td><label>Jam acara mulai </label></td>
-                    <td><select name="jam_masuk">
-                        <option value="07.00">07.00</option>
-                        <option value="07.45">07.45</option>
-                        <option value="08.30">08.30</option>
-                        <option value="09.15">09.15</option>
-                        <option value="10.15">10.15</option>
-                        <option value="10.55">10.55</option>
-                        <option value="11.30">11.30</option>
-                        <option value="13.00">13.00</option>
-                        <option value="13.40">13.40</option>
-                        <option value="14.20">14.20</option>
-                        <option value="15.00">15.00</option>
-                        <option value="15.30">15.30</option>
-                    </select></td>
-                    </tr>
-                    <td><label>Jam acara sselesai </label></td>
-                    <td><select name="jam_selesai">
-                        <option value="07.45">07.45</option>
-                        <option value="08.30">08.30</option>
-                        <option value="09.15">09.15</option>
-                        <option value="10.15">10.15</option>
-                        <option value="10.55">10.55</option>
-                        <option value="11.30">11.30</option>
-                        <option value="13.00">13.00</option>
-                        <option value="13.40">13.40</option>
-                        <option value="14.20">14.20</option>
-                        <option value="15.00">15.00</option>
-                        <option value="15.30">15.30</option>
-                    </select></td>
-                    </tr>
-                <td>Materi</td>
-                <td><input type="text" name="materi"></td>
-                </td>
-            </tr>
-                <td><label>Guru Penanggung Jawab</label></td>
-                <td><select name="kehadiran_guru">
-                        <option value="Hadir">Hadir</option>
-                        <option value="Tidak Hadir">Tidak Hadir</option>
-                        <option value="Hanya Hadir Diawal">Hanya Hadir Diawal</option>
-                        <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir </option>
-                    </select></td>
-                    </tr>
+            <th>Tanggal</th>
+            <th>Jam Kegiatan</th>
+            <th>Judul Kegiatan</th>
+            <th>Isi Kegiatan</th>
+            <th>Catatan Kejadian </th> 
+        </tr>
+    <?php foreach ($k as $row) : ?>
             <tr>
-                <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea>
+                <td><?= $row["tgl"];?></td>
+                <td><?= $row["jam_mulai"]." - ".$row['jam_selesai'];?></td>
+                <td><?= $row["judul_kegiatan"];?></td>
+                <td><?= $row["isi_kegiatan"];?></td>
+                <td><?= $row["catatan_kejadian"];?></td>
             </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="hidden" name="kel" value="<?= $kel; ?>">
-                   
-                    <input type="hidden" name="nip" value="<?= $nip; ?>">
-                    <input type="submit" name="kirim" value="Kirim"></td>
-            </tr>
-        </table>
+            <?php endforeach ; 
+            ?>
+</table>
     </form>
     </div>
     <div class="footer">

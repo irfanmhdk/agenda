@@ -126,6 +126,7 @@
         <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+        <a href="kegiatan_lainnya.php?id=<?= $kelas ?>">Kegiatan Lainnya</a>
         <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>

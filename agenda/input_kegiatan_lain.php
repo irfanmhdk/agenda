@@ -9,13 +9,11 @@
     include 'hari.php';
 
     $kel = $_GET['kel'];
-    $nip = $_GET['nip'];
-    $map = $_GET['map'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$sql1 = "SELECT * FROM tb_kelas";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -81,10 +79,10 @@ $k = mysqli_query($Conn,$sql1);
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
+            <a href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
             <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
             <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
+            <a class="active" href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
@@ -97,11 +95,13 @@ $k = mysqli_query($Conn,$sql1);
           ?>
         </div>
     <div class="content">
-    <h1>PENGISIAN AGENDA</h1><hr><br>
-    <form action="simpan_agenda.php" method="POST">
+    <h1>KEGIATAN LAINNYA</h1>
+    <hr>
+    <br>
+    <form action="p_input_kegiatan_lainnya.php" method="POST">
         <table>
         <tr>
-                <td><label>Jam Pembelajaran mulai </label></td>
+                <td><label>Jam Acara Mulai </label></td>
                     <td><select name="jam_masuk">
                         <option value="07.00">07.00</option>
                         <option value="07.45">07.45</option>
@@ -117,7 +117,7 @@ $k = mysqli_query($Conn,$sql1);
                         <option value="15.30">15.30</option>
                     </select></td>
                     </tr>
-                    <td><label>Jam Pembelajaran selesai </label></td>
+                    <td><label>Jam Acara Selesai </label></td>
                     <td><select name="jam_selesai">
                         <option value="07.45">07.45</option>
                         <option value="08.30">08.30</option>
@@ -132,38 +132,22 @@ $k = mysqli_query($Conn,$sql1);
                         <option value="15.30">15.30</option>
                     </select></td>
                     </tr>
-                <td>Materi</td>
-                <td><input type="text" name="materi"></td>
-                </td>
             </tr>
-            <tr>
-                <td>Tugas</td>
-                <td><select name="tugas">
-                    <option value="Tugas Langsung">Tugas Langsung</option>
-                    <option value="Menitipkan Tugas">Menitipkan Tugas</option>
-                    <option value="Tidak Ada Tugas">Tidak Ada Tugas</option>
-                    </select>
-                </td>
-            </tr>
-                <td><label>Kehadiran Guru</label></td>
-                <td><select name="kehadiran_guru">
-                        <option value="Hadir">Hadir</option>
-                        <option value="Tidak Hadir">Tidak Hadir</option>
-                        <option value="Hanya Hadir Diawal">Hanya Hadir Diawal</option>
-                        <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir </option>
-                    </select></td>
+                <td><label>Judul Kegiatan</label></td>
+                <td><input type="text" name="judul"></td>
                     </tr>
             <tr>
+            <tr>
+                <td>Isi Kegiatan</td>
+                <td><input type="text" name="isi"></td>
+            </tr>
                 <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea>
+                <td colspan="3"><textarea name="catatan" cols="30" rows="10"></textarea>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <input type="hidden" name="kel" value="<?= $kel; ?>">
-                   
-                    <input type="hidden" name="nip" value="<?= $nip; ?>">
-                    <input type="hidden" name="map" value="<?= $map; ?>">
                     <input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>

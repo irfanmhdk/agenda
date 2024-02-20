@@ -39,20 +39,18 @@
     tr:nth-child(even){background-color: #f2f2f2}
 
     .btn {
-        background-color: #ddd;
+        background-color: DodgerBlue;
         border: none;
-        color: black;
-        padding: 10px 16px;
-        text-align: center;
-        font-size: 13px;
-        margin: 4px 2px;
-        transition: 0.3s;
-        border-radius: 15px;
+        border-radius: 5px;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
     }
 
+    /* Darker background on mouse-over */
     .btn:hover {
-        background-color: #3e8e41;
-        color: white;
+        background-color: RoyalBlue;
     }
     .btn1 {
         background-color: #4CAF52;
@@ -80,6 +78,7 @@
         <a class="active" href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
         <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
         <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
+        <a href="kegiatan_lainnya.php?id=<?= $kelas ?>">Kegiatan Lainnya</a>
         <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>
@@ -93,7 +92,12 @@
     </div>
     <div class="content">
         <h1>JADWAL KELAS</h1><hr>
-        <h4>Hari <?= $h ?></h4>
+        <table>
+            <tr>
+                <td><h4>Hari <?= $h ?></h4></td>
+                <td style="text-align: right;"><a href="input_kegiatan_lain.php?kel=<?= $kelas ?>"><button class="btn" name="cetak"><i class="fa fa-calendar"></i> Kegiatan Lainnya</button></a></td>
+            </tr>
+        </table>
         <table style="box-shadow: 7px 7px 5px lightgrey;">
             <tr>
                 <th>Mata Pelajaran</th>
