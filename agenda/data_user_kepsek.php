@@ -98,15 +98,10 @@
     </div>
     </header>
     <div class="head" style="display: inline-block;">
-        <p style="margin-right: 10px;"><b>Admin</b></p>
+    <p style="margin-right: 10px;"><b>Kepala Sekolah</b></p>
     </div>
     <div class="content">
     <h1>MANAGE DATA USER</h1><hr>
-    <table>
-        <tr>
-            <td style="text-align:right;"><a href="input_data_user.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
-        </tr>
-    </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Username</th>
