@@ -14,8 +14,6 @@
     while ($data = mysqli_fetch_array($result)) {
         $id_kelas= $data['id_kelas'];
         $nama = $data['nama_kelas'];
-        $username = $data['username'];
-        $pw = $data['password'];
     }
 ?>
 <!DOCTYPE html>
@@ -73,6 +71,7 @@
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="data_admin.php">Data Agenda</a>
+            <a href="kegiatan_admin.php">Kegiatan Lainnya</a>
             <a href="jadwal.php">Jadwal</a>
             <a href="manage_data_user.php">Manage Data User</a>
             <button class="dropdown-btn">Manage Data 
@@ -99,18 +98,8 @@
             </tr>
             <tr>
                 <td>Kelas</td>
-                <td><input type="text" name="kelas" value="<?= $nama ?>"></td>
+                <td><input type="text" name="kelas" value="<?= $nama ?>"><input type="hidden" name="id" value="<?= $id ?>"></td>
             </tr>
-            <tr>
-                <td>Username</td>
-                <td><input type="text" name="username" value="<?= $username ?>"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type="password" name="pw" value="<?= $pw ?>"></td>
-            </tr>
-            <tr>
-                <td><input type="hidden" name="role" value="3"></td>
                 <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>

@@ -1,51 +1,53 @@
 <?php
     include 'koneksi.php';
-    session_start();
- 
-    if (!isset($_SESSION['login'])) {
-        header("Location: index.php");
-        exit();
-    }
-    
-    $id = $_GET['a'];
 
-    $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_agenda.comment,
-            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.id_agenda = '$id'";
-    $level = mysqli_query($Conn, $sql);
-    
+
+$sql = "SELECT * FROM tb_kelas";
+$proses = mysqli_query($Conn, $sql);
+
+$sql1 = "SELECT tb_kelas.nama_kelas, tb_kegiatan_lain.tgl, tb_kegiatan_lain.jam_mulai, tb_kegiatan_lain.jam_selesai,
+         tb_kegiatan_lain.judul_kegiatan, tb_kegiatan_lain.isi_kegiatan, tb_kegiatan_lain.catatan_kejadian  FROM tb_kegiatan_lain INNER JOIN
+         tb_kelas ON tb_kegiatan_lain.id_kelas = tb_kelas.id_kelas";
+$k = mysqli_query($Conn,$sql1);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comment Guru</title>
+    <title>Agenda Kegiatan lainnya Siswa </title>
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
 <style>
     table {
         border-collapse: collapse;
-        width: 60%;
-        background-color: #f1f1f1;
-        padding: 10px 50px 10px 30px;
-        border-radius: 3%;
+        width: 100%;
     }
 
     th, td {
+        color: black;
         text-align: left;
         padding: 8px;
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
 
-    th {
-        background-color: #04AA6D;
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        border-radius: 5px;
         color: white;
-        text-align: center;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;
     }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
     input[type=text] {
         width: 240px;
         padding: 12px 20px;
@@ -56,20 +58,17 @@
         box-sizing: border-box;
     }
     input[type=submit] {
-        width: auto;
-        background-color: #3e8e41;
-        color: black;
+        width: 100px;
+        background-color: #4CAF50;
+        color: white;
         padding: 14px 20px;
         margin: 8px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
     }
-    input[type=submit]:hover{
-        background-color: #04AA6D;
-        color: white;
-    }
-    </style>
+</style>
+</head>
 <body>
     <header>
         <div class="sidebar">
@@ -78,7 +77,7 @@
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
-            <a class="active" href="data_admin.php">Data Agenda</a>
+            <a href="data_admin.php">Data Agenda</a>
             <a class="active" href="kegiatan_admin.php">Kegiatan Lainnya</a>
             <a href="jadwal.php">Jadwal</a>
             <a href="manage_data_user.php">Manage Data User</a>
@@ -89,6 +88,7 @@
               <a href="manage_data_guru.php">Data Guru</a>
               <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
               <a href="manage_data_kelas.php">Data Kelas</a>
+              <a href="manage_absen_kelas.php">Absen Kelas</a>
             </div>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
@@ -97,22 +97,40 @@
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
     <div class="content">
-        <table>
+    <center>
+<h1>KEGIATAN LAINNYA</h1><hr> </center>
+<br>
+<form action="search1.php" method="POST">
+    <input type="text" name="search" placeholder="Cari Judul Kegiatan...">
+    <input type="hidden" name="kelas" value="<?= $kelas ?>">
+    <input type="submit" name="submit" value="Cari">
+    </form><br>
+        <center>
+        <table style="box-shadow: 7px 7px 5px lightgrey;">
+        <tr>
+            <th>Kelas</th>
+            <th>Tanggal</th>
+            <th>Jam Kegiatan</th>
+            <th>Judul Kegiatan</th>
+            <th>Isi Kegiatan</th>
+            <th>Catatan Kejadian </th> 
+        </tr>
+        <?php foreach ($k as $row) : ?>
             <tr>
-                <td colspan="2"><h1>Komentar</h1><hr></td>
+                <td><?= $row["nama_kelas"];?></td>
+                <td><?= $row["tgl"];?></td>
+                <td><?= $row["jam_mulai"]." - ".$row['jam_selesai'];?></td>
+                <td><?= $row["judul_kegiatan"];?></td>
+                <td><?= $row["isi_kegiatan"];?></td>
+                <td><?= $row["catatan_kejadian"];?></td>
             </tr>
-            <tr>
-            <?php
-                foreach($level as $c){
+            <?php endforeach ; 
             ?>
-                <td style="padding-bottom: 30px; width: 5px;">◉</td>
-                <td style="padding-bottom: 30px;"><?= $c['comment'] ?></td>
-            
-            <?php
-                }
-            ?>
-            </tr>
         </table>
+    </form>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
     </div>
     <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

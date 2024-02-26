@@ -92,6 +92,7 @@
             <hr  style="width: 90%;">
             <a href="beranda3.php">Home</a>
             <a href="guru_admin.php">Data Agenda</a>
+            <a href="kegiatan_admin.php">Kegiatan Lainnya</a>
             <a class="active" href="jadwal.php">Jadwal</a>
             <a href="manage_data_user.php">Manage Data User</a>
             <button class="dropdown-btn">Manage Data 
