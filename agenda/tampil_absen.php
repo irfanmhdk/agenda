@@ -8,9 +8,9 @@ if (!isset($_SESSION['login'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $tgl = $_GET['bulan'];
-    $kehadiran = $_GET['berdasar'];
-    $search = $_GET['search'];
+    $tgl = $_POST['bulan'];
+    $kehadiran = $_POST['berdasar'];
+    $search = $_POST['search'];
     if ($tgl == "Keseluruhan" && $kehadiran == "Keseluruhan1") {
         $result = mysqli_query($Conn,  "SELECT 
                                             tb_absen.id_absen, 
