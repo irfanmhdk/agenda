@@ -22,7 +22,7 @@ if (isset($_POST['kirim'])) {
 
     if ($result) {
         ?>
-        <img src = "image/ceklis.gif" width= 100%;>
+        <center><img src = "image/ceklis.gif" width= 50%;></center>
         <meta http-equiv="refresh" content="5; URL=absensi.php?id=<?= $kelas ?>" />
     <?php
     } else {
