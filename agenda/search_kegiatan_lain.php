@@ -1,13 +1,17 @@
 <?php
     include 'koneksi.php';
 
-    $kelas = $_GET['id'];
+    if(isset($_POST['submit'])){
 
-$sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
-$proses = mysqli_query($Conn, $sql);
+    $kelas = $_POST['kelas'];
+    $search = $_POST['search'];
 
-$sql1 = "SELECT * FROM tb_kegiatan_lain WHERE id_kelas='$kelas'";
-$k = mysqli_query($Conn,$sql1);
+    $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
+    $proses = mysqli_query($Conn, $sql);
+
+    $sql1 = "SELECT * FROM tb_kegiatan_lain WHERE id_kelas='$kelas' AND judul_kegiatan LIKE '%$search%'";
+    $k = mysqli_query($Conn,$sql1);
+    }
 
 ?>
 <!DOCTYPE html>

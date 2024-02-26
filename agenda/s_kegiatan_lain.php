@@ -7,7 +7,7 @@
         header("Location: index.php");
         exit();
     }
-    $search = "";
+
     if(isset($_POST['submit'])){
 
         $search = $_POST['search'];
@@ -15,11 +15,6 @@
         $sql1 = "SELECT tb_kelas.nama_kelas, tb_kegiatan_lain.tgl, tb_kegiatan_lain.jam_mulai, tb_kegiatan_lain.jam_selesai,
                  tb_kegiatan_lain.judul_kegiatan, tb_kegiatan_lain.isi_kegiatan, tb_kegiatan_lain.catatan_kejadian  FROM tb_kegiatan_lain INNER JOIN
                  tb_kelas ON tb_kegiatan_lain.id_kelas = tb_kelas.id_kelas WHERE tb_kegiatan_lain.judul_kegiatan LIKE '%$search%'";
-        $k = mysqli_query($Conn,$sql1);
-    }else{
-        $sql1 = "SELECT tb_kelas.nama_kelas, tb_kegiatan_lain.tgl, tb_kegiatan_lain.jam_mulai, tb_kegiatan_lain.jam_selesai,
-                tb_kegiatan_lain.judul_kegiatan, tb_kegiatan_lain.isi_kegiatan, tb_kegiatan_lain.catatan_kejadian  FROM tb_kegiatan_lain INNER JOIN
-                tb_kelas ON tb_kegiatan_lain.id_kelas = tb_kelas.id_kelas";
         $k = mysqli_query($Conn,$sql1);
     }
 
@@ -45,21 +40,6 @@
     }
 
     tr:nth-child(even){background-color: #f2f2f2}
-
-    .btn1 {
-        background-color: #4CAF52;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        padding: 12px 16px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    /* Darker background on mouse-over */
-    .btn1:hover {
-        background-color: #3e8e41;
-    }
 
     .btn {
         background-color: DodgerBlue;
@@ -127,22 +107,10 @@
     <div class="content">
 <h1>KEGIATAN LAINNYA</h1><hr>
 <br>
-    <table>
-        <tr>
-            <form action="kegiatan_admin.php" method="POST">
-                <td><input type="text" name="search" placeholder="Cari Judul Kegiatan...">
-                <input type="submit" name="submit" value="Cari"></td>
-            </form>
-            <form action="cetak_kegiatan_lain.php" method="POST">
-                    <input type="hidden" name="search" value="<?= $search ?>">
-                <td style="text-align:right;"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak PDF</button></td>
-            </form>
-            <form action="excel_kegiatan.php" method="POST">
-                    <input type="hidden" name="search" value="<?= $search ?>">
-                <td><button class="btn1" name="cetak"><i class="fa fa-print"></i> Cetak Excel</button></td>
-            </form>
-        </tr>
-    </table><br>
+<form action="s_kegiatan_lain.php" method="POST">
+    <input type="text" name="search" placeholder="Cari Judul Kegiatan...">
+    <input type="submit" name="submit" value="Cari">
+    </form><br>
         <center>
         <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>

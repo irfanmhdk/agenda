@@ -185,7 +185,7 @@
         <form action="cetak_laporan.php" method="POST">
             <input type="hidden" name="bulan" value="<?= $tgl ?>">
             <input type="hidden" name="hadir" value="<?= $hadir ?>">
-        <td align="right"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak Laporan</button></td>
+        <td align="right"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak PDF</button></td>
         </form>
         <form action="excel.php" method="POST">
             <input type="hidden" name="bulan" value="<?= $tgl ?>">
