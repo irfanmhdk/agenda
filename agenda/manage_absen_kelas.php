@@ -170,7 +170,7 @@
             <option value="Hadir">Hadir</option>
             <option value="Sakit">Sakit</option>
             <option value="Izin">Izin</option>
-            <option value="alpha">Alpha</option>
+            <option value="Alpha">Alpha</option>
         </select>
     </div>
     </td>
