@@ -3,7 +3,7 @@ include 'koneksi.php';
 session_start();
 
 if (!isset($_SESSION['login'])) {
-    exit();
+  
     header("Location: index.php");
 }
 
@@ -11,7 +11,9 @@ if (isset($_POST['submit'])) {
     $tgl = $_POST['bulan'];
     $kehadiran = $_POST['berdasar'];
     $search = $_POST['search'];
-    if ($tgl == "Keseluruhan" && $kehadiran == "Keseluruhan1") {
+    $kesel = $_POST['Keseluruhan'];
+    $kesel1 = $_POST['Keseluruhan1'];
+    if ($tgl == $kesel && $kehadiran == $kesel1) {
         $result = mysqli_query($Conn,  "SELECT 
                                             tb_absen.id_absen, 
                                             tb_absen.nis, 
@@ -29,7 +31,7 @@ if (isset($_POST['submit'])) {
                                             tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
                                         WHERE 
                                             tb_siswa.id_kelas = '$search'");
-    } elseif ($tgl == "Keseluruhan") {
+    } elseif ($tgl == $kesel) {
         $result = mysqli_query($Conn,  "SELECT 
                                             tb_absen.id_absen, 
                                             tb_absen.nis, 
@@ -37,8 +39,8 @@ if (isset($_POST['submit'])) {
                                             tb_absen.kehadiran,
                                             tb_kelas.nama_kelas,
                                             tb_siswa.nama,
-                                            tb_siswa.jk,
-                                            tb_siswa.id_kelas
+                                            tb_siiswa.jk,
+                                            tb_sswa.id_kelas
                                         FROM 
                                             tb_absen
                                         INNER JOIN 
@@ -48,7 +50,7 @@ if (isset($_POST['submit'])) {
                                         WHERE 
                                             tb_siswa.id_kelas = '$search'
                                             AND tb_absen.kehadiran = '$kehadiran'");
-    } elseif ($kehadiran == "Keseluruhan1") {
+    } elseif ($kehadiran == $kesel1) {
         $result = mysqli_query($Conn,  "SELECT 
                                             tb_absen.id_absen, 
                                             tb_absen.nis, 
@@ -89,7 +91,7 @@ if (isset($_POST['submit'])) {
                                             AND tb_absen.kehadiran = '$kehadiran'");
     }
 }
-?>
+?>  
 <!DOCTYPE html>
 <html lang="en">
 

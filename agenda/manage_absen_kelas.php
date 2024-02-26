@@ -146,33 +146,9 @@
         <tr>
         <form action="tampil_absen.php" method="POST">
             
-        <div class="select-box">
-        <select name="bulan">
-        <option value="Keseluruhan">Keseluruhan</option>
-                    <option value="01">Januari</option>
-                    <option value="02">Februari</option>
-                    <option value="03">Maret</option>
-                    <option value="04">April</option>
-                    <option value="05">Mei</option>
-                    <option value="06">Juni</option>
-                    <option value="07">Juli</option>
-                    <option value="08">Agustus</option>
-                    <option value="09">September</option>
-                    <option value="10">Oktober</option>
-                    <option value="11">November</option>
-                    <option value="12">Desember</option>
-                </select>
-    </div>
+       
     <td>
-    <div class="select-box">
-        <select name="berdasar">
-        <option value="Keseluruhan1">Keseluruhan</option>
-            <option value="Hadir">Hadir</option>
-            <option value="Sakit">Sakit</option>
-            <option value="Izin">Izin</option>
-            <option value="Alpha">Alpha</option>
-        </select>
-    </div>
+   
     </td>
         <div class="select-box">
             <?php
@@ -193,6 +169,34 @@
     mysqli_close($Conn);
 ?>    
  </div>
+ <div class="select-box">
+        <select name="bulan">
+        <option value="Keseluruhan">Keseluruhan</option>
+                    <option value="01">Januari</option>
+                    <option value="02">Februari</option>
+                    <option value="03">Maret</option>
+                    <option value="04">April</option>
+                    <option value="05">Mei</option>
+                    <option value="06">Juni</option>
+                    <option value="07">Juli</option>
+                    <option value="08">Agustus</option>
+                    <option value="09">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
+    </div>
+    <div class="select-box">
+        <select name="berdasar">
+        <option value="Keseluruhan1">Keseluruhan</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Sakit">Sakit</option>
+            <option value="Izin">Izin</option>
+            <option value="Alpha">Alpha</option>
+        </select>
+    </div>
+    <input type="hidden" name="Keseluruhan" value="Keseluruhan">
+    <input type="hidden" name="Keseluruhan1" value="Keseluruhan1">
 <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
         <table>
