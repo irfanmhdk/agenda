@@ -93,6 +93,7 @@
         <a href="kepsek_home.php">Home</a>
         <a href="report_guru.php">Data Agenda</a>
         <a class="active" href="data_user_kepsek.php">Manage Data User</a>
+        <a href="kegiatan_lainnya_kepsek.php">Agenda Kegiatan Lainnya</a>
         <a style="color: red;"href="logout.php"> log out</button></a>
     </div>
     </header>
