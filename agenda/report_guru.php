@@ -138,7 +138,7 @@
         </div>
     </header>
     <div class="head" style="display: inline-block;">
-        <p style="margin-right: 10px;"><b>Admin</b></p>
+    <p style="margin-right: 10px;"><b>Kepala Sekolah</b></p>
     </div>
     <div class="content">
 <h1>DATA AGENDA</h1><hr>
