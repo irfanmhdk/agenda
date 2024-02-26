@@ -8,14 +8,15 @@
         exit();
     }
 
+    if(isset($_POST['submit'])){
 
-$sql = "SELECT * FROM tb_kelas";
-$proses = mysqli_query($Conn, $sql);
-
-$sql1 = "SELECT tb_kelas.nama_kelas, tb_kegiatan_lain.tgl, tb_kegiatan_lain.jam_mulai, tb_kegiatan_lain.jam_selesai,
-         tb_kegiatan_lain.judul_kegiatan, tb_kegiatan_lain.isi_kegiatan, tb_kegiatan_lain.catatan_kejadian  FROM tb_kegiatan_lain INNER JOIN
-         tb_kelas ON tb_kegiatan_lain.id_kelas = tb_kelas.id_kelas";
-$k = mysqli_query($Conn,$sql1);
+        $search = $_POST['search'];
+        
+        $sql1 = "SELECT tb_kelas.nama_kelas, tb_kegiatan_lain.tgl, tb_kegiatan_lain.jam_mulai, tb_kegiatan_lain.jam_selesai,
+                 tb_kegiatan_lain.judul_kegiatan, tb_kegiatan_lain.isi_kegiatan, tb_kegiatan_lain.catatan_kejadian  FROM tb_kegiatan_lain INNER JOIN
+                 tb_kelas ON tb_kegiatan_lain.id_kelas = tb_kelas.id_kelas WHERE tb_kegiatan_lain.judul_kegiatan LIKE '%$search%'";
+        $k = mysqli_query($Conn,$sql1);
+    }
 
 ?>
 <!DOCTYPE html>
