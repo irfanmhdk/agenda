@@ -155,11 +155,12 @@
              $query = "SELECT * FROM tb_kelas";
              $result = mysqli_query($Conn, $query);
         if ($result) {
-        
-        echo '<select name="search">';
+        ?>
+        <select name="kelas">
+            <?php
         while ($row = mysqli_fetch_assoc($result)) {
         
-            echo '<option value="' . $row['id'] . '">' . $row['nama_kelas'] . '</option>';
+            echo '<option value="' . $row['id_kelas'] . '">' . $row['nama_kelas'] . '</option>';
         }
         echo '</select>';
         mysqli_free_result($result);
@@ -167,11 +168,10 @@
         echo "Query failed: " . mysqli_error($Conn);
     }
     mysqli_close($Conn);
-?>    
+?>    </select>
  </div>
  <div class="select-box">
         <select name="bulan">
-        <option value="Keseluruhan">Keseluruhan</option>
                     <option value="01">Januari</option>
                     <option value="02">Februari</option>
                     <option value="03">Maret</option>
@@ -188,15 +188,14 @@
     </div>
     <div class="select-box">
         <select name="berdasar">
-        <option value="Keseluruhan1">Keseluruhan</option>
+        <option value="Keseluruhan">Keseluruhan</option>
             <option value="Hadir">Hadir</option>
             <option value="Sakit">Sakit</option>
             <option value="Izin">Izin</option>
             <option value="Alpha">Alpha</option>
         </select>
     </div>
-    <input type="hidden" name="Keseluruhan" value="Keseluruhan">
-    <input type="hidden" name="Keseluruhan1" value="Keseluruhan1">
+    
 <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
         <table>

@@ -10,67 +10,29 @@ if (!isset($_SESSION['login'])) {
 if (isset($_POST['submit'])) {
     $tgl = $_POST['bulan'];
     $kehadiran = $_POST['berdasar'];
-    $search = $_POST['search'];
-    $kesel = $_POST['Keseluruhan'];
-    $kesel1 = $_POST['Keseluruhan1'];
-    if ($tgl == $kesel && $kehadiran == $kesel1) {
+    $search = $_POST['kelas'];
+
+    if ($kehadiran == "Keseluruhan"){
         $result = mysqli_query($Conn,  "SELECT 
-                                            tb_absen.id_absen, 
-                                            tb_absen.nis, 
-                                            tb_absen.tanggal, 
-                                            tb_absen.kehadiran,
-                                            tb_kelas.nama_kelas,
-                                            tb_siswa.nama,
-                                            tb_siswa.jk,
-                                            tb_siswa.id_kelas
-                                        FROM 
-                                            tb_absen
-                                        INNER JOIN 
-                                            tb_siswa ON tb_absen.nis = tb_siswa.nis
-                                        INNER JOIN 
-                                            tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
-                                        WHERE 
-                                            tb_siswa.id_kelas = '$search'");
-    } elseif ($tgl == $kesel) {
-        $result = mysqli_query($Conn,  "SELECT 
-                                            tb_absen.id_absen, 
-                                            tb_absen.nis, 
-                                            tb_absen.tanggal, 
-                                            tb_absen.kehadiran,
-                                            tb_kelas.nama_kelas,
-                                            tb_siswa.nama,
-                                            tb_siiswa.jk,
-                                            tb_sswa.id_kelas
-                                        FROM 
-                                            tb_absen
-                                        INNER JOIN 
-                                            tb_siswa ON tb_absen.nis = tb_siswa.nis
-                                        INNER JOIN 
-                                            tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
-                                        WHERE 
-                                            tb_siswa.id_kelas = '$search'
-                                            AND tb_absen.kehadiran = '$kehadiran'");
-    } elseif ($kehadiran == $kesel1) {
-        $result = mysqli_query($Conn,  "SELECT 
-                                            tb_absen.id_absen, 
-                                            tb_absen.nis, 
-                                            tb_absen.tanggal, 
-                                            tb_absen.kehadiran,
-                                            tb_kelas.nama_kelas,
-                                            tb_siswa.nama,
-                                            tb_siswa.jk,
-                                            tb_siswa.id_kelas
-                                        FROM 
-                                            tb_absen
-                                        INNER JOIN 
-                                            tb_siswa ON tb_absen.nis = tb_siswa.nis
-                                        INNER JOIN 
-                                            tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
-                                        WHERE 
-                                            tb_siswa.id_kelas = '$search'
-                                            AND  MONTH(tb_absen.tanggal) = '$tgl'");
-    }else{
-        $result = mysqli_query($Conn,  "SELECT 
+        tb_absen.id_absen, 
+        tb_absen.nis, 
+        tb_absen.tanggal, 
+        tb_absen.kehadiran,
+        tb_kelas.nama_kelas,
+        tb_siswa.nama,
+        tb_siswa.jk,
+        tb_siswa.id_kelas
+    FROM 
+        tb_absen
+    INNER JOIN 
+        tb_siswa ON tb_absen.nis = tb_siswa.nis
+    INNER JOIN 
+        tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
+    WHERE 
+        tb_siswa.id_kelas = '$search'
+        AND  MONTH(tb_absen.tanggal) = '$tgl'");
+    }
+       else{ $result = mysqli_query($Conn,  "SELECT 
                                             tb_absen.id_absen, 
                                             tb_absen.nis, 
                                             tb_absen.tanggal, 
@@ -89,8 +51,8 @@ if (isset($_POST['submit'])) {
                                             tb_siswa.id_kelas = '$search'
                                             AND  MONTH(tb_absen.tanggal) = '$tgl'
                                             AND tb_absen.kehadiran = '$kehadiran'");
+       }
     }
-}
 ?>  
 <!DOCTYPE html>
 <html lang="en">
@@ -200,7 +162,7 @@ if (isset($_POST['submit'])) {
                 <th>Kehadiran</th>
             </tr>
             <?php
-            while ($d = mysqli_fetch_assoc($result)) { ?>
+        foreach($result as $d) { ?>
                 <tr>
                     <td><?= $d['nis'] ?></td>
                     <td><?= $d['nama'] ?></td>
@@ -208,7 +170,7 @@ if (isset($_POST['submit'])) {
                     <td><?= $d['tanggal'] ?></td>
                     <td><?= $d['kehadiran'] ?></td>
                 </tr>
-            <?php } ?>
+            <?php }  ?>
         </table>
     </div>
     <div class="footer">
