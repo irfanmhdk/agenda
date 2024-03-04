@@ -13,13 +13,13 @@
             echo "
             <script>
                 alert('Password berhasil diganti');
-                window.location.href='beranda.php?id=$id';
+                window.location.href='beranda2.php?id=$id';
             </script>";
         } else {
             echo "
             <script>
                 alert('Password gagal diganti');
-                window.location.href='beranda.php?id=$id';
+                window.location.href='beranda2.php?id=$id';
             </script>";
         }
     }

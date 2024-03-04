@@ -113,8 +113,9 @@
                     foreach($proses as $jadwal){ ?>
                         <tr>
                         <td><?= $jadwal['nama_mapel'] ?></td>
-                        <td><?= $jadwal['nama_guru'] ?></td>                       
-                        <td><a href="isi_agenda.php?kel=<?= $kelas ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>"><button class="btn1" name="submit" style="font-size: 14px;"><i class="fa fa-file"> Isi Agenda</i></button></a></td>
+                        <td><?= $jadwal['nama_guru'] ?></td>
+
+                        <td><a href="isi_agenda.php?kel=<?= $kelas ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>&date=<?= date("Y-m-d"); ?>"><button class="btn1" name="submit" style="font-size: 14px;"><i class="fa fa-file"> Isi Agenda</i></button></a></td>
                 <?php }  ?>
                 </tr>
         </table>

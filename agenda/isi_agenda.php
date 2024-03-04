@@ -11,12 +11,33 @@
     $kel = $_GET['kel'];
     $nip = $_GET['nip'];
     $map = $_GET['map'];
+    $date = $_GET['date'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
 $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
 $k = mysqli_query($Conn,$sql1);
+
+$result = mysqli_query($Conn,  "SELECT 
+                                    tb_absen.id_absen, 
+                                    tb_absen.nis, 
+                                    tb_absen.tanggal, 
+                                    tb_absen.kehadiran,
+                                    tb_kelas.nama_kelas,
+                                    siswa.nama,
+                                    siswa.jk,
+                                    siswa.id_kelas
+                                FROM 
+                                    tb_absen
+                                INNER JOIN 
+                                    siswa ON tb_absen.nis = siswa.nis
+                                INNER JOIN 
+                                    tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
+                                WHERE 
+                                    siswa.id_kelas = '$kel'
+                                    AND  MONTH(tb_absen.tanggal) = '$date'
+                                    AND (tb_absen.kehadiran = 'Sakit' OR tb_absen.kehadiran = 'Alpha' OR tb_absen.kehadiran = 'Izin')");
 
 ?>
 <!DOCTYPE html>
@@ -71,6 +92,18 @@ $k = mysqli_query($Conn,$sql1);
     background-color: #f8f8f8;
     resize: none;
     }
+    .tb1{
+/* Rectangle 2 */
+
+position: absolute;
+width: 441px;
+height: 500px;
+left: 975px;
+top: 195px;
+border-radius: 5%;
+
+
+    }
 </style>
 </head>
 <body>
@@ -78,7 +111,7 @@ $k = mysqli_query($Conn,$sql1);
         <div class="sidebar">
             <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?></a></center>
+            <center><a href="#"><?= date("d F Y"); ?> </a></center>
             <hr  style="width: 90%;">
             <a href="beranda.php?id=<?= $kel ?>">Home</a>
             <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
@@ -167,7 +200,28 @@ $k = mysqli_query($Conn,$sql1);
                     <input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>
-    </form>
+        </form>
+        <br>
+        <div class="tb1">
+        <table>
+            <th><?=$date?></th>
+            <tr>
+                <th>NIS</th>
+                <th>Nama Siswa</th>
+                <th>Kelas</th>
+                <th>Kehadiran</th>
+            </tr>
+            <?php
+        foreach($result as $d) { ?>
+                <tr>
+                    <td><?= $d['nis'] ?></td>
+                    <td><?= $d['nama'] ?></td>
+                    <td><?= $d['nama_kelas'] ?></td>
+                    <td><?= $d['kehadiran'] ?></td>
+                </tr>
+            <?php }  ?>
+        </table>
+        </div>
     </div>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>

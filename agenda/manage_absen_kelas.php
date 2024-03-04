@@ -144,12 +144,17 @@
     <h1>MANAGE DATA ABSEN</h1><hr>
     <table>
         <tr>
+    <td><h2>Kelas :</td>
+    <td><h2>Tanggal :</td>
+    <td><h2>Bulan :</td>
+    <td><h2>Keterangan :</h2></td>
+    </tr>
         <form action="tampil_absen.php" method="POST">
-            
+     <tr>       
        
-    <td>
+    
    
-    </td>
+    <td>
         <div class="select-box">
             <?php
              $query = "SELECT * FROM tb_kelas";
@@ -170,7 +175,9 @@
     mysqli_close($Conn);
 ?>    </select>
  </div>
+</td>
 
+<td>
  <div class="select-box">
         <select name="Tanggal">
                     <option value="01">01</option>
@@ -206,6 +213,9 @@
                     <option value="31">31</option>
                 </select>
     </div>
+</td>
+
+<td>
  <div class="select-box">
         <select name="bulan">
                     <option value="01">Januari</option>
@@ -222,6 +232,9 @@
                     <option value="12">Desember</option>
                 </select>
     </div>
+</td>
+
+<td>
     <div class="select-box">
         <select name="berdasar">
         <option value="Keseluruhan">Keseluruhan</option>
@@ -230,9 +243,8 @@
             <option value="Izin">Izin</option>
             <option value="Alpha">Alpha</option>
         </select>
-    </div>
-    
-<button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
+    </div> </td>
+<td> <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
         </tr>
         <table>
     </table>
