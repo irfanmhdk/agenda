@@ -172,16 +172,6 @@
                 <input type="submit" name="submit" value="Tampil">
             </form>
         </td>
-        <form action="cetak_laporan.php" method="POST">
-            <input type="hidden" name="bulan" value="<?= $tgl ?>">
-            <input type="hidden" name="hadir" value="<?= $hadir ?>">
-        <td align="right"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak Laporan</button></td>
-        </form>
-        <form action="excel.php" method="POST">
-            <input type="hidden" name="bulan" value="<?= $tgl ?>">
-            <input type="hidden" name="hadir" value="<?= $hadir ?>">
-        <td><button class="btn1" name="cetak"><i class="fa fa-print"></i> Cetak Excel</button></td>
-        </form>
     </tr>
 </table><br>
 <center>
@@ -195,7 +185,6 @@
             <th>Tugas </th>
             <th>kehadiran Guru</th>
             <th>Catatan Kejadian </th> 
-            <th>Verifikasi</th>
         </tr>
     <?php foreach ($level as $row) : ?>
         <tr>
@@ -207,8 +196,7 @@
                 <td><?= $row["tugas"];?></td>
                 <td><?= $row["kehadiran"];?></td>
                 <td><?= $row["evaluasi"];?></td>
-                <td><b><?= $row["verifikasi"];?></b></td>
-                <td><a href="comment_admin.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
+            
             </tr>
             <?php endforeach ; 
             ?>
