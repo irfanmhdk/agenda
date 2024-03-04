@@ -9,7 +9,7 @@ session_start();
 
 $kelas = $_GET['id'];
 
-$sql = "SELECT * FROM tb_siswa WHERE id_kelas='$kelas'";
+$sql = "SELECT * FROM siswa WHERE id_kelas='$kelas'";
 $level = mysqli_query($Conn, $sql);
 
 $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
