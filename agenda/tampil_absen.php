@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $tgl = $_POST['bulan'];
     $kehadiran = $_POST['berdasar'];
     $search = $_POST['kelas'];
+    $tanggal = $_POST['Tanggal'];
 
     if ($kehadiran == "Keseluruhan"){
         $result = mysqli_query($Conn,  "SELECT 
@@ -49,7 +50,7 @@ if (isset($_POST['submit'])) {
                                             tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
                                         WHERE 
                                             tb_siswa.id_kelas = '$search'
-                                            AND  MONTH(tb_absen.tanggal) = '$tgl'
+                                            AND  MONTH(tb_absen.tanggal) = '$tgl-$tanggal'
                                             AND tb_absen.kehadiran = '$kehadiran'");
        }
     }
