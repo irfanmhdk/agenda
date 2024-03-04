@@ -20,17 +20,17 @@ if (isset($_POST['submit'])) {
         tb_absen.tanggal, 
         tb_absen.kehadiran,
         tb_kelas.nama_kelas,
-        tb_siswa.nama,
-        tb_siswa.jk,
-        tb_siswa.id_kelas
+        siswa.nama,
+        siswa.jk,
+        siswa.id_kelas
     FROM 
         tb_absen
     INNER JOIN 
-        tb_siswa ON tb_absen.nis = tb_siswa.nis
+        siswa ON tb_absen.nis = siswa.nis
     INNER JOIN 
-        tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
+        tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
     WHERE 
-        tb_siswa.id_kelas = '$search'
+        siswa.id_kelas = '$search'
         AND  MONTH(tb_absen.tanggal) = '$tgl'");
     }
        else{ $result = mysqli_query($Conn,  "SELECT 
@@ -39,17 +39,17 @@ if (isset($_POST['submit'])) {
                                             tb_absen.tanggal, 
                                             tb_absen.kehadiran,
                                             tb_kelas.nama_kelas,
-                                            tb_siswa.nama,
-                                            tb_siswa.jk,
-                                            tb_siswa.id_kelas
+                                            siswa.nama,
+                                            siswa.jk,
+                                            siswa.id_kelas
                                         FROM 
                                             tb_absen
                                         INNER JOIN 
-                                            tb_siswa ON tb_absen.nis = tb_siswa.nis
+                                            siswa ON tb_absen.nis = siswa.nis
                                         INNER JOIN 
-                                            tb_kelas ON tb_siswa.id_kelas = tb_kelas.id_kelas 
+                                            tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
                                         WHERE 
-                                            tb_siswa.id_kelas = '$search'
+                                            siswa.id_kelas = '$search'
                                             AND  MONTH(tb_absen.tanggal) = '$tgl-$tanggal'
                                             AND tb_absen.kehadiran = '$kehadiran'");
        }

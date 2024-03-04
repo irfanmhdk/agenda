@@ -155,7 +155,7 @@ $k = mysqli_query($Conn,$sql1);
                     </tr>
             <tr>
                 <td><label>catatan Kejadian</label></td>
-                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10"></textarea>
+                <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10" placeholder="Masukan Nama Siswa yang tidak hadir beserta keterangan nya. Jika ada kejadian tertentu mohon untuk diisi"></textarea>
             </tr>
             <tr>
                 <td></td>
