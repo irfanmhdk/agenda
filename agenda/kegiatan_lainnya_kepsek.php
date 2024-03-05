@@ -1,6 +1,15 @@
 <?php
     include 'koneksi.php';
+    session_start();
 
+    if (!isset($_SESSION['login'])) {
+        header("Location: index.php");
+        exit();
+    }
+    if ($_SESSION['role'] != "4") {
+      header("Location: index.php");
+      exit();
+    }
 
 
 $sql = "SELECT * FROM tb_kelas";

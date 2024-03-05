@@ -8,6 +8,10 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] != "4") {
+      header("Location: index.php");
+      exit();
+    }
 
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_agenda");
     $count2 = mysqli_num_rows($get2);
