@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     $id = $_GET['id'];
 
     $sql = "SELECT tb_jadwal.id_jadwal, tb_jadwal.id_mapel, tb_jadwal.id_kelas, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 

@@ -6,6 +6,13 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] !== "1") {
+      session_unset();
+      session_destroy();
+      
+      header("Location: index.php");
+      exit();
+    }
 
     $get2 = mysqli_query($Conn, "SELECT * FROM tb_guru");
     $count2 = mysqli_num_rows($get2);

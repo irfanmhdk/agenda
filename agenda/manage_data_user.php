@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     $result = mysqli_query($Conn, "SELECT tb_user.id_user, tb_user.username, tb_user.password, tb_role.nama_role
                             FROM tb_user INNER JOIN tb_role ON tb_user.role = tb_role.id_role");
 ?>

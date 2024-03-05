@@ -1,5 +1,15 @@
 <?php
+    session_start();
     include 'koneksi.php';
+
+    if (!isset($_SESSION["login"])) {
+        header("Location: index.php");
+        exit();
+      }
+    if ($_SESSION['role'] != "3") {
+        header("Location: index.php");
+        exit();
+    }
 
     if(isset($_POST['submit'])){
 

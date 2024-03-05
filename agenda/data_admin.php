@@ -7,6 +7,12 @@
         header("Location: index.php");
         exit();
     }
+    
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     if(isset($_POST['submit'])){
         $tgl = $_POST['tampil'];
         $hadir = $_POST['tampil1'];

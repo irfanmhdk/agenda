@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
                             tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
 ?>

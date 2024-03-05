@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "3") {
+      header("Location: index.php");
+      exit();
+    }
+
     $kelas = $_GET['id'];
 
     $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";

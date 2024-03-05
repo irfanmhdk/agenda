@@ -6,6 +6,10 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] != "3") {
+        header("Location: index.php");
+        exit();
+    }
     include 'hari.php';
 
     $kel = $_GET['kel'];

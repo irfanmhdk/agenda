@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     if(isset($_POST['berikut'])){
         $kelas = $_POST['kelas'];
         $hari = $_POST['hari'];

@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     $result = mysqli_query($Conn, "SELECT * FROM tb_mapel");
 ?>
 <!DOCTYPE html>

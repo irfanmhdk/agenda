@@ -1,6 +1,23 @@
 <?php
     include 'koneksi.php';
     session_start();
+
+    if (isset($_SESSION['login'])) {
+      if($_SESSION['role'] == "1"){
+        header("Location: beranda.php");
+        exit();
+      }elseif($_SESSION['role'] == "2"){
+        header("Location: beranda2.php?id=$_SESSION[id_user]");
+        exit();
+      }elseif($_SESSION['role'] == "3"){
+        header("Location: beranda.php?id=$_SESSION[id_user]");
+        exit();
+      }elseif($_SESSION['role'] == "4"){
+        header("Location: kepsek_home.php");
+        exit();
+      }
+    }
+  
     if(isset($_POST['submit'])){
         $uname = $_POST['uname'];
         $psw = $_POST['psw'];
@@ -13,6 +30,7 @@
                 if($row['role'] == 1){
 
                             $_SESSION["login"] = true;
+                            $_SESSION["role"] = $row['role'];
 
                             echo "<script>
                                     alert('Login Berhasil');
@@ -23,6 +41,8 @@
                 }elseif($row['role'] == 2){
 
                             $_SESSION["login"] = true;
+                            $_SESSION["role"] = $row['role'];
+                            $_SESSION["id_user"] = $row['id_user'];
 
                             echo "<script>
                                     alert('Login Berhasil');
@@ -33,6 +53,8 @@
                 }elseif($row['role'] == 3){
 
                             $_SESSION["login"] = true;
+                            $_SESSION["role"] = $row['role'];
+                            $_SESSION["id_user"] = $row['id_user'];
 
                             echo "<script>
                                     alert('Login Berhasil');
@@ -43,6 +65,7 @@
                 }elseif($row['role'] == 4){
 
                             $_SESSION["login"] = true;
+                            $_SESSION["role"] = $row['role'];
 
                             echo "<script>
                                     alert('Login Berhasil');
@@ -56,7 +79,7 @@
           echo "<script>
                   alert('Username atau Password salah');
                   window.location.href='index.php';
-                  </script>";
+                </script>";
           exit();
         }
     }

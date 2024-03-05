@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    if (!isset($_SESSION["login"])) {
+        header("Location: index.php");
+        exit();
+      }
+    if ($_SESSION['role'] != "3") {
+        header("Location: index.php");
+        exit();
+    }
     include 'koneksi.php';
 
     $kelas = $_GET['id'];

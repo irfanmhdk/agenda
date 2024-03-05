@@ -7,6 +7,10 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] != "3") {
+        header("Location: index.php");
+        exit();
+    }
     
     $kelas = $_GET['id'];
 

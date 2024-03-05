@@ -6,6 +6,10 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] != "2") {
+        header("Location: index.php");
+        exit();
+    }
     
     $id = $_GET['id'];
     $nip = $_GET['nip'];

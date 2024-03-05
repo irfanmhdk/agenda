@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "1") {
+        header("Location: index.php");
+        exit();
+    }
+
     $id = $_GET['id'];
 
     $result = mysqli_query($Conn, "SELECT * FROM tb_kelas WHERE id_kelas = '$id'");

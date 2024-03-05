@@ -7,6 +7,11 @@
         exit();
     }
 
+    if ($_SESSION['role'] != "4") {
+        header("Location: index.php");
+        exit();
+    }
+
     if(isset($_POST['submit'])){
 
         $search = $_POST['search'];

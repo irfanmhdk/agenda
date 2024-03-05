@@ -7,6 +7,10 @@
         header("Location: index.php");
         exit();
     }
+    if ($_SESSION['role'] != "2") {
+        header("Location: index.php");
+        exit();
+      }
     
     $nip = $_GET['id'];
 
