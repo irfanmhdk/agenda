@@ -97,16 +97,14 @@ $result = mysqli_query($Conn,  "SELECT
     resize: none;
     }
     .tb1{
-/* Rectangle 2 */
-
-position: absolute;
-width: 441px;
-height: 500px;
-left: 975px;
-top: 195px;
-border-radius: 5%;
-
-
+    position: absolute;
+    padding: 15px;
+    right: 0;
+    top: 25%;
+    border-radius: 5%;
+    }
+    .t{
+        padding: 10px;
     }
 </style>
 </head>
@@ -208,20 +206,22 @@ border-radius: 5%;
         <br>
         <div class="tb1">
         <table>
-            <th><?=$date?></th>
+            <tr>
+                <th colspan="4" align="left" class="t"><?= date("d/m/Y") ?> | Siswa Tidak Hadir</th>
+            </tr>
             <tr>
                 <th>NIS</th>
                 <th>Nama Siswa</th>
                 <th>Kelas</th>
-                <th>Kehadiran</th>
+                <th>Keterangan</th>
             </tr>
             <?php
         foreach($result as $d) { ?>
                 <tr>
-                    <td><?= $d['nis'] ?></td>
-                    <td><?= $d['nama'] ?></td>
-                    <td><?= $d['nama_kelas'] ?></td>
-                    <td><?= $d['kehadiran'] ?></td>
+                    <td class="t"><?= $d['nis'] ?></td>
+                    <td class="t"><?= $d['nama'] ?></td>
+                    <td class="t"><?= $d['nama_kelas'] ?></td>
+                    <td class="t"><?= $d['kehadiran'] ?></td>
                 </tr>
             <?php }  ?>
         </table>
