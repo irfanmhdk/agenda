@@ -40,7 +40,7 @@ $result = mysqli_query($Conn,  "SELECT
                                     tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
                                 WHERE 
                                     siswa.id_kelas = '$kel'
-                                    AND  MONTH(tb_absen.tanggal) = '$date'
+                                    AND  tb_absen.tanggal LIKE '%$date%'
                                     AND (tb_absen.kehadiran = 'Sakit' OR tb_absen.kehadiran = 'Alpha' OR tb_absen.kehadiran = 'Izin')");
 
 ?>
