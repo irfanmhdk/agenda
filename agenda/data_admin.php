@@ -19,28 +19,28 @@
 
         if($tgl == "Semua" && $hadir == "Semua1"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
             $level = mysqli_query($Conn, $sql);
         }elseif($tgl == "Semua"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.kehadiran = '$hadir'";
             $level = mysqli_query($Conn, $sql);
         }elseif($hadir == "Semua1"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl'";
             $level = mysqli_query($Conn, $sql);
         }else{
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tgl BETWEEN '$tgl' AND tb_agenda.kehadiran = '$hadir'";
             $level = mysqli_query($Conn, $sql);
         }
     }else{
         $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                 INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
         $level = mysqli_query($Conn, $sql);
     }
@@ -212,7 +212,6 @@
             <th>kehadiran Guru</th>
             <th>Catatan Kejadian </th> 
             <th>Verifikasi</th>
-            <th>Komentar</th>
         </tr>
     <?php foreach ($level as $row) : ?>
         <tr>
@@ -225,7 +224,7 @@
                 <td><?= $row["kehadiran"];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
-                <td><?= $row["comment"];?></td>
+                <td><a href="comment_admin.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
