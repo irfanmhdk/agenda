@@ -49,9 +49,17 @@
     .te:nth-child(even){background-color: #f2f2f2}
 </style>
 <body onload="print()">
-    <center><h1>LAPORAN AGENDA</h1>
-    <h1>SMK NEGERI 2 CIMAHI</h1><hr></center><br>
+    <center>
+    <p>PEMERINTAHAN DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br> CABANG DINAS PENDIDIKAN WILAYAH VII</p>
+    <h2>SEKOLAH MENENGAH KEJURUAN NEGERI 2 CIMAHI</h2>
+    <p>Jl. Kamarung Km. 1,5 No. 69 Kel. Citeureup Kec. Cimahi Utara <br> Telp/Fax:(022) 87805857 Website : http://smkn2cmi.sch,id E-mail : smkn2cmi@yahoo.com <br>
+    Kota Cimahi - 40512</p><hr></center><br>
     <table>
+        <tr>
+            <td>Laporan</td>
+            <td> : </td>
+            <td>Laporan Agenda</td>
+        </tr>
         <tr>
             <td>Semester</td>
             <td> : </td>
