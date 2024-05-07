@@ -78,7 +78,7 @@
     }
 </style>
 <body>
-    <?php include "nav_s.php"; ?>
+    <?php include "nav_a.php"; ?>
     <div class="head" style="display: inline-block;">
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>
