@@ -95,56 +95,11 @@
 </head>
 <body>
   <?php include "nav_g.php"; ?>
-        <div class="head">
-          <?php
-              foreach($k as $nama){ ?>
-              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
-            <?php
-              }
-          ?>
-        </div>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
          <a href="verifikasi.php?id=<?= $nip ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
         </div>
-        
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="ganti_pw_guru.php" method="post">
-    
-  <center>  <div class="imgcontainer">
-      <img src="image/blank_profile.png" alt="Avatar" class="avatar" width="120px">
-    </div></center>
 
-    <div class="container">
-      
-      <label for="uname"><b>Username</b></label>
-      <label><?= $nama['nama_guru']?></label>
-<br>
-      <label for="psw"><b>Change Password</b></label>
-      <input type="password" placeholder="New Password" name="psw" required>
-      <input type="hidden"  value="<?= $nip ?>" name="id">
-      <button type="submit" name="submit">Change Password</button>
-      <label>
-      </label>
-    </div>
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
     </header>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
