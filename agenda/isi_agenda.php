@@ -12,7 +12,7 @@
     }
     include 'hari.php';
 
-    $kel = $_GET['kel'];
+    $kelas = $_GET['kel'];
     $nip = $_GET['nip'];
     $map = $_GET['map'];
     $date = $_GET['date'];
@@ -20,7 +20,7 @@
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 $result = mysqli_query($Conn,  "SELECT 
@@ -39,7 +39,7 @@ $result = mysqli_query($Conn,  "SELECT
                                 INNER JOIN 
                                     tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
                                 WHERE 
-                                    siswa.id_kelas = '$kel'
+                                    siswa.id_kelas = '$kelas'
                                     AND  tb_absen.tanggal LIKE '%$date%'
                                     AND (tb_absen.kehadiran = 'Sakit' OR tb_absen.kehadiran = 'Alpha' OR tb_absen.kehadiran = 'Izin')");
 
@@ -109,20 +109,7 @@ $result = mysqli_query($Conn,  "SELECT
 </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?> </a></center>
-            <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
+    <?php include "nav_s.php"; ?>
     <div class="head">
           <?php
             foreach($k as $nama){ ?>
@@ -195,7 +182,7 @@ $result = mysqli_query($Conn,  "SELECT
             <tr>
                 <td></td>
                 <td>
-                    <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="kel" value="<?= $kelas; ?>">
                    
                     <input type="hidden" name="nip" value="<?= $nip; ?>">
                     <input type="hidden" name="map" value="<?= $map; ?>">

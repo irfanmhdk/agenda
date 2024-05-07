@@ -7,19 +7,19 @@
         exit();
     }
 
-    if ($_SESSION['role'] != "1") {
+    if ($_SESSION['role'] != "3") {
         header("Location: index.php");
         exit();
     }
     
     include 'hari.php';
 
-    $kel = $_GET['kel'];
+    $kelas = $_GET['kel'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas = '$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -78,20 +78,7 @@ $k = mysqli_query($Conn,$sql1);
 </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?></a></center>
-            <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a class="active" href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
+    <?php include "nav_s.php"; ?>
     <div class="head">
           <?php
             foreach($k as $nama){ ?>
@@ -153,7 +140,7 @@ $k = mysqli_query($Conn,$sql1);
             <tr>
                 <td></td>
                 <td>
-                    <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="kel" value="<?= $kelas; ?>">
                     <input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>

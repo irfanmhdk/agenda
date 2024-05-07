@@ -99,7 +99,7 @@
 
 <form action="index.php" method="POST">
   <div class="imgcontainer">
-    <img src="image/logo.JPG" alt="Avatar" class="avatar">
+    <img src="image/logo.jpg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
