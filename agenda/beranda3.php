@@ -121,7 +121,7 @@
             <tr>
                 <td colspan="2">
                   <div class="grid" style="background-color: #2AAF7D">
-                    <center><img src="image/2cmi.PNG" style="width: 50px; padding: 5px;">
+                    <center><img src="image/2cmi.png" style="width: 50px; padding: 5px;">
                     <h1 style="color: white;">APLIKASI AGENDA GURU DAN SISWA <br> SMKN 2 CIMAHI</h1>
                     <hr>
                     <p style="color: white;">Anda log-in sebagai Admin</p></center>
@@ -130,12 +130,12 @@
               </tr>
               <tr>
                 <td><a href="data_admin.php" style="text-decoration:none;"><div class="grid">
-                  <img src="image/agenda_logo.PNG" width="80px">
+                  <img src="image/agenda_logo.png" width="80px">
                   <p class="text" style="margin-top: 10px;"><b>Data Agenda</b></p><br><br>
                   <a href="data_admin.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div></a></td>
                 <td><a href="manage_data_guru.php" style="text-decoration:none;"><div class="grid">
-                  <img src="image/agenda_logo.PNG" width="80px">
+                  <img src="image/agenda_logo.png" width="80px">
                   <p class="text" style="margin-top: 10px;"><b>Data Guru<br> <?= $count2 ?> </b></p>
                   <a href="manage_data_guru.php" style="text-decoration:none;margin-left:15px;color: white;"><b>Lihat data...</b></a>
                 </div><a></td>
