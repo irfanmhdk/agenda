@@ -30,6 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table {
         border-collapse: collapse;
@@ -81,14 +82,6 @@
 </style>
 <body>
     <?php include "nav_s.php"; ?>
-    <div class="head">
-        <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-    </div>
     <div class="content">
     <center>
 <h1>DATA AGENDA</h1><hr> </center>

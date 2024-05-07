@@ -51,6 +51,7 @@ $result = mysqli_query($Conn,  "SELECT
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table{
         background-color: #f1f1f1;
@@ -110,14 +111,6 @@ $result = mysqli_query($Conn,  "SELECT
 </head>
 <body>
     <?php include "nav_s.php"; ?>
-    <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
     <div class="content">
     <h1>PENGISIAN AGENDA</h1><hr><br>
     <form action="simpan_agenda.php" method="POST">

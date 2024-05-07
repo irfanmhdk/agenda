@@ -16,7 +16,7 @@ $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $proses = mysqli_query($Conn, $sql);
 
 $sql1 = "SELECT * FROM tb_kegiatan_lain WHERE id_kelas='$kelas'";
-$k = mysqli_query($Conn,$sql1);
+$s = mysqli_query($Conn,$sql1);
 
 ?>
 <!DOCTYPE html>
@@ -26,6 +26,7 @@ $k = mysqli_query($Conn,$sql1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Kegiatan lainnya Siswa </title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table {
         border-collapse: collapse;
@@ -78,14 +79,6 @@ $k = mysqli_query($Conn,$sql1);
 </head>
 <body>
     <?php include "nav_s.php"; ?>
-    <div class="head">
-          <?php
-            foreach($proses as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
     <div class="content">
     <center>
 <h1>KEGIATAN LAINNYA</h1><hr> </center>
@@ -104,7 +97,7 @@ $k = mysqli_query($Conn,$sql1);
             <th>Isi Kegiatan</th>
             <th>Catatan Kejadian </th> 
         </tr>
-    <?php foreach ($k as $row) : ?>
+    <?php foreach ($s as $row) : ?>
             <tr>
                 <td><?= $row["tgl"];?></td>
                 <td><?= $row["jam_mulai"]." - ".$row['jam_selesai'];?></td>

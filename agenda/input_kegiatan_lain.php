@@ -30,6 +30,7 @@ $k = mysqli_query($Conn,$sql1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table{
         background-color: #f1f1f1;
@@ -79,14 +80,6 @@ $k = mysqli_query($Conn,$sql1);
 </head>
 <body>
     <?php include "nav_s.php"; ?>
-    <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
     <div class="content">
     <h1>KEGIATAN LAINNYA</h1>
     <hr>

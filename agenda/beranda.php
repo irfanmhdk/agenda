@@ -123,14 +123,6 @@
 </head>
 <body>
   <?php include "nav_s.php"; ?>
-        <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
@@ -152,7 +144,7 @@
       <label><?= $nama['nama_kelas']?></label>
 <br>
       <label for="psw"><b>Change Password</b></label>
-      <input type="password" placeholder="New Password" name="psw" required>
+      <input class="in" type="password" placeholder="New Password" name="psw" required>
       <input type="hidden"  value="<?= $kelas ?>" name="id">
       <button type="submit" name="submit">Change Password</button>
       <label>
