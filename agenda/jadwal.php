@@ -12,13 +12,81 @@
         exit();
     }
 
-    $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+    if(isset($_POST['submit'])){
+        $search = $_POST['search'];
+
+        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search';";
+        $result = mysqli_query($Conn, $sql);
+
+        $sql1 = "SELECT * FROM tb_kelas";
+        $proses1 = mysqli_query($Conn, $sql1);
+
+        $ResultsController = mysqli_query($Conn, "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search';");
+
+        // Get total number of rows
+        $total_rows = mysqli_num_rows($result);
+
+        // Set pagination variables
+        $per_page = 10; // number of rows to display per page
+        $cur_page = isset($_GET['page'])? $_GET['page'] : 1;
+        $offset = ($cur_page - 1) * $per_page;
+
+        // Query with LIMIT and OFFSET
+        $query = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_kelas.id_kelas = '$search' LIMIT $offset, $per_page";
+        $result = mysqli_query($Conn, $query);
+
+            // Display pagination links
+        $total_pages = ceil($total_rows / $per_page);
+        $limit = 5; // limit the number of page links
+        $min_page = max(1, $cur_page - floor($limit / 2));
+        $max_page = min($total_pages, $cur_page + floor($limit / 2));
+
+        while ($d = mysqli_fetch_assoc($result)) {
+            //... (rest of the table code remains the same)
+        }
+    }else{
+        $sql = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
             tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
             tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel";
-    $proses = mysqli_query($Conn, $sql);
+        $result = mysqli_query($Conn, $sql);
 
-    $sql1 = "SELECT * FROM tb_kelas";
-    $proses1 = mysqli_query($Conn, $sql1);
+        $sql1 = "SELECT * FROM tb_kelas";
+        $proses1 = mysqli_query($Conn, $sql1);
+
+        $ResultsController = mysqli_query($Conn, "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+            tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+            tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel");
+
+        // Get total number of rows
+        $total_rows = mysqli_num_rows($result);
+
+        // Set pagination variables
+        $per_page = 10; // number of rows to display per page
+        $cur_page = isset($_GET['page'])? $_GET['page'] : 1;
+        $offset = ($cur_page - 1) * $per_page;
+
+        // Query with LIMIT and OFFSET
+        $query = "SELECT tb_jadwal.id_jadwal, tb_kelas.nama_kelas, tb_jadwal.hari, tb_jadwal.jam_masuk, tb_jadwal.jam_selesai, tb_guru.nama_guru, 
+                tb_mapel.nama_mapel, tb_jadwal.ruangan FROM tb_jadwal INNER JOIN tb_kelas ON tb_jadwal.id_kelas=tb_kelas.id_kelas INNER JOIN 
+                tb_guru ON tb_jadwal.nip=tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel LIMIT $offset, $per_page";
+        $result = mysqli_query($Conn, $query);
+
+            // Display pagination links
+        $total_pages = ceil($total_rows / $per_page);
+        $limit = 5; // limit the number of page links
+        $min_page = max(1, $cur_page - floor($limit / 2));
+        $max_page = min($total_pages, $cur_page + floor($limit / 2));
+
+        while ($d = mysqli_fetch_assoc($result)) {
+            //... (rest of the table code remains the same)
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,6 +159,28 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    .pagination {
+    text-align: center;
+    margin: 20px 0;
+    }
+
+    .pagination a {
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #337ab7;
+    }
+
+    .pagination a:hover {
+        background-color: #f5f5f5;
+        color: #23527c;
+    }
+
+    .pagination a.active {
+        background-color: #337ab7;
+        color: #fff;
+    }
 </style>
 <body>
     <?php include "nav_a.php"; ?>
@@ -99,10 +189,26 @@
     </div>
     <div class="content">
     <h1>JADWAL</h1><hr>
-
+    <?php
+    echo "<div class='pagination'>";
+    if ($cur_page > 1) {
+        echo "<a href='?page=". ($cur_page - 1). "'>&lsaquo; Previous</a>";
+    }
+    for ($i = $min_page; $i <= $max_page; $i++) {
+        if ($i == $cur_page) {
+            echo "<a href='?page=$i' class='active'>$i</a> ";
+        } else {
+            echo "<a href='?page=$i'>$i</a> ";
+        }
+    }
+    if ($cur_page < $total_pages) {
+        echo "<a href='?page=". ($cur_page + 1). "'>Next &rsaquo;</a>";
+    }
+    echo "</div>";
+    ?>
     <table>
         <tr>
-            <td><form action="s_jadwal.php" method="POST"><select name="search">
+            <td><form action="jadwal.php" method="POST"><select name="search">
                 <?php
                     foreach($proses1 as $k){ ?>
                     <option value="<?= $k['id_kelas'] ?>"><?= $k['nama_kelas'] ?></option>
@@ -123,7 +229,7 @@
             <th>Opsi</th>
         </tr>
         <?php
-            foreach($proses as $data){
+            foreach($result as $data){
         ?>
         <tr>
             <td><?= $data['nama_kelas'] ?></td>

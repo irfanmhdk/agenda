@@ -14,6 +14,32 @@
 
     $result = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN
                             tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
+
+    //... (rest of the code remains the same)
+
+    $ResultsController = mysqli_query($Conn, "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel");
+
+    // Get total number of rows
+    $total_rows = mysqli_num_rows($result);
+
+    // Set pagination variables
+    $per_page = 10; // number of rows to display per page
+    $cur_page = isset($_GET['page'])? $_GET['page'] : 1;
+    $offset = ($cur_page - 1) * $per_page;
+
+    // Query with LIMIT and OFFSET
+    $query = "SELECT tb_guru.nip, tb_guru.nama_guru, tb_mapel.nama_mapel FROM tb_guru INNER JOIN tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel LIMIT $offset, $per_page";
+    $result = mysqli_query($Conn, $query);
+
+    // Display pagination links
+    $total_pages = ceil($total_rows / $per_page);
+    $limit = 5; // limit the number of page links
+    $min_page = max(1, $cur_page - floor($limit / 2));
+    $max_page = min($total_pages, $cur_page + floor($limit / 2));
+
+    while ($d = mysqli_fetch_assoc($result)) {
+        //... (rest of the table code remains the same)
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,6 +113,28 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    .pagination {
+    text-align: center;
+    margin: 20px 0;
+    }
+
+    .pagination a {
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #337ab7;
+    }
+
+    .pagination a:hover {
+        background-color: #f5f5f5;
+        color: #23527c;
+    }
+
+    .pagination a.active {
+        background-color: #337ab7;
+        color: #fff;
+    }
 </style>
 <body>
     <?php include "nav_a.php"; ?>
@@ -102,6 +150,23 @@
             <td style="text-align:right;"><a href="input_data_guru.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
         </tr>
     </table>
+    <?php
+    echo "<div class='pagination'>";
+    if ($cur_page > 1) {
+        echo "<a href='?page=". ($cur_page - 1). "'>&lsaquo; Previous</a>";
+    }
+    for ($i = $min_page; $i <= $max_page; $i++) {
+        if ($i == $cur_page) {
+            echo "<a href='?page=$i' class='active'>$i</a> ";
+        } else {
+            echo "<a href='?page=$i'>$i</a> ";
+        }
+    }
+    if ($cur_page < $total_pages) {
+        echo "<a href='?page=". ($cur_page + 1). "'>Next &rsaquo;</a>";
+    }
+    echo "</div>";
+    ?>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>NIP</th>
