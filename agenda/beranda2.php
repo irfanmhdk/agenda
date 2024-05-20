@@ -13,9 +13,9 @@
       exit();
     }
 
-    $kelas = $_GET['id'];
+    $nip = $_GET['id'];
 
-    $sql1 = "SELECT * FROM tb_guru WHERE nip='$kelas'";
+    $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
     $k = mysqli_query($Conn,$sql1);
 ?>
 <head>
@@ -94,73 +94,12 @@
 </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda2.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?></a></center>
-            <hr  style="width: 90%;">
-            <a class="active" href="beranda2.php?id=<?= $kelas ?>">Home</a>
-            <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change Password</button>
-            <button class="dropdown-btn">Verifikasi Agenda
-            <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="verifikasi.php?id=<?= $kelas ?>">Agenda Hari Ini</a>
-                <a href="verifikasi_semua.php?id=<?= $kelas ?>">Agenda</a>
-            </div>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-        <div class="head">
-          <?php
-              foreach($k as $nama){ ?>
-              <p style="margin-right: 10px;"><b><?= $nama['nama_guru'] ?></b></p>
-            <?php
-              }
-          ?>
-        </div>
+  <?php include "nav_g.php"; ?>
         <div class="container">
          <img src="image/smk2.jpg" alt="Snow" style="width:100%">
-         <a href="verifikasi.php?id=<?= $kelas ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
+         <a href="verifikasi.php?id=<?= $nip ?>"> <button class="btn">Verifikasi Agenda Siswa</button></a>
         </div>
-        
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="ganti_pw_guru.php" method="post">
-    
-  <center>  <div class="imgcontainer">
-      <img src="image/blank_profile.png" alt="Avatar" class="avatar" width="120px">
-    </div></center>
 
-    <div class="container">
-      
-      <label for="uname"><b>Username</b></label>
-      <label><?= $nama['nama_guru']?></label>
-<br>
-      <label for="psw"><b>Change Password</b></label>
-      <input type="password" placeholder="New Password" name="psw" required>
-      <input type="hidden"  value="<?= $kelas ?>" name="id">
-      <button type="submit" name="submit">Change Password</button>
-      <label>
-      </label>
-    </div>
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-    </div>
-  </form>
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
     </header>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>

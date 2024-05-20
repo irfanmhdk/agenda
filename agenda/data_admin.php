@@ -130,29 +130,7 @@
     }
 </style>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda3.php"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?></a></center>
-            <hr  style="width: 90%;">
-            <a href="beranda3.php">Home</a>
-            <a class="active" href="data_admin.php">Data Agenda</a>
-            <a href="kegiatan_admin.php">Kegiatan Lainnya</a>
-            <a href="jadwal.php">Jadwal</a>
-            <a href="manage_data_user.php">Manage Data User</a>
-            <button class="dropdown-btn">Manage Data 
-            <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-container">
-                <a href="manage_data_guru.php">Data Guru</a>
-                <a href="manage_data_mapel.php">Data Mata Pelajaran</a>
-                <a href="manage_data_kelas.php">Data Kelas</a>
-                <a href="manage_absen_kelas.php">Absen Kelas</a>
-            </div>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
+    <?php include "nav_a.php"; ?>
     <div class="head" style="display: inline-block;">
         <p style="margin-right: 10px;"><b>Admin</b></p>
     </div>

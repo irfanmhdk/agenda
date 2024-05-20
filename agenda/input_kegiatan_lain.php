@@ -14,12 +14,16 @@
     
     include 'hari.php';
 
-    $kel = $_GET['kel'];
+    $kelas = $_GET['kel'];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
+<<<<<<< HEAD
 $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+=======
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas = '$kelas'";
+>>>>>>> 2f31c394f2ae595c7238c3c899e41781be1b835f
 $k = mysqli_query($Conn,$sql1);
 
 ?>
@@ -30,6 +34,7 @@ $k = mysqli_query($Conn,$sql1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table{
         background-color: #f1f1f1;
@@ -78,28 +83,7 @@ $k = mysqli_query($Conn,$sql1);
 </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?></a></center>
-            <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a class="active" href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
-    <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
+    <?php include "nav_s.php"; ?>
     <div class="content">
     <h1>KEGIATAN LAINNYA</h1>
     <hr>
@@ -153,7 +137,7 @@ $k = mysqli_query($Conn,$sql1);
             <tr>
                 <td></td>
                 <td>
-                    <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="kel" value="<?= $kelas; ?>">
                     <input type="submit" name="kirim" value="Kirim"></td>
             </tr>
         </table>

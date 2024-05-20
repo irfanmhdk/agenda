@@ -1,7 +1,7 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+.in {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -11,7 +11,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.bt {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -21,7 +21,7 @@ button {
   width: 100%;
 }
 
-button:hover {
+.bt:hover {
   opacity: 0.8;
 }
 

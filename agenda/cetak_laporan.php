@@ -6,28 +6,28 @@
         $h = $_POST['hadir'];
         if(empty($t)){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas";
             $level = mysqli_query($Conn, $sql);
         }else{
         if($t == "Semua" && $h == "Semua1"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas";
             $level = mysqli_query($Conn, $sql);
         }elseif($t == "Semua"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tb_agenda.kehadiran = '$h'";
             $level = mysqli_query($Conn, $sql);
         }elseif($h == "Semua1"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tgl BETWEEN '$t'";
             $level = mysqli_query($Conn, $sql);
         }else{
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
                     INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas WHERE tgl BETWEEN '$t' AND tb_agenda.kehadiran = '$h'";
             $level = mysqli_query($Conn, $sql);
         }
@@ -49,10 +49,23 @@
     .te:nth-child(even){background-color: #f2f2f2}
 </style>
 <body onload="print()">
+<<<<<<< HEAD
        <hr></hr>
     <center><h3>LAPORAN AGENDA</h3>
     <h3>SMK NEGERI 2 CIMAHI</h3></center><br>
+=======
+    <center>
+    <p>PEMERINTAHAN DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br> CABANG DINAS PENDIDIKAN WILAYAH VII</p>
+    <h2>SEKOLAH MENENGAH KEJURUAN NEGERI 2 CIMAHI</h2>
+    <p>Jl. Kamarung Km. 1,5 No. 69 Kel. Citeureup Kec. Cimahi Utara <br> Telp/Fax:(022) 87805857 Website : http://smkn2cmi.sch,id E-mail : smkn2cmi@yahoo.com <br>
+    Kota Cimahi - 40512</p><hr></center><br>
+>>>>>>> 2f31c394f2ae595c7238c3c899e41781be1b835f
     <table>
+        <tr>
+            <td>Laporan</td>
+            <td> : </td>
+            <td>Laporan Agenda</td>
+        </tr>
         <tr>
             <td>Semester</td>
             <td> : </td>
@@ -76,6 +89,7 @@
             <th class="ta">kehadiran Guru</th>
             <th class="ta">Catatan</th>
             <th class="ta">Verifikasi</th>
+            <th class="ta">Komentar</th>
         </tr>
     <?php foreach ($level as $row) : ?>
         <tr>
@@ -88,6 +102,7 @@
                 <td class="te"><?= $row["kehadiran"];?></td>
                 <td class="te"><?= $row["evaluasi"];?></td>
                 <td class="te"><b><?= $row["verifikasi"];?></b></td>
+                <td class="te"><?= $row["comment"];?></td>
             </tr>
             <?php endforeach ; 
             ?>

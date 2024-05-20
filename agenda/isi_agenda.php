@@ -12,7 +12,7 @@
     }
     include 'hari.php';
 
-    $kel = $_GET['kel'];
+    $kelas = $_GET['kel'];
     $nip = $_GET['nip'];
     $map = $_GET['map'];
     $date = $_GET['date'];
@@ -20,7 +20,7 @@
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 $result = mysqli_query($Conn,  "SELECT 
@@ -39,7 +39,7 @@ $result = mysqli_query($Conn,  "SELECT
                                 INNER JOIN 
                                     tb_kelas ON siswa.id_kelas = tb_kelas.id_kelas 
                                 WHERE 
-                                    siswa.id_kelas = '$kel'
+                                    siswa.id_kelas = '$kelas'
                                     AND  tb_absen.tanggal LIKE '%$date%'
                                     AND (tb_absen.kehadiran = 'Sakit' OR tb_absen.kehadiran = 'Alpha' OR tb_absen.kehadiran = 'Izin')");
 
@@ -51,6 +51,7 @@ $result = mysqli_query($Conn,  "SELECT
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Siswa & Guru</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="profile.css">
 <style>
     table{
         background-color: #f1f1f1;
@@ -97,42 +98,19 @@ $result = mysqli_query($Conn,  "SELECT
     resize: none;
     }
     .tb1{
-/* Rectangle 2 */
-
-position: absolute;
-width: 441px;
-height: 500px;
-left: 975px;
-top: 195px;
-border-radius: 5%;
-
-
+    position: absolute;
+    padding: 15px;
+    right: 0;
+    top: 25%;
+    border-radius: 5%;
+    }
+    .t{
+        padding: 10px;
     }
 </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-            <a href="beranda.php?id=<?= $kel ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-            <hr  style="width: 90%;">
-            <center><a href="#"><?= date("d F Y"); ?> </a></center>
-            <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kel ?>">Home</a>
-            <a class="active" href="data_agenda.php?id=<?= $kel ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kel ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kel ?>">Data Agenda</a>
-            <a href="kegiatan_lainnya.php?id=<?= $kel ?>">Kegiatan Lainnya</a>
-            <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
-    <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
+    <?php include "nav_s.php"; ?>
     <div class="content">
     <h1>PENGISIAN AGENDA</h1><hr><br>
     <form action="simpan_agenda.php" method="POST">
@@ -197,7 +175,7 @@ border-radius: 5%;
             <tr>
                 <td></td>
                 <td>
-                    <input type="hidden" name="kel" value="<?= $kel; ?>">
+                    <input type="hidden" name="kel" value="<?= $kelas; ?>">
                    
                     <input type="hidden" name="nip" value="<?= $nip; ?>">
                     <input type="hidden" name="map" value="<?= $map; ?>">
@@ -208,20 +186,22 @@ border-radius: 5%;
         <br>
         <div class="tb1">
         <table>
-            <th><?=$date?></th>
+            <tr>
+                <th colspan="4" align="left" class="t"><?= date("d/m/Y") ?> | Siswa Tidak Hadir</th>
+            </tr>
             <tr>
                 <th>NIS</th>
                 <th>Nama Siswa</th>
                 <th>Kelas</th>
-                <th>Kehadiran</th>
+                <th>Keterangan</th>
             </tr>
             <?php
         foreach($result as $d) { ?>
                 <tr>
-                    <td><?= $d['nis'] ?></td>
-                    <td><?= $d['nama'] ?></td>
-                    <td><?= $d['nama_kelas'] ?></td>
-                    <td><?= $d['kehadiran'] ?></td>
+                    <td class="t"><?= $d['nis'] ?></td>
+                    <td class="t"><?= $d['nama'] ?></td>
+                    <td class="t"><?= $d['nama_kelas'] ?></td>
+                    <td class="t"><?= $d['kehadiran'] ?></td>
                 </tr>
             <?php }  ?>
         </table>

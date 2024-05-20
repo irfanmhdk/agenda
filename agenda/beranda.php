@@ -123,29 +123,7 @@
         </style>
 </head>
 <body>
-    <header>
-        <div class="sidebar">
-        <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.PNG" style="width: 80px; padding: 5px;"></center></a>
-        <hr  style="width: 90%;">
-        <center><a href="#"><?= date("d F Y"); ?></a></center>
-        <hr  style="width: 90%;">
-        <a class="active" href="beranda.php?id=<?= $kelas ?>">Home</a>
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change Password</button>
-        <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
-        <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
-        <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
-        <a href="kegiatan_lainnya.php?id=<?= $kelas ?>">Kegiatan Lainnya</a>
-        <a style="color: red;"href="logout.php"> log out</button></a>
-        </div>
-    </header>
-        <div class="head">
-          <?php
-            foreach($k as $nama){ ?>
-            <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-          <?php
-            }
-          ?>
-        </div>
+  <?php include "nav_s.php"; ?>
         <div class="container">
          <img src="smkn2.jpg" alt="Snow" style="width:100%">
          <a href="tampil_agenda.php?id=<?= $kelas ?>"> <button class="btn">Lihat Agenda</button></a>
@@ -167,7 +145,7 @@
       <label><?= $nama['nama_kelas']?></label>
 <br>
       <label for="psw"><b>Change Password</b></label>
-      <input type="password" placeholder="New Password" name="psw" required>
+      <input class="in" type="password" placeholder="New Password" name="psw" required>
       <input type="hidden"  value="<?= $kelas ?>" name="id">
       <button type="submit" name="submit">Change Password</button>
       <label>
@@ -179,17 +157,6 @@
   </form>
 </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
         </div>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
