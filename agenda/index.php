@@ -92,20 +92,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda SMKN 2 Cimahi</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="logints.css">
 </head>
 <body>
-<center><h2>Login Agenda</h2></center>
-
 <form action="index.php" method="POST">
   <div class="imgcontainer">
-    <img src="image/logo.JPG" alt="Avatar" class="avatar">
+    <img src="image/logo.jpg" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
-
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname">
+  <center><h2>Login Agenda</h2></center>
+ <label><b>Username</b></label> </div>
+  <input type="text" placeholder="Enter Username" name="uname"></div>
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw">

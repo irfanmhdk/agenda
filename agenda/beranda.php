@@ -55,6 +55,7 @@
   width: 250px;
   height: 100px;
 }
+
 .btn1 {
   position: absolute;
   top: 20%;

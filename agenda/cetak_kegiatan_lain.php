@@ -33,8 +33,9 @@
     .te:nth-child(even){background-color: #f2f2f2}
 </style>
 <body onload="print()">
-    <center><h1>LAPORAN KEGIATAN LAIN</h1>
-    <h1>SMK NEGERI 2 CIMAHI</h1><hr></center><br>
+<hr></hr>
+    <center><h3>LAPORAN KEGIATAN LAIN</h3>
+    <h3>SMK NEGERI 2 CIMAHI</h3></center><br>
     <table>
         <tr>
             <td>Semester</td>

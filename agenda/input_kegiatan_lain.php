@@ -7,7 +7,7 @@
         exit();
     }
 
-    if ($_SESSION['role'] != "1") {
+    if ($_SESSION['role'] != "3") {
         header("Location: index.php");
         exit();
     }
@@ -19,7 +19,7 @@
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-$sql1 = "SELECT * FROM tb_kelas";
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
