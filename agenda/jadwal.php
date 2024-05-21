@@ -189,6 +189,18 @@
     </div>
     <div class="content">
     <h1>JADWAL</h1><hr>
+    <table>
+        <tr>
+            <td><form action="s_jadwal.php" method="POST"><select name="search">
+                <?php
+                    foreach($proses1 as $k){ ?>
+                    <option value="<?= $k['id_kelas'] ?>"><?= $k['nama_kelas'] ?></option>
+                <?php } ?>
+            </select>
+            <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
+            <td style="text-align:right;"><a href="input_jadwal.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+        </tr>
+    </table>
     <?php
     echo "<div class='pagination'>";
     if ($cur_page > 1) {
@@ -206,18 +218,6 @@
     }
     echo "</div>";
     ?>
-    <table>
-        <tr>
-            <td><form action="jadwal.php" method="POST"><select name="search">
-                <?php
-                    foreach($proses1 as $k){ ?>
-                    <option value="<?= $k['id_kelas'] ?>"><?= $k['nama_kelas'] ?></option>
-                <?php } ?>
-            </select>
-            <button class="btn1" name="submit"><i class="fa fa-search"></i></button></form></td>
-            <td style="text-align:right;"><a href="input_jadwal.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
-        </tr>
-    </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Kelas</th>

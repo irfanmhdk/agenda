@@ -141,6 +141,11 @@
     </div>
     <div class="content">
     <h1>MANAGE DATA USER</h1><hr>
+    <table>
+        <tr>
+            <td style="text-align:right;"><a href="input_data_user.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
+        </tr>
+    </table>
     <?php
     echo "<div class='pagination'>";
     if ($cur_page > 1) {
@@ -158,11 +163,6 @@
     }
     echo "</div>";
     ?>
-    <table>
-        <tr>
-            <td style="text-align:right;"><a href="input_data_user.php"><button class="btn1"><i class="fa fa-plus"></i> Tambah Data</button></a></td>
-        </tr>
-    </table>
     <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
             <th>Username</th>
