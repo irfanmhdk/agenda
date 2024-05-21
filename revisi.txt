@@ -1,0 +1,12 @@
+REVISI!!!
+
+- About
+- Tombol tampilan rubah
+- Filter cetak laporan (Periode, Kehadiran, Guru, Mata Pelajaran)
+- Cetak laporan Guru
+- CSV
+- Absensi (batas)
+- Mata Pelajaran (isi agenda)
+- Edit absensi
+- Edit Comment
+- Edit isi agenda (guru)
