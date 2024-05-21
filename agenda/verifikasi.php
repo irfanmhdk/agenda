@@ -136,18 +136,18 @@
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
                         <td><center><?= $status;?></center></td>
-                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
+                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
                 <?php
                     }else{
                         if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){
                 ?>
                     <td>Beri Alasan Terlebih Dahulu!</td>
-                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></center></td>
+                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></center></td>
                 <?php
                             
                         }else{ ?>
-                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.PNG" width="18px"></button></a></center></td>
-                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></button></a></center></td>      
+                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.png" width="18px"></button></a></center></td>
+                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></button></a></center></td>      
                 <?php           
                         }
                     }
@@ -163,11 +163,11 @@
         <h4>Silahkan beri penjelasan di kolom komentar jika keterangan kehadiran "Tidak Hadir" / "Hanya Hadir Diawal" / "Hanya Hadir Diakhhir"</h4>
     </li>
     <li>
-        <img src="image/ceklis.PNG" width="30px"> : 
+        <img src="image/ceklis.png" width="30px"> : 
         Verifikasi 
     </li>
     <li>
-        <img src="image/comment.PNG" width="30px"> : 
+        <img src="image/pencil.png" width="30px"> : 
         Comment 
     </li>
 </ul>

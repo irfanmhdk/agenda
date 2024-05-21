@@ -202,7 +202,7 @@
                 <td><?= $row["kehadiran"];?></td>
                 <td><?= $row["evaluasi"];?></td>
                 <td><b><?= $row["verifikasi"];?></b></td>
-                <td><a href="comment_admin.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
+                <td><a href="comment_admin.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
