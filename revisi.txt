@@ -6,7 +6,7 @@ REVISI!!!
 - Cetak laporan Guru
 - CSV
 - Absensi (batas)
-- Mata Pelajaran (isi agenda)
+- Mata Pelajaran (isi agenda) beres
 - Edit absensi
 - Edit Comment
 - Edit isi agenda (guru)

@@ -23,6 +23,14 @@ $proses = mysqli_query($Conn, $sql);
 $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
+$sql2 = "SELECT * FROM tb_guru INNER JOIN tb_mapel ON tb_guru.id_mapel = tb_mapel.id_mapel WHERE tb_guru.nip='$nip'";
+$k2 = mysqli_query($Conn,$sql2);
+while ($data = mysqli_fetch_array($k2)) {
+    $nama_guru = $data['nama_guru'];
+    $nama_mapel = $data['nama_mapel'];
+}
+
+
 $result = mysqli_query($Conn,  "SELECT 
                                     tb_absen.id_absen, 
                                     tb_absen.nis, 
@@ -116,6 +124,14 @@ $result = mysqli_query($Conn,  "SELECT
     <form action="simpan_agenda.php" method="POST">
         <table>
         <tr>
+            <td>Nama Guru</td>
+            <td><input type="text" value="<?= $nama_guru; ?>" readonly></td>
+        </tr>
+        <tr>
+            <td>Matapelajaran</td>
+            <td><input type="text" value="<?= $nama_mapel; ?>" readonly></td>
+        <tr>
+        <tr>
                 <td><label>Jam Pembelajaran mulai </label></td>
                     <td><select name="jam_masuk">
                         <option value="07.00">07.00</option>
@@ -151,7 +167,6 @@ $result = mysqli_query($Conn,  "SELECT
                 <td><input type="text" name="materi"></td>
                 </td>
             </tr>
-            <tr>
                 <td>Tugas</td>
                 <td><select name="tugas">
                     <option value="Tugas Langsung">Tugas Langsung</option>

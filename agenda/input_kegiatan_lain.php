@@ -19,11 +19,7 @@
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);
 
-<<<<<<< HEAD
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kel'";
-=======
-$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas = '$kelas'";
->>>>>>> 2f31c394f2ae595c7238c3c899e41781be1b835f
+$sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
 
 ?>
