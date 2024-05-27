@@ -107,6 +107,18 @@
     <input type="hidden" name="nip" value="<?= $nip ?>">
     <button class="btn1" name="submit"><i class="fa fa-search"></i></button>
 </form>
+<form action="excel_Guru.php" method="POST">
+            <input type="hidden" name="bulan" value="<?= $tgl ?>">
+            <input type="hidden" name="hadir" value="<?= $hadir ?>">
+            <input type="hidden" name="nip" value="<?= $nip ?>">
+        <td><button class="btn1" name="cetak"><i class="fa fa-print"></i> Cetak Excel</button></td>
+</form>
+<form action="cetak_laporan_Guru.php" method="POST">
+            <input type="hidden" name="bulan" value="<?= $tgl ?>">
+            <input type="hidden" name="hadir" value="<?= $hadir ?>">
+            <input type="hidden" name="nip" value="<?= $nip ?>">
+        <td align="right"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak PDF</button></td>
+        </form>
 <center>
 <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
