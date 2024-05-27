@@ -13,7 +13,7 @@
 
     if(isset($_POST['submit'])){
 
-    $kelas = $_POST['kelas'];
+    $kelas = $_SESSION["id_user"];
     $search = $_POST['search'];
 
     $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";

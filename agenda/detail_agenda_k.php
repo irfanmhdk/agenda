@@ -13,10 +13,11 @@
     }
     
     $kelas = $_SESSION["id_user"];
+    $agenda = $_GET["agen"];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.id_kelas='$kelas'";
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip WHERE tb_agenda.id_agenda='$agenda'";
     $level = mysqli_query($Conn, $sql);
     
     $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
@@ -84,45 +85,54 @@
     <?php include "nav_s.php"; ?>
     <div class="content">
     <center>
-<h1>DATA AGENDA</h1><hr> </center>
-<br>
-<form action="search1.php" method="POST">
-    <input type="text" name="search" placeholder="Cari Nama Guru...">
-    <input type="hidden" name="kelas" value="<?= $kelas ?>">
-    <input type="submit" name="submit" value="Cari">
-</form><br>
+<h1>DATA AGENDA</h1><hr> </center><br>
 <center>
 <table style="box-shadow: 7px 7px 5px lightgrey;">
+    <?php foreach ($level as $row) : ?>
         <tr>
             <th>Tanggal</th>
-            <th>Mata Pelajaran</th>
-            <th>Nama Guru</th>
-            <th>jam Pembelajaran</th>
-            <th>kehadiran Guru</th>
-            <th>Verifikasi</th>
-            <th>Detail</th>
+            <td>: <?= $row["tgl"];?></td>
         </tr>
-    <?php foreach ($level as $row) : ?>
-            <tr>
-                <td><?= $row["tgl"];?></td>
-                <td><?= $row["nama_mapel"];?></td>
-                <td><?= $row["nama_guru"];?></td>
-                <td><?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
-                <td><?= $row["kehadiran"];?></td>
-                <td><b><?= $row["verifikasi"];?></b></td>
-                <td><a href="detail_agenda_k.php?agen=<?= $row["id_agenda"] ?>" style="text-decoration: none;"><button class="btn">Detail</button></a> <a href="lihat_comment.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn"><img src="image/comment.PNG" width="18px"></button></a></td>
-            </tr>
+        <tr>
+            <th>Mata Pelajaran</th>
+            <td>: <?= $row["nama_mapel"];?></td>
+        </tr>
+        <tr>
+            <th>Nama Guru</th>
+            <td>: <?= $row["nama_guru"];?></td>
+        </tr>
+        <tr>
+            <th>jam Pembelajaran</th>
+            <td>: <?= $row["jam_masuk"]." - ".$row['jam_selesai'];?></td>
+        </tr>        
+        <tr>
+            <th>kehadiran Guru</th>
+            <td>: <?= $row["kehadiran"];?></td>
+        </tr>
+        <tr>
+            <th>Materi</th>
+            <td>: <?= $row["materi"];?></td>
+        </tr>    
+        <tr>
+            <th>Tugas </th>
+            <td>: <?= $row["tugas"];?></td>
+        </tr>   
+        <tr>
+            <th>Catatan Kejadian </th>
+            <td>: <?= $row["evaluasi"];?></td>
+        </tr> 
+        <tr>       
+            <th>Verifikasi</th>
+            <td><b>: <?= $row["verifikasi"];?></b></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a href="lihat_comment.php?a=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn">Komentar</button></a> <a href="tampil_agenda.php" style="text-decoration: none;"><button class="btn">Kembali</a></td>
+        </tr>
             <?php endforeach ; 
             ?>
 </table>
-    </center><br>
-<ul>
-    <li>
-        <img src="image/comment.PNG" width="30px"> : 
-        Lihat Komentar 
-    </li>
-</ul>
-<center>
+
 <fieldset><legend><h2>Catatan</h2></legend>
 <h3>Silahkan hubungi guru pengajar untuk<br>mem-verifikasi data agenda anda</h2>
 </fieldset>
@@ -132,4 +142,6 @@
 </div>
 <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
-    </div>
+</div>
+</body>
+</html>

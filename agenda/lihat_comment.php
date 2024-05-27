@@ -11,7 +11,7 @@
         exit();
       }
     
-    $kelas = $_GET['id'];
+    $kelas = $_SESSION["id_user"];
     $id = $_GET['a'];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_agenda.comment,

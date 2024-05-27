@@ -12,7 +12,7 @@
       exit();
     }
 
-    $kelas = $_GET['id'];
+    $kelas = $_SESSION["id_user"];
 
     $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
     $k = mysqli_query($Conn,$sql);

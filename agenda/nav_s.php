@@ -15,16 +15,16 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda.php?id=<?= $kelas ?>"><center><img src="image/2cmi.png" style="width: 80px; padding: 5px;"></center></a>
+            <a href="beranda.php"><center><img src="image/2cmi.png" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <center><a href="#"><?= date("d F Y"); ?> </a></center>
             <hr  style="width: 90%;">
-            <a href="beranda.php?id=<?= $kelas ?>">Home</a>
+            <a href="beranda.php">Home</a>
             <button class="bt" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change Password</button>
-            <a href="data_agenda.php?id=<?= $kelas ?>">Jadwal</a>
-            <a href="absensi.php?id=<?= $kelas ?>">Absensi</a>
-            <a href="tampil_agenda.php?id=<?= $kelas ?>">Data Agenda</a>
-            <a href="kegiatan_lainnya.php?id=<?= $kelas ?>">Kegiatan Lainnya</a>
+            <a href="data_agenda.php">Jadwal</a>
+            <a href="absensi.php">Absensi</a>
+            <a href="tampil_agenda.php">Data Agenda</a>
+            <a href="kegiatan_lainnya.php">Kegiatan Lainnya</a>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>
     </header>

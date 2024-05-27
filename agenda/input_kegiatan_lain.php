@@ -14,7 +14,7 @@
     
     include 'hari.php';
 
-    $kelas = $_GET['kel'];
+    $kelas = $_SESSION["id_user"];
 
 $sql = "SELECT * FROM tb_guru";
 $proses = mysqli_query($Conn, $sql);

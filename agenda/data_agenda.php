@@ -25,7 +25,7 @@
     include 'hari.php';
     $h = $hari[ date('N') ];
 
-    $kelas = $_GET['id'];
+    $kelas = $_SESSION["id_user"];
 
     $sql = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
     $k = mysqli_query($Conn,$sql);
@@ -81,7 +81,7 @@
         <table>
             <tr>
                 <td><h4>Hari <?= $h ?></h4></td>
-                <td style="text-align: right;"><a href="input_kegiatan_lain.php?kel=<?= $kelas ?>"><button class="btn" name="cetak"><i class="fa fa-calendar"></i> Kegiatan Lainnya</button></a></td>
+                <td style="text-align: right;"><a href="input_kegiatan_lain.php?"><button class="btn" name="cetak"><i class="fa fa-calendar"></i> Kegiatan Lainnya</button></a></td>
             </tr>
         </table>
         <table style="box-shadow: 7px 7px 5px lightgrey;">
@@ -96,12 +96,20 @@
                            tb_guru ON tb_jadwal.nip = tb_guru.nip INNER JOIN tb_mapel ON tb_jadwal.id_mapel = tb_mapel.id_mapel WHERE tb_jadwal.hari = '$h' AND tb_jadwal.id_kelas='$kelas'";
                     $proses = mysqli_query($Conn, $sql);
 
-                    foreach($proses as $jadwal){ ?>
+                    foreach($proses as $jadwal){
+                        $nip = $jadwal['nip'];
+                        $mapel = $jadwal['id_mapel'];
+                        $dte = date("Y-m-d");
+                        $cek = mysqli_query($Conn, "SELECT * FROM tb_agenda WHERE nip = '$nip' AND id_kelas = '$kelas' AND id_mapel = '$mapel' AND tgl LIKE '%$dte%'")?>
                         <tr>
                         <td><?= $jadwal['nama_mapel'] ?></td>
                         <td><?= $jadwal['nama_guru'] ?></td>
 
-                        <td><a href="isi_agenda.php?kel=<?= $kelas ?>&nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>&date=<?= date("Y-m-d"); ?>"><button class="btn1" name="submit" style="font-size: 14px;"><i class="fa fa-file"> Isi Agenda</i></button></a></td>
+                        <td><?php if(mysqli_num_rows($cek) == 0){ ?>
+                            <a href="isi_agenda.php?nip=<?= $jadwal['nip'] ?>&map=<?= $jadwal['id_mapel'] ?>&date=<?= date("Y-m-d"); ?>"><button class="btn1" name="submit" style="font-size: 14px;"><i class="fa fa-file"> Isi Agenda</i></button></a>
+                        <?php }else{ ?>
+                            <p>Sudah Megisi Agenda</p>
+                        <?php } ?></td>
                 <?php }  ?>
                 </tr>
         </table>

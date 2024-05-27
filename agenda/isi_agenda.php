@@ -12,7 +12,7 @@
     }
     include 'hari.php';
 
-    $kelas = $_GET['kel'];
+    $kelas = $_SESSION["id_user"];
     $nip = $_GET['nip'];
     $map = $_GET['map'];
     $date = $_GET['date'];

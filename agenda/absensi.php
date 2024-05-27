@@ -12,10 +12,11 @@ session_start();
         exit();
     }
 
-$kelas = $_GET['id'];
+$kelas = $_SESSION["id_user"];
+$tgl = date("Y-m-d");
 
-$sql = "SELECT * FROM siswa WHERE id_kelas='$kelas'";
-$level = mysqli_query($Conn, $sql);
+$sql = "SELECT * FROM siswa INNER JOIN tb_absen ON siswa.nis = tb_absen.nis WHERE siswa.id_kelas='$kelas' AND tb_absen.tanggal LIKE '%$tgl%'";
+$level1 = mysqli_query($Conn, $sql);
 
 $sql1 = "SELECT * FROM tb_kelas WHERE id_kelas='$kelas'";
 $k = mysqli_query($Conn,$sql1);
@@ -71,6 +72,9 @@ $k = mysqli_query($Conn,$sql1);
         <center>
             <h1>ABSENSI</h1><hr>
             <br>
+            <?php if(mysqli_num_rows($level1) == 0){ 
+                $level = mysqli_query($Conn, "SELECT * FROM siswa WHERE id_kelas = '$kelas'"); 
+            ?>
                 <form action="proses_absensi.php?id=<?= $kelas ?>" method="post">
                     <table style="box-shadow: 7px 7px 5px lightgrey;">
                             <tr>
@@ -97,6 +101,9 @@ $k = mysqli_query($Conn,$sql1);
                     <br><br>
                     <button class="btn success"type="submit" name="kirim">Submit Absensi</button><br><br>
                 </form>
+                <?php }else{ ?>
+                    <h2>Anda sudah mengisi absen tanggal <?= $tgl ?></h2>
+                <?php } ?>
         </center>
     </div>
     <div class="footer">
