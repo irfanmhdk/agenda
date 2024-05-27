@@ -120,6 +120,7 @@
             <th>Jam Pembelajaran </th>
             <th>Catatan Kejadian </th> 
             <th colspan="2">Verifikasi</th>
+            <th colspan="2">Edit Agenda</th>
         </tr>
     <?php foreach ($level as $row) : ?>
             <tr>
@@ -152,6 +153,8 @@
                         }
                     }
                 ?>
+                <input type="hidden" name="nip" value="<?= $nip ?>">
+                 <td><a href="edit_By_Guru.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/edit.png" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>
