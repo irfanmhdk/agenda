@@ -12,7 +12,7 @@
         exit();
       }
     
-    $nip = $_GET['id'];
+    $nip = $_SESSION["id_user"];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
     tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -102,23 +102,28 @@
     <center>
 <h1>DATA AGENDA</h1><hr> </center>
 <br>
-<form action="search_verifikasi.php" method="POST">
-    <input type="text" name="search" placeholder="Cari Kelas...">
-    <input type="hidden" name="nip" value="<?= $nip ?>">
-    <button class="btn1" name="submit"><i class="fa fa-search"></i></button>
-</form>
-<form action="excel_Guru.php" method="POST">
+<table>
+    <tr>
+        <td><form action="search_verifikasi.php" method="POST">
+            <input type="text" name="search" placeholder="Cari Kelas...">
+            <input type="hidden" name="nip" value="<?= $nip ?>">
+            <button class="btn1" name="submit"><i class="fa fa-search"></i></button>
+        </form></td>
+        <form action="excel_Guru.php" method="POST">
             <input type="hidden" name="bulan" value="<?= $tgl ?>">
             <input type="hidden" name="hadir" value="<?= $hadir ?>">
             <input type="hidden" name="nip" value="<?= $nip ?>">
-        <td><button class="btn1" name="cetak"><i class="fa fa-print"></i> Cetak Excel</button></td>
-</form>
-<form action="cetak_laporan_Guru.php" method="POST">
-            <input type="hidden" name="bulan" value="<?= $tgl ?>">
-            <input type="hidden" name="hadir" value="<?= $hadir ?>">
-            <input type="hidden" name="nip" value="<?= $nip ?>">
-        <td align="right"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak PDF</button></td>
+        <td style="text-align: right;"><button class="btn1" name="cetak" style="background-color: red;"><i class="fa fa-print"></i> Cetak Excel</button></td>
         </form>
+        <form action="cetak_laporan_Guru.php" method="POST">
+            <input type="hidden" name="bulan" value="<?= $tgl ?>">
+            <input type="hidden" name="hadir" value="<?= $hadir ?>">
+            <input type="hidden" name="nip" value="<?= $nip ?>">
+            <td align="right"><button class="btn1" name="cetak" style="background-color: green;"><i class="fa fa-print"></i> Cetak PDF</button></td>
+        </form>
+    </tr>
+</table>
+
 <center>
 <table style="box-shadow: 7px 7px 5px lightgrey;">
         <tr>
@@ -148,7 +153,7 @@
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
                         <td><center><?= $status;?></center></td>
-                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
+                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
                 <?php
                     }else{
                         if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){

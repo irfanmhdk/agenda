@@ -12,7 +12,7 @@
     }
     
     $id = $_GET['id'];
-    $nip = $_GET['nip'];
+    $nip = $_SESSION["id_user"];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_kelas.nama_kelas, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
             tb_agenda.tgl, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.evaluasi, tb_agenda.nip, tb_agenda.verifikasi, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 

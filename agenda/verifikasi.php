@@ -12,7 +12,7 @@
         exit();
       }
     
-    $nip = $_GET['id'];
+    $nip = $_SESSION["id_user"];
 
     $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
     tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -137,24 +137,24 @@
                     $status = $row['verifikasi'];
                     if($status == "Sudah Verifikasi"){ ?>
                         <td><center><?= $status;?></center></td>
-                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
+                        <td><a href="comment.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></td>
                 <?php
                     }else{
                         if($row['kehadiran'] != "Hadir" && $row['comment'] == ""){
                 ?>
                     <td>Beri Alasan Terlebih Dahulu!</td>
-                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></center></td>
+                    <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></a></center></td>
                 <?php
                             
                         }else{ ?>
-                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.png" width="18px"></button></a></center></td>
-                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></button></a></center></td>      
+                     <td><center><a href="proses_verifikasi.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;"><button class="btn"><img src="image/ceklis.png" width="18px"></button></a></center></td>
+                        <td><center><a href="comment.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/pencil.png" width="18px"></button></button></a></center></td>      
                 <?php           
                         }
                     }
                 ?>
                 <input type="hidden" name="nip" value="<?= $nip ?>">
-                 <td><a href="edit_By_Guru.php?id=<?= $row["id_agenda"]; ?>&nip=<?= $nip;?>" style="text-decoration: none;""><button class="btn"><img src="image/edit.png" width="18px"></button></a></td>
+                 <td><a href="edit_By_Guru.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/edit.png" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
             ?>

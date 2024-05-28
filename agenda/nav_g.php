@@ -9,18 +9,18 @@
 <body>
     <header>
         <div class="sidebar">
-            <a href="beranda.php?id=<?= $nip ?>"><center><img src="image/2cmi.png" style="width: 80px; padding: 5px;"></center></a>
+            <a href="beranda.php"><center><img src="image/2cmi.png" style="width: 80px; padding: 5px;"></center></a>
             <hr  style="width: 90%;">
             <center><a href="#"><?= date("d F Y"); ?></a></center>
             <hr  style="width: 90%;">
-            <a href="beranda2.php?id=<?= $nip ?>">Home</a>
+            <a href="beranda2.php">Home</a>
             <button class="bt" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Change Password</button>
             <button class="dropdown-btn">Verifikasi Agenda
             <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="verifikasi.php?id=<?= $nip ?>">Agenda Hari Ini</a>
-                <a href="verifikasi_semua.php?id=<?= $nip ?>">Agenda</a>
+                <a href="verifikasi.php">Agenda Hari Ini</a>
+                <a href="verifikasi_semua.php">Agenda</a>
             </div>
             <a style="color: red;"href="logout.php"> log out</button></a>
         </div>

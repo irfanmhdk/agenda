@@ -13,7 +13,7 @@
       exit();
     }
 
-    $nip = $_GET['id'];
+    $nip = $_SESSION["id_user"];
 
     $sql1 = "SELECT * FROM tb_guru WHERE nip='$nip'";
     $k = mysqli_query($Conn,$sql1);
