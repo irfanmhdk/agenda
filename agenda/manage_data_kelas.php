@@ -176,7 +176,7 @@
                 <td><?= $d['id_kelas'] ?></td>
                 <td><?= $d['nama_kelas'] ?></td>
                 <td><a href="edit_data_kelas.php?id=<?= $d['id_kelas'] ?>"><button class="btn1" name="submit" style="font-size: 11px;background-color: #ffcc00;color: #000000;"><i class="fa fa-edit"> EDIT</i></button></a>
-                <td><a href="hapus_data_kelas.php?id=<?= $d['id_kelas'] ?>"><button class="btn1" onclick="return confirm('Anda Akan Menghapus Data, Yakin?')" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-trash"> HAPUS</i></button></form></td>
+                 <a href="hapus_data_kelas.php?id=<?= $d['id_kelas'] ?>"><button class="btn1" onclick="return confirm('Anda Akan Menghapus Data, Yakin?')" name="submit" style="font-size: 11px; background-color: #cc3300;"><i class="fa fa-trash"> HAPUS</i></button></td>
             </tr>
         <?php } ?>
     </table>

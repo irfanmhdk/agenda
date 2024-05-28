@@ -50,8 +50,6 @@
 </style>
 <body onload="print()">
        <hr></hr>
-    <center><h3>LAPORAN AGENDA</h3>
-    <h3>SMK NEGERI 2 CIMAHI</h3></center><br>
     <center>
     <p>PEMERINTAHAN DAERAH PROVINSI JAWA BARAT <br> DINAS PENDIDIKAN <br> CABANG DINAS PENDIDIKAN WILAYAH VII</p>
     <h2>SEKOLAH MENENGAH KEJURUAN NEGERI 2 CIMAHI</h2>
