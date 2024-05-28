@@ -153,7 +153,7 @@
                         }
                     }
                 ?>
-                <input type="hidden" name="nip" value="<?= $nip ?>">
+                
                  <td><a href="edit_By_Guru.php?id=<?= $row["id_agenda"]; ?>" style="text-decoration: none;""><button class="btn"><img src="image/edit.png" width="18px"></button></a></td>
             </tr>
             <?php endforeach ; 
