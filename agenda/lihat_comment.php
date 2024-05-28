@@ -79,14 +79,6 @@
     </style>
 <body>
     <?php include "nav_s.php"; ?>
-    <div class="head">
-        <?php
-              foreach($k as $nama){ ?>
-              <p style="margin-right: 10px;"><b><?= $nama['nama_kelas'] ?></b></p>
-            <?php
-              }
-          ?>
-    </div>
     <div class="content">
         <table>
             <tr>
