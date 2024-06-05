@@ -115,7 +115,7 @@
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-  <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
+  <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b> <a href="about_Us.php">About Us</a></p>
   </div>
 </form>
 </body>

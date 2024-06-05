@@ -16,12 +16,17 @@
     if(isset($_POST['submit'])){
         $tgl = $_POST['tampil'];
         $hadir = $_POST['tampil1'];
+        $kelas = $_POST['cari_kelas'];
 
         if($tgl == "Semua" && $hadir == "Semua1"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-                    tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
-                    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
-            $level = mysqli_query($Conn, $sql);
+            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_kelas.nama_kelas
+    FROM tb_agenda
+    INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel
+    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip
+    INNER JOIN tb_kelas ON tb_agenda.nama_kelas = tb_kelas.nama_kelas 
+    WHERE tb_kelas.nama_kelas = '$kelas'";
+$level = mysqli_query($Conn, $sql);
         }elseif($tgl == "Semua"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
                     tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
@@ -44,6 +49,9 @@
                 INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip";
         $level = mysqli_query($Conn, $sql);
     }
+    $sql_kls = "SELECT * FROM tb_kelas";
+    $result_kls = mysqli_query($Conn, $sql_kls);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -163,6 +171,12 @@
                     <option value="Hanya Hadir Diawal">Hanya Hadir Diawal</option>
                     <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir</option>
                 </select>
+                <select name="cari_kelas">
+                <?php
+                    foreach($result_kls as $k){ ?>
+                    <option value="<?= $k['id_kelas'] ?>"><?= $k['nama_kelas'] ?></option>
+                <?php } ?>
+            </select>
                 <input type="submit" name="submit" value="Tampil">
             </form>
         </td>
