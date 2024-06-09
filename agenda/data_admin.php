@@ -19,14 +19,10 @@
         $kelas = $_POST['cari_kelas'];
 
         if($tgl == "Semua" && $hadir == "Semua1"){
-            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
-            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_kelas.nama_kelas
-    FROM tb_agenda
-    INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel
-    INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip
-    INNER JOIN tb_kelas ON tb_agenda.nama_kelas = tb_kelas.nama_kelas 
-    WHERE tb_kelas.nama_kelas = '$kelas'";
-$level = mysqli_query($Conn, $sql);
+            $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran, tb_kelas.nama_kelas,
+            tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai, tb_agenda.comment FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
+            INNER JOIN tb_guru ON tb_agenda.nip = tb_guru.nip INNER JOIN tb_kelas ON tb_agenda.id_kelas = tb_kelas.id_kelas";
+            $level = mysqli_query($Conn, $sql);
         }elseif($tgl == "Semua"){
             $sql = "SELECT tb_agenda.id_agenda, tb_mapel.nama_mapel, tb_agenda.materi, tb_agenda.tugas, tb_guru.nama_guru, tb_agenda.kehadiran,
                     tb_agenda.tgl, tb_agenda.evaluasi, tb_agenda.verifikasi, tb_agenda.jam_masuk, tb_agenda.jam_selesai FROM tb_agenda INNER JOIN tb_mapel ON tb_agenda.id_mapel = tb_mapel.id_mapel 
