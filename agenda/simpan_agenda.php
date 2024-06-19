@@ -21,9 +21,14 @@
      $nip = $_POST['nip'];
      $kelas = $_POST['kel'];
      $mapel = $_POST['map'];
+     $kelas = $_POST['kelas'];
+     $hadir = $_POST['hadir'];
+     $sakit = $_POST['sakit'];
+     $izin = $_POST['izin'];
+     $alpha = $_POST['alpha'];
 
-     $query1 = "INSERT INTO tb_agenda (tgl,tugas,nip,jam_masuk,jam_selesai,id_mapel,id_kelas,kehadiran,materi,evaluasi,verifikasi)
-     VALUE (CURRENT_TIMESTAMP,'$tugas','$nip','$jam_m','$jam_s','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','Belum Verifikasi')";
+     $query1 = "INSERT INTO tb_agenda (tgl,tugas,nip,jam_masuk,jam_selesai,id_mapel,id_kelas,kehadiran,materi,evaluasi,jumlah_siswa,kehadiran,sakit,izin,alpha,verifikasi)
+     VALUE (CURRENT_TIMESTAMP,'$tugas','$nip','$jam_m','$jam_s','$mapel','$kelas','$kehadiran_guru','$materi','$catatan_kejadian','$kelas','$hadir','$sakit','$izin','$alpha','Belum Verifikasi')";
      $proses = mysqli_query($Conn, $query1);
 
      if($proses){

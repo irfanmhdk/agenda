@@ -105,6 +105,15 @@ $result = mysqli_query($Conn,  "SELECT
     background-color: #f8f8f8;
     resize: none;
     }
+    input[type=number], select {
+    width: 240px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
     .tb1{
     position: absolute;
     padding: 15px;
@@ -183,6 +192,26 @@ $result = mysqli_query($Conn,  "SELECT
                         <option value="Hanya Hadir Diakhir">Hanya Hadir Diakhir </option>
                     </select></td>
                     </tr>
+                    <tr>
+                    <td><label>Jumlah Siswa Dalam Satu Kelas</label></td>
+                    <td><input type="number" name="kelas"></td>
+                   </tr>
+                   <tr>
+                    <td><label>Jumlah Siswa Yang Hadir</label></td>
+                    <td><input type="number" name="hadir"></td>
+                   </tr>
+                   <tr>
+                    <td><label>Jumlah Siswa Yang Sakit</label></td>
+                    <td><input type="number" name="sakit"></td>
+                   </tr>
+                   <tr>
+                    <td><label>Jumlah Siswa Yang Izin</label></td>
+                    <td><input type="number" name="izin"></td>
+                   </tr>
+                   <tr>
+                    <td><label>Jumlah Siswa Yang Alpha</label></td>
+                    <td><input type="number" name="alpha"></td>
+                   </tr>
             <tr>
                 <td><label>catatan Kejadian</label></td>
                 <td colspan="3"><textarea name="catatan_kejadian" cols="30" rows="10" placeholder="Masukan Nama Siswa yang tidak hadir beserta keterangan nya. Jika ada kejadian tertentu mohon untuk diisi"></textarea>
@@ -199,6 +228,7 @@ $result = mysqli_query($Conn,  "SELECT
         </table>
         </form>
         <br>
+        
         <div class="tb1">
         <table>
             <tr>
@@ -221,6 +251,7 @@ $result = mysqli_query($Conn,  "SELECT
             <?php }  ?>
         </table>
         </div>
+        
     </div>
     <div class="footer">
         <p>&copy; 2024 By <b>Fadhil</b> & <b>IM</b></p>
